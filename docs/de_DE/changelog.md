@@ -32,6 +32,7 @@
 - **Bestellt** : Möglichkeit, vor Ausführung des Befehls eine Berechnung für eine Befehlsaktion vom Typ Schieberegler durchzuführen.
 - **Benutzer** : Möglichkeit zum Verwalten der Profile verschiedener Jeedom-Benutzer über die Benutzerverwaltungsseite.
 - **Updates Center** : Das Update Center zeigt jetzt das Datum des letzten Updates an.
+- **Hinzufügen des Benutzers, der eine Aktion ausführt** : Hinzufügen in den Befehlsausführungsoptionen der ID und des Benutzernamens, die die Aktion starten (z. B. sichtbar im Protokollereignis)
 
 ### Kern-Widgets
 
@@ -41,6 +42,14 @@
 - Kern-Widgets mit Anzeige von a *Zeit* unterstützen jetzt einen optionalen Parameter **Zeit : datiert** um ein relatives Datum anzuzeigen (Gestern um 16:48 Uhr, Letzter Montag um 14:00 Uhr usw.)).
 - Widgets vom Typ Cursor (Aktion) akzeptieren jetzt einen optionalen Parameter *Schritt* um den Änderungsschritt am Cursor zu definieren.
 - Das Widget **action.slider.value** ist jetzt auf dem Desktop mit einem optionalen Parameter verfügbar *Noslider*, was macht es ein *Eingang* einfach.
+
+### Cloud-Backup 
+
+Wir haben eine Bestätigung des Backup-Cloud-Passworts hinzugefügt, um Tippfehler so weit wie möglich zu vermeiden (zur Erinnerung, Sie sind derjenige, der dieses Passwort nur kennt, wenn Sie vergessen, dass wir absolut nichts tun können, um Ihre Backup-Cloud wiederherzustellen). 
+
+>**WICHTIG**
+>
+>Nach dem Update ist es obligatorisch, zur Konfiguration der Registerkarte jeedom Update / Market zu wechseln und die Bestätigung des Cloud-Sicherungskennworts einzugeben, ohne dass keine Sicherung durchgeführt werden kann
 
 # Changelog Jeedom V4.1
 
@@ -256,6 +265,13 @@
 - Fehler in Szenariovorlagen behoben.
 
 ## 4.0.0
+
+### Voraussetzungen
+
+- Debian 9 Stretch
+
+### Neuigkeiten / Verbesserungen
+
 - Komplette Neugestaltung des Themas (Core 2019 Light / Dark / Legacy)).
 - Möglichkeit, das Thema je nach Zeit automatisch zu ändern.
 - In Mobilgeräten kann sich das Thema je nach Helligkeit ändern (Aktivierung erforderlich) *generischer zusätzlicher Sensor* in Chrom, Chrom Seite://flags).<br/><br/>
@@ -329,18 +345,23 @@
 - Design : Hinzufügen eines benutzerdefinierten CSS-Felds zu den Elementen des *Design*.
 - Design : Die Anzeigeoptionen im Design der erweiterten Konfiguration wurden in den Anzeigeparametern aus dem verschoben *Design*. Dies, um die Schnittstelle zu vereinfachen und verschiedene Parameter durch zu ermöglichen *Design*.
 - Design : Verschieben und Ändern der Größe von Komponenten *Design* berücksichtigt ihre Größe mit oder ohne Magnetisierung.<br/><br/>
-- Allgemeine Aufhellung (CSS / Inline-Stile, Refactoring usw.) und Leistungsverbesserungen.
-- Entfernen Sie Font Awesome 4, um nur Font Awesome 5 beizubehalten.
-- Libs aktualisieren : jquery 3.4.1, CodeMiror 5.46.0, Tablesorter 2.31.1.
-- Zahlreiche Fehlerbehebungen.
 - Hinzufügen eines Massenkonfigurationssystems (wird auf der Seite Ausrüstung verwendet, um Kommunikationswarnungen darauf zu konfigurieren)
+
+### Autres
+
+- **Lib** : Aktualisieren Sie jquery 3.4.1
+- **Lib** : Aktualisieren Sie CodeMiror 5.46.0
+- **Lib** : Tablesorter aktualisieren 2.31.1
+- Allgemeine Aufhellung (CSS / Inline-Stile, Refactoring usw.) und Leistungsverbesserungen.
 - Hinzufügung der globalen Kompatibilität von Jeedom DNS mit einer 4G-Internetverbindung.
-- Sicherheitsupdate
+- Zahlreiche Fehlerbehebungen.
+- Sicherheitskorrekturen.
+
+### Changements
+
+- Entfernen Sie Font Awesome 4, um nur Font Awesome 5 beizubehalten.
+- Das Widget-Plugin ist nicht mit dieser Version von Jeedom kompatibel und wird nicht mehr unterstützt (da die Funktionen intern im Kern übernommen wurden). Mehr Informationen [Hier](https://www.Jeedom.com/blog/4368-les-widgets-en-v4).
 
 >**WICHTIG**
 >
->Wenn nach dem Update ein Fehler im Dashboard auftritt, versuchen Sie, Ihre Box neu zu starten, damit die neuen Ergänzungen von Komponenten berücksichtigt werden.
-
->**WICHTIG**
->
->Das Widget-Plugin ist nicht mit dieser Version von Jeedom kompatibel und wird nicht mehr unterstützt (da die Funktionen intern im Kern übernommen wurden). Mehr Informationen [Hier](https://www.Jeedom.com/blog/4368-les-widgets-en-v4).
+> Wenn nach dem Update ein Fehler im Dashboard auftritt, versuchen Sie, Ihre Box neu zu starten, damit die neuen Ergänzungen von Komponenten berücksichtigt werden.

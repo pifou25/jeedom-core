@@ -325,7 +325,7 @@ Hay varias funciones disponibles para el equipo :
 - ``age(commande)`` : Da la edad en segundos del valor del comando (``collecDate``)
     -1 : El comando no existe o no es de tipo información.
 
-- ``stateChanges(commande,[valeur], période)`` y ``stateChangesBetween(commande, [valeur], start, end)`` : Indique el número de cambios de estado (hacia un cierto valor si se indica, o en total si no) durante el período (período=[mes, día, hora, min] o [expresión PHP](http:/ // /php.net/ /manual/ /fr/ /datetime.formats.relative.php)) o entre los 2 terminales requeridos (en la forma Ymd H:i:s o [Expresión PHP](http:/ // /php.net/ /manual/ /fr/ /datetime.formats.relative.php)).
+- ``stateChanges(commande,[valeur], période)`` y ``stateChangesBetween(commande, [valeur], start, end)`` : Da el número de cambios de estado (hacia un cierto valor si se indica, o si no se indica en comparación con su valor actual) durante el período (período=[mes, día, hora, min] o [expresión PHP](http:/ // /php.net/ /manual/ /fr/ /datetime.formats.relative.php)) o entre los 2 terminales requeridos (en la forma Ymd H:i:s o [Expresión PHP](http:/ // /php.net/ /manual/ /fr/ /datetime.formats.relative.php)).
 
 - ``lastBetween(commande,start,end)`` : Da el último valor registrado para el equipo entre los 2 terminales solicitados (en la forma Ymd H:i:s o [Expresión PHP](http:/ // /php.net/ /manual/ /fr/ /datetime.formats.relative.php)).
 
@@ -342,11 +342,11 @@ Hay varias funciones disponibles para el equipo :
 - ``lastScenarioExecution(scenario)`` : Da la duración en segundos desde el último lanzamiento del escenario.
     0 : El escenario no existe
 
-- ``collectDate(cmd,[format])`` : Devuelve la fecha de los últimos datos para el comando dado en el parámetro, el segundo parámetro opcional permite especificar el formato de retorno (detalles [aquí](http:/ // /php.net/ /manual/ /fr/ /function.date.php)).
+- ``collectDate(cmd,[format])`` : Devuelve la fecha de la última recopilación de datos para el comando colocado como parámetro, el segundo parámetro opcional se usa para especificar el formato de retorno (detalles [aquí](http:/ // /php.net/ /manual/ /fr/ /function.date.php)).
     -1 : No se pudo encontrar el comando,
     -2 : El comando no es de tipo info.
 
-- ``valueDate(cmd,[format])`` : Devuelve la fecha de los últimos datos para el comando dado en el parámetro, el segundo parámetro opcional permite especificar el formato de retorno (detalles [aquí](http:/ // /php.net/ /manual/ /fr/ /function.date.php)).
+- ``valueDate(cmd,[format])`` : Devuelve la fecha del último valor conocido para el comando colocado como parámetro, el segundo parámetro opcional se usa para especificar el formato de retorno (detalles [aquí](http:/ // /php.net/ /manual/ /fr/ /function.date.php)).
     -1 : No se pudo encontrar el comando,
     -2 : El comando no es de tipo info.
 
@@ -394,15 +394,15 @@ Aquí hay ejemplos prácticos para comprender los valores devueltos por estas di
 | ``lastChangeStateDuration(prise,1)``   | Devuelve 4200 : el zócalo se encendió (cambie a 1) por última vez hace 4200 segundos (1h10)                               |
 | ``lastStateDuration(prise,0)``         | Devuelve 600 : el enchufe ha estado apagado por 600 segundos (10 minutos)     |
 | ``lastStateDuration(prise,1)``         | Devuelve 3600 : el zócalo se encendió por última vez durante 3600 segundos (1 hora)           |
-| ``stateChanges(prise,période)``        | Devuelve 3 : el enchufe cambió de estado 3 veces durante el período            |
+| ``stateChanges(prise,période)``        | Devuelve 3 : el conector ha cambiado de estado 3 veces durante el período (si el comando de información es de tipo binario)            |
 | ``stateChanges(prise,0,période)``      | Devuelve 2 : el zócalo se ha apagado (yendo a 0) dos veces durante el período                              |
 | ``stateChanges(prise,1,période)``      | Devuelve 1 : el enchufe se enciende (cambie a 1) una vez durante el período                              |
 | ``lastBetween(#[Salle de bain][Hydrometrie][Température]#,Yesterday,Today)`` | Devuelve la última temperatura registrada ayer.                    |
 | ``variable(plop,10)``                  | Devuelve el valor de la variable plop o 10 si está vacía o no existe                         |
 | ``scenario(#[Salle de bain][Lumière][Auto]#)`` | Devuelve 1 en progreso, 0 si se detiene y -1 si está desactivado, -2 si el escenario no existe y -3 si el estado no es consistente                         |
 | ``lastScenarioExecution(#[Salle de bain][Lumière][Auto]#)``   | Devuelve 300 si el escenario se inició por última vez hace 5 minutos                                  |
-| ``collectDate(#[Salle de bain][Hydrometrie][Humidité]#)``     | Devoluciones 2015-01-01 17:45:12          |
-| ``valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`` | Devoluciones 2015-01-01 17:50:12          |
+| ``collectDate(#[Salle de bain][Hydrometrie][Humidité]#)``     | Devuelve 2021-02-14 17:50:12          |
+| ``valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`` | Devuelve 2021-02-14 17:45:12          |
 | ``eqEnable(#[Aucun][Basilique]#)``       | Devuelve -2 si no se encuentra el equipo, 1 si el equipo está activo y 0 si está inactivo          |
 | ``tag(montag,toto)``                   | Devuelve el valor de "montag" si existe, de lo contrario devuelve el valor "toto"                               |
 | ``name(eqLogic,#[Salle de bain][Hydrometrie][Humidité]#)``     | Hidrometría de devoluciones                  |

@@ -32,6 +32,7 @@
 - **Ordenado** : Posibilidad de realizar un cálculo sobre una acción de comando de tipo slider antes de la ejecución del comando.
 - **Usuarios** : Posibilidad de gestionar los perfiles de diferentes usuarios de Jeedom desde la página de gestión de usuarios.
 - **Centro de actualizaciones** : El Centro de actualizaciones ahora muestra la fecha de la última actualización.
+- **Agregar al usuario que realiza una acción** : además en las opciones de ejecución del comando de la identificación y el nombre de usuario que inician la acción (visible en el evento de registro, por ejemplo)
 
 ### Widgets principales
 
@@ -41,6 +42,14 @@
 - Widgets principales con visualización de *hora* ahora admite un parámetro opcional **hora : con fecha de** para mostrar una fecha relativa (ayer a las 4:48 p.m., último lunes a las 2:00 p.m., etc).
 - Los widgets de tipo Cursor (acción) ahora aceptan un parámetro opcional *paso* para definir el paso de cambio en el cursor.
 - El widget **action.slider.value** ahora está disponible en el escritorio, con un parámetro opcional *noslider*, lo que lo convierte en un *entrada* sencillo.
+
+### Respaldo en la nube 
+
+Hemos agregado una confirmación de la contraseña de la nube de respaldo para evitar errores tipográficos tanto como sea posible (como recordatorio usted es el único en conocer esta contraseña en caso de olvidarnos, no podemos absolutamente nada para recuperar su nube de respaldo). 
+
+>**IMPORTANTE**
+>
+>Después de la actualización, es OBLIGATORIO ir a la configuración de la pestaña Actualización / Mercado de jeedom y escribir la confirmación de la contraseña de la copia de seguridad en la nube sin que no se pueda realizar ninguna copia de seguridad
 
 # Registro de cambios Jeedom V4.1
 
@@ -256,6 +265,13 @@
 - Errores corregidos en las plantillas de escenarios.
 
 ## 4.0.0
+
+### Prerrequisitos
+
+- Debian 9 Stretch
+
+### Noticias / Mejoras
+
 - Rediseño completo del tema (Core 2019 Light / Dark / Legacy).
 - Posibilidad de cambiar el tema automáticamente en función de la hora.
 - En el móvil, el tema puede cambiar dependiendo del brillo (Requiere activar *sensor adicional genérico* en cromo, página de cromo://flags).<br/><br/>
@@ -329,18 +345,23 @@
 - Diseño : Adición de un campo CSS personalizado en los elementos del *diseño*.
 - Diseño : Se movieron las opciones de visualización en Diseño de la configuración avanzada, en los parámetros de visualización de la *Diseño*. Esto con el fin de simplificar la interfaz y permitir tener diferentes parámetros mediante *Diseño*.
 - Diseño : Mover y cambiar el tamaño de componentes en *Diseño* tiene en cuenta su tamaño, con o sin magnetización.<br/><br/>
-- Aligeramiento general (estilos CSS / en línea, refactorización, etc.) y mejoras de rendimiento.
-- Elimine Font Awesome 4 para mantener solo Font Awesome 5.
-- Actualizando libs : jquery 3.4.1, CodeMiror 5.46.0, clasificador de tabla 2.31.1.
-- Numerosas correcciones de errores.
 - Adición de un sistema de configuración masiva (utilizado en la página Equipo para configurar alertas de comunicaciones en ellos)
+
+### Autres
+
+- **Lib** : Actualización de jquery 3.4.1
+- **Lib** : Actualizar CodeMiror 5.46.0
+- **Lib** : Actualizar tablesorter 2.31.1
+- Aligeramiento general (estilos CSS / en línea, refactorización, etc.) y mejoras de rendimiento.
 - Adición de compatibilidad global de Jeedom DNS con una conexión a Internet 4G.
-- Corrección de seguridad
+- Numerosas correcciones de errores.
+- Correcciones de seguridad.
+
+### Changements
+
+- Elimine Font Awesome 4 para mantener solo Font Awesome 5.
+- El complemento del widget no es compatible con esta versión de Jeedom y ya no será compatible (porque las funciones se han tomado internamente en el núcleo). Más información [aquí](https://www.Jeedom.com/blog/4368-les-widgets-en-v4).
 
 >**IMPORTANTE**
 >
->Si después de la actualización tiene un error en el Tablero, intente reiniciar su caja para que tenga en cuenta las nuevas adiciones de componentes.
-
->**IMPORTANTE**
->
->El complemento del widget no es compatible con esta versión de Jeedom y ya no será compatible (porque las funciones se han tomado internamente en el núcleo). Más información [aquí](https://www.Jeedom.com/blog/4368-les-widgets-en-v4).
+> Si después de la actualización tiene un error en el Tablero, intente reiniciar su caja para que tenga en cuenta las nuevas adiciones de componentes.

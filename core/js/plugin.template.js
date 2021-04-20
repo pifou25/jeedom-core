@@ -173,6 +173,7 @@ $('.eqLogicAction[data-action=returnToThumbnailDisplay]').removeAttr('href').off
     $('a[href="#'+$('.tab-pane.active').attr('id')+'"]').closest('li').addClass('active')
   }, 500)
   if (jeedomUtils.checkPageModified()) return
+  $.hideAlert()
   $('.eqLogic').hide()
   $('.eqLogicThumbnailDisplay').show()
   $(this).closest('ul').find('li').removeClass('active')
@@ -489,7 +490,7 @@ $('#div_pageContainer').on('click', '.cmd .cmdAction[data-action=test]', functio
   }
 })
 
-$('#div_pageContainer').on('dblclick', '.cmd input,select,span,a', function(event) {
+$('#div_pageContainer').on('dblclick', '.cmd input,textarea,select,span,a', function(event) {
   event.stopPropagation()
 })
 

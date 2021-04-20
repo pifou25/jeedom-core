@@ -32,6 +32,7 @@
 - **Commande** : Possibilité de faire un calcul sur une commande action de type slider avant exécution de la commande.
 - **Utilisateurs** : Possibilité de gérer les profils des différents utilisateur Jeedom depuis la page de gestion des utilisateurs.
 - **Centre de Mises à jour** : Le centre de mises à jour affiche désormais la date de dernière mise à jour.
+- **Ajout de l'utilisateur executant une action** : ajout dans les options d'éxecution de la commande de l'id et du nom d'utilisateur lancant l'action (visible dans le log event par exemple)
 
 ### Widgets Core
 
@@ -41,6 +42,14 @@
 - Les Widgets Core avec affichage d'un *time* supportent maintenant un paramètre optionnel **time : date** pour afficher une date relative (Hier à 16h48, Lundi dernier à 14h00, etc).
 - Les Widgets de type curseur (action) acceptent maintenant un paramètre optionnel *step* pour définir le pas de changement au curseur.
 - Le Widget **action.slider.value** est maintenant disponible en desktop, avec un paramètre optionnel *noslider*, ce qui en fait un *input* simple.
+
+### Backup cloud 
+
+Nous avons ajouter une confirmation du mot de passe de backup cloud pour eviter un maximum les erreurs de saisies (pour rappel vous etes le seul et unique à connaitre ce mot de passe en cas d'oublie nous ne pouvons absolument rien pour recuperer votre backup cloud). 
+
+>**IMPORTANT**
+>
+>Suite à la mise à jour il faudra OBLIGATOIREMENT aller dans la configuration de jeedom onglet Mise à jour/Market et taper la confirmation de mot de passe de backup cloud sans ca aucun backup ne pourra se faire
 
 # Changelog Jeedom V4.1
 
@@ -256,6 +265,13 @@
 - Correction de bugs sur les templates de scénario.
 
 ## 4.0.0
+
+### Pré-requis
+
+- Debian 9 Stretch
+
+### Nouveautés / Améliorations
+
 - Refonte complète des thèmes (Core 2019 Light / Dark / Legacy).
 - Possibilité de changer de thème automatiquement en fonction de l'heure.
 - En mobile, le thème peut changer en fonction de la luminosité (Nécessite d'activer *generic extra sensor* dans chrome, page chrome://flags).<br/><br/>
@@ -329,18 +345,23 @@
 - Design : Ajout d'un champs CSS personnalisé sur les éléments du *design*.
 - Design : Déplacement des options d'affichages en Design de la configuration avancée, dans les paramètres d'affichage depuis le *Design*. Ceci afin de simplifier l'interface, et de permettre d'avoir des paramètres différents par *Design*.
 - Design : Le déplacement et le redimensionnement des composants sur les *Design* tient compte de leur taille, avec ou sans aimantation.<br/><br/>
-- Allègement général (css / inline styles, refactoring, etc.) et améliorations des performances.
-- Suppression de Font Awesome 4 pour ne conserver que Font Awesome 5.
-- Mise à jour des libs : jquery 3.4.1 , CodeMiror 5.46.0, tablesorter 2.31.1.
-- Nombreuses corrections de bugs.
 - Ajout d'un système de configuration en masse (utilisé sur la page Equipement pour configurer l'Alertes Communications sur ceux-ci)
+
+### Autres
+
+- **Lib** : Update jquery 3.4.1
+- **Lib** : Update CodeMiror 5.46.0
+- **Lib** : Update tablesorter 2.31.1
+- Allègement général (css / inline styles, refactoring, etc.) et améliorations des performances.
 - Ajout de la compatibilité global du DNS Jeedom avec une connexion internet 4G.
-- Correction de sécurité
+- Nombreuses corrections de bugs.
+- Corrections de sécurité.
+
+### Changements
+
+- Suppression de Font Awesome 4 pour ne conserver que Font Awesome 5.
+- Le plugin widget n'est pas compatible avec cette version de Jeedom et ne sera plus supporté (car les fonctionnalités ont été reprise en interne sur le core). Plus d'informations [ici](https://www.Jeedom.com/blog/4368-les-widgets-en-v4).
 
 >**IMPORTANT**
 >
->Si après la mise à jour vous avez une erreur sur le Dashboard essayez de redémarrer votre box pour qu'elle prenne bien les nouveaux ajout de composants en compte.
-
->**IMPORTANT**
->
->Le plugin widget n'est pas compatible avec cette version de Jeedom et ne sera plus supporté (car les fonctionnalités ont été reprise en interne sur le core). Plus d'informations [ici](https://www.Jeedom.com/blog/4368-les-widgets-en-v4).
+> Si après la mise à jour vous avez une erreur sur le Dashboard essayez de redémarrer votre box pour qu'elle prenne bien les nouveaux ajout de composants en compte.

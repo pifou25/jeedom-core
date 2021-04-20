@@ -96,6 +96,10 @@ class repo_market {
 				'cloud::backup::password' => array(
 					'name' => __('[Backup cloud] Mot de passe',__FILE__),
 					'type' => 'password',
+				),
+				'cloud::backup::password_confirmation' => array(
+					'name' => __('[Backup cloud] Mot de passe (confirmation)',__FILE__),
+					'type' => 'password',
 				)
 			),
 			'parameters_for_add' => array(
@@ -227,6 +231,9 @@ class repo_market {
 	/*     * ***********************BACKUP*************************** */
 	
 	public static function backup_flysystem(){
+		if (config::byKey('market::cloud::backup::password') != config::byKey('market::cloud::backup::password_confirmation')) {
+			throw new Exception(__('Le mot de passe du backup cloud n\'est pas identique à la confirmation', __FILE__));
+		}
 		$client = new Sabre\DAV\Client(array(
 			'baseUri' => config::byKey('service::backup::url'),
 			'userName' => config::byKey('market::username'),
@@ -261,6 +268,9 @@ class repo_market {
 		if (config::byKey('market::cloud::backup::password') == '') {
 			throw new Exception(__('Vous devez obligatoirement avoir un mot de passe pour le backup cloud (allez dans Réglages -> Système -> Configuration puis onglet Mise à jour/Market)', __FILE__));
 		}
+		if (config::byKey('market::cloud::backup::password') != config::byKey('market::cloud::backup::password_confirmation')) {
+			throw new Exception(__('Le mot de passe du backup cloud n\'est pas identique à la confirmation', __FILE__));
+		}
 		self::backup_clean($_path);
 		self::backup_createFolderIsNotExist();
 		try {
@@ -288,6 +298,9 @@ class repo_market {
 	public static function backup_clean($_path) {
 		if (!config::byKey('service::backup::enable') || config::byKey('market::cloud::backup::password') == '') {
 			return;
+		}
+		if (config::byKey('market::cloud::backup::password') != config::byKey('market::cloud::backup::password_confirmation')) {
+			throw new Exception(__('Le mot de passe du backup cloud n\'est pas identique à la confirmation', __FILE__));
 		}
 		$limit = 3900;
 		self::backup_createFolderIsNotExist();
@@ -334,6 +347,9 @@ class repo_market {
 		if (!config::byKey('service::backup::enable') || config::byKey('market::cloud::backup::password') == '') {
 			return array();
 		}
+		if (config::byKey('market::cloud::backup::password') != config::byKey('market::cloud::backup::password_confirmation')) {
+			throw new Exception(__('Le mot de passe du backup cloud n\'est pas identique à la confirmation', __FILE__));
+		}
 		self::backup_createFolderIsNotExist();
 		$filesystem =self::backup_flysystem();
 		$folders = $filesystem->getAdapter()->listContents('/webdav/'.config::byKey('market::username').'/'.rawurldecode(config::byKey('market::cloud::backup::name')));
@@ -345,6 +361,9 @@ class repo_market {
 	}
 	
 	public static function backup_restore($_backup) {
+		if (config::byKey('market::cloud::backup::password') != config::byKey('market::cloud::backup::password_confirmation')) {
+			throw new Exception(__('Le mot de passe du backup cloud n\'est pas identique à la confirmation', __FILE__));
+		}
 		$backup_dir = calculPath(config::byKey('backup::path'));
 		if (!file_exists($backup_dir)) {
 			mkdir($backup_dir, 0770, true);
@@ -360,7 +379,7 @@ class repo_market {
 			mkdir('/tmp/jeedom_gnupg');
 		}
 		com_shell::execute('sudo chmod 777 -R /tmp/jeedom_gnupg');
-		$cmd = 'cd '.$backup_dir.';wget https://'.config::byKey('market::username') . ':' . config::byKey('market::password').'@' .str_replace('https://','',config::byKey('service::backup::url')) . '/webdav/'. config::byKey('market::username').'/'. config::byKey('market::cloud::backup::name').'/'.$_backup;
+		$cmd = 'cd '.$backup_dir.';wget "https://'.config::byKey('market::username') . ':' . config::byKey('market::password').'@' .str_replace('https://','',config::byKey('service::backup::url')) . '/webdav/'. config::byKey('market::username').'/'. config::byKey('market::cloud::backup::name').'/'.$_backup.'"';
 		com_shell::execute($cmd);
 		$cmd = 'echo "'.config::byKey('market::cloud::backup::password').'" | gpg --homedir /tmp/jeedom_gnupg --batch --yes --passphrase-fd 0 --output '.$backup_dir.'/cloud-'.str_replace('.gpg','',$_backup).' -d '.$backup_dir.'/'.$_backup;
 		com_shell::execute($cmd);
@@ -672,12 +691,6 @@ class repo_market {
 			if (isset($_result['service::backup::enable']) && config::byKey('service::backup::enable') != $_result['service::backup::enable']) {
 				config::save('service::backup::enable', $_result['service::backup::enable']);
 			}
-			if (isset($_result['service::tunnel::enable']) && config::byKey('service::tunnel::enable') != $_result['service::tunnel::enable']) {
-				config::save('service::tunnel::enable', $_result['service::tunnel::enable']);
-			}
-			if (isset($_result['service::tunnel::host']) && config::byKey('service::tunnel::host') != $_result['service::tunnel::host']) {
-				config::save('service::tunnel::host', $_result['service::tunnel::host']);
-			}
 			if (isset($_result['register::id']) && config::byKey('register::id') != $_result['register::id']) {
 				config::save('register::id', $_result['register::id']);
 			}
@@ -692,6 +705,10 @@ class repo_market {
 			}
 			if (isset($_result['register::hwkey_nok']) && $_result['register::hwkey_nok'] == 1) {
 				config::save('jeedom::installKey', '');
+			}
+			if (isset($_result['broadcast::id']) && isset($_result['broadcast::message']) && $_result['broadcast::id'] != '' && $_result['broadcast::message'] != '' && $_result['broadcast::id'] != config::byKey('market::boradcast::id')) {
+				config::save('market::boradcast::id', $_result['broadcast::id']);
+				message::add('Jeedom SAS',$_result['broadcast::message']);
 			}
 		}
 	}

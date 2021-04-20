@@ -325,7 +325,7 @@ Für das Gerät stehen verschiedene Funktionen zur Verfügung :
 - ``age(commande)`` : Gibt das Alter des Befehlswerts in Sekunden an (``collecDate``)
     -1 : Der Befehl existiert nicht oder ist nicht vom Typ info.
 
-- ``stateChanges(commande,[valeur], période)`` und ``stateChangesBetween(commande, [valeur], start, end)`` : Geben Sie die Anzahl der Statusänderungen (in Richtung eines bestimmten Werts, falls angegeben, oder insgesamt, falls nicht) über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](http:/./.php.net/.manual/.fr/.datetime.formats.relative.php)) oder zwischen den 2 erforderlichen Anschlüssen (in der Form Ymd H:i:s oder [PHP-Expression](http:/./.php.net/.manual/.fr/.datetime.formats.relative.php)).
+- ``stateChanges(commande,[valeur], période)`` und ``stateChangesBetween(commande, [valeur], start, end)`` : Gibt die Anzahl der Zustandsänderungen (in Richtung eines bestimmten Werts, falls angegeben oder wenn nicht angegeben im Vergleich zu seinem aktuellen Wert) über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](http:/./.php.net/.manual/.fr/.datetime.formats.relative.php)) oder zwischen den 2 erforderlichen Anschlüssen (in der Form Ymd H:i:s oder [PHP-Expression](http:/./.php.net/.manual/.fr/.datetime.formats.relative.php)).
 
 - ``lastBetween(commande,start,end)`` : Gibt den zuletzt für das Gerät zwischen den beiden angeforderten Terminals aufgezeichneten Wert an (in der Form Ymd H:i:s oder [PHP-Expression](http:/./.php.net/.manual/.fr/.datetime.formats.relative.php)).
 
@@ -342,11 +342,11 @@ Für das Gerät stehen verschiedene Funktionen zur Verfügung :
 - ``lastScenarioExecution(scenario)`` : Gibt die Dauer in Sekunden seit dem letzten Start des Szenarios an.
     0 : Das Szenario existiert nicht
 
-- ``collectDate(cmd,[format])`` : Gibt das Datum der letzten Daten für den im Parameter angegebenen Befehl zurück. Der zweite optionale Parameter ermöglicht die Angabe des Rückgabeformats (Details) [Hier](http:/./.php.net/.manual/.fr/.function.date.php)).
+- ``collectDate(cmd,[format])`` : Gibt das Datum der letzten Datenerfassung für den als Parameter platzierten Befehl zurück. Der zweite optionale Parameter wird verwendet, um das Rückgabeformat anzugeben (Details [Hier](http:/./.php.net/.manual/.fr/.function.date.php)).
     -1 : Der Befehl konnte nicht gefunden werden,
     -2 : Der Befehl ist nicht vom Typ info.
 
-- ``valueDate(cmd,[format])`` : Gibt das Datum der letzten Daten für den im Parameter angegebenen Befehl zurück. Der zweite optionale Parameter ermöglicht die Angabe des Rückgabeformats (Details) [Hier](http:/./.php.net/.manual/.fr/.function.date.php)).
+- ``valueDate(cmd,[format])`` : Gibt das Datum des letzten bekannten Werts für den als Parameter platzierten Befehl zurück. Der zweite optionale Parameter wird verwendet, um das Rückgabeformat anzugeben (Details [Hier](http:/./.php.net/.manual/.fr/.function.date.php)).
     -1 : Der Befehl konnte nicht gefunden werden,
     -2 : Der Befehl ist nicht vom Typ info.
 
@@ -394,15 +394,15 @@ Hier finden Sie praktische Beispiele zum Verständnis der von diesen verschieden
 | ``lastChangeStateDuration(prise,1)``   | Gibt 4200 zurück : Die Steckdose wurde vor 4200 Sekunden (1h10) zum letzten Mal eingeschaltet (auf 1 umgeschaltet))                               |
 | ``lastStateDuration(prise,0)``         | Gibt 600 zurück : Die Steckdose war 600 Sekunden (10 Minuten) ausgeschaltet)     |
 | ``lastStateDuration(prise,1)``         | Gibt 3600 zurück : Die Steckdose wurde zuletzt für 3600 Sekunden (1 Stunde) eingeschaltet)           |
-| ``stateChanges(prise,période)``        | Rückgabe 3 : Der Stecker hat während des Zeitraums dreimal den Zustand geändert            |
+| ``stateChanges(prise,période)``        | Rückgabe 3 : Der Socket hat während des Zeitraums dreimal den Status geändert (wenn der Befehl info vom binären Typ ist)            |
 | ``stateChanges(prise,0,période)``      | Rückgabe 2 : Die Steckdose ist während des Zeitraums zweimal erloschen (auf 0)                              |
 | ``stateChanges(prise,1,période)``      | Rückgabe 1 : Der Stecker leuchtet während des Zeitraums einmal (auf 1 ändern)                              |
 | ``lastBetween(#[Salle de bain][Hydrometrie][Température]#,Yesterday,Today)`` | Gibt die zuletzt gestern aufgezeichnete Temperatur zurück.                    |
 | ``variable(plop,10)``                  | Gibt den Wert der Variablen plop oder 10 zurück, wenn sie leer ist oder nicht existiert                         |
 | ``scenario(#[Salle de bain][Lumière][Auto]#)`` | Gibt 1 in Bearbeitung zurück, 0, wenn gestoppt, und -1, wenn deaktiviert, -2, wenn das Szenario nicht existiert, und -3, wenn der Status nicht konsistent ist                         |
 | ``lastScenarioExecution(#[Salle de bain][Lumière][Auto]#)``   | Gibt 300 zurück, wenn das Szenario vor 5 Minuten zum letzten Mal gestartet wurde                                  |
-| ``collectDate(#[Salle de bain][Hydrometrie][Humidité]#)``     | Rückgabe 2015-01-01 17:45:12          |
-| ``valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`` | Rückgabe 2015-01-01 17:50:12          |
+| ``collectDate(#[Salle de bain][Hydrometrie][Humidité]#)``     | Rückgabe 2021-02-14 17:50:12          |
+| ``valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`` | Rückgabe 2021-02-14 17:45:12          |
 | ``eqEnable(#[Aucun][Basilique]#)``       | Gibt -2 zurück, wenn das Gerät nicht gefunden wird, 1, wenn das Gerät aktiv ist, und 0, wenn es inaktiv ist          |
 | ``tag(montag,toto)``                   | Gibt den Wert von "montag" zurück, falls vorhanden, andernfalls wird der Wert "toto" zurückgegeben"                               |
 | ``name(eqLogic,#[Salle de bain][Hydrometrie][Humidité]#)``     | Gibt Hydrometrie zurück                  |

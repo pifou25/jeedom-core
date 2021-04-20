@@ -325,7 +325,7 @@ Several functions are available for the equipment :
 - ``age(commande)`` : Gives the age in seconds of the value of the command (``collecDate``)
     -1 : The command does not exist or it is not of type info.
 
-- ``stateChanges(commande,[valeur], période)`` and ``stateChangesBetween(commande, [valeur], start, end)`` : Give the number of state changes (towards a certain value if indicated, or in total if not) over the period (period=[month, day, hour, min] or [PHP expression](http://php.net/manual/fr/datetime.formats.relative.php)) or between the 2 required terminals (in the form Ymd H:i:s or [PHP expression](http://php.net/manual/fr/datetime.formats.relative.php)).
+- ``stateChanges(commande,[valeur], période)`` and ``stateChangesBetween(commande, [valeur], start, end)`` : Gives the number of changes of state (towards a certain value if indicated, or if not indicated compared to its current value) over the period (period=[month, day, hour, min] or [PHP expression](http://php.net/manual/fr/datetime.formats.relative.php)) or between the 2 required terminals (in the form Ymd H:i:s or [PHP expression](http://php.net/manual/fr/datetime.formats.relative.php)).
 
 - ``lastBetween(commande,start,end)`` : Gives the last value recorded for the equipment between the 2 requested terminals (in the form Ymd H:i:s or [PHP expression](http://php.net/manual/fr/datetime.formats.relative.php)).
 
@@ -342,11 +342,11 @@ Several functions are available for the equipment :
 - ``lastScenarioExecution(scenario)`` : Gives the duration in seconds since the last launch of the scenario.
     0 : The scenario does not exist
 
-- ``collectDate(cmd,[format])`` : Returns the date of the last data for the command given in parameter, the 2nd optional parameter allows to specify the return format (details [here](http://php.net/manual/fr/function.date.php)).
+- ``collectDate(cmd,[format])`` : Returns the date of the last data collection for the command placed as a parameter, the 2nd optional parameter is used to specify the return format (details [here](http://php.net/manual/fr/function.date.php)).
     -1 : The command could not be found,
     -2 : The command is not of type info.
 
-- ``valueDate(cmd,[format])`` : Returns the date of the last data for the command given in parameter, the 2nd optional parameter allows to specify the return format (details [here](http://php.net/manual/fr/function.date.php)).
+- ``valueDate(cmd,[format])`` : Returns the date of the last known value for the command placed as a parameter, the 2nd optional parameter is used to specify the return format (details [here](http://php.net/manual/fr/function.date.php)).
     -1 : The command could not be found,
     -2 : The command is not of type info.
 
@@ -394,15 +394,15 @@ Here are practical examples to understand the values returned by these different
 | ``lastChangeStateDuration(prise,1)``   | Returns 4200 : the socket turned on (switch to 1) for the last time 4200 seconds ago (1h10)                               |
 | ``lastStateDuration(prise,0)``         | Returns 600 : the socket has been off for 600 seconds (10 minutes)     |
 | ``lastStateDuration(prise,1)``         | Returns 3600 : the socket was last switched on for 3600 seconds (1h)           |
-| ``stateChanges(prise,période)``        | Returns 3 : the plug changed state 3 times during the period            |
+| ``stateChanges(prise,période)``        | Returns 3 : the socket has changed state 3 times during the period (if the info command is of binary type)            |
 | ``stateChanges(prise,0,période)``      | Returns 2 : the socket has extinguished (going to 0) twice during the period                              |
 | ``stateChanges(prise,1,période)``      | Returns 1 : the plug is lit (change to 1) once during the period                              |
 | ``lastBetween(#[Salle de bain][Hydrometrie][Température]#,Yesterday,Today)`` | Returns the last temperature recorded yesterday.                    |
 | ``variable(plop,10)``                  | Returns the value of the variable plop or 10 if it is empty or does not exist                         |
 | ``scenario(#[Salle de bain][Lumière][Auto]#)`` | Returns 1 in progress, 0 if stopped and -1 if deactivated, -2 if the scenario does not exist and -3 if the state is not consistent                         |
 | ``lastScenarioExecution(#[Salle de bain][Lumière][Auto]#)``   | Returns 300 if the scenario was started for the last time 5 min ago                                  |
-| ``collectDate(#[Salle de bain][Hydrometrie][Humidité]#)``     | Returns 2015-01-01 17:45:12          |
-| ``valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`` | Returns 2015-01-01 17:50:12          |
+| ``collectDate(#[Salle de bain][Hydrometrie][Humidité]#)``     | Returns 2021-02-14 17:50:12          |
+| ``valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`` | Returns 2021-02-14 17:45:12          |
 | ``eqEnable(#[Aucun][Basilique]#)``       | Returns -2 if the equipment is not found, 1 if the equipment is active and 0 if it is inactive          |
 | ``tag(montag,toto)``                   | Returns the value of "montag" if it exists otherwise returns the value "toto"                               |
 | ``name(eqLogic,#[Salle de bain][Hydrometrie][Humidité]#)``     | Returns Hydrometry                  |
