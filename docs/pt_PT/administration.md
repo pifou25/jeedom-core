@@ -338,7 +338,7 @@ Depósito que permite enviar automaticamente um backup do Jeedom em um compartil
 
 - **\ [Backup \] IP** : IP do servidor Samba.
 - **\ [Backup \] Usuário** : Nome de usuário para conexão (conexões anônimas não são possíveis). O usuário deve ter direitos de leitura e gravação no diretório de destino.
-- **\ [Backup \] Senha** : Senha do usuário.
+- **\ [Backup \] Senha** : Senha do usuário (observe que caracteres especiais não são permitidos).
 - **\ [Backup \] Compartilhamento** : Caminho para o compartilhamento (tenha cuidado para parar no nível de compartilhamento).
 - **Caminho \ [Backup \]** : Caminho no compartilhamento (para colocar em relativo), isso deve existir.
 
@@ -409,8 +409,8 @@ Para cada chave de API de plugin você pode proibi-los de métodos básicos (ger
 
 ### Verificações do sistema
 
-- **Verificação geral** : Vamos lançar o teste de consistência Jeedom.
-- **Restabelecimento de direitos** : Permite reaplicar os direitos corretos nos diretórios e arquivos do Jeedom Core.
+- **Verificação geral** : Permite que você execute um teste de consistência Jeedom.
+- **Restabelecimento de direitos** : Permite a você reaplicar os direitos corretos aos diretórios e arquivos do Jeedom Core.
 - **Verificando pacotes do sistema** : Permite iniciar uma verificação dos pacotes instalados.
 - **Verificação de banco de dados** : Permite iniciar uma verificação no banco de dados Jeedom e corrigir erros, se necessário.
 - **Limpeza de banco de dados** : Executa uma verificação do banco de dados e limpa todas as entradas não utilizadas.

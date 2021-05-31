@@ -340,6 +340,49 @@ class scenarioExpression {
 		}
 	}
 	
+	public static function min($_cmd_id, $_period = '1 hour') {
+		$args = func_get_args();
+		$_period = trim(strtolower($_period));
+		if ($_period == 'day') $_period = '1 day';
+		if (count($args) > 2 || strpos($_period, '#') !== false || is_numeric($_period)) {
+			$values = array();
+			foreach ($args as $arg) {
+				if (is_numeric($arg)) {
+					$values[] = $arg;
+				} else {
+					$value = cmd::cmdToValue($arg);
+					if (is_numeric($value)) {
+						$values[] = $value;
+					} else {
+						try {
+							$values[] = evaluate($value);
+						} catch (Exception $ex) {
+							
+						} catch (Error $ex) {
+							
+						}
+					}
+				}
+			}
+			return min($values);
+		} else {
+			$cmd = cmd::byId(trim(str_replace('#', '', $_cmd_id)));
+			if (!is_object($cmd) || $cmd->getIsHistorized() == 0) {
+				return '';
+			}
+			
+			$dates = self::getDatesFromPeriod($_period);
+			$_startTime = $dates[0];
+			$_endTime = $dates[1];
+			
+			$historyStatistique = $cmd->getStatistique($_startTime, $_endTime);
+			if (!isset($historyStatistique['min']) || $historyStatistique['min'] == '') {
+				return round($cmd->execCmd(), 1);
+			}
+			return round($historyStatistique['min'], 1);
+		}
+	}
+	
 	public static function color_gradient($_from_color, $_to_color, $_min,$_max,$_value) {
 		if(!is_numeric($_value)){
 			$value = round(jeedom::evaluateExpression($_value));
@@ -406,49 +449,6 @@ class scenarioExpression {
 			sleep(1);
 		}
 		return 1;
-	}
-	
-	public static function min($_cmd_id, $_period = '1 hour') {
-		$args = func_get_args();
-		$_period = trim(strtolower($_period));
-		if ($_period == 'day') $_period = '1 day';
-		if (count($args) > 2 || strpos($_period, '#') !== false || is_numeric($_period)) {
-			$values = array();
-			foreach ($args as $arg) {
-				if (is_numeric($arg)) {
-					$values[] = $arg;
-				} else {
-					$value = cmd::cmdToValue($arg);
-					if (is_numeric($value)) {
-						$values[] = $value;
-					} else {
-						try {
-							$values[] = evaluate($value);
-						} catch (Exception $ex) {
-							
-						} catch (Error $ex) {
-							
-						}
-					}
-				}
-			}
-			return min($values);
-		} else {
-			$cmd = cmd::byId(trim(str_replace('#', '', $_cmd_id)));
-			if (!is_object($cmd) || $cmd->getIsHistorized() == 0) {
-				return '';
-			}
-			
-			$dates = self::getDatesFromPeriod($_period);
-			$_startTime = $dates[0];
-			$_endTime = $dates[1];
-			
-			$historyStatistique = $cmd->getStatistique($_startTime, $_endTime);
-			if (!isset($historyStatistique['min']) || $historyStatistique['min'] == '') {
-				return round($cmd->execCmd(), 1);
-			}
-			return round($historyStatistique['min'], 1);
-		}
 	}
 	
 	public static function minBetween($_cmd_id, $_startDate, $_endDate) {
@@ -1141,7 +1141,7 @@ class scenarioExpression {
 		if (!is_string($_expression)) {
 			return $_expression;
 		}
-		preg_match_all("/([a-zA-Z][a-zA-Z_]*?)\((.*?)\)/", $_expression, $matches, PREG_SET_ORDER);
+		preg_match_all("/([a-zA-Z][a-zA-Z1-9_]*?)\((.*?)\)/", $_expression, $matches, PREG_SET_ORDER);
 		if (is_array($matches)) {
 			foreach ($matches as $match) {
 				$function = $match[1];
@@ -1484,17 +1484,17 @@ class scenarioExpression {
 					return;
 				} elseif ($this->getExpression() == 'delete_variable') {
 					scenario::removeData($options['name']);
-					$this->setLog($scenario, __('Suppression de la variable ', __FILE__) . $this->getOptions('name'));
+					$this->setLog($scenario, __('Suppression de la variable ', __FILE__) . $options['name']);
 					return;
 				} elseif ($this->getExpression() == 'ask') {
 					$dataStore = new dataStore();
 					$dataStore->setType('scenario');
-					$dataStore->setKey($this->getOptions('variable'));
+					$dataStore->setKey($options['variable']);
 					$dataStore->setValue('');
 					$dataStore->setLink_id(-1);
 					$dataStore->save();
 					$limit = (isset($options['timeout'])) ? $options['timeout'] : 300;
-					$options_cmd = array('title' => $options['question'], 'message' => $options['question'], 'answer' => explode(';', $options['answer']), 'timeout' => $limit, 'variable' => $this->getOptions('variable'));
+					$options_cmd = array('title' => $options['question'], 'message' => $options['question'], 'answer' => explode(';', $options['answer']), 'timeout' => $limit, 'variable' => $options['variable']);
 					
 					//Recuperation des tags
 					$tags = $scenario->getTags();
@@ -1511,13 +1511,13 @@ class scenarioExpression {
 						throw new Exception($GLOBALS['JEEDOM_SCLOG_TEXT']['unfoundCmdCheckId']['txt'] . $this->getOptions('cmd'));
 					}
 					$this->setLog($scenario, __('Demande ', __FILE__) . json_encode($options_cmd));
-					$cmd->setCache('ask::variable', $this->getOptions('variable'));
+					$cmd->setCache('ask::variable', $options['variable']);
 					$cmd->setCache('ask::endtime', strtotime('now') + $limit);
 					$cmd->execCmd($options_cmd);
 					$occurence = 0;
 					$value = '';
 					while (true) {
-						$dataStore = dataStore::byTypeLinkIdKey('scenario', -1, $this->getOptions('variable'));
+						$dataStore = dataStore::byTypeLinkIdKey('scenario', -1, $options['variable']);
 						if (is_object($dataStore)) {
 							$value = $dataStore->getValue();
 						}
@@ -1533,7 +1533,7 @@ class scenarioExpression {
 					if ($value == '') {
 						$value = __('Aucune réponse', __FILE__);
 						$cmd->setCache('ask::variable', 'none');
-						$dataStore = dataStore::byTypeLinkIdKey('scenario', -1, $this->getOptions('variable'));
+						$dataStore = dataStore::byTypeLinkIdKey('scenario', -1, $options['variable']);
 						$dataStore->setValue($value);
 						$dataStore->save();
 					}

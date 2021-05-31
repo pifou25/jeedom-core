@@ -338,7 +338,7 @@ Einzahlung, die es ermöglicht, automatisch ein Backup von Jeedom auf einer Samb
 
 - **\ [Backup \] IP** : Samba Server IP.
 - **\ [Backup \] Benutzer** : Benutzername für die Verbindung (anonyme Verbindungen sind nicht möglich). Der Benutzer muss über Lese- UND Schreibrechte für das Zielverzeichnis verfügen.
-- **\ [Backup \] Passwort** : Benutzerpasswort.
+- **\ [Backup \] Passwort** : Benutzerpasswort (bitte beachten Sie, dass Sonderzeichen nicht zulässig sind).
 - **\ [Backup \] Freigabe** : Pfad zum Teilen (achten Sie darauf, auf der Freigabeebene anzuhalten).
 - **\ [Backup \] Pfad** : Pfad in der Freigabe (relativ zu setzen), muss dieser vorhanden sein.
 
@@ -409,8 +409,8 @@ Für jeden Plugin-API-Schlüssel können Sie die Verwendung von Kernmethoden (al
 
 ### Systemprüfungen
 
-- **Allgemeine Überprüfung** : Starten wir den Jeedom-Konsistenztest.
-- **Wiedereinsetzung von Rechten** : Ermöglicht es Ihnen, die korrekten Rechte auf die Jeedom Core-Verzeichnisse und -Dateien erneut anzuwenden.
+- **Allgemeine Überprüfung** : Ermöglicht die Durchführung eines Jeedom-Konsistenztests.
+- **Wiedereinsetzung von Rechten** : Ermöglicht es Ihnen, die richtigen Rechte erneut auf die Verzeichnisse und Dateien des Jeedom Core anzuwenden.
 - **Systempakete prüfen** : Ermöglicht das Starten einer Überprüfung der installierten Pakete.
 - **Datenbanküberprüfung** : Ermöglicht das Starten einer Überprüfung in der Jeedom-Datenbank und das Korrigieren von Fehlern, falls erforderlich.
 - **Datenbankbereinigung** : Führt eine Datenbankprüfung durch und bereinigt alle nicht verwendeten Einträge.

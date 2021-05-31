@@ -338,7 +338,7 @@ Deposit allowing to automatically send a backup of Jeedom on a Samba share (ex :
 
 - **\ [Backup \] IP** : Samba server IP.
 - **\ [Backup \] User** : Username for connection (anonymous connections are not possible). The user must have read AND write rights on the destination directory.
-- **\ [Backup \] Password** : User password.
+- **\ [Backup \] Password** : User password (please note that special characters are not allowed).
 - **\ [Backup \] Sharing** : Path to sharing (be careful to stop at the sharing level).
 - **\ [Backup \] Path** : Path in the sharing (to put in relative), this must exist.
 
@@ -409,8 +409,8 @@ For each plugin API key you can prohibit them from core methods (general) to lim
 
 ### System Checks
 
-- **General verification** : Lets launch Jeedom consistency test.
-- **Reinstatement of rights** : Enables you to reapply the correct rights to the Jeedom Core directories and files.
+- **General verification** : Allows you to run a Jeedom consistency test.
+- **Reinstatement of rights** : Allows you to re-apply the right rights to the directories and files of the Jeedom Core.
 - **Checking system packages** : Allows you to launch a verification of installed packages.
 - **Database verification** : Allows to launch a verification on the Jeedom database and to correct errors if necessary.
 - **Database cleanup** : Runs a database check and cleans up any unused entries.

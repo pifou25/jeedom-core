@@ -338,7 +338,7 @@ Depósito que permite enviar automáticamente una copia de seguridad de Jeedom e
 
 - **\ [Copia de seguridad \] IP** : IP del servidor Samba.
 - **\ [Copia de seguridad \] Usuario** : Nombre de usuario para la conexión (las conexiones anónimas no son posibles). El usuario debe tener derechos de lectura Y escritura en el directorio de destino.
-- **\ [Copia de seguridad \] Contraseña** : Contraseña de usuario.
+- **\ [Copia de seguridad \] Contraseña** : Contraseña de usuario (tenga en cuenta que no se permiten caracteres especiales).
 - **\ [Copia de seguridad \] Compartir** : Ruta para compartir (tenga cuidado de detenerse en el nivel de compartir).
 - **\ [Copia de seguridad \] Ruta** : Ruta en el intercambio (para poner en relativo), esto debe existir.
 
@@ -409,7 +409,7 @@ Para cada clave de API de complemento, puede prohibirlos de los métodos princip
 
 ### Verificación sistema
 
-- **Verificación general** : Vamos a lanzar la prueba de consistencia Jeedom.
+- **Verificación general** : Le permite ejecutar una prueba de coherencia de Jeedom.
 - **Restablecimiento de derechos** : Le permite volver a aplicar los derechos correctos a los directorios y archivos de Jeedom Core.
 - **Comprobación de paquetes del sistema** : Le permite iniciar una verificación de los paquetes instalados.
 - **Verificación de la base de datos** : Permite iniciar una verificación en la base de datos Jeedom y corregir errores si es necesario.
