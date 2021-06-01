@@ -34,10 +34,15 @@ class DB {
 
 	private static function initConnection() {
 		global $CONFIG;
+                $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci', 
+                                PDO::ATTR_PERSISTENT => true,
+                                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		if(isset($CONFIG['db']['unix_socket'])) {
-			self::$connection = new PDO('mysql:unix_socket=' . $CONFIG['db']['unix_socket'] . ';dbname=' . $CONFIG['db']['dbname'], $CONFIG['db']['username'], $CONFIG['db']['password'], array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci', PDO::ATTR_PERSISTENT => true));
+			self::$connection = new PDO('mysql:unix_socket=' . $CONFIG['db']['unix_socket'] . ';dbname=' . $CONFIG['db']['dbname'],
+                            $CONFIG['db']['username'], $CONFIG['db']['password'], $options);
 		} else {
-			self::$connection = new PDO('mysql:host=' . $CONFIG['db']['host'] . ';port=' . $CONFIG['db']['port'] . ';dbname=' . $CONFIG['db']['dbname'], $CONFIG['db']['username'], $CONFIG['db']['password'], array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci', PDO::ATTR_PERSISTENT => true));
+                    $host = "mysql:host={$CONFIG['db']['host']};port={$CONFIG['db']['port']};dbname={$CONFIG['db']['dbname']}";
+                    self::$connection = new PDO( $host, $CONFIG['db']['username'], $CONFIG['db']['password'], $options);
 		}
 	}
 
@@ -81,7 +86,10 @@ class DB {
 		$stmt = self::getConnection()->prepare($_query);
 		$res = NULL;
 		if ($stmt != false && $stmt->execute($_params) != false) {
-			if ($_fetchType == self::FETCH_TYPE_ROW) {
+			if(strpos($_query, 'INSERT') === 0 || strpos($_query, 'UPDATE') === 0 || 
+				strpos($_query, 'REPLACE') === 0 || strpos($_query, 'DELETE') === 0){
+					$res = $stmt->rowcount();
+			}else if ($_fetchType == self::FETCH_TYPE_ROW) {
 				if ($_fetch_opt === null) {
 					$res = $stmt->fetch($_fetch_param);
 				} else if ($_fetch_param == PDO::FETCH_CLASS) {
