@@ -2,9 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ alpha ]
+    branches: [ phpdocs ]
   pull_request:
-    branches: [ alpha ]
+    branches: [ phpdocs ]
 
 jobs:
   build:
@@ -33,11 +33,11 @@ jobs:
       uses: gpupo/actions-phpDocumentor@3.0
 
     - name: Deploy
-      uses: pifou25/jeedom-core@alpha
+      uses: pifou25/jeedom-core@phpdocs
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: docs
+        FOLDER: phpdocs
         CLEAN: true
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
