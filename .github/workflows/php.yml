@@ -33,7 +33,19 @@ jobs:
       uses: gpupo/actions-phpDocumentor@1.0
       with:
         dir: './'
-    
+
+    - name: Commit files
+      run: |
+        git config --local user.email "nicolas_gras@hotmail.com"
+        git config --local user.name "pifou25[bot]"
+        git commit -m "[auto] update phpdoc from Github Actions" -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+        
 #    - name: Deploy
 #      uses: pifou25/jeedom-core@phpdocs
 #      with:
