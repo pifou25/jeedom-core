@@ -34,13 +34,13 @@ jobs:
       with:
         dir: './'
     
-    - name: Deploy
-      uses: pifou25/jeedom-core@phpdocs
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: phpdocs
-        CLEAN: true
+#    - name: Deploy
+#      uses: pifou25/jeedom-core@phpdocs
+#      with:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        BRANCH: gh-pages
+#        FOLDER: phpdocs
+#        CLEAN: true
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
