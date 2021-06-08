@@ -19,6 +19,14 @@
 /* * ***************************Includes********************************* */
 require_once __DIR__ . '/../../core/php/core.inc.php';
 
+/**
+ * eqLogic classe de *base* d'un équipement
+ * 
+ * Tout objet Jeedom hérite de eqLogic et contient des commandes qui héritent
+ * de {@see cmd}
+ * @see https://github.com/jeedom/plugin-template
+ * @see https://doc.jeedom.com/fr_FR/dev/plugin_template
+ */
 class eqLogic {
 	/*     * *************************Attributs****************************** */
     
@@ -579,6 +587,15 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * toHumanReadable
+         * 
+         * utilise la Reflection
+         * Cette méthode est le contraire de {@see eqLogic::fromHumanReadable()}
+         * 
+         * @param eqLogic|eqLogic[]|string $_input
+         * @return type
+         */
 		public static function toHumanReadable($_input) {
 			if (is_object($_input)) {
 				$reflections = array();
@@ -615,6 +632,15 @@ class eqLogic {
 			return $text;
 		}
 		
+        /**
+         * fromHumanReadable
+         * 
+         * utilise la Reflection
+         * Cette méthode est le contraire de {@see eqLogic::toHumanReadable()}
+         * 
+         * @param eqLogic|eqLogic[]|string $_input
+         * @return type
+         */
 		public static function fromHumanReadable($_input) {
 			$isJson = false;
 			if (is_json($_input)) {
@@ -662,6 +688,13 @@ class eqLogic {
 			return $text;
 		}
 		
+        /**
+         * Recherche d'un équipement par Réflection (fromHumanReadable)
+         * 
+         * @param string $_string
+         * @return eqLociq
+         * @throws Exception si l'équipement n'est pas trouvé
+         */
 		public static function byString($_string) {
 			$eqLogic = self::byId(str_replace(array('#','eqLogic'), '', self::fromHumanReadable($_string)));
 			if (!is_object($eqLogic)) {
