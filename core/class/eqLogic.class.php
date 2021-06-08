@@ -21,17 +21,86 @@ require_once __DIR__ . '/../../core/php/core.inc.php';
 
 class eqLogic {
 	/*     * *************************Attributs****************************** */
+    
+    /**
+     * délimiteur pour la génération du HTML des objets
+     * 
+     * @see eqLogiq::preToHtml()
+     */
 	const UIDDELIMITER = '__';
+    
+    /**
+     * ID unique de l'objet
+     * 
+     * @var string
+     */
 	protected $id;
+    
+    /**
+     * Nom 'humain' de l'objet
+     * 
+     * @var string
+     */
 	protected $name;
+    
+    /**
+     * Nom logique
+     * 
+     * @var string
+     */
 	protected $logicalId = '';
+    
+    /**
+     * Type générique de l'objet
+     * 
+     * Devrait être un enum.
+     * @see https://doc.jeedom.com/fr_FR/concept/generic_type
+     * @var string
+     */
 	protected $generic_type;
+    
+    /**
+     * encore un autre ID de l'objet à l'utilité discutable.
+     * 
+     * @var string
+     */
 	protected $object_id = null;
+    
+    /**
+     * Nom de la classe de l'objet, par exemple la classe du plugin qui "étend" eqLogiq
+     * 
+     * @var string
+     */
 	protected $eqType_name;
+    
+    /**
+     * booléen (0 ou 1) pour la visibilité de l'objet
+     * 
+     * @var int
+     */
 	protected $isVisible = 0;
-	protected $isEnable = 0;
+
+    /**
+     * booléen (0 ou 1) si l'objet est activé
+     * 
+     * @var int
+     */
+    protected $isEnable = 0;
+
+    /**
+     * tableau de clés / valeurs de configuration de l'objet
+     * 
+     * @var array
+     */
 	protected $configuration;
+    
+    /**
+     * Timeout de l'objet
+     * 
+     * @var int
+     */
 	protected $timeout = 0;
+    
 	protected $category;
 	protected $display;
 	protected $order = 9999;
@@ -48,6 +117,14 @@ class eqLogic {
 	
 	/*     * ***********************Méthodes statiques*************************** */
 	
+    /**
+     * Récupérer tous les 'tags' disponibles
+     * 
+     * Les tags sont définis pour chaque objet (eqLogiq) et 
+     * on peut en avoir plusieurs pour un même objet.
+     * 
+     * @return string[]
+     */
 	public static function getAllTags() {
 		$values = array();
 		$sql = 'SELECT tags
@@ -65,6 +142,12 @@ class eqLogic {
 		return $return;
 	}
 	
+    /**
+     * récupérer (depuis la bdd) un objet de la classe eqLogiq
+     * 
+     * @param string $_id
+     * @return eqLogic
+     */
 	public static function byId($_id) {
 		if ($_id == '') {
 			return;
@@ -78,6 +161,12 @@ class eqLogic {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+    /**
+     * converti un objet "générique" en l'objet réel de la classe $eqType_name
+     * 
+     * @param object|object[] $_inputs
+     * @return object|object[]
+     */
 	private static function cast($_inputs) {
 		if (is_object($_inputs) && class_exists($_inputs->getEqType_name())) {
 			$return = cast($_inputs, $_inputs->getEqType_name());
@@ -96,6 +185,12 @@ class eqLogic {
 		return $_inputs;
 	}
 	
+    /**
+     * récupérer (en bdd) tous les objets de la classe __CLASS__
+     * 
+     * @param bool $_onlyEnable pour filtrer sur les objets activés
+     * @return eqLogic[]
+     */
 	public static function all($_onlyEnable = false) {
 		$sql = 'SELECT ' . DB::buildField(__CLASS__, 'el') . '
 		FROM eqLogic el
@@ -107,6 +202,22 @@ class eqLogic {
 		return self::cast(DB::Prepare($sql, array(), DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+    /**
+     * Récupérer les objets avec critères.
+     * 
+     * Tous les critères sont facultatifs. Si renseigné le paramètre $_onlyHasCmds 
+     * contient les clés 'type' et 'subType' pour rechercher les types / sous-types
+     * de commandes
+     * 
+     * @param string $_object_id
+     * @param bool $_onlyEnable
+     * @param bool $_onlyVisible
+     * @param string $_eqType_name nom de la classe
+     * @param string $_logicalId ID logique
+     * @param bool $_orderByName
+     * @param false|string[] $_onlyHasCmds
+     * @return eqLogic[]
+     */
 	public static function byObjectId($_object_id, $_onlyEnable=true, $_onlyVisible=false, $_eqType_name=null, $_logicalId=null, $_orderByName=false, $_onlyHasCmds=false) {
 		$values = array();
 		$sql = 'SELECT ' . DB::buildField(__CLASS__) . '
@@ -153,6 +264,14 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * Récpérer (de la bdd) les objets par leur ID logique / classe
+         * 
+         * @param string $_logicalId
+         * @param string $_eqType_name
+         * @param bool $_multiple
+         * @return eqLogic
+         */
 		public static function byLogicalId($_logicalId, $_eqType_name, $_multiple = false) {
 			$values = array(
 				'logicalId' => $_logicalId,
@@ -168,6 +287,13 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * récupérer tous les objets par type_name (classe)
+         * 
+         * @param string $_eqType_name
+         * @param bool $_onlyEnable
+         * @return eqLogiq
+         */
 		public static function byType($_eqType_name, $_onlyEnable = false) {
 			$values = array(
 				'eqType_name' => $_eqType_name,
@@ -183,6 +309,12 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * Récupérer tous les objets par catégorie
+         * 
+         * @param string $_category
+         * @return eqLogic
+         */
 		public static function byCategorie($_category) {
 			$values = array(
 				'category' => '%"' . $_category . '":1%',
@@ -197,6 +329,15 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * Récupérer les objets par type et configuration.
+         * 
+         * Un seul paramètre de configuration possible, recherche par caractère avec LIKE %configuration%
+         * 
+         * @param string $_eqType_name
+         * @param string $_configuration
+         * @return eqLogic
+         */
 		public static function byTypeAndSearhConfiguration($_eqType_name, $_configuration) {
 			$values = array(
 				'eqType_name' => $_eqType_name,
@@ -210,6 +351,14 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * Recherche multi critères sur un simple texte.
+         * 
+         * Recherche par nom, ID logique, type_name -classe- ou commentaire ou tag
+         * 
+         * @param string $_search
+         * @return eqLogic
+         */
 		public static function searchByString($_search) {
 			$values = array(
 				'search' => '%'.$_search.'%'
@@ -220,6 +369,16 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * recherche des objets par leur configuration
+         * 
+         * accepte un trableau de valeurs configuration, dans ce cas on 
+         * recherche les objets qui ont au moin une des valeurs ( OR )
+         * 
+         * @param string|string[] $_configuration
+         * @param string $_type le $type_name, optionnel
+         * @return eqLogiq
+         */
 		public static function searchConfiguration($_configuration, $_type = null) {
 			if (!is_array($_configuration)) {
 				$values = array(
@@ -248,6 +407,17 @@ class eqLogic {
 			return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 		}
 		
+        /**
+         * Lister les objets par le nom de classe (type_name) et type / 
+         * sous-type de commande
+         * 
+         * La liste est dédoublonnée (distinct)
+         * 
+         * @param string $_eqType_name
+         * @param string $_typeCmd
+         * @param string $subTypeCmd optionnel
+         * @return mixed
+         */
 		public static function listByTypeAndCmdType($_eqType_name, $_typeCmd, $subTypeCmd = '') {
 			if ($subTypeCmd == '') {
 				$values = array(
@@ -278,6 +448,17 @@ class eqLogic {
 			}
 		}
 		
+        /**
+         * Lister les objets par leur id (type_name) et type / 
+         * sous-type de commande
+         * 
+         * La liste est dédoublonnée (distinct)
+         * 
+         * @param string $_object_id
+         * @param string $_typeCmd
+         * @param string $subTypeCmd optionnel
+         * @return mixed
+         */
 		public static function listByObjectAndCmdType($_object_id, $_typeCmd, $subTypeCmd = '') {
 			$values = array();
 			$sql = 'SELECT DISTINCT(el.id),el.name
@@ -302,12 +483,22 @@ class eqLogic {
 			return DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL);
 		}
 		
+        /**
+         * liste distincte des eqType_name disponibles
+         * 
+         * @return string[]
+         */
 		public static function allType() {
 			$sql = 'SELECT distinct(eqType_name) as type
 			FROM eqLogic';
 			return DB::Prepare($sql, array(), DB::FETCH_TYPE_ALL);
 		}
 		
+        /**
+         * checkAlive
+         * 
+         * Cette méthode étudie les eqLogic et génère des messages d'information.
+         */
 		public static function checkAlive() {
 			foreach (eqLogic::byTimeout(1, true) as $eqLogic) {
 				$sendReport = false;
