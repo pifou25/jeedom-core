@@ -1,6 +1,4 @@
-https://pifou25.github.io/jeedom-core/
-
-<img align="right" src="https://www.jeedom.com/site/logo.png" width="100">
+[![PHP Composer](https://github.com/pifou25/jeedom-core/actions/workflows/php.yml/badge.svg?branch=phpdocs)](https://github.com/pifou25/jeedom-core/actions/workflows/php.yml) <img align="right" src="https://www.jeedom.com/site/logo.png" width="100"> [_HTML PHP DOCS_](https://pifou25.github.io/jeedom-core/)
 
 [![GitHub license](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/jeedom/core/blob/master/LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/jeedom/core/graphs/commit-activity)
