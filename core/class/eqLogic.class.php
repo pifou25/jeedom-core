@@ -20,10 +20,11 @@
 require_once __DIR__ . '/../../core/php/core.inc.php';
 
 /**
- * eqLogic classe de *base* d'un équipement
+ * eqLogic is the **base** class for any Jeedom object.
  * 
- * Tout objet Jeedom hérite de eqLogic et contient des commandes qui héritent
- * de {@see cmd}
+ * Any object extgends eqLogic and contains some commands (that extends cmd
+ * {@see cmd}). In this page, any function or method that mention *eqLogic*
+ * apply to any object that *extends* eqLogic.
  * @see https://github.com/jeedom/plugin-template
  * @see https://doc.jeedom.com/fr_FR/dev/plugin_template
  */
@@ -31,94 +32,155 @@ class eqLogic {
 	/*     * *************************Attributs****************************** */
     
     /**
-     * délimiteur pour la génération du HTML des objets
+     * Unique ID delimiter for HTML generation
      * 
-     * @see eqLogiq::preToHtml()
+     * @use eqLogiq::preToHtml()
      */
 	const UIDDELIMITER = '__';
     
     /**
-     * ID unique de l'objet
+     * unique ID of this object
      * 
      * @var string
      */
 	protected $id;
     
     /**
-     * Nom 'humain' de l'objet
+     *the 'name'
      * 
      * @var string
      */
 	protected $name;
     
     /**
-     * Nom logique
+     * logical name
      * 
      * @var string
      */
 	protected $logicalId = '';
     
     /**
-     * Type générique de l'objet
+     * the generic type of this object
      * 
-     * Devrait être un enum.
+     * should be an enumeration
      * @see https://doc.jeedom.com/fr_FR/concept/generic_type
      * @var string
      */
 	protected $generic_type;
     
     /**
-     * encore un autre ID de l'objet à l'utilité discutable.
+     * still another one object ID
      * 
      * @var string
      */
 	protected $object_id = null;
     
     /**
-     * Nom de la classe de l'objet, par exemple la classe du plugin qui "étend" eqLogiq
+     * the class name, the one that 'extends' eqLogic class.
+     * 
+     * should also be the plugin name or plugin ID
      * 
      * @var string
      */
 	protected $eqType_name;
     
     /**
-     * booléen (0 ou 1) pour la visibilité de l'objet
+     * bool (0 or 1) if the eqLogic is visible
      * 
      * @var int
      */
 	protected $isVisible = 0;
 
     /**
-     * booléen (0 ou 1) si l'objet est activé
+     * bool (0 / 1) if the object is enabled
      * 
      * @var int
      */
     protected $isEnable = 0;
 
     /**
-     * tableau de clés / valeurs de configuration de l'objet
+     * keys / values array of the object configuration
      * 
      * @var array
      */
 	protected $configuration;
     
     /**
-     * Timeout de l'objet
+     * Timeout of the eqLogic object
      * 
      * @var int
      */
 	protected $timeout = 0;
-    
+
+    /**
+     * Json string of categories wich belong the eqLogic object
+     * 
+     * @var string
+     */
 	protected $category;
+    
+    /**
+     * 
+     * @var type
+     */
 	protected $display;
+    
+    /**
+     * 
+     * @var int
+     */
 	protected $order = 9999;
+    
+    /**
+     * Some comment about the object
+     * 
+     * @var string
+     */
 	protected $comment;
+    
+    /**
+     * some tags
+     * 
+     * @var array|string[]
+     */
 	protected $tags;
+    
+    /**
+     * debug state of the eqLogic object.
+     * 
+     * properties beginning with $_ are not persisted in database.
+     * @var bool
+     */
 	protected $_debug = false;
+    
+    /**
+     * 
+     * @var type
+     */
 	protected $_object = null;
+    
+    /**
+     * 'dirty' state of the widget. If data need to be refresh or saved
+     * @var bool
+     */
 	protected $_needRefreshWidget = false;
+    
+    /**
+     * 
+     * @var bool
+     */
 	protected $_timeoutUpdated = false;
+    
+    /**
+     * 
+     * @var bool
+     */
 	protected $_batteryUpdated = false;
+    
+    /**
+     * 'dirty' state of this eqLogic object. If data need to be refresh or saved
+     * @var bool
+     */
 	protected $_changed = false;
 	
 	private static $_templateArray = array();
@@ -703,12 +765,26 @@ class eqLogic {
 			return $eqLogic;
 		}
 		
+        /**
+         * vide le cache des widgets de tous les objets eqLogic
+         * 
+         * @use eqLogic::emptyCacheWidget()
+         */
 		public static function clearCacheWidget() {
 			foreach((self::all()) as $eqLogic) {
 				$eqLogic->emptyCacheWidget();
 			}
 		}
 		
+        /**
+         * Génère  un code HTML pour une table de nb_Line nbColumn
+         * 
+         * 
+         * @param type $_nbLine
+         * @param type $_nbColumn
+         * @param type $_options
+         * @return string[]
+         */
 		public static function generateHtmlTable($_nbLine, $_nbColumn, $_options = array()) {
 			$return = array('html' => '', 'replace' => array());
 			if (!isset($_options['styletd'])) {
@@ -885,6 +961,16 @@ class eqLogic {
 			return true;
 		}
 		
+        /**
+         * Hook appelé avant la mise en forme HTML {@see eqLogic::toHtml()}
+         * 
+         * @global array $JEEDOM_INTERNAL_CONFIG
+         * @param string $_version
+         * @param array $_default
+         * @param bool $_noCache
+         * @return string
+         * @throws Exception
+         */
 		public function preToHtml($_version = 'dashboard', $_default = array(), $_noCache = false) {
 			global $JEEDOM_INTERNAL_CONFIG;
 			$_version = jeedom::versionAlias($_version);
@@ -1003,6 +1089,15 @@ class eqLogic {
 			return $replace;
 		}
 		
+        /**
+         * Rendu HTML de l'objet
+         * 
+         * @use eqLogic::preToHtml()
+         * @use eqLogic::postToHtml()
+         * 
+         * @param string $_version = dashboard|mobile
+         * @return string
+         */
 		public function toHtml($_version = 'dashboard') {
 			$replace = $this->preToHtml($_version);
 			if (!is_array($replace)) {
@@ -1060,6 +1155,13 @@ class eqLogic {
 			return $this->postToHtml($_version, template_replace($replace, self::$_templateArray[$_version]));
 		}
 		
+        /**
+         * Hook appelé à la fin de la mise en forme HTML {@see eqLogic::toHtml()}
+         * 
+         * @param string $_version
+         * @param string $_html
+         * @return string
+         */
 		public function postToHtml($_version, $_html) {
 			if(config::byKey('widget::disableCache','core',0) == 0){
 				cache::set('widgetHtml' . $this->getId() . $_version, $_html);
@@ -1067,6 +1169,11 @@ class eqLogic {
 			return $_html;
 		}
 		
+        /**
+         * Nettoyer le cache du widget
+         * 
+         * @see \cache
+         */
 		public function emptyCacheWidget() {
 			if(config::byKey('widget::disableCache','core',0) == 0){
 				$mc = cache::byKey('widgetHtml' . $this->getId() . 'mobile');
@@ -1076,6 +1183,12 @@ class eqLogic {
 			}
 		}
 		
+        /**
+         * Vérifier si l'objet lance une alerte
+         * 
+         * @global array $JEEDOM_INTERNAL_CONFIG
+         * @return array
+         */
 		public function getAlert() {
 			global $JEEDOM_INTERNAL_CONFIG;
 			$hasAlert = '';
@@ -1089,6 +1202,12 @@ class eqLogic {
 			return $hasAlert;
 		}
 		
+        /**
+         * Récupérer parmi toutes les commandes le niveau d'alerte maximal
+         * 
+         * @global array $JEEDOM_INTERNAL_CONFIG
+         * @return int niveau d'alerte
+         */
 		public function getMaxCmdAlert() {
 			$return = 'none';
 			$max = 0;
@@ -1106,10 +1225,19 @@ class eqLogic {
 			return $return;
 		}
 		
+        /**
+         * 
+         * @return boolean false
+         */
 		public function getShowOnChild() {
 			return false;
 		}
 		
+        /**
+         * Suppression de l'objet, ses commandes et tous les éléments liés
+         * 
+         * @return bool
+         */
 		public function remove() {
 			foreach(($this->getCmd()) as $cmd) {
 				$cmd->remove();
@@ -1123,6 +1251,12 @@ class eqLogic {
 			return DB::remove($this);
 		}
 		
+        /**
+         * Save object configuration.
+         * 
+         * @param bool $_direct
+         * @throws Exception
+         */
 		public function save($_direct = false) {
 			if ($this->getName() == '') {
 				throw new Exception(__('Le nom de l\'équipement ne peut pas être vide : ', __FILE__) . print_r($this, true));
@@ -1209,6 +1343,9 @@ class eqLogic {
 			}
 		}
 		
+        /**
+         * update database configuration for the current object
+         */
 		public function refresh() {
 			DB::refresh($this);
 		}
@@ -1220,6 +1357,12 @@ class eqLogic {
 			return 'index.php?v=d&p=' . $this->getEqType_name() . '&m=' . $this->getEqType_name() . '&id=' . $this->getId();
 		}
 		
+        /**
+         * 
+         * @param bool $_tag
+         * @param bool $_prettify
+         * @return string
+         */
 		public function getHumanName($_tag = false, $_prettify = false) {
 			$name = '';
 			$object = $this->getObject();
@@ -1246,6 +1389,11 @@ class eqLogic {
 			return $name;
 		}
 		
+        /**
+         * get the 'primary' category: the value is 1
+         * 
+         * @return string
+         */
 		public function getPrimaryCategory() {
 			foreach ($this->category as $cat => $value) {
 				if ($value == 1) {
@@ -1255,12 +1403,22 @@ class eqLogic {
 			return '';
 		}
 		
+        /**
+         * debug function, print message
+         * @param string $_message
+         */
 		public function displayDebug($_message) {
 			if ($this->getDebug()) {
 				echo $_message . "\n";
 			}
 		}
 		
+        /**
+         * check battery status, may generate some message according to configuration
+         * @param int $_pourcent
+         * @param string $_datetime (format: Y-m-d H:i:s)
+         * @return void
+         */
 		public function batteryStatus($_pourcent = '', $_datetime = '') {
 			if ($this->getConfiguration('noBatterieCheck', 0) == 1) {
 				return;
@@ -1342,12 +1500,21 @@ class eqLogic {
 			$this->setStatus(array('battery' => $_pourcent, 'batteryDatetime' => ($_datetime != '') ? $_datetime : date('Y-m-d H:i:s')));
 		}
 		
+        /**
+         * clear widget cache and force refresh
+         */
 		public function refreshWidget() {
 			$this->_needRefreshWidget = false;
 			$this->emptyCacheWidget();
 			event::add('eqLogic::update', array('eqLogic_id' => $this->getId()));
 		}
 		
+        /**
+         * check some rights about the connected user on this eqLogic object
+         * @param type $_right
+         * @param user $_user
+         * @return boolean
+         */
 		public function hasRight($_right, $_user = null) {
 			if ($_user != null) {
 				if ($_user->getProfils() == 'admin' || $_user->getProfils() == 'user') {
@@ -1370,6 +1537,11 @@ class eqLogic {
 			return false;
 		}
 		
+        /**
+         * import some json configuration data to generate any command
+         * @param json $_configuration
+         * @param bool $_dontRemove = true to keep old commands
+         */
 		public function import($_configuration,$_dontRemove = false) {
 			$cmdClass = $this->getEqType_name() . 'Cmd';
 			if (isset($_configuration['configuration'])) {
@@ -1471,6 +1643,11 @@ class eqLogic {
 			$this->save();
 		}
 		
+        /**
+         * export eqLogic object configuration as a json data
+         * @param bool $_withCmd = true to export commands configuration
+         * @return json
+         */
 		public function export($_withCmd = true) {
 			$eqLogic = clone $this;
 			$eqLogic->setId('');
@@ -1511,6 +1688,12 @@ class eqLogic {
 			return $return;
 		}
 		
+        /**
+         * 
+         * @param string $_key
+         * @param bool $_default
+         * @return boolean
+         */
 		public function widgetPossibility($_key = '', $_default = true) {
 			$class = new ReflectionClass($this->getEqType_name());
 			$method_toHtml = $class->getMethod('toHtml');
@@ -1553,17 +1736,34 @@ class eqLogic {
 			return $return;
 		}
 		
+        /**
+         * convert eqLogic configuration into json.
+         * @see utils::o2a()
+         * @return json
+         */
 		public function toArray() {
 			$return = utils::o2a($this, true);
 			$return['status'] = $this->getStatus();
 			return $return;
 		}
 		
+        /**
+         * get path of this eqLogic object. Same as the default plugin icon.
+         * @return string
+         */
 		public function getImage() {
 			$plugin = plugin::byId($this->getEqType_name());
 			return $plugin->getPathImgIcon();
 		}
 		
+        /**
+         * TODO complete this description...
+         * 
+         * @param array $_data
+         * @param int $_level
+         * @param string $_drill
+         * @return string
+         */
 		public function getLinkData(&$_data = array('node' => array(), 'link' => array()), $_level = 0, $_drill = null) {
 			if ($_drill === null) {
 				$_drill = config::byKey('graphlink::eqLogic::drill');
@@ -1607,11 +1807,23 @@ class eqLogic {
 			return $_data;
 		}
 		
+        /**
+         * get list of any object using $this
+         * 
+         * @see jeedom::getTypeUse()
+         * @return array
+         */
 		public function getUse() {
 			$json = jeedom::fromHumanReadable(json_encode(utils::o2a($this)));
 			return jeedom::getTypeUse($json);
 		}
 		
+        /**
+         * get list of any object used by $this
+         * 
+         * @param bool $_array = true to change any object into json array
+         * @return array
+         */
 		public function getUsedBy($_array = false) {
 			$return = array('cmd' => array(), 'eqLogic' => array(), 'interactDef' => array(), 'scenario' => array(), 'plan' => array(), 'view' => array());
 			$return['cmd'] = cmd::searchConfiguration('#eqLogic' . $this->getId() . '#');
@@ -1632,6 +1844,11 @@ class eqLogic {
 			return $return;
 		}
 		
+        /**
+         * 
+         * @param type $_plugin_id
+         * @return array
+         */
 		public static function deadCmdGeneric($_plugin_id) {
 			$return = array();
 			foreach (eqLogic::byType($_plugin_id) as $eqLogic) {
@@ -1654,10 +1871,18 @@ class eqLogic {
 		
 		/*     * **********************Getteur Setteur*************************** */
 		
+        /**
+         * get Id
+         * @return string
+         */
 		public function getId() {
 			return $this->id;
 		}
 		
+        /**
+         * get name
+         * @return string
+         */
 		public function getName() {
 			return $this->name;
 		}
@@ -1700,6 +1925,14 @@ class eqLogic {
 			return $this->isEnable;
 		}
 		
+        /**
+         * get every commands of the current eqLogic. Any parameter optional
+         * @param string $_type
+         * @param string $_logicalId
+         * @param bool $_visible
+         * @param bool $_multiple
+         * @return cmd[]
+         */
 		public function getCmd($_type = null, $_logicalId = null, $_visible = null, $_multiple = false) {
 			if ($_logicalId !== null) {
 				if (isset($this->_cmds[$_logicalId . '.' . $_multiple . '.' . $_type])) {
@@ -1722,6 +1955,14 @@ class eqLogic {
 			return $cmds;
 		}
 		
+        /**
+         * get somes commands by generic type
+         * @param string $_type
+         * @param string $_generic_type
+         * @param bool $_visible
+         * @param bool $_multiple
+         * @return cmd[]
+         */
 		public function getCmdByGenericType($_type = null, $_generic_type = null, $_visible = null, $_multiple = false) {
 			if ($_generic_type !== null) {
 				if (isset($this->_cmds[$_generic_type . '.' . $_multiple . '.' . $_type])) {
@@ -1747,13 +1988,29 @@ class eqLogic {
 		public function searchCmdByConfiguration($_configuration, $_type = null) {
 			return cmd::searchConfigurationEqLogic($this->id, $_configuration, $_type);
 		}
-		
+        
+		/**
+         * set Id.
+         * 
+         * any setter change also _changed property to true and return $this
+         * 
+         * @param string $_id
+         * @return $this
+         */
 		public function setId($_id) {
 			$this->_changed = utils::attrChanged($this->_changed,$this->id,$_id);
 			$this->id = $_id;
 			return $this;
 		}
 		
+        /**
+         * set Name.
+         * 
+         * any setter change also _changed property to true and return $this
+         * 
+         * @param type $_name
+         * @return $this
+         */
 		public function setName($_name) {
 			$_name = substr(cleanComponanteName($_name),0,127);
 			if($_name != $this->name){
@@ -1764,12 +2021,28 @@ class eqLogic {
 			return $this;
 		}
 		
+        /**
+         * set logical Id.
+         * 
+         * any setter change also _changed property to true and return $this
+         * 
+         * @param string $_logicalId
+         * @return $this
+         */
 		public function setLogicalId($_logicalId) {
 			$this->_changed = utils::attrChanged($this->_changed,$this->logicalId,$_logicalId);
 			$this->logicalId = $_logicalId;
 			return $this;
 		}
 		
+        /**
+         * set object_id.
+         * 
+         * any setter change also _changed property to true and return $this
+         * 
+         * @param int $object_id
+         * @return $this
+         */
 		public function setObject_id($object_id = null) {
 			$object_id = (!is_numeric($object_id)) ? null : $object_id;
 			$this->_changed = utils::attrChanged($this->_changed,$this->object_id,$object_id);
@@ -1777,6 +2050,14 @@ class eqLogic {
 			return $this;
 		}
 		
+        /**
+         * set EqType_Name.
+         * 
+         * any setter change also _changed property to true and return $this
+         * 
+         * @param type $eqType_name
+         * @return $this
+         */
 		public function setEqType_name($eqType_name) {
 			$this->_changed = utils::attrChanged($this->_changed,$this->eqType_name,$eqType_name);
 			$this->eqType_name = $eqType_name;
@@ -1808,6 +2089,15 @@ class eqLogic {
 			return utils::getJsonAttr($this->configuration, $_key, $_default);
 		}
 		
+        /**
+         * add or update 'key' configuration with 'value'
+         * 
+         * any setter change also _changed property to true and return $this
+         * 
+         * @param string $_key
+         * @param string $_value
+         * @return $this
+         */
 		public function setConfiguration($_key, $_value) {
 			if (in_array($_key, array('battery_warning_threshold', 'battery_danger_threshold'))) {
 				if ($this->getConfiguration($_key, '') !== $_value) {
@@ -1853,6 +2143,13 @@ class eqLogic {
 			return $this;
 		}
 		
+        /**
+         * get one category of this eqLogic object. One object may belong to several categories
+         * 
+         * @param string $_key
+         * @param string $_default
+         * @return int|string
+         */
 		public function getCategory($_key = '', $_default = '') {
 			if ($_key == 'other' && strpos($this->category, "1") === false) {
 				return 1;
@@ -1860,6 +2157,13 @@ class eqLogic {
 			return utils::getJsonAttr($this->category, $_key, $_default);
 		}
 		
+        /**
+         * add one category to this eqLogic object.
+         * 
+         * @param string $_key
+         * @param string $_value
+         * @return $this
+         */
 		public function setCategory($_key, $_value) {
 			if ($this->getCategory($_key) != $_value) {
 				$this->_needRefreshWidget = true;
