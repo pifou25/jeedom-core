@@ -506,9 +506,11 @@ function setTheme() {
 										<span class="cmdName"><?php echo config::byKey('name'); ?></span>
 									</a>
 								</li>
-								<li class="hidden-sm">
-									<a id="bt_getHelpPage" class="cursor" data-plugin="<?php echo init('m'); ?>" data-page="<?php echo init('p'); ?>" title="{{Aide sur la page en cours}}"><i class="fas fa-question-circle" ></i></a>
-								</li>
+								<?php if (config::byKey('doc::base_url', 'core') != ''){ ?>
+									<li class="hidden-sm">
+										<a id="bt_getHelpPage" class="cursor" data-plugin="<?php echo init('m'); ?>" data-page="<?php echo init('p'); ?>" title="{{Aide sur la page en cours}}"><i class="fas fa-question-circle" ></i></a>
+									</li>
+								<?php } ?>
 							</ul>
 						</nav>
 						<div id="summaryGlobalMain"><?php echo jeeObject::getGlobalHtmlSummary(); ?></div>

@@ -125,7 +125,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
                 <div class="form-group">
                   <label class="col-xs-4 control-label">{{Valeur}}</label>
                   <div class="col-xs-8">
-                    <span class="label label-primary"><?php echo $cache['value'] ?></span>
+                    <span class="label label-primary" style="max-width: 100%;"><?php echo $cache['value'] ?></span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -535,9 +535,8 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
               <label class="col-lg-3 col-md-3 col-sm-3 col-xs-6 control-label">{{Gestion de la répétition des valeurs}}</label>
               <div class="col-xs-3">
                 <select class="cmdAttr form-control" data-l1key="configuration" data-l2key="repeatEventManagement" >
-                  <option value="auto">{{Automatique}}</option>
-                  <option value="always">{{Toujours répéter}}</option>
                   <option value="never">{{Jamais répéter}}</option>
+                  <option value="always">{{Toujours répéter}}</option>
                 </select>
               </div>
             </div>
@@ -888,6 +887,9 @@ $('#bt_addWidgetParametersCmd').off().on('click', function() {
   $('#table_widgetParametersCmd tbody').append(tr)
 })
 
+if(cmdInfo.configuration && (!cmdInfo.configuration.repeatEventManagement || cmdInfo.configuration.repeatEventManagement == 'auto')){
+  cmdInfo.configuration.repeatEventManagement = 'never';
+}
 $('#div_displayCmdConfigure').setValues(cmdInfo, '.cmdAttr')
 
 $('#bt_cmdConfigureRawObject').off('click').on('click',function() {
