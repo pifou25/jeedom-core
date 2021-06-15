@@ -914,7 +914,7 @@ class eqLogic {
 					return true;
 				}
 				return false;
-			} else if ($cmd->getConfiguration('repeatEventManagement', 'auto') == 'always' || ($cmd->getSubType() == 'binary' && $cmd->getConfiguration('repeatEventManagement', 'auto') == 'auto')) {
+			} else if ($cmd->getConfiguration('repeatEventManagement', 'never') == 'always') {
 				$cmd->event($_value, $_updateTime);
 				return true;
 			}
@@ -1277,6 +1277,7 @@ class eqLogic {
 						}
 					}
 				}else{
+					
 					$cmd_ids = array();
 					foreach (array('dashboard') as $key) {
 						if ($this->getDisplay('layout::' . $key . '::table::parameters') == '') {
@@ -1339,6 +1340,17 @@ class eqLogic {
 					$this->setStatus('timeout', 0);
 				} else {
 					$this->checkAlive();
+				}
+			}
+			if ($this->getConfiguration('updatetime') == '' && config::byKey('eqLogic::create::execScenario','core',-1) != -1){
+				try {
+					$scenario = scenario::byId(config::byKey('eqLogic::create::execScenario','core',-1));
+					if(is_object($scenario)){
+						$scenario->setTags(array('eqLogic_id' => $this->getId()));
+						$scenario->launch('other', __('Lancement du scénario sur création équipement',__FILE__));
+					}
+				} catch (\Exception $e) {
+					
 				}
 			}
 		}
