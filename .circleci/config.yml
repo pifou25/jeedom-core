@@ -20,10 +20,10 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       # this pulls code down from GitHub
       - checkout 
       # This prints "A first hello" to stdout.
-      - run: echo "Hello into Phpdoc container ! $(pwd)"
+      - run: echo "Hello into Phpdoc container !" $(pwd)
       - run: ls -als
       # generate phpdoc from /app into /phpdocs ignore vendor and tests folders
-      - run: phpdoc -t phpdocs --ignore "vendor/,tests/,install/update" /app
+      - run: phpdoc -d $(pwd) -t phpdocs --ignore "vendor/,tests/,install/update"
       - persist_to_workspace:
           root: /app/phpdocs
           paths: docs
@@ -36,7 +36,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
     steps:
       - checkout
       # We run a similar echo command to above.
-      - run: echo "Hi into PhpStan :)  $(pwd)"
+      - run: echo "Hi into PhpStan :) " $(pwd)
       - run: ls -als
       - run: phpstan analyse . --level 6
       - persist_to_workspace:

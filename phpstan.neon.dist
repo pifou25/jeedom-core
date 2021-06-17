@@ -1,0 +1,11 @@
+parameters:
+	level: 6
+	paths:
+		- core
+		- desktop
+		- install
+		- mobile
+parameters:
+	tmpDir: tmpPhpStan
+	excludePaths:
+		- tests
