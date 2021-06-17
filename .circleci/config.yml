@@ -80,7 +80,6 @@ workflows:
       - phpdocjob
       - docs-deploy:
           requires:
-            - phpstanjob
             - phpdocjob
           # add a filter for this job
           filters:
