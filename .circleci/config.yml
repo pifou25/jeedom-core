@@ -20,7 +20,17 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - checkout 
       # This prints "A first hello" to stdout.
       - run: echo "Hello into Phpdoc container !"
-      - run: phpdoc
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: jeedom_dir
+
+      - run: |
+          if [[ $(cat jeedom_dir/here.html) == "ok" ]]; then
+            echo "It worked!";
+          else
+            echo "Nope!"; exit 1
+          fi
+      - run: jeedom_dir
 
   # This is our second job.
   phpstanjob:
@@ -30,12 +40,22 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - checkout
       # We run a similar echo command to above.
       - run: echo "Hi into PhpStan :)"
+      - run: mkdir -p jeedom_dir
+      - run: echo "Trying out workspaces" > jeedom_dir/echo-output
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory
+          root: jeedom_dir
+          # Must be relative path from root
+          paths:
+            - echo-output
       - run: phpstan
 
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
   version: 2.1
-  one_and_two: # this is the name of our workflow
-    jobs: # and here we list the jobs we are going to run.
-      - phpdocjob
+  # this is the name of our workflow
+  one_and_two:
+    # and here we list the jobs we are going to run.
+    jobs:
       - phpstanjob
+      - phpdocjob
