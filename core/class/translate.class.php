@@ -32,11 +32,11 @@ require_once  'message.class.php';
 /**
  * Helper class for text translation.
  * 
- * Basic Usage with translate::sentence() :
+ * Basic Usage with {@see translate::sentence()} :
  * ```
  * echo translate::sentence('Text to translate', __FILE__);
  * ```
- * You may also use the shorter helper function __() :
+ * You may also use the shorter helper {@see function __()} :
  * ```
  * echo __('Texte to translate!' __FILE__);
  * ```
@@ -46,9 +46,9 @@ class translate {
 
     /**
      * Array of every translations
-     * 1st key is the language (fr_FR)
-     * 2nd key is the plugin Id, or any element of the core (widget...)
-     * 3st element is the french text, and the value is the translated text.
+     * * 1st key is the language (fr_FR)
+     * * 2nd key is the plugin Id, or any element of the core (widget...)
+     * * 3st element is the french text, and the value is the translated text.
      * 
      * @var array
      */
@@ -137,7 +137,7 @@ class translate {
      * Translate the content text, using the name as reference file
      * 
      * @param string $_content
-     * @param string $_name : __FILE__ or any text defining the reference to use for translation
+     * @param string $_name : `__FILE__` or any text defining the reference to use for translation
      * @param bool $_backslash
      * @return string
      */
@@ -148,7 +148,7 @@ class translate {
     /**
      * get the plugin Id from the complete name
      * 
-     * @param string $_name : __FILE__ or any file path containing the plugin Id
+     * @param string $_name : `__FILE__` or any file path containing the plugin Id
      * @return string
      */
 	public static function getPluginFromName($_name) {
@@ -169,7 +169,7 @@ class translate {
      * Translate the content text, using the name as reference file
      * 
      * @param string $_content : text to be translated
-     * @param string $_name __FILE__ or any file location
+     * @param string $_name `__FILE__` or any file location
      * @param bool $_backslash = true to replace backslash escaping characters
      * @return string
      */
@@ -321,7 +321,7 @@ class translate {
 }
 
 /**
- * This function is a common helper for translate::sentence()
+ * This function is a common helper for {@see translate::sentence()}
  * 
  * @use translate
  * 
