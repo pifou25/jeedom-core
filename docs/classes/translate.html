@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1227181787"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-2124008360"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1227181787" class="accordion-body collapse in">
+            <div id="namespace-2124008360" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -214,9 +214,9 @@
 
                     <h1><small>\</small>translate</h1>
                     <p><em>Helper class for text translation.</em></p>
-                    <p>Basic Usage with translate::sentence() :</p>
+                    <p>Basic Usage with <a href="../classes/translate.html#method_sentence">\translate::sentence()</a> :</p>
 <pre><code>echo translate::sentence('Text to translate', __FILE__);</code></pre>
-<p>You may also use the shorter helper function __() :</p>
+<p>You may also use the shorter helper \function :</p>
 <pre><code>echo __('Texte to translate!' __FILE__);</code></pre>
                     
                                         
@@ -322,10 +322,12 @@
                 <h3 class="protected ">$translation</h3>
                 <pre class="signature">$translation : array</pre>
                 <p><em>Array of every translations
-1st key is the language (fr_FR)
-2nd key is the plugin Id, or any element of the core (widget.</em></p>
-                <p>..)
-3st element is the french text, and the value is the translated text.</p>
+* 1st key is the language (fr_FR)
+* 2nd key is the plugin Id, or any element of the core (widget.</em></p>
+                <p>..)</p>
+<ul>
+<li>3st element is the french text, and the value is the translated text.</li>
+</ul>
 
                                 <h4>Type</h4>
                 array
@@ -588,7 +590,7 @@ the plugin is loaded.</em></p>
                                                     <tr>
                                 <td>string</td>
                                 <td>$_name </td>
-                                <td><p>: <strong>FILE</strong> or any text defining the reference to use for translation</p></td>
+                                <td><p>: <code>__FILE__</code> or any text defining the reference to use for translation</p></td>
                             </tr>
                                                     <tr>
                                 <td>boolean</td>
@@ -632,7 +634,7 @@ the plugin is loaded.</em></p>
                                                     <tr>
                                 <td>string</td>
                                 <td>$_name </td>
-                                <td><p>: <strong>FILE</strong> or any file path containing the plugin Id</p></td>
+                                <td><p>: <code>__FILE__</code> or any file path containing the plugin Id</p></td>
                             </tr>
                                             </table>
                 
@@ -676,7 +678,7 @@ the plugin is loaded.</em></p>
                                                     <tr>
                                 <td>string</td>
                                 <td>$_name </td>
-                                <td><p><strong>FILE</strong> or any file location</p></td>
+                                <td><p><code>__FILE__</code> or any file location</p></td>
                             </tr>
                                                     <tr>
                                 <td>boolean</td>
@@ -939,7 +941,7 @@ the plugin is loaded.</em></p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on June 17th, 2021 at 09:58.
+                    on June 17th, 2021 at 12:53.
                 </section>
             </section>
         </section>
