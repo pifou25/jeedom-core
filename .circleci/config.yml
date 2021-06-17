@@ -48,7 +48,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
           # Must be relative path from root
           paths:
             - echo-output
-      - run: phpstan
+      - run: phpstan analyse
 
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
@@ -58,4 +58,6 @@ workflows:
     # and here we list the jobs we are going to run.
     jobs:
       - phpstanjob
-      - phpdocjob
+      - phpdocjob:
+        requires:
+          - phpstanjob
