@@ -30,7 +30,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
           else
             echo "Nope!"; exit 1
           fi
-      - run: jeedom_dir
+      - run: phpdoc jeedom_dir
 
   # This is our second job.
   phpstanjob:
@@ -48,7 +48,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
           # Must be relative path from root
           paths:
             - echo-output
-      - run: phpstan analyse
+      - run: phpstan analyse jeedom_dir
 
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
@@ -59,5 +59,5 @@ workflows:
     jobs:
       - phpstanjob
       - phpdocjob:
-        requires:
-          - phpstanjob
+          requires:
+            - phpstanjob
