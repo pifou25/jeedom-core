@@ -21,12 +21,14 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - checkout 
       # This prints "A first hello" to stdout.
       - run: echo "Hello into Phpdoc container !" $(pwd)
-      - run: ls -als
       # generate phpdoc from /app into /phpdocs ignore vendor and tests folders
       - run: phpdoc -d $(pwd) -t phpdocs --ignore "vendor/,tests/,install/update"
       - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory
           root: /app/phpdocs
+          # Must be relative path from root
           paths: docs
+      - run: ls -als
 
   # This is our second job.
   phpstanjob:
@@ -39,12 +41,6 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - run: echo "Hi into PhpStan :) " $(pwd)
       - run: ls -als
       - run: phpstan analyse . --level 6
-      - persist_to_workspace:
-          # Must be an absolute path, or relative path from working_directory
-          root: .
-          # Must be relative path from root
-          paths:
-            - echo-output
 
   # deploy generated doc to github gh-pages
   docs-deploy:
