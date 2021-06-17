@@ -1,0 +1,41 @@
+version: 2.1
+
+orbs:
+  php: circleci/php@1.1.0
+  
+jobs: # we now have TWO jobs, so that a workflow can coordinate them!
+  phpdocjob:
+  # This is our first job.
+    docker:
+    # it uses the docker executor
+      - image: phpdoc/phpdoc
+        # authentication if required ?
+        # auth:
+        #  username: mydockerhub-user
+        #  password: $DOCKERHUB_PASSWORD
+        # context / project UI env-var reference
+    # Steps are a list of commands to run inside the docker container above.
+    steps:
+      # this pulls code down from GitHub
+      - checkout 
+      # This prints "A first hello" to stdout.
+      - run: echo "Hello into Phpdoc container !"
+      - run: phpdoc
+
+  # This is our second job.
+  phpstanjob:
+    docker:
+      - image: phpstan/phpstan
+    steps:
+      - checkout
+      # We run a similar echo command to above.
+      - run: echo "Hi into PhpStan :)"
+      - run: phpstan
+
+# Under the workflows: map, we can coordinate our two jobs, defined above.
+workflows:
+  version: 2.1
+  one_and_two: # this is the name of our workflow
+    jobs: # and here we list the jobs we are going to run.
+      - phpdocjob
+      - phpstanjob
