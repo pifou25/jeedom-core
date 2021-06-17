@@ -24,9 +24,9 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - run: ls -als
       # generate phpdoc from /app into /phpdocs ignore vendor and tests folders
       - run: phpdoc /app -t phpdocs --ignore "vendor/,tests/,install/update"
-      - store_artifacts:
-          path: /app/phpdocs
-          destination: docs
+      - persist_to_workspace:
+          root: /app/phpdocs
+          paths: docs
 
   # This is our second job.
   phpstanjob:
@@ -46,6 +46,29 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
           paths:
             - echo-output
 
+  # deploy generated doc to github gh-pages
+  docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: docs
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "nicolas_gras@hotmail.com"
+            git config user.name "pifou25"
+      - add_ssh_keys:
+          # add ssh key fingerprint, see:
+          # https://circleci.com/blog/deploying-documentation-to-github-pages-with-continuous-integration/
+          fingerprints:
+            - "	fa:d8:0c:b2:d7:7b:73:4c:72:f9:8a:5a:20:0c:7d:1e"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --message "[skip ci] Update PhpDoc" --dist docs
+
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
   version: 2.1
@@ -55,3 +78,12 @@ workflows:
     jobs:
       - phpstanjob
       - phpdocjob
+      - docs-deploy:
+          requires:
+            - phpstanjob
+            - phpdocjob
+          # add a filter for this job
+          filters:
+            # only run this job on phpdocs branch
+            branches:
+              only: phpdocs
