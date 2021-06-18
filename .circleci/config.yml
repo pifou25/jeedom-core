@@ -63,9 +63,10 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - add_ssh_keys:
           fingerprints:
             - "fa:d8:0c:b2:d7:7b:73:4c:72:f9:8a:5a:20:0c:7d:1e"
+      - run: ls -als
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --message "[skip ci] Update PhpDoc" --dist docs
+          command: gh-pages --message "[skip ci] Update PhpDoc" --dist phpdocs
 
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
