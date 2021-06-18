@@ -18,11 +18,13 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
     # Steps are a list of commands to run inside the docker container above.
     steps:
       # this pulls code down from GitHub
-      - checkout 
+      - checkout:
+        path: src
       # This prints "A first hello" to stdout.
       - run: echo "Hello into Phpdoc container !" $(pwd)
       # generate phpdoc from /app into /phpdocs ignore vendor and tests folders
-      - run: phpdoc -d $(pwd) -t phpdocs --ignore "vendor/,tests/,install/update"
+      # no other parameters, use configuration file phpdoc.dist.xml
+      - run: phpdoc -d src -t phpdocs --ignore "vendor/,tests/,install/update"
       - run: ls -als
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
@@ -49,7 +51,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
     steps:
       - checkout
       - attach_workspace:
-          at: docs
+          at: phpdocs
       - run:
           name: Install and configure dependencies
           command: |
