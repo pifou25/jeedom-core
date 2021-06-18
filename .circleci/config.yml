@@ -23,8 +23,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       # This prints "A first hello" to stdout.
       - run: echo "Hello into Phpdoc container !" $(pwd)
       # generate phpdoc from /app into /phpdocs ignore vendor and tests folders
-      # no other parameters, use configuration file phpdoc.dist.xml
-      - run: phpdoc -d src -t phpdocs --ignore "vendor/,tests/,install/update"
+      - run: phpdoc -d src -t phpdocs --ignore "vendor/,tests/,install/update" --template="responsive-twig" --defaultpackagename Jeedom --title "Jeedom Core"
       - run: ls -als
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory
@@ -66,7 +65,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - run: ls -als
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --message "[skip ci] Update PhpDoc" --dist phpdocs
+          command: gh-pages --message "[skip ci] Update PhpDoc" --dist .
 
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
