@@ -27,7 +27,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
           # Must be an absolute path, or relative path from working_directory
           root: /app/phpdocs
           # Must be relative path from root
-          paths: docs
+          paths: phpdocs
       - run: ls -als
 
   # This is our second job.
