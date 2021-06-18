@@ -19,7 +19,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
     steps:
       # this pulls code down from GitHub
       - checkout:
-        path: src
+          path: src
       # This prints "A first hello" to stdout.
       - run: echo "Hello into Phpdoc container !" $(pwd)
       # generate phpdoc from /app into /phpdocs ignore vendor and tests folders
