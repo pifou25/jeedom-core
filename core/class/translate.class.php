@@ -19,6 +19,9 @@
 /* * ***************************Includes********************************* */
 require_once __DIR__ . '/../php/core.inc.php';
 
+/**
+ * translate.class.php
+ */
 /*
 //DEBUG ONLY
 require_once  'utils.class.php';
@@ -40,6 +43,7 @@ require_once  'message.class.php';
  * ```
  * echo __('Texte to translate!' __FILE__);
  * ```
+ * @package com.jeedom.core
  */
 class translate {
 	/*     * *************************Attributs****************************** */

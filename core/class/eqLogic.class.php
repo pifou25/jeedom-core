@@ -20,6 +20,10 @@
 require_once __DIR__ . '/../../core/php/core.inc.php';
 
 /**
+ * eqLogic.class.php
+ */
+
+/**
  * eqLogic is the **base** class for any Jeedom object.
  * 
  * Any object extgends eqLogic and contains some commands (that extends cmd
@@ -27,6 +31,7 @@ require_once __DIR__ . '/../../core/php/core.inc.php';
  * apply to any object that *extends* eqLogic.
  * @see https://github.com/jeedom/plugin-template
  * @see https://doc.jeedom.com/fr_FR/dev/plugin_template
+ * @package com.jeedom.core
  */
 class eqLogic {
 	/*     * *************************Attributs****************************** */
