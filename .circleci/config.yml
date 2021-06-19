@@ -66,22 +66,25 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - run: ls -als
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --message "[skip ci] Update PhpDoc" --src /phpdocs --dist . --dotfiles
+          command: gh-pages --message "[skip ci] Update PhpDoc" --src phpdocs/**/* --dist . --dotfiles
 
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
   version: 2.1
   # this is the name of our workflow
-  one_and_two:
+  Analyse_and_PhpDocument:
     # and here we list the jobs we are going to run.
     jobs:
-      - phpstanjob
+      # - phpstanjob
       - phpdocjob
-      - docs-deploy:
-          requires:
-            - phpdocjob
           # add a filter for this job
           filters:
             # only run this job on phpdocs branch
+            branches:
+              only: phpdocs
+      - docs-deploy:
+          requires:
+            - phpdocjob
+          filters:
             branches:
               only: phpdocs
