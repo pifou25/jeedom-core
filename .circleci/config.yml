@@ -67,8 +67,7 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - run:
           name: check work in progress
           command: |
-            pwd
-            ls -als
+            rm -R phpdocs/phpdoc-cache*
             ls phpdocs/
       - run:
           name: Deploy docs to gh-pages branch
