@@ -29,7 +29,8 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
           # Must be an absolute path, or relative path from working_directory
           root: /app
           # Must be relative path from root
-          paths: phpdocs
+          paths:
+            - phpdocs
 
   # This is our second job.
   phpstanjob:
@@ -68,10 +69,10 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
           command: |
             pwd
             ls -als
-            ls phpdocs
+            ls phpdocs/
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --message "[skip ci] Update PhpDoc" --src phpdocs/**/* --dist . --dotfiles
+          command: gh-pages --message "[skip ci] Update PhpDoc" --src "phpdocs/**/*" --dist . --dotfiles
 
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
