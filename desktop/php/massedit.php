@@ -13,7 +13,7 @@ global $excludeParams;
 $excludeParams = [];
 $excludeParams['eqLogic'] = ['order', 'display', 'comment'];
 $excludeParams['eqLogic']['configuration'] = ['createtime', 'updatetime', 'batterytime'];
-$excludeParams['scenario'] = ['description', 'display', 'trigger'];
+$excludeParams['scenario'] = ['description', 'display', 'trigger', 'scenarioElement'];
 
 //scan DB for keys, values, jsonValues:
 global $typePossibilities;
@@ -150,6 +150,7 @@ function scanDB($_table) {
 
   <!-- Edition part -->
   <div class="col-xs-12">
+    <hr class="hrPrimary">
     <legend><i class="fas fa-edit"></i> {{Edition}}</legend>
   </div>
 
