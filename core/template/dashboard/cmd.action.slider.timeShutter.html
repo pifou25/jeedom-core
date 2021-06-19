@@ -1,0 +1,86 @@
+<div class="cmd cmd-widget shuttergauge" data-type="action" data-subtype="numeric" data-template="timeShutter" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+  <div class="title #hide_name#">
+    <div class="cmdName">#name_display#</div>
+  </div>
+  <div class="content-sm" data-cmd_id="#id#">
+    <div class="shuttergauge-chart">
+      <div class="shuttergauge-bckg cursor">
+        <div class="shuttergauge-value"></div>
+      </div>
+      <div id="widget_slider#id#" class="slider"></div>
+    </div>
+  </div>
+  <div class="value" data-cmd_id="#id#">
+    <div class="state"><strong>#state#</strong> <strong>#unite#</strong></div>
+  </div>
+  <span class="timeCmd label label-default #value_history#" data-type="info" data-cmd_id="#value_id#"></span>
+  <template>
+    <div>color : rgb(20,20,20) ({{Couleur du curseur et valeur}})</div>
+    <div>time : date ({{Affiche l'info time sous forme de date}})</div>
+    <div>step : 0.5 ({{Pas utilisé pour le changement de valeur}})</div>
+  </template>
+  <script>
+    var step#id# = 1
+    if ($.issetWidgetOptParam('#step#', 'step')) {
+      step#id# = parseFloat('#step#')
+    }
+    var mySlider#id# = $.createWidgetSlider({
+      sliderDiv: document.getElementById('widget_slider#id#'),
+      vertical: true,
+      state: ('#state#' == '') ? #minValue# : '#state#',
+      min: #minValue#,
+      max: #maxValue#,
+      step: step#id#,
+      tooltips: true,
+      format: true,
+      unite: '#unite#'
+    })
+
+    if ($.issetWidgetOptParam('#color#', 'color')) {
+      $('.cmd[data-cmd_id=#id#]').find('div.shuttergauge-value').style('background', '#color#', 'important')
+      $(mySlider#id#.target).find('.noUi-handle').style('background', '#color#', 'important')
+      $(mySlider#id#.target).find('.noUi-connect').style('background', '#color#', 'important')
+    }
+
+    mySlider#id#.on('end', function(values, handle) {
+      var cmd = $('.cmd[data-cmd_uid=#uid#]')
+      if ('#invert#' == '1') {
+        var maxValue = ('#maxValue#' == '') ? 100 : parseInt('#maxValue#')
+        jeedom.cmd.execute({id: '#id#', value: {slider: maxValue - values[handle]}})
+      } else {
+        jeedom.cmd.execute({id: '#id#', value: {slider: values[handle]}})
+      }
+    })
+
+    jeedom.cmd.update['#id#'] = function(_options) {
+      var cmd = $('.cmd[data-cmd_uid=#uid#]')
+      jeedom.cmd.displayDuration(_options.valueDate, cmd.find('.timeCmd'), '#time#')
+
+      cmd.attr('title', '{{Date de valeur}} : '+_options.valueDate+'<br/>{{Date de collecte}} : '+_options.collectDate)
+      var position = _options.display_value
+      var minValue = ('#minValue#' == '') ? 0 : parseInt('#minValue#')
+      var maxValue = ('#maxValue#' == '') ? 100 : parseInt('#maxValue#')
+      if ('#invert#' == '1') {
+        position = maxValue - position
+      }
+      height_#uid# = ((position - minValue) * 100) / (maxValue - minValue)
+      height_#uid# = 100 - (Math.round(parseFloat(height_#uid#) * 10) / 10)
+      cmd.find('.shuttergauge-value').height(height_#uid#+'%')
+      cmd.find('.state strong').first().text(_options.display_value)
+      mySlider#id#.set(position)
+    }
+
+    $('.cmd[data-cmd_uid=#uid#] .shuttergauge-bckg').off().on('click', function() {
+      shutterPos = $('.cmd[data-cmd_uid=#uid#] .state strong').first().html()
+      var minValue = ('#minValue#' == '') ? 0 : parseInt('#minValue#')
+      var maxValue = ('#maxValue#' == '') ? 100 : parseInt('#maxValue#')
+      if (shutterPos > 50) {
+        jeedom.cmd.execute({id: '#id#', value: {slider: minValue}})
+      } else {
+        jeedom.cmd.execute({id: '#id#', value: {slider: maxValue}})
+      }
+    })
+
+    jeedom.cmd.update['#id#']({display_value: '#state#', valueDate: '#valueDate#', collectDate: '#collectDate#', alertLevel: '#alertLevel#'})
+  </script>
+</div>
