@@ -76,7 +76,7 @@ workflows:
     # and here we list the jobs we are going to run.
     jobs:
       # - phpstanjob
-      - phpdocjob
+      - phpdocjob:
           # add a filter for this job
           filters:
             # only run this job on phpdocs branch
