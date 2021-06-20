@@ -1,20 +1,7 @@
 <?php
-
-/* This file is part of Jeedom.
-*
-* Jeedom is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* Jeedom is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
-*/
+/**
+ * file cmd.class.php
+ */
 
 /* * ***************************Includes********************************* */
 require_once __DIR__ . '/../../core/php/core.inc.php';
@@ -24,33 +11,172 @@ Translate system scan core/template/dashboard files and set them in i18n all und
 -> translate::exec($string, 'core/template/widgets.html');
 */
 
+/**
+ * command is the base class for any action or information about objects.
+ * 
+ * command can be from 2 types: action or info (information)
+ * action can be slider, color picker, single switcher command, ans so on
+ * info can be either a boolean state, a slider value, ...
+ * EqLogic object contains one or many commands
+ * @see eqLogic
+ */
 class cmd {
 	/*     * *************************Attributs****************************** */
 	
+	/**
+	 * unique bdd Id for the entity
+	 * 
+	 * @var string
+	 */
 	protected $id;
+
+	/**
+	 * the logical Id
+	 * 
+	 * @var string
+	 */
 	protected $logicalId;
+
+	/**
+	 * optional generic type
+	 * 
+	 * @see https://doc.jeedom.com/fr_FR/concept/generic_type
+	 * @var string
+	 */
 	protected $generic_type;
+
+	/**
+	 * the eqLogic type
+	 * @see eqLogic
+	 * @var string
+	 */
 	protected $eqType;
+
+	/**
+	 * the command name
+	 * @var string
+	 */
 	protected $name;
+
+	/**
+	 * the command order
+	 * @var int
+	 */
 	protected $order;
+
+	/**
+	 * the command type: action or info
+	 * @var string
+	 */
 	protected $type;
+
+	/**
+	 * the command subType: 
+	 * 
+	 * for action: default, cursor, message, color, liste
+	 * for info: binary, numeric, other
+	 * @var string
+	 */
 	protected $subType;
+
+	/**
+	 * the eqLogic Id of this command
+	 * @var string
+	 */
 	protected $eqLogic_id;
+
+	/**
+	 * if the command is historized or not ( 0 / 1 )
+	 * @var int
+	 */
 	protected $isHistorized = 0;
+
+	/**
+	 * optional value of the measure for information command
+	 * @var string
+	 */
 	protected $unite = '';
+
+	/**
+	 * specific configuration for the command
+	 * @var array
+	 */
 	protected $configuration;
+
+	/**
+	 * the template
+	 * @var string
+	 */
 	protected $template;
+
+	/**
+	 * string or json encoded string
+	 * @var string
+	 */
 	protected $display;
+
+	/**
+	 * the value for an info command
+	 * @var mixed
+	 */
 	protected $value = null;
+
+	/**
+	 * if the command is visible on dashboard ( 0 / 1 )
+	 * @var int
+	 */
 	protected $isVisible = 1;
+
+	/**
+	 * 
+	 */
 	protected $alert;
+
+	/**
+	 * the date time of the collected value
+	 * @var string
+	 */
 	protected $_collectDate = '';
+
+	/**
+	 * the date time of the current value
+	 * @var string
+	 */
 	protected $_valueDate = '';
+
+	/**
+	 * the related eqLogic object
+	 * @var eqLogic
+	 */
 	protected $_eqLogic = null;
+
+	/**
+	 * if the related widget need to be refreshed
+	 * @var bool
+	 */
 	protected $_needRefreshWidget;
+
+	/**
+	 * if the need to generate an alert when refreshed ?
+	 */
 	protected $_needRefreshAlert;
+
+	/**
+	 * the 'dirty' state of the command
+	 * @var bool
+	 */
 	protected $_changed = false;
+
+	/**
+	 * the template array ?
+	 * @var string
+	 */
 	private static $_templateArray = array();
+
+	/**
+	 * array with conversions values
+	 * @var array[]
+	 */
 	private static $_unite_conversion = array(
 		'*W'=> array(1000,'W','kW','MW'),
 		'*io'=> array(1024,'io','Kio','Mio','Gio','Tio'),
@@ -61,6 +187,13 @@ class cmd {
 	);
 	/*     * ***********************Méthodes statiques*************************** */
 	
+	/**
+	 * cast any object into the current class child of cmd
+	 *
+	 * @param object $_inputs object to cast
+	 * @param eqLogic $_eqLogic the eqLogic related object
+	 * @return the command object casted into child of cmd class
+	 */
 	private static function cast($_inputs, $_eqLogic = null) {
 		if (is_object($_inputs) && class_exists($_inputs->getEqType() . 'Cmd')) {
 			if ($_eqLogic !== null) {
@@ -85,6 +218,12 @@ class cmd {
 		return $_inputs;
 	}
 	
+	/**
+	 * get any command by Id
+	 * 
+	 * @param string $_id the database Id
+	 * @return cmd
+	 */
 	public static function byId($_id) {
 		if ($_id == '') {
 			return;
@@ -98,6 +237,12 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get some commands by Id
+	 *
+	 * @param string[] $_ids list of Id from db
+	 * @return cmd[]
+	 */
 	public static function byIds($_ids) {
 		if (!is_array($_ids) || count($_ids) == 0) {
 			return;
@@ -111,6 +256,11 @@ class cmd {
 		}
 	}
 	
+	/**
+	 * get all cmd without any filter
+	 *
+	 * @return cmd[]
+	 */
 	public static function all() {
 		$sql = 'SELECT ' . DB::buildField(__CLASS__) . '
 		FROM cmd
@@ -118,6 +268,12 @@ class cmd {
 		return self::cast(DB::Prepare($sql, array(), DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get every historized or *not historized* commands
+	 *
+	 * @param bool $_state
+	 * @return cmd[]
+	 */
 	public static function isHistorized($_state = true) {
 		$values = array(
 			'isHistorized' => ($_state) ? 1 : 0
@@ -129,6 +285,11 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get every historized 'info' commands
+	 *
+	 * @return cmd[]
+	 */
 	public static function allHistoryCmd() {
 		$sql = 'SELECT ' . DB::buildField(__CLASS__, 'c') . '
 		FROM cmd c
@@ -149,6 +310,16 @@ class cmd {
 		return array_merge($result1, $result2);
 	}
 	
+	/**
+	 * get every command from a given eqLogic object
+	 *
+	 * @param string|string[] $_eqLogic_id or list of eqLogic Id
+	 * @param string $_type optional command type (info or action)
+	 * @param int $_visible
+	 * @param eqLogic $_eqLogic
+	 * @param bool $_has_generic_type
+	 * @return cmd[]
+	 */
 	public static function byEqLogicId($_eqLogic_id, $_type = null, $_visible = null, $_eqLogic = null, $_has_generic_type = null) {
 		$values = array();
 		if (is_array($_eqLogic_id)) {
@@ -177,6 +348,13 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__), $_eqLogic);
 	}
 	
+	/**
+	 * get commands by logical Id
+	 *
+	 * @param string $_logical_id
+	 * @param string $_type
+	 * @return cmd[]
+	 */
 	public static function byLogicalId($_logical_id, $_type = null) {
 		$values = array(
 			'logicalId' => $_logical_id,
@@ -1049,11 +1227,12 @@ class cmd {
 	}
 	
 	/**
+	* Execute command action or info.
 	*
-	* @param type $_options
-	* @param type $_sendNodeJsEvent
-	* @param type $_quote
-	* @return command result
+	* @param string $_options : string or Json encoded string.
+	* @param bool $_sendNodeJsEvent = false TODO: unused parameter
+	* @param bool $_quote
+	* @return mixed the command result
 	* @throws Exception
 	*/
 	public function execCmd($_options = null, $_sendNodeJsEvent = false, $_quote = false) {
@@ -2014,7 +2193,7 @@ class cmd {
 			return $point;
 		}
 		
-		public function getInflux($_cmdId=null) {
+		public static function getInflux($_cmdId=null) {
 			try{
 				if ($_cmdId){
 					$cmd=cmd::byId($_cmdId);
@@ -2096,6 +2275,7 @@ class cmd {
 		}
 		
 		public function historyInfluxAll (){
+			// TODO change to non static call because historyInflux require $this
 			cmd::historyInflux('all');
 		}
 		
