@@ -2,6 +2,8 @@
 
 /**
  * translate.class.php
+ * @package com.jeedom.core
+ * @filesource
  */
 
  require_once __DIR__ . '/../php/core.inc.php';

@@ -1,6 +1,8 @@
 <?php
 /**
  * file cmd.class.php
+ * @package com.jeedom.core
+ * @filesource
  */
 
 /* * ***************************Includes********************************* */

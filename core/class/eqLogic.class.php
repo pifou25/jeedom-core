@@ -1,6 +1,8 @@
 <?php
 /**
  * eqLogic.class.php
+ * @package com.jeedom.core
+ * @filesource
  */
 
 require_once __DIR__ . '/../../core/php/core.inc.php';
