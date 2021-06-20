@@ -130,14 +130,14 @@
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_all" title="all :: ">
-            <span class="description"></span><pre>all</pre>
+        <a href="#method_all" title="all :: get all cmd without any filter">
+            <span class="description">get all cmd without any filter</span><pre>all</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_allHistoryCmd" title="allHistoryCmd :: ">
-            <span class="description"></span><pre>allHistoryCmd</pre>
+        <a href="#method_allHistoryCmd" title="allHistoryCmd :: get every historized &#039;info&#039; commands">
+            <span class="description">get every historized &#039;info&#039; commands</span><pre>allHistoryCmd</pre>
         </a>
     </li>
 
@@ -178,8 +178,8 @@
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_byEqLogicId" title="byEqLogicId :: ">
-            <span class="description"></span><pre>byEqLogicId</pre>
+        <a href="#method_byEqLogicId" title="byEqLogicId :: get every command from a given eqLogic object">
+            <span class="description">get every command from a given eqLogic object</span><pre>byEqLogicId</pre>
         </a>
     </li>
 
@@ -208,20 +208,20 @@
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_byId" title="byId :: ">
-            <span class="description"></span><pre>byId</pre>
+        <a href="#method_byId" title="byId :: get any command by Id">
+            <span class="description">get any command by Id</span><pre>byId</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_byIds" title="byIds :: ">
-            <span class="description"></span><pre>byIds</pre>
+        <a href="#method_byIds" title="byIds :: get some commands by Id">
+            <span class="description">get some commands by Id</span><pre>byIds</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_byLogicalId" title="byLogicalId :: ">
-            <span class="description"></span><pre>byLogicalId</pre>
+        <a href="#method_byLogicalId" title="byLogicalId :: get commands by logical Id">
+            <span class="description">get commands by logical Id</span><pre>byLogicalId</pre>
         </a>
     </li>
 
@@ -364,8 +364,8 @@
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_execCmd" title="execCmd :: ">
-            <span class="description"></span><pre>execCmd</pre>
+        <a href="#method_execCmd" title="execCmd :: Execute command action or info.">
+            <span class="description">Execute command action or info.</span><pre>execCmd</pre>
         </a>
     </li>
 
@@ -688,8 +688,8 @@
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_isHistorized" title="isHistorized :: ">
-            <span class="description"></span><pre>isHistorized</pre>
+        <a href="#method_isHistorized" title="isHistorized :: get every historized or *not historized* commands">
+            <span class="description">get every historized or *not historized* commands</span><pre>isHistorized</pre>
         </a>
     </li>
 
@@ -941,8 +941,8 @@
                             </a>
                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <li class="method private">
-                            <a href="#method_cast" title="cast :: ">
-                                <span class="description"></span><pre>cast</pre>
+                            <a href="#method_cast" title="cast :: cast any object into the current class child of cmd">
+                                <span class="description">cast any object into the current class child of cmd</span><pre>cast</pre>
                             </a>
                         </li>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <li class="method private">
@@ -967,13 +967,25 @@
                 <h1>cmd</h1>
                 <small style="display: block; text-align: right">
                                                         </small>
-                <p class="short_description"></p>
+                <p class="short_description">command is the base class for any action or information about objects.</p>
                 <div class="details">
                     <div class="long_description">
-                        
+                        <p>command can be from 2 types: action or info (information)
+action can be slider, color picker, single switcher command, ans so on
+info can be either a boolean state, a slider value, ...
+EqLogic object contains one or many commands</p>
                     </div>
                     <table class="table table-bordered">
                                                                                     <tr>
+                                    <th>
+                                        see
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
                                     <th>
                                         package
                                                                             </th>
@@ -1073,8 +1085,8 @@
                         </div>
                                             <a id="method_all"></a>
                         <div class="element clickable method public  method_all" data-toggle="collapse" data-target=".method_all .collapse">
-                            <h2>all</h2>
-                            <pre>all() </pre>
+                            <h2>get all cmd without any filter</h2>
+                            <pre>all() : array&lt;mixed,\cmd&gt;</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -1091,24 +1103,19 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                     
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/cmd.html">\cmd</a>&gt;</code><p></p>
                                                                     </div>
                             </div>
 
                         </div>
                                             <a id="method_allHistoryCmd"></a>
                         <div class="element clickable method public  method_allHistoryCmd" data-toggle="collapse" data-target=".method_allHistoryCmd .collapse">
-                            <h2>allHistoryCmd</h2>
-                            <pre>allHistoryCmd() </pre>
+                            <h2>get every historized &#039;info&#039; commands</h2>
+                            <pre>allHistoryCmd() : array&lt;mixed,\cmd&gt;</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -1125,16 +1132,11 @@
                                                 <td>
                                                                                                     </td>
                                             </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                     
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/cmd.html">\cmd</a>&gt;</code><p></p>
                                                                     </div>
                             </div>
 
@@ -1424,8 +1426,8 @@
                         </div>
                                             <a id="method_byEqLogicId"></a>
                         <div class="element clickable method public  method_byEqLogicId" data-toggle="collapse" data-target=".method_byEqLogicId .collapse">
-                            <h2>byEqLogicId</h2>
-                            <pre>byEqLogicId( $_eqLogic_id,  $_type = null,  $_visible = null,  $_eqLogic = null,  $_has_generic_type = null) </pre>
+                            <h2>get every command from a given eqLogic object</h2>
+                            <pre>byEqLogicId(string|array&lt;mixed,string&gt; $_eqLogic_id, string $_type = null, integer $_visible = null, \eqLogic $_eqLogic = null, boolean $_has_generic_type = null) : array&lt;mixed,\cmd&gt;</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -1435,44 +1437,32 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$_eqLogic_id</h4>
-                                                <code></code><p></p>
+                                                <code>string|array&lt;mixed,string&gt;</code><p><p>or list of eqLogic Id</p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_type</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p><p>optional command type (info or action)</p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_visible</h4>
-                                                <code></code><p></p>
+                                                <code>integer</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_eqLogic</h4>
-                                                <code></code><p></p>
+                                                <code><a href="../classes/eqLogic.html">\eqLogic</a></code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_has_generic_type</h4>
-                                                <code></code><p></p>
+                                                <code>boolean</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/cmd.html">\cmd</a>&gt;</code><p></p>
                                                                     </div>
                             </div>
 
@@ -1671,8 +1661,8 @@
                         </div>
                                             <a id="method_byId"></a>
                         <div class="element clickable method public  method_byId" data-toggle="collapse" data-target=".method_byId .collapse">
-                            <h2>byId</h2>
-                            <pre>byId( $_id) </pre>
+                            <h2>get any command by Id</h2>
+                            <pre>byId(string $_id) : \cmd</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -1682,36 +1672,24 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$_id</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p><p>the database Id</p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/cmd.html">\cmd</a></code><p></p>
                                                                     </div>
                             </div>
 
                         </div>
                                             <a id="method_byIds"></a>
                         <div class="element clickable method public  method_byIds" data-toggle="collapse" data-target=".method_byIds .collapse">
-                            <h2>byIds</h2>
-                            <pre>byIds( $_ids) </pre>
+                            <h2>get some commands by Id</h2>
+                            <pre>byIds(array&lt;mixed,string&gt; $_ids) : array&lt;mixed,\cmd&gt;</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -1721,36 +1699,24 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$_ids</h4>
-                                                <code></code><p></p>
+                                                <code>array&lt;mixed,string&gt;</code><p><p>list of Id from db</p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/cmd.html">\cmd</a>&gt;</code><p></p>
                                                                     </div>
                             </div>
 
                         </div>
                                             <a id="method_byLogicalId"></a>
                         <div class="element clickable method public  method_byLogicalId" data-toggle="collapse" data-target=".method_byLogicalId .collapse">
-                            <h2>byLogicalId</h2>
-                            <pre>byLogicalId( $_logical_id,  $_type = null) </pre>
+                            <h2>get commands by logical Id</h2>
+                            <pre>byLogicalId(string $_logical_id, string $_type = null) : array&lt;mixed,\cmd&gt;</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -1760,32 +1726,20 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$_logical_id</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_type</h4>
-                                                <code></code><p></p>
+                                                <code>string</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/cmd.html">\cmd</a>&gt;</code><p></p>
                                                                     </div>
                             </div>
 
@@ -2058,8 +2012,8 @@
                         </div>
                                             <a id="method_cast"></a>
                         <div class="element clickable method private  method_cast" data-toggle="collapse" data-target=".method_cast .collapse">
-                            <h2>cast</h2>
-                            <pre>cast( $_inputs,  $_eqLogic = null) </pre>
+                            <h2>cast any object into the current class child of cmd</h2>
+                            <pre>cast(object $_inputs, \eqLogic $_eqLogic = null) : \the</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -2069,32 +2023,20 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$_inputs</h4>
-                                                <code></code><p></p>
+                                                <code>object</code><p><p>object to cast</p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_eqLogic</h4>
-                                                <code></code><p></p>
+                                                <code><a href="../classes/eqLogic.html">\eqLogic</a></code><p><p>the eqLogic related object</p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>\the</code><p><p>command object casted into child of cmd class</p></p>
                                                                     </div>
                             </div>
 
@@ -2768,8 +2710,8 @@
                         </div>
                                             <a id="method_execCmd"></a>
                         <div class="element clickable method public  method_execCmd" data-toggle="collapse" data-target=".method_execCmd .collapse">
-                            <h2>execCmd</h2>
-                            <pre>execCmd(\type $_options = null, \type $_sendNodeJsEvent = false, \type $_quote = false) : \command</pre>
+                            <h2>Execute command action or info.</h2>
+                            <pre>execCmd(string $_options = null, boolean $_sendNodeJsEvent = false, boolean $_quote = false) : mixed</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -2793,19 +2735,19 @@
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$_options</h4>
-                                                <code>\type</code><p></p>
+                                                <code>string</code><p><p>: string or Json encoded string.</p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_sendNodeJsEvent</h4>
-                                                <code>\type</code><p></p>
+                                                <code>boolean</code><p><p>= false TODO: unused parameter</p></p>
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$_quote</h4>
-                                                <code>\type</code><p></p>
+                                                <code>boolean</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>\command</code><p><p>result</p></p>
+                                        <code>mixed</code><p><p>the command result</p></p>
                                                                     </div>
                             </div>
 
@@ -3716,7 +3658,7 @@
                             <h2>getInflux</h2>
                             <pre>getInflux( $_cmdId = null) </pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                                                <span class="label">static</span>                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -4821,8 +4763,8 @@
                         </div>
                                             <a id="method_isHistorized"></a>
                         <div class="element clickable method public  method_isHistorized" data-toggle="collapse" data-target=".method_isHistorized .collapse">
-                            <h2>isHistorized</h2>
-                            <pre>isHistorized( $_state = true) </pre>
+                            <h2>get every historized or *not historized* commands</h2>
+                            <pre>isHistorized(boolean $_state = true) : array&lt;mixed,\cmd&gt;</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -4832,28 +4774,16 @@
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$_state</h4>
-                                                <code></code><p></p>
+                                                <code>boolean</code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>array&lt;mixed,<a href="../classes/cmd.html">\cmd</a>&gt;</code><p></p>
                                                                     </div>
                             </div>
 
@@ -6461,8 +6391,8 @@
                                                                 <h3><i class="icon-custom icon-property"></i> Properties</h3>
                                                     <a id="property_id"> </a>
                             <div class="element clickable property  protected property_id" data-toggle="collapse" data-target=".property_id .collapse">
-                                <h2>id</h2>
-                                <pre>id : </pre>
+                                <h2>unique bdd Id for the entity</h2>
+                                <pre>id : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6472,22 +6402,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_logicalId"> </a>
                             <div class="element clickable property  protected property_logicalId" data-toggle="collapse" data-target=".property_logicalId .collapse">
-                                <h2>logicalId</h2>
-                                <pre>logicalId : </pre>
+                                <h2>the logical Id</h2>
+                                <pre>logicalId : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6497,22 +6428,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_generic_type"> </a>
                             <div class="element clickable property  protected property_generic_type" data-toggle="collapse" data-target=".property_generic_type .collapse">
-                                <h2>generic_type</h2>
-                                <pre>generic_type : </pre>
+                                <h2>optional generic type</h2>
+                                <pre>generic_type : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6522,22 +6454,31 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        see
                                                     </th>
                                                     <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_eqType"> </a>
                             <div class="element clickable property  protected property_eqType" data-toggle="collapse" data-target=".property_eqType .collapse">
-                                <h2>eqType</h2>
-                                <pre>eqType : </pre>
+                                <h2>the eqLogic type</h2>
+                                <pre>eqType : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6547,22 +6488,31 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        see
                                                     </th>
                                                     <td>
+                                                                                                                    
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_name"> </a>
                             <div class="element clickable property  protected property_name" data-toggle="collapse" data-target=".property_name .collapse">
-                                <h2>name</h2>
-                                <pre>name : </pre>
+                                <h2>the command name</h2>
+                                <pre>name : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6572,22 +6522,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_order"> </a>
                             <div class="element clickable property  protected property_order" data-toggle="collapse" data-target=".property_order .collapse">
-                                <h2>order</h2>
-                                <pre>order : </pre>
+                                <h2>the command order</h2>
+                                <pre>order : integer</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6597,22 +6548,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>integer</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_type"> </a>
                             <div class="element clickable property  protected property_type" data-toggle="collapse" data-target=".property_type .collapse">
-                                <h2>type</h2>
-                                <pre>type : </pre>
+                                <h2>the command type: action or info</h2>
+                                <pre>type : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6622,47 +6574,50 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_subType"> </a>
                             <div class="element clickable property  protected property_subType" data-toggle="collapse" data-target=".property_subType .collapse">
-                                <h2>subType</h2>
-                                <pre>subType : </pre>
+                                <h2>the command subType:</h2>
+                                <pre>subType : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
                                     <div class="detail-description">
-                                        <div class="long_description"></div>
+                                        <div class="long_description"><p>for action: default, cursor, message, color, liste
+for info: binary, numeric, other</p></div>
 
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_eqLogic_id"> </a>
                             <div class="element clickable property  protected property_eqLogic_id" data-toggle="collapse" data-target=".property_eqLogic_id .collapse">
-                                <h2>eqLogic_id</h2>
-                                <pre>eqLogic_id : </pre>
+                                <h2>the eqLogic Id of this command</h2>
+                                <pre>eqLogic_id : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6672,22 +6627,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_isHistorized"> </a>
                             <div class="element clickable property  protected property_isHistorized" data-toggle="collapse" data-target=".property_isHistorized .collapse">
-                                <h2>isHistorized</h2>
-                                <pre>isHistorized : </pre>
+                                <h2>if the command is historized or not ( 0 / 1 )</h2>
+                                <pre>isHistorized : integer</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6697,22 +6653,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>integer</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_unite"> </a>
                             <div class="element clickable property  protected property_unite" data-toggle="collapse" data-target=".property_unite .collapse">
-                                <h2>unite</h2>
-                                <pre>unite : </pre>
+                                <h2>optional value of the measure for information command</h2>
+                                <pre>unite : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6722,22 +6679,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_configuration"> </a>
                             <div class="element clickable property  protected property_configuration" data-toggle="collapse" data-target=".property_configuration .collapse">
-                                <h2>configuration</h2>
-                                <pre>configuration : </pre>
+                                <h2>specific configuration for the command</h2>
+                                <pre>configuration : array</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6747,22 +6705,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>array</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_template"> </a>
                             <div class="element clickable property  protected property_template" data-toggle="collapse" data-target=".property_template .collapse">
-                                <h2>template</h2>
-                                <pre>template : </pre>
+                                <h2>the template</h2>
+                                <pre>template : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6772,22 +6731,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_display"> </a>
                             <div class="element clickable property  protected property_display" data-toggle="collapse" data-target=".property_display .collapse">
-                                <h2>display</h2>
-                                <pre>display : </pre>
+                                <h2>string or json encoded string</h2>
+                                <pre>display : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6797,22 +6757,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_value"> </a>
                             <div class="element clickable property  protected property_value" data-toggle="collapse" data-target=".property_value .collapse">
-                                <h2>value</h2>
-                                <pre>value : </pre>
+                                <h2>the value for an info command</h2>
+                                <pre>value : mixed</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6822,22 +6783,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>mixed</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_isVisible"> </a>
                             <div class="element clickable property  protected property_isVisible" data-toggle="collapse" data-target=".property_isVisible .collapse">
-                                <h2>isVisible</h2>
-                                <pre>isVisible : </pre>
+                                <h2>if the command is visible on dashboard ( 0 / 1 )</h2>
+                                <pre>isVisible : integer</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6847,15 +6809,16 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>integer</code>
                                                                             </div>
                                 </div>
                             </div>
@@ -6886,8 +6849,8 @@
                             </div>
                                                     <a id="property__collectDate"> </a>
                             <div class="element clickable property  protected property__collectDate" data-toggle="collapse" data-target=".property__collectDate .collapse">
-                                <h2>_collectDate</h2>
-                                <pre>_collectDate : </pre>
+                                <h2>the date time of the collected value</h2>
+                                <pre>_collectDate : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6897,22 +6860,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property__valueDate"> </a>
                             <div class="element clickable property  protected property__valueDate" data-toggle="collapse" data-target=".property__valueDate .collapse">
-                                <h2>_valueDate</h2>
-                                <pre>_valueDate : </pre>
+                                <h2>the date time of the current value</h2>
+                                <pre>_valueDate : string</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6922,22 +6886,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property__eqLogic"> </a>
                             <div class="element clickable property  protected property__eqLogic" data-toggle="collapse" data-target=".property__eqLogic .collapse">
-                                <h2>_eqLogic</h2>
-                                <pre>_eqLogic : </pre>
+                                <h2>the related eqLogic object</h2>
+                                <pre>_eqLogic : \eqLogic</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6947,22 +6912,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code><a href="../classes/eqLogic.html">\eqLogic</a></code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property__needRefreshWidget"> </a>
                             <div class="element clickable property  protected property__needRefreshWidget" data-toggle="collapse" data-target=".property__needRefreshWidget .collapse">
-                                <h2>_needRefreshWidget</h2>
-                                <pre>_needRefreshWidget : </pre>
+                                <h2>if the related widget need to be refreshed</h2>
+                                <pre>_needRefreshWidget : boolean</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -6972,21 +6938,22 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>boolean</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property__needRefreshAlert"> </a>
                             <div class="element clickable property  protected property__needRefreshAlert" data-toggle="collapse" data-target=".property__needRefreshAlert .collapse">
-                                <h2>_needRefreshAlert</h2>
+                                <h2>if the need to generate an alert when refreshed ?</h2>
                                 <pre>_needRefreshAlert : </pre>
                                 <div class="labels">
                                                                                                         </div>
@@ -7011,8 +6978,8 @@
                             </div>
                                                     <a id="property__changed"> </a>
                             <div class="element clickable property  protected property__changed" data-toggle="collapse" data-target=".property__changed .collapse">
-                                <h2>_changed</h2>
-                                <pre>_changed : </pre>
+                                <h2>the &#039;dirty&#039; state of the command</h2>
+                                <pre>_changed : boolean</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -7022,22 +6989,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>boolean</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property__templateArray"> </a>
                             <div class="element clickable property  private property__templateArray" data-toggle="collapse" data-target=".property__templateArray .collapse">
-                                <h2>_templateArray</h2>
-                                <pre>_templateArray : </pre>
+                                <h2>the template array ?</h2>
+                                <pre>_templateArray : string</pre>
                                 <div class="labels">
                                                                         <span class="label">static</span>                                </div>
                                 <div class="row collapse">
@@ -7047,22 +7015,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property__unite_conversion"> </a>
                             <div class="element clickable property  private property__unite_conversion" data-toggle="collapse" data-target=".property__unite_conversion .collapse">
-                                <h2>_unite_conversion</h2>
-                                <pre>_unite_conversion : </pre>
+                                <h2>array with conversions values</h2>
+                                <pre>_unite_conversion : array&lt;mixed,array&gt;</pre>
                                 <div class="labels">
                                                                         <span class="label">static</span>                                </div>
                                 <div class="row collapse">
@@ -7072,15 +7041,16 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>array&lt;mixed,array&gt;</code>
                                                                             </div>
                                 </div>
                             </div>
@@ -7104,7 +7074,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Sun, 20 Jun 2021 10:56:13 +0000.<br/>
+            generated on Sun, 20 Jun 2021 21:36:11 +0000.<br/>
     </footer>
     </body>
 </html>
