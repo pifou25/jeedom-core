@@ -23,7 +23,8 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       # This prints "A first hello" to stdout.
       - run: echo "Hello into Phpdoc container !" $(pwd)
       # generate phpdoc from /app into /phpdocs ignore vendor and tests folders
-      - run: phpdoc -d src -t phpdocs --ignore "vendor/,tests/,install/update" --template="responsive-twig" --defaultpackagename Jeedom --title "Jeedom Core"
+      # --template="responsive-twig"
+      - run: phpdoc -d src -t phpdocs --ignore "vendor/,tests/,install/update" --defaultpackagename "com.jeedom.core" --title "Jeedom Core"
       - run: ls -als
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory

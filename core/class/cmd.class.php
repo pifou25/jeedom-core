@@ -3,9 +3,12 @@
  * file cmd.class.php
  * @package com.jeedom.core
  * @filesource
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU GPL
  */
 
-/* * ***************************Includes********************************* */
+/**
+ * include core
+ */
 require_once __DIR__ . '/../../core/php/core.inc.php';
 
 /*
@@ -16,9 +19,10 @@ Translate system scan core/template/dashboard files and set them in i18n all und
 /**
  * command is the base class for any action or information about objects.
  * 
- * command can be from 2 types: action or info (information)
- * action can be slider, color picker, single switcher command, ans so on
- * info can be either a boolean state, a slider value, ...
+ * command can be from 2 types: action or info (information).
+ * * action can be slider, color picker, single switcher command, ans so on
+ * * info can be either a boolean state, a slider value, ...
+ * 
  * EqLogic object contains one or many commands
  * @see eqLogic
  */
@@ -48,7 +52,7 @@ class cmd {
 	protected $generic_type;
 
 	/**
-	 * the eqLogic type
+	 * the eqLogic type.
 	 * @see eqLogic
 	 * @var string
 	 */
@@ -56,18 +60,21 @@ class cmd {
 
 	/**
 	 * the command name
+	 * 
 	 * @var string
 	 */
 	protected $name;
 
 	/**
 	 * the command order
+	 * 
 	 * @var int
 	 */
 	protected $order;
 
 	/**
 	 * the command type: action or info
+	 * 
 	 * @var string
 	 */
 	protected $type;
@@ -75,8 +82,8 @@ class cmd {
 	/**
 	 * the command subType: 
 	 * 
-	 * for action: default, cursor, message, color, liste
-	 * for info: binary, numeric, other
+	 * * for action: default, cursor, message, color, liste
+	 * * for info: binary, numeric, other
 	 * @var string
 	 */
 	protected $subType;
@@ -130,7 +137,7 @@ class cmd {
 	protected $isVisible = 1;
 
 	/**
-	 * 
+	 * TODO describe what is $alert. type ?
 	 */
 	protected $alert;
 
@@ -372,6 +379,14 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get every commands by generic type filter
+	 *
+	 * @param string|string[] $_generic_type
+	 * @param string $_eqLogic_id filter also with eqLogid Id
+	 * @param bool $_one to get only the first fetched element
+	 * @return cmd|cmd[]
+	 */
 	public static function byGenericType($_generic_type, $_eqLogic_id = null, $_one = false) {
 		if (is_array($_generic_type)) {
 			$in = '';
@@ -401,6 +416,12 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * generic search by string upon eqType or logicalId or generic type or name
+	 *
+	 * @param string $_search
+	 * @return cmd[]
+	 */
 	public static function searchByString($_search) {
 		$values = array(
 			'search' => '%'.$_search.'%'
@@ -411,6 +432,13 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * search commands by their configuration options
+	 *
+	 * @param string $_configuration
+	 * @param string $_eqType
+	 * @return cmd[]
+	 */
 	public static function searchConfiguration($_configuration, $_eqType = null) {
 		if (!is_array($_configuration)) {
 			$values = array(
@@ -439,6 +467,13 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * Search commands by display text
+	 *
+	 * @param string $_display
+	 * @param string $_eqType
+	 * @return cmd[]
+	 */
 	public static function searchDisplay($_display, $_eqType = null) {
 		if (!is_array($_display)) {
 			$values = array(
@@ -467,6 +502,14 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get every commands from any eqLogic Id, having some specific configuration
+	 *
+	 * @param string $_eqLogic_id
+	 * @param string $_configuration
+	 * @param string $_type
+	 * @return cmd[]
+	 */
 	public static function searchConfigurationEqLogic($_eqLogic_id, $_configuration, $_type = null) {
 		$values = array(
 			'configuration' => '%' . $_configuration . '%',
@@ -483,6 +526,15 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * search commands with some template text
+	 *
+	 * @param string $_template
+	 * @param string $_eqType
+	 * @param string $_type
+	 * @param string $_subtype
+	 * @return cmd[]
+	 */
 	public static function searchTemplate($_template, $_eqType = null, $_type = null, $_subtype = null) {
 		$values = array(
 			'template' => '%' . $_template . '%',
@@ -506,6 +558,15 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get every commands by eqLogic Id and logical Id
+	 *
+	 * @param string $_eqLogic_id
+	 * @param string $_logicalId
+	 * @param bool $_multiple
+	 * @param string $_type
+	 * @return cmd[]
+	 */
 	public static function byEqLogicIdAndLogicalId($_eqLogic_id, $_logicalId, $_multiple = false, $_type = null) {
 		$values = array(
 			'eqLogic_id' => $_eqLogic_id,
@@ -525,6 +586,15 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get commands by eqLogic Id and generic type
+	 *
+	 * @param string $_eqLogic_id
+	 * @param string $_generic_type
+	 * @param bool $_multiple
+	 * @param string $_type is 'info' or 'action'
+	 * @return cmd[]
+	 */
 	public static function byEqLogicIdAndGenericType($_eqLogic_id, $_generic_type, $_multiple = false, $_type = null) {
 		$values = array(
 			'eqLogic_id' => $_eqLogic_id,
@@ -544,6 +614,14 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * search for commands by their values
+	 *
+	 * @param string $_value
+	 * @param string $_type
+	 * @param bool $_onlyEnable
+	 * @return cmd[]
+	 */
 	public static function byValue($_value, $_type = null, $_onlyEnable = false) {
 		$values = array(
 			'value' => $_value,
@@ -576,6 +654,14 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get commands by eqLogic name and command name
+	 *
+	 * @param string $_eqType_name
+	 * @param string $_eqLogic_name
+	 * @param string $_cmd_name
+	 * @return cmd[]
+	 */
 	public static function byTypeEqLogicNameCmdName($_eqType_name, $_eqLogic_name, $_cmd_name) {
 		$values = array(
 			'eqType_name' => $_eqType_name,
@@ -591,6 +677,13 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get commands by eqLogic Id and command name
+	 *
+	 * @param string $_eqLogic_id
+	 * @param string $_cmd_name
+	 * @return cmd[]
+	 */
 	public static function byEqLogicIdCmdName($_eqLogic_id, $_cmd_name) {
 		$values = array(
 			'eqLogic_id' => $_eqLogic_id,
@@ -603,6 +696,14 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get commands by object name and eqLogic name and command name
+	 *
+	 * @param string $_object_name
+	 * @param string $_eqLogic_name
+	 * @param string $_cmd_name
+	 * @return cmd[]
+	 */
 	public static function byObjectNameEqLogicNameCmdName($_object_name, $_eqLogic_name, $_cmd_name) {
 		$values = array(
 			'eqLogic_name' => $_eqLogic_name,
@@ -629,6 +730,13 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * get commands by object name and command name
+	 *
+	 * @param string $_object_name
+	 * @param string $_cmd_name
+	 * @return cmd[]
+	 */
 	public static function byObjectNameCmdName($_object_name, $_cmd_name) {
 		$values = array(
 			'object_name' => $_object_name,
@@ -643,6 +751,13 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * search commands by type and subType
+	 *
+	 * @param string $_type
+	 * @param string $_subType
+	 * @return cmd[]
+	 */
 	public static function byTypeSubType($_type, $_subType = '') {
 		$values = array(
 			'type' => $_type,
@@ -657,6 +772,12 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 	
+	/**
+	 * convert command object into human readable text
+	 *
+	 * @param cmd $_input
+	 * @return string
+	 */
 	public static function cmdToHumanReadable($_input) {
 		if (is_object($_input)) {
 			$reflections = array();
@@ -694,6 +815,12 @@ class cmd {
 		return str_replace(array_keys($replace), $replace, $_input);
 	}
 	
+	/**
+	 * convert json encoded data into cmd object
+	 *
+	 * @param string $_input
+	 * @return array|string
+	 */
 	public static function humanReadableToCmd($_input) {
 		$isJson = false;
 		if (is_json($_input)) {
@@ -747,6 +874,12 @@ class cmd {
 		return str_replace(array_keys($replace), $replace, $_input);
 	}
 	
+	/**
+	 * get command by Id, replacing input string by human-readable-to-command value
+	 *
+	 * @param string $_string
+	 * @return cmd
+	 */
 	public static function byString($_string) {
 		$cmd = self::byId(str_replace('#', '', self::humanReadableToCmd($_string)));
 		if (!is_object($cmd)) {

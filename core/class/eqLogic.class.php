@@ -3,8 +3,12 @@
  * eqLogic.class.php
  * @package com.jeedom.core
  * @filesource
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU GPL
  */
 
+/**
+ * include core
+ */
 require_once __DIR__ . '/../../core/php/core.inc.php';
 
 
