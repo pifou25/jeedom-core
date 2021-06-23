@@ -1778,7 +1778,7 @@ class cmd
 	/**
 	 * get the widget template HTML
 	 *
-	 * @uses widgets::byTypeSubtypeAndName Name
+	 * @uses widgets::byTypeSubtypeAndName
 	 * @param string $_version (dashboard|mobile)
 	 * @param bool $_clean
 	 * @param string $_widgetName
