@@ -2355,6 +2355,12 @@ class cmd
 		}
 	}
 
+	/**
+	 * execute alerte command action
+	 * 
+	 * @uses scenarioExpression::createAndExec()
+	 * @return void
+	 */
 	public function executeAlertCmdAction()
 	{
 		if (!is_array($this->getConfiguration('actionCheckCmd'))) {
@@ -2373,6 +2379,18 @@ class cmd
 		}
 	}
 
+	/**
+	 * check action alert level
+	 *
+	 * @uses jeedom::evaluateExpression()
+	 * @uses cron::byClassAndFunction()
+	 * @global $JEEDOM_INTERNAL_CONFIG
+	 * 
+	 * @param array|string $_value
+	 * @param bool $_allowDuring
+	 * @param string $_checkLevel
+	 * @return void
+	 */
 	public function checkAlertLevel($_value, $_allowDuring = true, $_checkLevel = 'none')
 	{
 		if ($this->getType() != 'info' || ($this->getAlert('warningif') == '' && $this->getAlert('dangerif') == '')) {
@@ -2428,6 +2446,14 @@ class cmd
 		return $returnLevel;
 	}
 
+	/**
+	 * execute action alert levels with conditions on check alert level
+	 *
+	 * @uses cmd::actionAlertLevel()
+	 * @uses cmd::checkAlertLevel()
+	 * @param array $_options
+	 * @return void
+	 */
 	public static function duringAlertLevel($_options)
 	{
 		$cmd = cmd::byId($_options['cmd_id']);
@@ -2447,6 +2473,14 @@ class cmd
 		}
 	}
 
+	/**
+	 * check action alert level, add message if required
+	 *
+	 * @uses message::add
+	 * @param string $_level
+	 * @param mixed $_value
+	 * @return void
+	 */
 	public function actionAlertLevel($_level, $_value)
 	{
 		if ($this->getType() != 'info') {
@@ -2507,6 +2541,12 @@ class cmd
 		}
 	}
 
+	/**
+	 * push URL
+	 *
+	 * @param string $_value : the URL
+	 * @return void
+	 */
 	public function pushUrl($_value)
 	{
 		$url = $this->getConfiguration('jeedomPushUrl');
@@ -2537,6 +2577,13 @@ class cmd
 		}
 	}
 
+	/**
+	 * compute influx data
+	 *
+	 * @param mixed $_value
+	 * @param string $_timestamp
+	 * @return InfluxDB\Point
+	 */
 	public function computeInfluxData($_value, $_timestamp = '')
 	{
 		$point = '';
@@ -2595,6 +2642,12 @@ class cmd
 		return $point;
 	}
 
+	/**
+	 * get InfluxDB database
+	 *
+	 * @param string $_cmdId
+	 * @return InfluxDB\Database
+	 */
 	public static function getInflux($_cmdId = null)
 	{
 		try {
@@ -2632,6 +2685,12 @@ class cmd
 		return '';
 	}
 
+	/**
+	 * push value into influxDB
+	 *
+	 * @param mixed $_value
+	 * @return void
+	 */
 	public function pushInflux($_value = null)
 	{
 		try {
@@ -2650,6 +2709,11 @@ class cmd
 		return;
 	}
 
+	/**
+	 * delete command from influxDB
+	 *
+	 * @return void
+	 */
 	public function dropInfluxDatabase()
 	{
 		try {
@@ -2664,6 +2728,11 @@ class cmd
 		return;
 	}
 
+	/**
+	 * drop command series from InfluxDB
+	 *
+	 * @return void
+	 */
 	public function dropInflux()
 	{
 		try {
@@ -2680,12 +2749,23 @@ class cmd
 		return;
 	}
 
+	/**
+	 * history all values into InfluxDB
+	 *
+	 * @return void
+	 */
 	public function historyInfluxAll()
 	{
 		// TODO change to non static call because historyInflux require $this
 		cmd::historyInflux('all');
 	}
 
+	/**
+	 * send history data into InfluxDB
+	 *
+	 * @param array $_params
+	 * @return void
+	 */
 	public function sendHistoryInflux($_params)
 	{
 		$cmds = array();
@@ -2733,6 +2813,12 @@ class cmd
 		}
 	}
 
+	/**
+	 * Undocumented function
+	 *
+	 * @param string $_type
+	 * @return void
+	 */
 	public function historyInflux($_type = '')
 	{
 		$cron = new cron();
