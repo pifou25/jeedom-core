@@ -1778,7 +1778,7 @@ class cmd
 	/**
 	 * get the widget template HTML
 	 *
-	 * @uses widgets::byTypeSubtypeAndName
+	 * @uses widget::byTypeSubtypeAndName()
 	 * @param string $_version (dashboard|mobile)
 	 * @param bool $_clean
 	 * @param string $_widgetName
@@ -2315,7 +2315,7 @@ class cmd
 	/**
 	 * Undocumented function
 	 *
-	 * @uses cron::byClassAndFunction cron functions
+	 * @uses cron::byClassAndFunction()
 	 * @param [type] $_value
 	 * @return void
 	 */
