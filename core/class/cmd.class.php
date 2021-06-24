@@ -2814,8 +2814,9 @@ class cmd
 	}
 
 	/**
-	 * Undocumented function
+	 * create a new cron task to send InfluxDB history
 	 *
+	 * @uses cmd::sendHistoryInflux()
 	 * @param string $_type
 	 * @return void
 	 */
@@ -2836,6 +2837,14 @@ class cmd
 		return;
 	}
 
+	/**
+	 * generate the jeeApi link to ask response
+	 *
+	 * @param string $_response
+	 * @param string $_plugin
+	 * @param string $_network
+	 * @return string
+	 */
 	public function generateAskResponseLink($_response, $_plugin = 'core', $_network = 'external')
 	{
 		$token = $this->getCache('ask::token', config::genKey());
@@ -2850,6 +2859,12 @@ class cmd
 		return $return;
 	}
 
+	/**
+	 * create a new datastore scenario to ask::variable
+	 *
+	 * @param mixed $_response
+	 * @return bool
+	 */
 	public function askResponse($_response)
 	{
 		if ($this->getCache('ask::variable', 'none') == 'none') {
@@ -2869,11 +2884,25 @@ class cmd
 		return true;
 	}
 
+	/**
+	 * delete history for this command
+	 *
+	 * @uses history::emptyHistory()
+	 * @param string $_date
+	 * @return bool true if succeed
+	 */
 	public function emptyHistory($_date = '')
 	{
 		return history::emptyHistory($this->getId(), $_date);
 	}
 
+	/**
+	 * add a new history value
+	 *
+	 * @param mixed $_value
+	 * @param string $_datetime
+	 * @return void
+	 */
 	public function addHistoryValue($_value, $_datetime = '')
 	{
 		if ($this->getIsHistorized() == 1 && ($_value === null || ($_value !== '' && $this->getType() == 'info' && $_value <= $this->getConfiguration('maxValue', $_value) && $_value >= $this->getConfiguration('minValue', $_value)))) {
@@ -2885,6 +2914,14 @@ class cmd
 		}
 	}
 
+	/**
+	 * get statistics about this command
+	 *
+	 * @uses history::getStatistique() 
+	 * @param string $_startTime
+	 * @param string $_endTime
+	 * @return array
+	 */
 	public function getStatistique($_startTime, $_endTime)
 	{
 		if ($this->getType() != 'info' || $this->getType() == 'string') {
@@ -2893,6 +2930,14 @@ class cmd
 		return history::getStatistique($this->getId(), $_startTime, $_endTime);
 	}
 
+	/**
+	 * get average value between 2 date-times
+	 *
+	 * @uses history::getTemporalAvg()
+	 * @param string $_startTime
+	 * @param string $_endTime
+	 * @return array
+	 */
 	public function getTemporalAvg($_startTime, $_endTime)
 	{
 		if ($this->getType() != 'info' || $this->getType() == 'string') {
@@ -2901,11 +2946,24 @@ class cmd
 		return history::getTemporalAvg($this->getId(), $_startTime, $_endTime);
 	}
 
+	/**
+	 * get tendance between 2 datetime
+	 *
+	 * @uses history::getTendance() 
+	 * @param string $_startTime
+	 * @param string $_endTime
+	 * @return array
+	 */
 	public function getTendance($_startTime, $_endTime)
 	{
 		return history::getTendance($this->getId(), $_startTime, $_endTime);
 	}
 
+	/**
+	 * get another command object by the id
+	 *
+	 * @return cmd|false the targeted command object, or false if not found
+	 */
 	public function getCmdValue()
 	{
 		$cmd = self::byId(str_replace('#', '', $this->getValue()));
@@ -2915,6 +2973,13 @@ class cmd
 		return false;
 	}
 
+	/**
+	 * get the command human name
+	 *
+	 * @param bool $_tag
+	 * @param bool $_prettify
+	 * @return string
+	 */
 	public function getHumanName($_tag = false, $_prettify = false)
 	{
 		$name = '';
@@ -2930,21 +2995,53 @@ class cmd
 		return $name;
 	}
 
+	/**
+	 * get history of this command
+	 *
+	 * @uses history::all 
+	 * @param string $_dateStart
+	 * @param string $_dateEnd
+	 * @param string $_groupingType
+	 * @return array
+	 */
 	public function getHistory($_dateStart = null, $_dateEnd = null, $_groupingType = null)
 	{
 		return history::all($this->id, $_dateStart, $_dateEnd, $_groupingType);
 	}
 
+	/**
+	 * get the oldest value in history
+	 *
+	 * @uses history::getOldestValue() 
+	 * @return array
+	 */
 	public function getOldest()
 	{
 		return history::getOldestValue($this->id);
 	}
 
+	/**
+	 * get plurality history
+	 *
+	 * @uses history::getPlurality()
+	 * @param string $_dateStart
+	 * @param string $_dateEnd
+	 * @param string $_period
+	 * @param int $_offset
+	 * @return array
+	 */
 	public function getPluralityHistory($_dateStart = null, $_dateEnd = null, $_period = 'day', $_offset = 0)
 	{
 		return history::getPlurality($this->id, $_dateStart, $_dateEnd, $_period, $_offset);
 	}
 
+	/**
+	 * get widget possibility informations
+	 *
+	 * @param string $_key
+	 * @param bool $_default
+	 * @return array
+	 */
 	public function widgetPossibility($_key = '', $_default = true)
 	{
 		$class = new ReflectionClass($this->getEqType_name());
@@ -2993,6 +3090,11 @@ class cmd
 		return $return;
 	}
 
+	/**
+	 * export command configuration
+	 *
+	 * @return array
+	 */
 	public function export()
 	{
 		$cmd = clone $this;
@@ -3029,6 +3131,12 @@ class cmd
 		return $return;
 	}
 
+	/**
+	 * get the direct URL link to the jeeApi for this command
+	 *
+	 * @uses network::getNetworkAccess()
+	 * @return string the complete URL with query parameters
+	 */
 	public function getDirectUrlAccess()
 	{
 		$url = '/core/api/jeeApi.php?apikey=' . config::byKey('api') . '&type=cmd&id=' . $this->getId();
@@ -3051,6 +3159,13 @@ class cmd
 		return network::getNetworkAccess('external') . $url;
 	}
 
+	/**
+	 * check the access code, compare it to the sha512 value 'actionCodeAccess' into configuration
+	 *
+	 * @todo remove the sha1 that is not secure
+	 * @param string $_code
+	 * @return bool
+	 */
 	public function checkAccessCode($_code)
 	{
 		if ($this->getType() != 'action' || trim($this->getConfiguration('actionCodeAccess')) == '') {
@@ -3067,6 +3182,12 @@ class cmd
 		return false;
 	}
 
+	/**
+	 * convert current command configuration object into an array
+	 *
+	 * @uses utils::o2a() 
+	 * @return array
+	 */
 	public function exportApi()
 	{
 		$return = utils::o2a($this);
@@ -3074,6 +3195,14 @@ class cmd
 		return $return;
 	}
 
+	/**
+	 * get graphik links to data
+	 * 
+	 * @uses addGraphikLink() 
+	 * @param array $_data
+	 * @param int $_level
+	 * @param int $_drill
+	 */
 	public function getLinkData(&$_data = array('node' => array(), 'link' => array()), $_level = 0, $_drill = null)
 	{
 		if ($_drill === null) {
@@ -3117,6 +3246,13 @@ class cmd
 		return $_data;
 	}
 
+	/**
+	 * get objects - commands which this one is user by
+	 *
+	 * @uses utils::o2a() 
+	 * @param bool $_array to convert any value of the array into another array
+	 * @return array
+	 */
 	public function getUsedBy($_array = false)
 	{
 		$return = array('cmd' => array(), 'eqLogic' => array(), 'scenario' => array(), 'plan' => array(), 'view' => array());
@@ -3135,11 +3271,24 @@ class cmd
 		return $return;
 	}
 
+	/**
+	 * get use of this command
+	 *
+	 * @uses jeedom::getTypeUse() 
+	 * @return array
+	 */
 	public function getUse()
 	{
 		return jeedom::getTypeUse(jeedom::fromHumanReadable(json_encode(utils::o2a($this))));
 	}
 
+	/**
+	 * check if $_user has some right on this command
+	 *
+	 * @uses eqLogic::hasRight() 
+	 * @param user $_user
+	 * @return bool
+	 */
 	public function hasRight($_user = null)
 	{
 		if ($this->getType() == 'action') {
@@ -3166,6 +3315,14 @@ class cmd
 		return $this->generic_type;
 	}
 
+	/**
+	 * set the generic type of the command
+	 * 
+	 * any setter change also _changed property to true and return $this
+	 *
+	 * @param string $_generic_type
+	 * @return $this
+	 */
 	public function setGeneric_type($_generic_type)
 	{
 		$this->_changed = utils::attrChanged($this->_changed, $this->generic_type, $_generic_type);
@@ -3217,6 +3374,11 @@ class cmd
 		return $this;
 	}
 
+	/**
+	 * always return 1. may be overriden in child classes
+	 *
+	 * @return int
+	 */
 	public function getEventOnly()
 	{
 		return 1;
@@ -3230,7 +3392,8 @@ class cmd
 	}
 
 	/**
-	 *
+	 * set the name of this command
+	 * 
 	 * @param type $name
 	 * @return $this
 	 */
@@ -3294,11 +3457,26 @@ class cmd
 		trigger_error('This method is deprecated', E_USER_DEPRECATED);
 	}
 
+	/**
+	 * get the template of the command
+	 *
+	 * @uses utils::getJsonAttr() 
+	 * @param string $_key (dashboard|mobile)
+	 * @param string $_default
+	 * @return array|sring
+	 */
 	public function getTemplate($_key = '', $_default = '')
 	{
 		return utils::getJsonAttr($this->template, $_key, $_default);
 	}
 
+	/**
+	 * set the template
+	 *
+	 * @param string $_key (dashboard|mobile)
+	 * @param string $_value
+	 * @return $this
+	 */
 	public function setTemplate($_key, $_value)
 	{
 		if (($_key == 'dashboard' || $_key == 'mobile') && $_value != 'default' && strpos($_value, '::') === false) {
