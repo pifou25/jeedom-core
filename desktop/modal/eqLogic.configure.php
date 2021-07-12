@@ -178,6 +178,53 @@ sendVarToJS([
     ?>
     <div role="tabpanel" class="tab-pane" id="eqLogic_display">
       <br/>
+      <legend><i class="fas fa-chart-line"></i> {{Graphique de fond}}</legend>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{Information}}</label>
+            <div class="col-sm-3">
+              <select class="eqLogicAttr form-control sel_backGraphInfo" data-l1key="display" data-l2key="backGraph::info">
+                <option value="0">{{Aucune}}</option>
+                <?php
+                foreach (($eqLogic->getCmd('info')) as $cmd) {
+                  if(!$cmd->getIsHistorized()){
+                    continue;
+                  }
+                  $options .= '<option value="' . $cmd->getId() . '">' . $cmd->getName() . '</option>';
+                }
+                echo $options;
+                ?>
+              </select>
+            </div>
+
+            <label class="col-sm-2 control-label">{{Format}}</label>
+            <div class="col-sm-3">
+              <select class="eqLogicAttr form-control" data-l1key="display" data-l2key="backGraph::format">
+                <option value="month">{{Mois}}</option>
+                <option value="week">{{Semaine}}</option>
+                <option value="day">{{Jour}}</option>
+                <option value="hour">{{Heure}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{Type}}</label>
+            <div class="col-sm-3">
+              <select class="eqLogicAttr form-control" data-l1key="display" data-l2key="backGraph::type">
+                <option value="areaspline">{{Courbe}}</option>
+                <option value="area">{{Escalier}}</option>
+                <option value="column">{{Barre}}</option>
+              </select>
+            </div>
+
+            <label class="col-sm-2 control-label">{{Couleur}}</label>
+            <div class="col-sm-3">
+              <input type="color" class="eqLogicAttr html form-control input-sm" value="#4572A7" data-l1key="display" data-l2key="backGraph::color"/>
+            </div>
+          </div>
+        </form>
+
       <?php if(is_array($eqLogic->widgetPossibility('parameters')) && count($eqLogic->widgetPossibility('parameters')) > 0){ ?>
         <legend><i class="fas fa-tint"></i> {{Widget}}</legend>
         <table class="table table-bordered table-condensed">
@@ -255,7 +302,7 @@ sendVarToJS([
       <?php
       if ($eqLogic->widgetPossibility('custom::optionalParameters')) {
         ?>
-        <legend><i class="fas fa-pencil-alt-square-o"></i> {{Paramètres optionnels sur la tuile}} <a class="btn btn-success btn-xs pull-right" id="bt_addWidgetParameters"><i class="fas fa-plus-circle"></i> Ajouter</a></legend>
+        <legend><i class="fas fa-edit"></i> {{Paramètres optionnels sur la tuile}} <a class="btn btn-success btn-xs pull-right" id="bt_addWidgetParameters"><i class="fas fa-plus-circle"></i> Ajouter</a></legend>
         <table class="table table-bordered table-condensed" id="table_widgetParameters">
           <thead>
             <tr>
@@ -350,7 +397,6 @@ sendVarToJS([
   <br/>
   <form class="form-horizontal">
     <fieldset>
-      <legend>{{Configuration général}}</legend>
       <div class="form-group">
         <label class="col-sm-2 control-label">{{Disposition}}</label>
         <div class="col-sm-2">

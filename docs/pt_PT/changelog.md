@@ -23,6 +23,7 @@
 - **Categorias coloridas** : Nova opção de configuração / interface para não colorir o título do banner do equipamento.
 - **Exibir mesa** : Adição de um botão à direita da pesquisa nas páginas *Objetos* *Cenários* *Interações* *Widgets* e *Plugins* para mudar para o modo de mesa. Isso é armazenado por um cookie ou em **Configurações → Sistema → Configuração / Interface, Opções**. Plugins podem usar esta nova função principal.
 - **Configuração** : Possibilidade de configurar o papel de parede nas páginas Dashboard, Analysis, Tools e sua opacidade dependendo do tema.
+- **Configuração do equipamento** : Possibilidade de configurar uma curva de histórico na parte inferior do ladrilho de um dispositivo.
 - **Blocos de Código** : (Editor de arquivos, cenários, personalização avançada) Função de fallback de código (*dobradura de código*). Atalhos Ctrl + Y e Ctrl + I.
 - **Plugins / Gerenciamento** : Exibição da categoria do plugin e um link para abrir diretamente sua página sem passar pelo menu Plugins.
 - **Cenas** : Copiar / colar e desfazer / refazer correção de bug (reescrita completa).
@@ -54,6 +55,10 @@ Adicionamos uma confirmação da senha do backup na nuvem para evitar erros de e
 > Após a atualização, você DEVE ir para Configurações → Sistema → guia Atualização de configuração / Mercado e inserir a confirmação da senha do backup em nuvem para que isso possa ser feito.
 
 # Registro de alterações Jeedom V4.1
+
+## 4.1.24
+
+- Revisão da opção de configuração do comando **Gerenciando a repetição de valores** quem se torna **Repita valores idênticos (Sim|Non)**. [Veja o artigo do blog para mais detalhes](https://blog.jeedom.com/5414-nouvelle-gestion-de-la-repetition-des-valeurs/)
 
 ## 4.1.23
 

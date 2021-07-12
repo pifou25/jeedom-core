@@ -23,6 +23,7 @@
 - **Categorías coloreadas** : Nueva opción en configuración / interfaz para no colorear el banner del título del equipo.
 - **Pantalla de mesa** : Adición de un botón a la derecha de la búsqueda en las páginas *Objetos* *Escenarios* *Interacciones* *Widgets* y *Complementos* para cambiar al modo de mesa. Esto se almacena mediante una cookie o en **Configuración → Sistema → Configuración / Interfaz, Opciones**. Los complementos pueden usar esta nueva función principal.
 - **Configuración** : Posibilidad de configurar el fondo de pantalla en las páginas Tablero, Análisis, Herramientas y su opacidad según el tema.
+- **Configuración del equipo** : Posibilidad de configurar una curva de historial en la parte inferior del mosaico de un dispositivo.
 - **Bloques de código** : (Editor de archivos, escenarios, personalización avanzada) Función de reserva de código (*plegado de código*). Atajos Ctrl + Y y Ctrl + I.
 - **Complementos / Gestión** : Visualización de la categoría de complementos y un enlace para abrir directamente su página sin pasar por el menú Complementos.
 - **Guión** : Copiar / pegar y deshacer / rehacer la corrección de errores (reescritura completa).
@@ -54,6 +55,10 @@ Hemos agregado una confirmación de la contraseña de la copia de seguridad en l
 > Después de la actualización, DEBE ir a Configuración → Sistema → pestaña Actualización de configuración / Mercado e ingresar la confirmación de la contraseña de la copia de seguridad en la nube para que se pueda hacer.
 
 # Registro de cambios Jeedom V4.1
+
+## 4.1.24
+
+- Revisión de la opción de configuración de comandos **Gestionar la repetición de valores** se convierte en **Repita valores idénticos (Sí|Non)**. [Consulte el artículo del blog para obtener más detalles](https://blog.jeedom.com/5414-nouvelle-gestion-de-la-repetition-des-valeurs/)
 
 ## 4.1.23
 

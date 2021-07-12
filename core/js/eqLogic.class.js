@@ -19,6 +19,7 @@ jeedom.eqLogic = function () {
 };
 
 jeedom.eqLogic.cache = Array();
+jeedom.eqLogic.backGraphIntervals = {};
 
 jeedom.eqLogic.changeDisplayObjectName = function(_display){
   if(_display){
@@ -69,7 +70,6 @@ jeedom.eqLogic.save = function (_params) {
   };
   $.ajax(paramsAJAX);
 }
-
 
 jeedom.eqLogic.byType = function (_params) {
   var paramsRequired = ['type'];
@@ -299,7 +299,6 @@ jeedom.eqLogic.getCmd = function (_params) {
   $.ajax(paramsAJAX);
 }
 
-
 jeedom.eqLogic.byId = function (_params) {
   var paramsRequired = ['id'];
   var paramsSpecifics = {
@@ -452,6 +451,118 @@ jeedom.eqLogic.refreshValue = function (_params) {
   $.ajax(paramsAJAX);
 };
 
+jeedom.eqLogic.initGraphInfo = function (_eqLogicId) {
+  if ($('div.eqLogic[data-eqlogic_id='+_eqLogicId+'] div.eqlogicbackgraph').length) {
+    var cmdId = $('div.eqLogic[data-eqlogic_id='+_eqLogicId+'] div.eqlogicbackgraph').data('cmdid')
+    jeedom.eqLogic.drawGraphInfo(cmdId)
+    $('div.eqLogic[data-eqlogic_id='+_eqLogicId+'] div.cmd-widget[data-cmd_id="' + cmdId + '"] .cmdName').prepend('• ')
+  }
+}
+
+jeedom.eqLogic.drawGraphInfo = function (_cmdId) {
+  var drawEqEl = $('.eqlogicbackgraph[data-cmdid=' + _cmdId + ']')
+  if (drawEqEl.length == 0) return false
+  var dateEnd = moment().format('YYYY-MM-DD HH:mm:ss')
+  var dateStart
+  var decay = drawEqEl.data('format')
+  switch (decay) {
+    case 'hour':
+      jeedom.eqLogic.backGraphIntervals[_cmdId] = 2 * 60 * 1000
+      dateStart = moment().subtract(1, 'hours').format('YYYY-MM-DD HH:mm:ss')
+      break
+    case 'week':
+      jeedom.eqLogic.backGraphIntervals[_cmdId] = 60 * 60 * 1000
+      dateStart = moment().subtract(7, 'days').format('YYYY-MM-DD HH:mm:ss')
+      break
+    case 'month':
+      jeedom.eqLogic.backGraphIntervals[_cmdId] = 0
+      dateStart = moment().subtract(1, 'month').format('YYYY-MM-DD HH:mm:ss')
+      break
+    default:
+      jeedom.eqLogic.backGraphIntervals[_cmdId] = 600 * 60 * 1000
+      dateStart = moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')
+  }
+
+  if (jeedom.eqLogic.backGraphIntervals[_cmdId] != 0) {
+    setTimeout(function() {
+      jeedom.eqLogic.drawGraphInfo(_cmdId)
+    }, jeedom.eqLogic.backGraphIntervals[_cmdId])
+  }
+
+  jeedom.history.get({
+    global : false,
+    cmd_id: _cmdId,
+    dateStart : dateStart,
+    dateEnd :  dateEnd,
+    success: function(result) {
+      if (result.data.length == 0) return false
+      var now = (moment().unix() + (serverTZoffsetMin * 60)) * 1000
+      var values = result.data.map(function(elt) { return elt[1] })
+      var minValue = Math.min.apply(null, values)
+      var maxValue = Math.max.apply(null, values)
+      result.data.push([now, result.data.slice(-1)[0][1]])
+      drawEqEl.empty().highcharts({
+        chart: {
+          type: drawEqEl.data('type'),
+          borderWidth: 0,
+          spacingTop: 0,
+          spacingRight: 0,
+          spacingBottom: 0,
+          spacingLeft: 0,
+          plotBorderWidth: 0,
+          margin: [0,0,0,0]
+        },
+        title: {
+            text:''
+        },
+        scrollbar: {
+          enabled: false
+        },
+        rangeSelector: {
+            enabled: false
+        },
+        legend: {
+          enabled: false
+        },
+        xAxis: {
+          visible: false,
+          minPadding: 0,
+          maxPadding: 0
+        },
+        yAxis: {
+          visible: false,
+          min: result.cmd.subType == 'binary' ? 0 : minValue,
+          max: result.cmd.subType == 'binary' ? 1 : maxValue + ((maxValue - minValue) / 5)
+        },
+        plotOptions: {
+          column: {
+            borderWidth: 0,
+            opacity: 0.65
+          }
+        },
+        series: [
+          {
+            data: result.data,
+            color: drawEqEl.data('color'),
+            step: drawEqEl.data('type') == 'area' ? 1 : 0,
+            fillOpacity: 0.25,
+            enableMouseTracking: false,
+            animation: false,
+            marker: {
+              enabled: false
+            }
+          }
+        ],
+        exporting: {
+          enabled: false
+        },
+        credits: {
+            enabled: false
+        }
+      })
+    }
+  })
+}
 
 jeedom.eqLogic.setOrder = function(_params) {
   var paramsRequired = ['eqLogics'];
@@ -531,7 +642,6 @@ jeedom.eqLogic.setIsEnables = function(_params) {
   $.ajax(paramsAJAX);
 };
 
-
 jeedom.eqLogic.htmlAlert = function(_params) {
   var paramsRequired = ['version'];
   var paramsSpecifics = {};
@@ -550,7 +660,6 @@ jeedom.eqLogic.htmlAlert = function(_params) {
   };
   $.ajax(paramsAJAX);
 };
-
 
 jeedom.eqLogic.htmlBattery = function(_params) {
   var paramsRequired = ['version'];
