@@ -1,4 +1,4 @@
-name: Docker  Hub Image CI Builder
+name: Docker Hub Image CI Builder
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
     branches:
       - 'V4-stable'
       - 'beta'
-      - 'alpha'
   # this is to manually trigger this worklow
   workflow_dispatch:
     inputs:
@@ -23,10 +22,16 @@ jobs:
         # https://github.com/marketplace/actions/checkout
         uses: actions/checkout@v3
       - name: BRANCH name
+        # adding infos in the $GITHUB_ENV file and summary
         run: |
-          echo "BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-          echo "Branch=${GITHUB_REF_NAME}"
+          ls
+          echo "JEEDOM_VERSION=$(cat core/config/version)" >> $GITHUB_ENV
+          echo "JEEDOM_SHORT_VERSION=$(cat core/config/version | awk -F. '{print $1"."$2}')" >> $GITHUB_ENV
+          echo if [[ "${GITHUB_REF_NAME}" == "V4-Stable", then "JEEDOM_TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:latest,${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; else "JEEDOM_TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; fi >> $GITHUB_ENV
           echo "### The Current Branch is: ${GITHUB_REF_NAME} :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "# Jeedom Version is: $(cat core/config/version)" >> $GITHUB_STEP_SUMMARY
+          echo "# Short Version is: $(cat core/config/version | awk -F. '{print $1"."$2}')" >> $GITHUB_STEP_SUMMARY
+          echo if [[ "${GITHUB_REF_NAME}" == "V4-Stable", then "# Jeedom Tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:latest,${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; else "# Jeedom Tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; fi >> $GITHUB_STEP_SUMMARY
       - name: Set up QEMU
         # https://github.com/marketplace/actions/docker-setup-qemu
         # set up more platforms (default = all)
@@ -61,12 +66,12 @@ jobs:
         with:
           context: ./
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: "VERSION=${{ github.ref_name }}"
           tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:${{ github.ref_name }}
+            ${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:${{ github.ref_name }},$JEEDOM_TAGS
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
