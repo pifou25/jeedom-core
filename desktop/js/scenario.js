@@ -18,7 +18,6 @@
 
 if (!jeeFrontEnd.scenario) {
   jeeFrontEnd.scenario = {
-    $divScenario: null,
     dom_divScenario: null,
     tab: null,
     dataDefinedAction: null,
@@ -45,7 +44,6 @@ if (!jeeFrontEnd.scenario) {
       this.undoStack = []
       this.bt_undo = document.getElementById('bt_undo')
       this.bt_redo = document.getElementById('bt_redo')
-      this.$divScenario = $('#div_editScenario')
       this.dom_divScenario= document.getElementById('div_editScenario')
       window.jeeP = this
 
@@ -134,7 +132,7 @@ if (!jeeFrontEnd.scenario) {
         forcePlaceholderSize: true,
         placeholder: 'sortable-placeholder',
         start: function(event, ui) {
-          $('.dropdown.open').removeClass('open')
+          document.querySelectorAll('.dropdown.open').removeClass('open')
           if (ui.placeholder.parents('.expressions').find('.sortable').length < 3) {
             ui.placeholder.parents('.expressions').find('.sortable.empty').show()
           }
@@ -1847,7 +1845,7 @@ document.getElementById('div_editScenario').querySelector('div.floatingbar').add
   if (_target = event.target.closest('#bt_runScenario')) {
     jeedomUtils.hideAlert()
     var scenario_id = document.querySelector('.scenarioAttr[data-l1key="id"]').jeeValue()
-    var logmode = $('button[data-l2key="logmode"]').attr('value')
+    var logmode = document.querySelector('select[data-l2key="logmode"]').jeeValue()
     if (event.ctrlKey || event.metaKey) {
       jeeP.saveScenario(function() {
         jeedom.scenario.changeState({
@@ -2814,7 +2812,7 @@ try {
                 jeedomUtils.showAlert({message: error.message, level: 'danger'})
               },
               success: function(data) {
-                $('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]').appendTo($('div.scenarioListContainer[data-groupName="' + key + '"]'))
+                document.querySelector('div.scenarioListContainer[data-groupName="' + key + '"]').appendChild(document.querySelector('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]'))
                 jeeP.updateAccordionName()
               }
             })
@@ -2837,8 +2835,10 @@ try {
                 jeedomUtils.showAlert({message: error.message, level: 'danger'})
               },
               success: function(data) {
-                $('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]').find('.name .label').replaceWith(humanName)
-                $('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]').find('.name .label i').remove()
+                let dispCard = document.querySelector('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]')
+                dispCard.querySelector('.name > .label')?.remove()
+                dispCard.querySelector('.name').insertAdjacentHTML('afterbegin', humanName)
+                dispCard.querySelector('.name > .label i')?.remove()
               }
             })
             return true
@@ -2855,7 +2855,7 @@ try {
                 jeedomUtils.showAlert({message: error.message, level: 'danger'})
               },
               success: function(data) {
-                $('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]').addClass('inactive')
+                document.querySelector('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]').addClass('inactive')
               }
             })
             return true
@@ -2872,7 +2872,7 @@ try {
                 jeedomUtils.showAlert({message: error.message, level: 'danger'})
               },
               success: function(data) {
-                $('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]').removeClass('inactive')
+                document.querySelector('.scenarioDisplayCard[data-scenario_id="' + data.id + '"]').removeClass('inactive')
               }
             })
             return true
