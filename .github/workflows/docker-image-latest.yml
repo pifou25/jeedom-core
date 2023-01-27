@@ -74,7 +74,6 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: "VERSION=${{ github.ref_name }}"
-          tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:${{ github.ref_name }},$JEEDOM_TAGS
+          tags: $JEEDOM_TAGS
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
