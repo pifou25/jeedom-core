@@ -52,6 +52,16 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
+
+      - name: Print environment variables
+        id: print_env
+        run: printenv > env_vars.txt
+      - name: Upload environment variables artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: env_vars
+          path: env_vars.txt
+
       - name: Use the value
         id: step_two
         run: |
