@@ -52,15 +52,6 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-      - name: Print environment variables
-        id: print_env
-        run: printenv > env_vars.txt
-      - name: Upload environment variables artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: env_vars
-          path: env_vars.txt
-
       -
         name: Build and push Jeedom on DockerHub
         # https://github.com/marketplace/actions/build-and-push-docker-images
@@ -74,6 +65,6 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: "VERSION=${{ github.ref_name }}"
-          tags: $JEEDOM_TAGS
+          tags: ${{ env.jeedom_tags }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
