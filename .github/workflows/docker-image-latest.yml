@@ -24,14 +24,9 @@ jobs:
       - name: BRANCH name
         # adding infos in the $GITHUB_ENV file and summary
         run: |
-          ls
-          echo "JEEDOM_VERSION=$(cat core/config/version)" >> $GITHUB_ENV
-          echo "JEEDOM_SHORT_VERSION=$(cat core/config/version | awk -F. '{print $1"."$2}')" >> $GITHUB_ENV
-          echo if [[ "${GITHUB_REF_NAME}" == "V4-Stable", then "JEEDOM_TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:latest,${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; else "JEEDOM_TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; fi >> $GITHUB_ENV
-          echo "### The Current Branch is: ${GITHUB_REF_NAME} :rocket:" >> $GITHUB_STEP_SUMMARY
-          echo "# Jeedom Version is: $(cat core/config/version)" >> $GITHUB_STEP_SUMMARY
-          echo "# Short Version is: $(cat core/config/version | awk -F. '{print $1"."$2}')" >> $GITHUB_STEP_SUMMARY
-          echo if [[ "${GITHUB_REF_NAME}" == "V4-Stable", then "# Jeedom Tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:latest,${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; else "# Jeedom Tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jeedom:$JEEDOM_SHORT_VERSION"; fi >> $GITHUB_STEP_SUMMARY
+          printenv
+          export DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
+          bash install/OS_specific/Docker/init_workflow.sh
       - name: Set up QEMU
         # https://github.com/marketplace/actions/docker-setup-qemu
         # set up more platforms (default = all)
