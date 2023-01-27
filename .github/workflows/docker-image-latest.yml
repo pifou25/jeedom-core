@@ -24,8 +24,8 @@ jobs:
       - name: BRANCH name
         # adding infos in the $GITHUB_ENV file and summary
         run: |
-          printenv
           export DOCKER_HUB_USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
+          dos2unix install/OS_specific/Docker/init_workflow.sh
           bash install/OS_specific/Docker/init_workflow.sh
       - name: Set up QEMU
         # https://github.com/marketplace/actions/docker-setup-qemu
