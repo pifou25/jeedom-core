@@ -24,4 +24,3 @@ echo "### The Current Branch is: ${GITHUB_REF_NAME} :rocket:" >> $GITHUB_STEP_SU
 echo "# Jeedom Version is: $JEEDOM_VERSION" >> $GITHUB_STEP_SUMMARY
 echo "# Short Version is: $JEEDOM_SHORT_VERSION" >> $GITHUB_STEP_SUMMARY
 echo "# Jeedom Tags: $JEEDOM_TAGS" >> $GITHUB_STEP_SUMMARY
-
