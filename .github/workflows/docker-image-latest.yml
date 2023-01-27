@@ -58,7 +58,7 @@ jobs:
         run: |
           printenv > env_vars.txt
           echo "###################" >> env_vars.txt
-          cat $GITHUB_ENV >> env_vars.txt
+          cat "$GITHUB_ENV" >> env_vars.txt
       - name: Upload environment variables artifact
         uses: actions/upload-artifact@v3
         with:
@@ -68,7 +68,7 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          echo "${{ env.jeedom_tags }}" # This will output the generated Jeedom tags.
+          echo "${{ env.JEEDOM_TAGS }}" # This will output the generated Jeedom tags.
       -
         name: Build and push Jeedom on DockerHub
         # https://github.com/marketplace/actions/build-and-push-docker-images
@@ -83,6 +83,6 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: "VERSION=${{ github.ref_name }}"
           tags: |
-            "${{ env.jeedom_tags }}"
+            "${{ env.JEEDOM_TAGS }}"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
