@@ -55,7 +55,10 @@ jobs:
 
       - name: Print environment variables
         id: print_env
-        run: printenv > env_vars.txt
+        run: |
+          printenv > env_vars.txt
+          echo "###################" >> env_vars.txt
+          cat $GITHUB_ENV >> env_vars.txt
       - name: Upload environment variables artifact
         uses: actions/upload-artifact@v3
         with:
