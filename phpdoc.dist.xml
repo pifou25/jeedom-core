@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <title>Jeedom Core</title>
+  <parser>
+    <target>docs</target>
+  </parser>
+
+  <transformer>
+    <target>docs</target>
+  </transformer>
+  
+  <files>
+    <directory>core</directory>
+    <directory>desktop</directory>
+    <directory>install</directory>
+    <directory>mobile</directory>
+    <directory>tests</directory>
+  </files>
+</phpdoc>
