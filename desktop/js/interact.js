@@ -342,16 +342,17 @@ document.getElementById('bt_closeAll')?.addEventListener('click', function(event
 
 
 //Set sortable:
-if (typeof jQuery === 'function') {
-  $(document.getElementById('div_action')).sortable({
-  axis: "y",
-  cursor: "move",
-  items: ".action",
-  placeholder: "ui-state-highlight",
-  tolerance: "intersect",
-  forcePlaceholderSize: true
+Sortable.create(document.getElementById('div_action'), {
+  delay: 100,
+  delayOnTouchOnly: true,
+  draggable: '.action',
+  filter: 'a, input, textarea',
+  preventOnFilter: false,
+  direction: 'vertical',
+  removeCloneOnHide: true,
 })
-}
+
+
 //Register events on top of page container:
 document.registerEvent('keydown', function(event) {
   if (jeedomUtils.getOpenedModal()) return
@@ -537,7 +538,7 @@ document.getElementById('div_conf').addEventListener('click', function(event) {
   if (_target = event.target.closest('#bt_removeInteract')) {
     jeedomUtils.hideAlert()
     let name = document.querySelector('input[data-l1key="name"]').value
-    let id = document.querySelector('.input[data-l1key="id"]').value
+    let id = document.querySelector('input[data-l1key="id"]').value
     jeeDialog.confirm('{{Êtes-vous sûr de vouloir supprimer l\'interaction}} <span style="font-weight: bold ;">' + name + '</span> ?', function(result) {
       if (result) {
         jeedom.interact.remove({

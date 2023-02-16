@@ -18,7 +18,6 @@
 
 if (!jeeFrontEnd.plan) {
   jeeFrontEnd.plan = {
-    deviceInfo: null,
     contextMenu: null,
     planHeaderContextMenu: {},
     resizeObservers: [],
@@ -28,11 +27,11 @@ if (!jeeFrontEnd.plan) {
     clickedOpen: false,
     init: function() {
       window.jeeP = this
-      this.deviceInfo = getDeviceType()
       this.pageContainer = document.getElementById('div_pageContainer')
       this.planContainer = document.querySelector('.div_displayObject')
       this.planHeaderContextMenu = {}
-      if (typeof jeeFrontEnd.planEditOption === 'undefined' || this.deviceInfo.type != 'desktop') {
+      jeedomUtils.userDevice = getDeviceType()
+      if (typeof jeeFrontEnd.planEditOption === 'undefined' || jeedomUtils.userDevice.type != 'desktop') {
         jeeFrontEnd.planEditOption = {
           state: false,
           snap: false,
@@ -54,7 +53,7 @@ if (!jeeFrontEnd.plan) {
       }
 
       //Shortcuts:
-      if (jeeP.deviceInfo.type == 'desktop' && user_isAdmin == 1) {
+      if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
         document.registerEvent('keydown', function(event) {
           if (jeedomUtils.getOpenedModal()) return
 
@@ -200,8 +199,8 @@ if (!jeeFrontEnd.plan) {
           document.getElementById('div_grid').style.width = jeeFrontEnd.plan.planContainer.offsetWidth + 'px'
           document.getElementById('div_grid').style.height = jeeFrontEnd.plan.planContainer.offsetHeight + 'px'
 
-          if (jeeP.deviceInfo.type != 'desktop') {
-            document.querySelector('meta[name="viewport"]').setAttribute("content", 'width=' + domDisplayObject.offsetWidth + 'px, height=' + domDisplayObject.offsetHeight + 'px')
+          if (jeedomUtils.userDevice.type != 'desktop') {
+            document.querySelector('meta[name="viewport"]').setAttribute("content", 'width=' + jeeFrontEnd.plan.planContainer.offsetWidth + 'px, height=' + jeeFrontEnd.plan.planContainer.offsetHeight + 'px')
             jeeP.fullScreen(true)
             window.registerEvent('popstate', function(event) {
               window.location.href = 'index.php?v=m'
@@ -275,8 +274,7 @@ if (!jeeFrontEnd.plan) {
           _html = _html.replace('class="graph-widget"', 'class="graph-widget transparent"')
         }
       }
-
-      var node = domUtils.parseHTML(_html).childNodes[0]
+      var node = domUtils.DOMparseHTML(_html)
       node.setAttribute('data-plan_id', _plan.id)
       node.setAttribute('data-zoom', init(_plan.css.zoom, 1))
       node.addClass('jeedomAlreadyPosition', 'noResize')
@@ -548,19 +546,23 @@ if (!jeeFrontEnd.plan) {
         //Set draggies:
         editItems.forEach(item => {
           var draggie = new Draggabilly(item, {
-            containment: '.div_displayObject',
+            containment: 'div.div_displayObject',
           })
           jeeFrontEnd.plan.draggables.push(draggie)
+
           draggie.on('dragStart', function(event, pointer) {
+
             //Is locked:
             if (this.element.hasClass('locked')) this.dragEnd()
 
+            //Handle zoom:
+            this.containementBrect = document.querySelector('div.div_displayObject').getBoundingClientRect()
             this.zoomScale = parseFloat(this.element.getAttribute('data-zoom'))
             if (this.zoomScale != 1) {
               this.options.containment = false
             }
-            //this.containementBrect = document.querySelector(this.options.containment).getBoundingClientRect()
 
+            //Handle grid snap
             if (jeeFrontEnd.planEditOption.grid == 1) {
               this.dragStep = jeeFrontEnd.planEditOption.gridSize[0] / this.zoomScale
               this.element.style.left = getNearestMultiple(this.element.offsetLeft, this.dragStep) + 'px'
@@ -571,8 +573,32 @@ if (!jeeFrontEnd.plan) {
               this.options.grid = undefined
             }
           })
-          draggie.on('dragMove', function(event, pointer) {
-            return
+
+          draggie.on('dragMove', function(event, pointer, moveVector) {
+            //Handle zoom move / containement:
+            if (this.zoomScale != 1) {
+
+              //Fix zoomed move:
+              this.dragPoint.x = moveVector.x / this.zoomScale
+              this.dragPoint.y = moveVector.y / this.zoomScale
+
+              //Check zoomed containement:
+              /*Doesn't work
+              var eRect = this.element.getBoundingClientRect()
+              console.log('eRect:',eRect)
+
+              console.log('position:', this.position)
+              console.log(this.dragPoint)
+
+              if (eRect.left < this.containementBrect.left) {
+                console.log('>>>>>>> OUT LEFT')
+                this.setPosition(this.position.x + this.dragPoint.x, this.position.y + this.dragPoint.y)
+                this.pointerDone()
+                this.dragEnd()
+              }
+              */
+            }
+
             /*
             if (this.zoomScale != 1) {
               var matrix = window.getComputedStyle(this.element).getPropertyValue('transform')
@@ -587,7 +613,8 @@ if (!jeeFrontEnd.plan) {
 
               var realWidth = this.element.clientWidth * this.zoomScale
               var realRight = this.element.getBoundingClientRect().left + realWidth
-              //console.log('dragMove realRight:', realRight, 'realWidth:', realWidth, this.containementBrect)
+
+              console.log('dragMove realRight:', realRight, 'realWidth:', realWidth, this.containementBrect)
 
               //Test ok, not solution--
               if (realRight >= this.containementBrect.right) {
@@ -595,7 +622,9 @@ if (!jeeFrontEnd.plan) {
               }
             }
             */
+
           })
+
           draggie.on('dragEnd', function(event, pointer) {
             //jeeP.savePlan(false, false)
           })
@@ -613,7 +642,7 @@ if (!jeeFrontEnd.plan) {
           document.getElementById('div_grid').unseen()
         }
 
-        //Set Resezing:
+        //Set Resizing:
         let selector = '.plan-link-widget, .view-link-widget, .graph-widget, .div_displayObject >.eqLogic-widget, .scenario-widget, .text-widget, .image-widget, .zone-widget, .summary-widget'
         new jeeResize(selector, {
           cancel: 'locked',
@@ -662,7 +691,9 @@ if (!jeeFrontEnd.plan) {
         jeeP.elementContexMenu.enable()
       } else { //Leave Edit mode
         jeeP.savePlan(false, false)
-        jeeP.elementContexMenu.disable()
+        if (jeeP.elementContexMenu) {
+          jeeP.elementContexMenu.disable()
+        }
         jeeFrontEnd.planEditOption.state = false
         jeeP.pageContainer.dataset.planEditState = false
         jeedom.cmd.disableExecute = false
@@ -750,7 +781,7 @@ jeeFrontEnd.plan.displayPlan()
 jeeFrontEnd.plan.postInit()
 
 //Context menu:
-if (jeeP.deviceInfo.type == 'desktop' && user_isAdmin == 1) {
+if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
   //Object context menu
 
   jeeP.elementContexMenu = new jeeCtxMenu({
@@ -806,14 +837,8 @@ if (jeeP.deviceInfo.type == 'desktop' && user_isAdmin == 1) {
                   className: 'success',
                   callback: {
                     click: function(event) {
-                      var options = []
-                      document.querySelectorAll('#table_addViewData tbody tr').forEach(_tr => {
-                        if (_tr.querySelector('.enable').checked == true) {
-                          var graphData = _tr.getJeeValues('.graphDataOption')[0]
-                          graphData.link_id = _tr.getAttribute('data-link_id')
-                          options.push(graphData)
-                        }
-                      })
+                      var options = jeeFrontEnd.md_cmdGraphSelect.getOptions()
+
                       dom_el.querySelector('.graphOptions').empty().append(JSON.stringify(options))
                       jeeP.savePlan(true)
                       jeeFrontEnd.plan.setGraphResizes()
@@ -835,11 +860,7 @@ if (jeeP.deviceInfo.type == 'desktop' && user_isAdmin == 1) {
               callback: function() {
                 document.querySelectorAll('#table_addViewData tbody tr .enable').forEach(_check => { _check.checked = false})
                 var options = json_decode(dom_el.querySelector('.graphOptions').jeeValue())
-                for (var i in options) {
-                  var tr = document.querySelector('#table_addViewData tbody tr[data-link_id="' + options[i].link_id + '"]')
-                  tr.querySelector('.enable').jeeValue(1)
-                  tr.setJeeValues(options[i], '.graphDataOption')
-                }
+                jeeFrontEnd.md_cmdGraphSelect.displayOptions(options)
               }
             })
           } else {
@@ -1309,6 +1330,10 @@ document.body.registerEvent('click', function (event) {
 
 //div_pageContainer events delegation:
 document.getElementById('div_pageContainer').addEventListener('click', function(event) {
+  if (jeeFrontEnd.planEditOption.state === true) {
+    event.preventDefault()
+    return
+  }
   var _target = null
   if (_target = event.target.closest('#bt_createNewDesign')) {
     jeeP.createNewDesign()
@@ -1423,7 +1448,7 @@ document.querySelector('.div_displayObject').addEventListener('mouseleave', func
 
 
 //back to mobile home with three fingers on mobile:
-if (user_isAdmin == 1 && document.body.getAttribute('data-device') == 'mobile') {
+if (user_isAdmin == 1 && jeedomUtils.userDevice.type == 'mobile') {
   document.body.registerEvent('touchstart', function (event) {
     if (event.touches.length == 3) {
       event.preventDefault()

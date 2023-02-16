@@ -57,9 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
 //js error in ! ui:
 jeedomUtils.JS_ERROR = []
 window.addEventListener('error', function(event) {
-  if (event.filename.indexOf('3rdparty/') != -1) {
-    return
-  }
+  if (event.filename.indexOf('3rdparty/') != -1) return
+  if (event.message.includes('ResizeObserver loop')) return
   jeedomUtils.JS_ERROR.push(event)
   document.getElementById('bt_jsErrorModal')?.seen()
   domUtils.hideLoading()
@@ -110,6 +109,8 @@ jeedomUtils.checkPageModified = function() {
 var prePrintEqLogic = undefined
 var printEqLogic = undefined
 var addCmdToTable = undefined
+jeedomUtils.userDevice = getDeviceType()
+
 //OnePage design PageLoader -------------------------------------
 jeedomUtils.loadPage = function(_url, _noPushHistory) {
   jeeFrontEnd.PREVIOUS_LOCATION = window.location.href
@@ -125,7 +126,7 @@ jeedomUtils.loadPage = function(_url, _noPushHistory) {
   jeedom.cmd.resetUpdateFunction()
 
   //Deprecated jQuery contextMenu
-  if (typeof jQuery === 'function') $.contextMenu('destroy')
+  if (typeof jQuery === 'function' && typeof $.contextMenu === 'function') $.contextMenu('destroy')
   document.querySelectorAll('.context-menu-root').remove()
 
   jeedomUtils.jeeCtxMenuDestroy()
@@ -149,7 +150,7 @@ jeedomUtils.loadPage = function(_url, _noPushHistory) {
     } catch (e) { }
   }
 
-  if (typeof jQuery === 'function' && isset(bootbox)) bootbox.hideAll()
+  if (typeof jQuery === 'function' && typeof bootbox === 'object') bootbox.hideAll()
   jeedomUtils.hideAlert()
   jeedomUtils.datePickerDestroy()
   jeedomUtils.autocompleteDestroy()
@@ -184,7 +185,7 @@ jeedomUtils.loadPage = function(_url, _noPushHistory) {
   }
 
   document.getElementById('div_mainContainer').querySelectorAll('script')?.remove()
-  document.querySelectorAll('script[injext]')?.remove()
+  document.body.querySelectorAll('script[injext]')?.remove()
 
   //AJAX LOAD URL INTO PAGE CONTAINER:
   document.getElementById('div_pageContainer').load(url, function() {
@@ -227,9 +228,7 @@ jeedomUtils.loadPage = function(_url, _noPushHistory) {
 */
 document.addEventListener('DOMContentLoaded', function() {
   jeedom.init()
-  jeedomUtils.userDeviceType = getDeviceType()['type']
-  jeedomUtils.userDeviceSubType = getDeviceType()['subType']
-  document.body.setAttribute('data-device', jeedomUtils.userDeviceType)
+  document.body.setAttribute('data-device', jeedomUtils.userDevice.type)
   document.body.setAttribute('data-page', getUrlVars('p'))
   document.body.style.setProperty('--bkg-opacity-light', jeedom.theme['interface::background::opacitylight'])
   document.body.style.setProperty('--bkg-opacity-dark', jeedom.theme['interface::background::opacitydark'])
@@ -345,10 +344,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //flatpickr theme:
   var flatpickrDarkCss = document.querySelector('head > link[rel="stylesheet"][href*="3rdparty/flatpickr/flatpickr.dark.css"]')
-  if (document.body.getAttribute('data-theme').endsWith('Dark')) {
-    flatpickrDarkCss.disabled = false
-  } else {
-    flatpickrDarkCss.disabled= true
+  if (flatpickrDarkCss) {
+    if (document.body.getAttribute('data-theme').endsWith('Dark')) {
+      flatpickrDarkCss.disabled = false
+    } else {
+      flatpickrDarkCss.disabled = true
+    }
   }
 })
 
@@ -413,9 +414,10 @@ jeedomUtils.setJeedomTheme = function() {
     var themeShadows = 'core/themes/' + jeedom.theme.jeedom_theme_alternate + '/desktop/shadows.css'
     var themeCook = 'alternate'
     var themeButton = '<i class="fas fa-adjust"></i> {{Thème principal}}'
-    document.getElementById('jeedom_theme_currentcss').setAttribute('data-nochange', 1)
+    var cssTag = document.getElementById('jeedom_theme_currentcss')
+    cssTag.setAttribute('data-nochange', 1)
 
-    if (document.getElementById('jeedom_theme_currentcss').getAttribute('href').split('?md5')[0] == theme) {
+    if (cssTag.attributes.href.value.split('?md5')[0] == theme) {
       document.body.setAttribute('data-theme', jeedom.theme.jeedom_theme_main)
       theme = 'core/themes/' + jeedom.theme.jeedom_theme_main + '/desktop/' + jeedom.theme.jeedom_theme_main + '.css'
       themeShadows = 'core/themes/' + jeedom.theme.jeedom_theme_main + '/desktop/shadows.css'
@@ -425,8 +427,8 @@ jeedomUtils.setJeedomTheme = function() {
       document.body.setAttribute('data-theme', jeedom.theme.jeedom_theme_alternate)
     }
     setCookie('currentTheme', themeCook, 30)
-    document.getElementById('jeedom_theme_currentcss').setAttribute('href', theme)
-    document.getElementById('bt_switchTheme').html(themeButton)
+    cssTag.setAttribute('href', theme)
+    document.getElementById('bt_switchTheme').innerHTML = themeButton
     if (document.getElementById('shadows_theme_css') != null) document.getElementById('shadows_theme_css').href = themeShadows
     jeedomUtils.triggerThemechange()
     let backgroundImgPath = jeedomUtils._elBackground.querySelector('#bottom').style.backgroundImage
@@ -606,109 +608,110 @@ jeedomUtils.transitionJeedomBackground = function(_path) {
 
 //Jeedom UI__
 jeedomUtils.initJeedomModals = function() { //Deprecated jQuery UI dilaog/bootbox
-  if (typeof jQuery === 'function') {
-    $.fn.modal.Constructor.prototype.enforceFocus = function() { }
+  if (typeof jQuery !== 'function') return
+  if (typeof $.fn.modal !== 'function') return
 
-    //Deprecated bootbox, keep for plugins
-    if (isset(jeeFrontEnd.language)) {
-      var lang = jeeFrontEnd.language.substr(0, 2)
-      var supportedLangs = ['fr', 'de', 'es']
-      if (lang != 'en' && supportedLangs.includes(lang)) {
-        bootbox.addLocale('fr', { OK: '<i class="fas fa-check"></i> Ok', CONFIRM: '<i class="fas fa-check"></i> Ok', CANCEL: '<i class="fas fa-times"></i> Annuler' })
-        bootbox.addLocale('de', { OK: '<i class="fas fa-check"></i> Ok', CONFIRM: '<i class="fas fa-check"></i> Ok', CANCEL: '<i class="fas fa-times"></i> Abbrechen' })
-        bootbox.addLocale('es', { OK: '<i class="fas fa-check"></i> Ok', CONFIRM: '<i class="fas fa-check"></i> Ok', CANCEL: '<i class="fas fa-times"></i> Anular' })
-        bootbox.setLocale('fr') //needed for date format
-      }
+  $.fn.modal.Constructor.prototype.enforceFocus = function() { }
+
+  //Deprecated bootbox, keep for plugins
+  if (isset(jeeFrontEnd.language)) {
+    var lang = jeeFrontEnd.language.substr(0, 2)
+    var supportedLangs = ['fr', 'de', 'es']
+    if (lang != 'en' && supportedLangs.includes(lang)) {
+      bootbox.addLocale('fr', { OK: '<i class="fas fa-check"></i> Ok', CONFIRM: '<i class="fas fa-check"></i> Ok', CANCEL: '<i class="fas fa-times"></i> Annuler' })
+      bootbox.addLocale('de', { OK: '<i class="fas fa-check"></i> Ok', CONFIRM: '<i class="fas fa-check"></i> Ok', CANCEL: '<i class="fas fa-times"></i> Abbrechen' })
+      bootbox.addLocale('es', { OK: '<i class="fas fa-check"></i> Ok', CONFIRM: '<i class="fas fa-check"></i> Ok', CANCEL: '<i class="fas fa-times"></i> Anular' })
+      bootbox.setLocale('fr') //needed for date format
     }
+  }
 
-    //Deprecated bootbox, keep for plugins
-    $('body').on('show', '.modal', function() {
-      document.activeElement.blur()
-      $(this).find('.modal-body :input:visible').first().focus()
-    })
-    $('body').on('focusin', '.bootbox-input', function(event) {
-      event.stopPropagation()
-    })
-    $('.bootbox.modal').on('shown.bs.modal', function() {
-      $(this).find(".bootbox-accept").focus()
-    })
+  //Deprecated bootbox, keep for plugins
+  $('body').on('show', '.modal', function() {
+    document.activeElement.blur()
+    $(this).find('.modal-body :input:visible').first().focus()
+  })
+  $('body').on('focusin', '.bootbox-input', function(event) {
+    event.stopPropagation()
+  })
+  $('.bootbox.modal').on('shown.bs.modal', function() {
+    $(this).find(".bootbox-accept").focus()
+  })
 
-    //Deprecated jQuery UI dialog, keep for plugins
-    $('#md_modal').dialog({
-      autoOpen: false,
-      modal: true,
-      closeText: '',
-      height: (window.innerHeight - 125),
-      width: ((window.innerWidth - 50) < 1500) ? (window.innerWidth - 50) : 1500,
-      position: { my: 'center top+80', at: 'center top', of: window },
-      open: function() {
-        document.body.style.overflow = 'hidden'
-        this.closest('.ui-dialog').querySelectorAll('button, input[type="button"]')?.forEach(el => { el.blur() })
-        $(this).dialog({
-          height: (window.innerHeight - 125),
-          width: ((window.innerWidth - 50) < 1500) ? (window.innerWidth - 50) : 1500,
-          position: { my: 'center top+80', at: 'center top', of: window }
-        })
-        setTimeout(function() { jeedomUtils.initTooltips($('#md_modal')) }, 500)
-      },
-      beforeClose: function(event, ui) {
-        $(this).parent('.ui-dialog').removeClass('summaryActionMain')
-        emptyModal('md_modal')
-        $('#md_modal').off('dialogresize')
-      }
-    })
-
-    $('#md_modal2').dialog({
-      autoOpen: false,
-      modal: true,
-      closeText: '',
-      height: (window.innerHeight - 125),
-      width: ((window.innerWidth - 150) < 1200) ? (window.innerWidth - 50) : 1200,
-      position: { my: 'center bottom-50', at: 'center bottom', of: window },
-      open: function() {
-        document.body.style.overflow = 'hidden'
-        this.closest('.ui-dialog').querySelectorAll('button, input[type="button"]')?.forEach(el => { el.blur() })
-        $(this).dialog({
-          height: (window.innerHeight - 125),
-          width: ((window.innerWidth - 150) < 1200) ? (window.innerWidth - 50) : 1200,
-          position: { my: 'center bottom-50', at: 'center bottom', of: window },
-        })
-        setTimeout(function() { jeedomUtils.initTooltips($('#md_modal2')) }, 500)
-      },
-      beforeClose: function(event, ui) {
-        emptyModal('md_modal2')
-        $('#md_modal2').off('dialogresize')
-      }
-    })
-
-    $('#md_modal3').dialog({
-      autoOpen: false,
-      modal: true,
-      closeText: '',
-      height: (window.innerHeight - 125),
-      width: ((window.innerWidth - 250) < 1000) ? (window.innerWidth - 50) : 1000,
-      position: { my: 'center bottom-50', at: 'center bottom', of: window },
-      open: function() {
-        document.body.style.overflow = 'hidden'
-        this.closest('.ui-dialog').querySelectorAll('button, input[type="button"]')?.forEach(el => { el.blur() })
-        $(this).dialog({
-          height: (window.innerHeight - 125),
-          width: ((window.innerWidth - 250) < 1000) ? (window.innerWidth - 50) : 1000,
-          position: { my: 'center bottom-50', at: 'center bottom', of: window },
-        })
-        setTimeout(function() { jeedomUtils.initTooltips($('#md_modal3')) }, 500)
-      },
-      beforeClose: function(event, ui) {
-        emptyModal('md_modal3')
-        $('#md_modal3').off('dialogresize')
-      }
-    })
-
-    function emptyModal(_id = '') {
-      if (_id == '') return
-      document.body.style.overflow = 'inherit'
-      document.getElementById(_id).empty()
+  //Deprecated jQuery UI dialog, keep for plugins
+  $('#md_modal').dialog({
+    autoOpen: false,
+    modal: true,
+    closeText: '',
+    height: (window.innerHeight - 125),
+    width: ((window.innerWidth - 50) < 1500) ? (window.innerWidth - 50) : 1500,
+    position: { my: 'center top+80', at: 'center top', of: window },
+    open: function() {
+      document.body.style.overflow = 'hidden'
+      this.closest('.ui-dialog').querySelectorAll('button, input[type="button"]')?.forEach(el => { el.blur() })
+      $(this).dialog({
+        height: (window.innerHeight - 125),
+        width: ((window.innerWidth - 50) < 1500) ? (window.innerWidth - 50) : 1500,
+        position: { my: 'center top+80', at: 'center top', of: window }
+      })
+      setTimeout(function() { jeedomUtils.initTooltips($('#md_modal')) }, 500)
+    },
+    beforeClose: function(event, ui) {
+      $(this).parent('.ui-dialog').removeClass('summaryActionMain')
+      emptyModal('md_modal')
+      $('#md_modal').off('dialogresize')
     }
+  })
+
+  $('#md_modal2').dialog({
+    autoOpen: false,
+    modal: true,
+    closeText: '',
+    height: (window.innerHeight - 125),
+    width: ((window.innerWidth - 150) < 1200) ? (window.innerWidth - 50) : 1200,
+    position: { my: 'center bottom-50', at: 'center bottom', of: window },
+    open: function() {
+      document.body.style.overflow = 'hidden'
+      this.closest('.ui-dialog').querySelectorAll('button, input[type="button"]')?.forEach(el => { el.blur() })
+      $(this).dialog({
+        height: (window.innerHeight - 125),
+        width: ((window.innerWidth - 150) < 1200) ? (window.innerWidth - 50) : 1200,
+        position: { my: 'center bottom-50', at: 'center bottom', of: window },
+      })
+      setTimeout(function() { jeedomUtils.initTooltips($('#md_modal2')) }, 500)
+    },
+    beforeClose: function(event, ui) {
+      emptyModal('md_modal2')
+      $('#md_modal2').off('dialogresize')
+    }
+  })
+
+  $('#md_modal3').dialog({
+    autoOpen: false,
+    modal: true,
+    closeText: '',
+    height: (window.innerHeight - 125),
+    width: ((window.innerWidth - 250) < 1000) ? (window.innerWidth - 50) : 1000,
+    position: { my: 'center bottom-50', at: 'center bottom', of: window },
+    open: function() {
+      document.body.style.overflow = 'hidden'
+      this.closest('.ui-dialog').querySelectorAll('button, input[type="button"]')?.forEach(el => { el.blur() })
+      $(this).dialog({
+        height: (window.innerHeight - 125),
+        width: ((window.innerWidth - 250) < 1000) ? (window.innerWidth - 50) : 1000,
+        position: { my: 'center bottom-50', at: 'center bottom', of: window },
+      })
+      setTimeout(function() { jeedomUtils.initTooltips($('#md_modal3')) }, 500)
+    },
+    beforeClose: function(event, ui) {
+      emptyModal('md_modal3')
+      $('#md_modal3').off('dialogresize')
+    }
+  })
+
+  function emptyModal(_id = '') {
+    if (_id == '') return
+    document.body.style.overflow = 'inherit'
+    document.getElementById(_id).empty()
   }
 }
 
@@ -775,6 +778,10 @@ jeedomUtils.setJeedomGlobalUI = function() {
   document.getElementById('bt_gotoDashboard')?.addEventListener('click', function(event) {
     if (!getDeviceType()['type'] == 'desktop' || window.innerWidth < 768) {
       event.stopPropagation()
+      return
+    }
+    if (event.altKey) {
+      jeedomUtils.loadPage('index.php?v=d&p=dashboardit')
       return
     }
     jeedomUtils.loadPage('index.php?v=d&p=dashboard')
@@ -943,7 +950,7 @@ jeedomUtils.setJeedomGlobalUI = function() {
 jeedomUtils.initPage = function() {
   jeedomUtils.initTableSorter()
   jeedomUtils.initReportMode()
-  if (typeof jQuery === 'function') $.initTableFilter()
+  if (typeof jQuery === 'function' && typeof $.initTableFilter === 'function') $.initTableFilter()
   jeedomUtils.initHelp()
   jeedomUtils.initTextArea()
 
@@ -1090,6 +1097,8 @@ jeedomUtils.initReportMode = function() {
 }
 
 jeedomUtils.initTableSorter = function(filter) {
+  if (typeof jQuery !== 'function') return
+  if (typeof $.tablesorter !== 'function') return
   var widgets = ['uitheme', 'resizable']
   if (!filter) {
     filter = true
@@ -1097,29 +1106,46 @@ jeedomUtils.initTableSorter = function(filter) {
   if (filter !== false) {
     widgets.push('filter')
   }
-  if (typeof jQuery === 'function') {
-    $('table.tablesorter').tablesorter({
-      dateFormat: "yyyy-mm-dd",
-      theme: "bootstrap",
-      widthFixed: false,
-      widgets: widgets,
-      ignoreCase: true,
-      delayInit: false,
-      resizable: false,
-      saveSort: false,
-      sortLocaleCompare: true,
-      widgetOptions: {
-        filter_ignoreCase: true,
-        resizable: true,
-        stickyHeaders_offset: $('header.navbar-fixed-top').height()
-      },
-      cssIcon: 'tablesorter-icon',
-      initialized: function(table) {
-        $(table).find('thead .tablesorter-header-inner').append('<i class="tablesorter-icon"></i>')
-      }
-    }).css('width', '')
-  }
+
+  $('table.tablesorter').tablesorter({
+    dateFormat: "yyyy-mm-dd",
+    theme: "bootstrap",
+    widthFixed: false,
+    widgets: widgets,
+    ignoreCase: true,
+    delayInit: false,
+    resizable: false,
+    saveSort: false,
+    sortLocaleCompare: true,
+    widgetOptions: {
+      filter_ignoreCase: true,
+      resizable: true,
+      stickyHeaders_offset: $('header.navbar-fixed-top').height()
+    },
+    cssIcon: 'tablesorter-icon',
+    initialized: function(table) {
+      $(table).find('thead .tablesorter-header-inner').append('<i class="tablesorter-icon"></i>')
+    }
+  }).css('width', '')
 }
+
+jeedomUtils.initDataTables = function(_paging, _searching) {
+  if (!_paging) _paging = false
+  if (!_searching) _searching = false
+  document.querySelectorAll('table.dataTable').forEach(_table => {
+    if (_table._dataTable) {
+      _table._dataTable.destroy()
+    }
+    new DataTable(_table, {
+      columns: [
+        { select: 0, sort: "asc" }
+      ],
+      paging: _paging,
+      searchable: _searching,
+    })
+  })
+}
+
 
 jeedomUtils.initHelp = function() {
   document.querySelectorAll('.help').forEach(element => {
@@ -1261,10 +1287,15 @@ jeedomUtils.uniqId = function(_prefix) {
   return result
 }
 
-jeedomUtils.taAutosize = function() {
+jeedomUtils.taAutosize = function(_el) {
   //http://www.jacklmoore.com/autosize/
-  autosize(document.querySelectorAll('.ta_autosize'))
-  autosize.update(document.querySelectorAll('.ta_autosize'))
+  if (isset(_el)) {
+    var doOn = _el
+  } else {
+    var doOn = document.querySelectorAll('.ta_autosize')
+  }
+  autosize(doOn)
+  autosize.update(doOn)
 }
 
 jeedomUtils.hexToRgb = function(hex) {
@@ -1332,13 +1363,12 @@ jeedomUtils.addOrUpdateUrl = function(_param, _value, _title) {
 }
 
 //Global UI functions__
-jeedomUtils.userDeviceType = 'mobile'
 jeedomUtils.setJeedomMenu = function() {
-  document.getElementById('jeedomMenuBar')?.addEventListener('click', function(event) {
+  //Listener on body to catch Jeedom links for loadpage() instead of reloading url
+  document.body.addEventListener('click', function(event) {
     var _target = null
     if (_target = event.target.closest('a')) {
       if (_target.hasClass('noOnePageLoad')) return
-      if (_target.hasClass('fancybox-nav')) return
       if (_target.getAttribute('href') == undefined || _target.getAttribute('href') == '' || _target.getAttribute('href') == '#') return
       if (_target.getAttribute('href').match("^data:")) return
       if (_target.getAttribute('href').match("^http")) return

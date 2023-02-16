@@ -113,7 +113,7 @@ sendVarToJS([
     <div role="tabpanel" class="tab-pane" id="components">
       <form class="form-horizontal">
         <fieldset>
-          <table class="table table-condensed table-bordered">
+          <table class="table table-condensed">
             <thead>
               <tr>
                 <th>{{ID}}</th>
@@ -246,7 +246,7 @@ if (!jeeFrontEnd.md_planHeaderConfigure) {
     if (_target = event.target.closest('.bt_removePlanComposant')) {
       var tr = _target.closest('tr')
       jeedom.plan.remove({
-        id : tr.attr('data-id'),
+        id : tr.getAttribute('data-id'),
         error: function(error) {
           jeedomUtils.showAlert({
             attachTo: jeeDialog.get('#md_planHeaderConfigure', 'dialog'),
@@ -327,7 +327,6 @@ if (!jeeFrontEnd.md_planHeaderConfigure) {
             message: '{{Design sauvegardé}}',
             level: 'success'
           })
-          document.getElementById('div_pageContainer').setAttribute('data-jeeFrontEnd.planEditOption.state', false)
           jeedomUtils.loadPage('index.php?v=d&p=plan&plan_id=' + jeephp2js.md_planHeaderConfigure_Id)
         }
       })

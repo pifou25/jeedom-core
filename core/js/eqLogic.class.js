@@ -395,10 +395,11 @@ jeedom.eqLogic.refreshValue = function(_params) {
   var sends = {}
   var eqLogic = null
   var page = document.body.getAttribute('data-page')
+
   for (var i in _params) {
     eqLogic = document.querySelector('.eqLogic[data-eqLogic_id="' + _params[i].eqLogic_id + '"]')
     if (eqLogic != null) {
-      if (_params[i].visible == 0 && page == 'dashboard' || _params[i].enable == 0) {
+      if ((page == 'dashboard' && _params[i].visible == '0') || _params[i].enable == '0') { //Remove it
         let parent = eqLogic.parentNode
         eqLogic.remove()
         if (parent.querySelectorAll('.eqLogic').length == 0) {
@@ -410,6 +411,8 @@ jeedom.eqLogic.refreshValue = function(_params) {
         }
         continue
       }
+    } else {
+      if ((page == 'dashboard' && _params[i].visible == '0') || _params[i].enable == '0') continue
     }
 
     eqLogics[_params[i].eqLogic_id] = {
@@ -419,6 +422,7 @@ jeedom.eqLogic.refreshValue = function(_params) {
       version: ((version = eqLogic?.getAttribute('data-version')) != undefined) ? version : 'dashboard'
     }
   }
+
   if (Object.keys(eqLogics).length == 0) {
     return
   }
@@ -447,7 +451,7 @@ jeedom.eqLogic.refreshValue = function(_params) {
               }
               jeedomUtils.positionEqLogic(result[i].id)
               Packery.data(object_div).destroy()
-              new Packery(object_div, {isLayoutInstant: true})
+              new Packery(object_div, {isLayoutInstant: true, transitionDuration: 0})
 
               document.querySelectorAll('div.eqLogic-widget').forEach(function(element, idx) {
                 element.setAttribute('data-order', idx + 1)
@@ -459,12 +463,12 @@ jeedom.eqLogic.refreshValue = function(_params) {
             jeedomUtils.initTooltips()
             let container = document.querySelector('.alertListContainer')
             Packery.data(container).destroy()
-            new Packery(container, { itemSelector: "#alertEqlogic .eqLogic-widget" })
+            new Packery(container, { itemSelector: "#alertEqlogic .eqLogic-widget", isLayoutInstant: true, transitionDuration: 0 })
           }
         } else {
           if (page == 'eqAnalyse' && result[i].alert == '') {
             eqLogic.remove()
-            if (document.querySelector('.alertListContainer').querySelectorAll('.eqLogic').length > 0) {
+            if (document.querySelector('.alertListContainer')?.querySelectorAll('.eqLogic').length > 0) {
               let container = document.querySelector('.alertListContainer')
               Packery.data(container).layout()
             }
@@ -493,7 +497,7 @@ jeedom.eqLogic.refreshValue = function(_params) {
           jeedomUtils.initTooltips()
         }
 
-        if (jeedomUtils.userDeviceType == undefined) {
+        if (jeedomUtils.userDevice.type == undefined) {
           eqLogic.triggerEvent('create')
           jeedomUtils.setTileSize('.eqLogic')
         } else if (jeeFrontEnd.dashboard && jeeFrontEnd.dashboard.editWidgetMode && typeof jeeFrontEnd.dashboard.editWidgetMode == 'function' && document.getElementById('bt_editDashboardWidgetOrder') != null) {

@@ -68,7 +68,7 @@ jeedom.cmd.execute = function(_params) {
     pre_success: function(data) {
       if (data.state != 'ok') {
         if (data.code == -32005) {
-          if (typeof jQuery === 'function' && $.mobile) {
+          if (jeedom.display.version == 'mobile') {
             var result = prompt("{{Veuillez indiquer le code ?}}", "")
             if (result != null) {
               _params.codeAccess = result
@@ -112,7 +112,7 @@ jeedom.cmd.execute = function(_params) {
             })
           }
         } else if (data.code == -32006) {
-          if (typeof jQuery === 'function' && $.mobile) {
+          if (jeedom.display.version == 'mobile') {
             var result = confirm("{{Êtes-vous sûr de vouloir faire cette action ?}}")
             if (result) {
               _params.confirmAction = 1
@@ -205,9 +205,6 @@ jeedom.cmd.execute = function(_params) {
 }
 
 jeedom.cmd.test = function(_params) {
-  if (typeof _params.alert == 'undefined') {
-    _params.alert = '#div_alert'
-  }
   var paramsRequired = ['id']
   var paramsSpecifics = {
     global: false,

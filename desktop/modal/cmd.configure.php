@@ -645,7 +645,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
         <div role="tabpanel" class="tab-pane" id="cmd_display">
           <br />
           <legend><i class="fas fa-tint"></i> {{Widget}}</legend>
-          <table class="table table-bordered table-condensed">
+          <table class="table table-condensed">
             <thead>
               <tr>
                 <th style="width:30%;"></th>
@@ -764,8 +764,8 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
 
             <div id="optionalParamHelp"></div>
 
-            <table class="table table-bordered table-condensed" id="table_widgetParametersCmd">
-              <thead class="table table-bordered">
+            <table class="table table-condensed" id="table_widgetParametersCmd">
+              <thead class="table">
                 <tr>
                   <th style="width: 20%">Nom</th>
                   <th style="width: 80%">Valeur</th>
@@ -834,7 +834,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
                 id: thisValue,
                 error: function(error) {
                   jeedomUtils.showAlert({
-                    attachTo: jeeDialog.get('#div_displayCmdConfigure', 'dialog'),
+                    attachTo: jeeDialog.get('#md_displayCmdConfigure', 'dialog'),
                     message: error.message,
                     level: 'danger'
                   })
@@ -877,7 +877,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
         title += ' : ' + jeephp2js.md_cmdConfigure_cmdInfo.eqLogicHumanName
         var emClass = jeephp2js.md_cmdConfigure_cmdInfo.type == 'info' ? 'info' : 'warning'
         title += ' <span class="cmdName">[' + jeephp2js.md_cmdConfigure_cmdInfo.name + '] <em class="' + emClass + '">(' + jeephp2js.md_cmdConfigure_cmdInfo.type + ')</em></span>'
-        var titleEl = jeeDialog.get('#div_displayCmdConfigure', 'title')
+        var titleEl = jeeDialog.get('#md_displayCmdConfigure', 'title')
         if (titleEl != null) {
           titleEl.querySelector('span.title').innerHTML = title
         } else {
@@ -888,7 +888,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
         jeeDialog.get('#cmdConfigureTab', 'title').querySelector('span.title').innerHTML = title
       },
       setInputsDefault: function() {
-        let content = jeeDialog.get('#div_displayCmdConfigure', 'content')
+        let content = jeeDialog.get('#md_displayCmdConfigure', 'content')
         content.querySelectorAll('select').forEach(_select => {
           if (_select.selectedIndex == -1) {
             let defaultOpt = Array.from(_select.options).filter(o => o.value == '')
@@ -902,34 +902,34 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
         })
       },
       setSortables: function() {
-        if (typeof jQuery === 'function') {
-          $("#div_actionCheckCmd").sortable({
-            axis: "y",
-            cursor: "move",
-            items: ".actionCheckCmd",
-            placeholder: "ui-state-highlight",
-            tolerance: "intersect",
-            forcePlaceholderSize: true
+        let containers = document.querySelectorAll('#md_displayCmdConfigure #div_actionCheckCmd, #md_displayCmdConfigure #div_actionPreExecCmd, #md_displayCmdConfigure #div_actionPostExecCmd')
+        containers.forEach(_container => {
+          new Sortable(_container, {
+            delay: 100,
+            delayOnTouchOnly: true,
+            group: 'cmdLayoutContainer',
+            draggable: '.actionCheckCmd, .actionPreExecCmd, .actionPostExecCmd',
+            filter: 'a, input, textarea',
+            preventOnFilter: false,
+            direction: 'vertical',
+            onEnd: function(event) {
+              if (event.to != event.from) {
+                //Set right class for save:
+                event.item.removeClass('actionCheckCmd actionPreExecCmd actionPostExecCmd')
+                var toId = event.to.getAttribute('id')
+                if (toId == 'div_actionCheckCmd') {
+                  event.item.addClass('actionCheckCmd')
+                }
+                if (toId == 'div_actionPreExecCmd') {
+                  event.item.addClass('actionPreExecCmd')
+                }
+                if (toId == 'div_actionPostExecCmd') {
+                  event.item.addClass('actionPostExecCmd')
+                }
+              }
+            },
           })
-
-          $("#div_actionPreExecCmd").sortable({
-            axis: "y",
-            cursor: "move",
-            items: ".actionPreExecCmd",
-            placeholder: "ui-state-highlight",
-            tolerance: "intersect",
-            forcePlaceholderSize: true
-          })
-
-          $("#div_actionPostExecCmd").sortable({
-            axis: "y",
-            cursor: "move",
-            items: ".actionPostExecCmd",
-            placeholder: "ui-state-highlight",
-            tolerance: "intersect",
-            forcePlaceholderSize: true
-          })
-        }
+        })
       },
       displayWidgetHelp: function(_widgetName) {
         jeedom.cmd.getWidgetHelp({
@@ -1006,7 +1006,6 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
         div += '<div class="col-sm-7 actionOptions">'
         div += jeedom.cmd.displayActionOption(init(_action.cmd, ''), _action.options)
         div += '</div>'
-
         let newDiv = document.createElement('div')
         newDiv.html(div)
         newDiv.setJeeValues(_action, '.expressionAttr')
@@ -1040,28 +1039,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
           zIndex: 1030,
           contentUrl: 'index.php?v=d&modal=cmd.selectMultiple&cmd_id=' + jeephp2js.md_cmdConfigure_cmdInfo.id,
           callback: function() {
-            jeedomUtils.initTableSorter()
-
-            document.getElementById('bt_cmdConfigureSelectMultipleAlertToogle').addEventListener('click', function(event) {
-              var state = false
-              if (this.getAttribute('data-state') == 0) {
-                state = true
-                this.setAttribute('data-state', 1)
-                this.querySelector('i').classList = 'far fa-check-circle'
-                document.querySelectorAll('#table_cmdConfigureSelectMultiple tbody tr .selectMultipleApplyCmd').forEach((element) => {
-                  if (element.isVisible()) element.jeeValue(1)
-                })
-              } else {
-                state = false
-                this.setAttribute('data-state', 0)
-                this.querySelector('i').classList = 'far fa-circle'
-                document.querySelectorAll('#table_cmdConfigureSelectMultiple tbody tr .selectMultipleApplyCmd').forEach((element) => {
-                  if (element.isVisible()) element.jeeValue(0)
-                })
-              }
-            })
-
-            document.getElementById('bt_cmdConfigureSelectMultipleAlertApply').addEventListener('click', function(event) {
+            document.getElementById('bt_cmdSelectMultipleApply').addEventListener('click', function(event) {
               document.getElementById('table_cmdConfigureSelectMultiple').tBodies[0].querySelectorAll('tr').forEach(_tr => {
                 if (_tr.querySelector('.selectMultipleApplyCmd').checked) {
                   cmd.id = _tr.getAttribute('data-cmd_id')
@@ -1069,7 +1047,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
                     cmd: cmd,
                     error: function(error) {
                       jeedomUtils.showAlert({
-                        attachTo: jeeDialog.get('#div_displayCmdConfigure', 'dialog'),
+                        attachTo: jeeDialog.get('#md_cmdConfigureSelectMultiple', 'dialog'),
                         message: error.message,
                         level: 'danger'
                       })
@@ -1079,7 +1057,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
                 }
               })
               jeedomUtils.showAlert({
-                attachTo: jeeDialog.get('#div_displayCmdConfigure', 'dialog'),
+                attachTo: jeeDialog.get('#md_cmdConfigureSelectMultiple', 'dialog'),
                 message: "{{Modification(s) appliquée(s) avec succès}}",
                 level: 'success'
               })
@@ -1088,10 +1066,12 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
         })
       },
       cmdSave: function(event) {
+        //Get cmd options:
         var cmd = document.getElementById('div_displayCmdConfigure').getJeeValues('.cmdAttr')[0]
         if (!isset(cmd.display)) cmd.display = {}
         if (!isset(cmd.display.parameters)) cmd.display.parameters = {}
 
+        //Get widget optionnal parameters:
         document.querySelector('#cmd_display #table_widgetParametersCmd').tBodies[0].childNodes.forEach(_tr => {
           if (_tr.nodeType != 3) {
             cmd.display.parameters[_tr.querySelector('.key').jeeValue()] = _tr.querySelector('.value').jeeValue()
@@ -1104,6 +1084,8 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
         if (isset(checkCmdParameter) && isset(checkCmdParameter.options)) {
           cmd.configuration.jeedomCheckCmdCmdActionOption = checkCmdParameter.options
         }
+
+        //Get pre/post exec actions:
         cmd.configuration.actionCheckCmd = {}
         cmd.configuration.actionCheckCmd = document.querySelectorAll('#div_actionCheckCmd .actionCheckCmd').getJeeValues('.expressionAttr')
         cmd.configuration.jeedomPreExecCmd = document.querySelectorAll('#div_actionPreExecCmd .actionPreExecCmd').getJeeValues('.expressionAttr')
@@ -1112,7 +1094,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
           cmd: cmd,
           error: function(error) {
             jeedomUtils.showAlert({
-              attachTo: jeeDialog.get('#div_displayCmdConfigure', 'dialog'),
+              attachTo: jeeDialog.get('#md_displayCmdConfigure', 'dialog'),
               message: error.message,
               level: 'danger'
             })
@@ -1120,7 +1102,7 @@ $configEqDisplayType = jeedom::getConfiguration('eqLogic:displayType');
           success: function() {
             modifyWithoutSave = false
             jeedomUtils.showAlert({
-              attachTo: event.ctrlKey ? null : jeeDialog.get('#div_displayCmdConfigure', 'content'),
+              attachTo: event.ctrlKey ? null : jeeDialog.get('#md_displayCmdConfigure', 'content'),
               message: '{{Sauvegarde réussie}}',
               level: 'success'
             })
