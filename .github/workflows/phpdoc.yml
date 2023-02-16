@@ -16,12 +16,6 @@ jobs:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-    - name: PHP Code Style Fixer
-      # https://github.com/marketplace/actions/php-code-style-fixer-php-cs-fixer
-      uses: StephaneBour/actions-php-cs-fixer@8.0-bdossantos
-      with:
-        dir: '.'
-
     - name: PhpDocumentor
       # https://github.com/gpupo/actions-phpDocumentor
       uses: gpupo/actions-phpDocumentor@1.2
