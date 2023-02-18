@@ -36,7 +36,7 @@ if (typeof jQuery === 'function') {
     } else {
       setTimeout(function() {
         jQuery.fn.ready.apply(this, arguments[1])
-      }, 100, this, arguments)
+      }, 250, this, arguments)
     }
   }
 }
@@ -188,6 +188,7 @@ jeedomUtils.loadPage = function(_url, _noPushHistory) {
   document.body.querySelectorAll('script[injext]')?.remove()
 
   //AJAX LOAD URL INTO PAGE CONTAINER:
+  domUtils.DOMloading += 1
   document.getElementById('div_pageContainer').load(url, function() {
     document.body.setAttribute('data-page', getUrlVars('p') || '')
     document.getElementById('bt_getHelpPage').setAttribute('data-page', getUrlVars('p'))
@@ -219,6 +220,7 @@ jeedomUtils.loadPage = function(_url, _noPushHistory) {
       modifyWithoutSave = false
       jeeFrontEnd.modifyWithoutSave = false
     }, 250)
+    domUtils.DOMloading -= 1
   })
 
   return

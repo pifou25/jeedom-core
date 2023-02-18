@@ -124,6 +124,7 @@ if (!jeeFrontEnd.plan) {
         },
         success: function(data) {
           jeeP.displayObject(data.plan, data.html, false)
+          jeeFrontEnd.modifyWithoutSave = true
         }
       })
     },
@@ -211,6 +212,7 @@ if (!jeeFrontEnd.plan) {
           var selector = '.eqLogic-widget, .div_displayObject > .cmd-widget, .scenario-widget'
           selector += ',.plan-link-widget, .view-link-widget, .graph-widget, .text-widget, .image-widget, .zone-widget, .summary-widget'
           document.querySelectorAll(selector).remove()
+          jeeFrontEnd.modifyWithoutSave = false
           jeedom.plan.byPlanHeader({
             id: jeephp2js.planHeader_id,
             error: function(error) {
@@ -239,6 +241,7 @@ if (!jeeFrontEnd.plan) {
               jeedomUtils.initReportMode()
               window.scrollTo({top: 0, behavior: "smooth"})
               jeeFrontEnd.plan.setGraphResizes()
+              jeeFrontEnd.modifyWithoutSave = false
             }
           })
         },
@@ -626,6 +629,7 @@ if (!jeeFrontEnd.plan) {
           })
 
           draggie.on('dragEnd', function(event, pointer) {
+            jeeFrontEnd.modifyWithoutSave = true
             //jeeP.savePlan(false, false)
           })
         })
@@ -684,6 +688,7 @@ if (!jeeFrontEnd.plan) {
             element.querySelector('.camera')?.triggerEvent('resize')
           },
           stop: function(event, ui) {
+            jeeFrontEnd.modifyWithoutSave = true
             //jeeP.savePlan(false, false)
           },
         })
@@ -768,6 +773,7 @@ if (!jeeFrontEnd.plan) {
             jeeP.displayPlan()
           }
           domUtils.hideLoading()
+          jeeFrontEnd.modifyWithoutSave = false
         },
       })
     },
@@ -965,16 +971,18 @@ if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
         name: "{{Plein écran}}",
         icon: 'fas fa-desktop',
         callback: function(key, opt) {
-          if (this.getAttribute('data-fullscreen') == null) {
-            this.setAttribute('data-fullscreen', 1)
+          if (this.getAttribute('data-fullscreen') == null || this.getAttribute('data-fullscreen') == 'false') {
+            this.setAttribute('data-fullscreen', 'true')
+            jeeP.fullScreen(true)
+          } else {
+            this.setAttribute('data-fullscreen', 'false')
+            jeeP.fullScreen(false)
           }
-          jeeP.fullScreen(this.getAttribute('data-fullscreen'))
-          this.setAttribute('data-fullscreen', !this.getAttribute('data-fullscreen'))
         }
       },
       sep1: "---------",
       addGraph: {
-        name: "{{Ajouter Graphique}}",
+        name: "{{Ajouter un Graphique}}",
         icon: 'fas fa-chart-line',
         disabled: function(key, opt) {
           return !getBool(this.getAttribute('data-jeeFrontEnd.planEditOption.state'))
@@ -987,7 +995,7 @@ if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
         }
       },
       addText: {
-        name: "{{Ajouter texte/html}}",
+        name: "{{Ajouter du texte/html}}",
         icon: 'fas fa-align-center',
         disabled: function(key, opt) {
           return !getBool(this.getAttribute('data-jeeFrontEnd.planEditOption.state'))
@@ -1003,7 +1011,7 @@ if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
         }
       },
       addScenario: {
-        name: "{{Ajouter scénario}}",
+        name: "{{Ajouter un scénario}}",
         icon: 'fas fa-plus-circle',
         disabled: function(key, opt) {
           return !getBool(this.getAttribute('data-jeeFrontEnd.planEditOption.state'))
@@ -1059,7 +1067,7 @@ if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
         }
       },
       addEqLogic: {
-        name: "{{Ajouter équipement}}",
+        name: "{{Ajouter un équipement}}",
         icon: 'fas fa-plus-circle',
         disabled: function(key, opt) {
           return !getBool(this.getAttribute('data-jeeFrontEnd.planEditOption.state'))
@@ -1074,7 +1082,7 @@ if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
         }
       },
       addCommand: {
-        name: "{{Ajouter commande}}",
+        name: "{{Ajouter une commande}}",
         icon: 'fas fa-plus-circle',
         disabled: function(key, opt) {
           return !getBool(this.getAttribute('data-jeeFrontEnd.planEditOption.state'))
@@ -1247,7 +1255,7 @@ if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
         }
       },
       addPlan: {
-        name: "{{Creer un design}}",
+        name: "{{Créer un design}}",
         icon: 'fas fa-plus-circle',
         disabled: function(key, opt) {
           return !getBool(this.getAttribute('data-jeeFrontEnd.planEditOption.state'))
@@ -1263,7 +1271,16 @@ if (jeedomUtils.userDevice.type == 'desktop' && user_isAdmin == 1) {
           return !getBool(this.getAttribute('data-jeeFrontEnd.planEditOption.state'))
         },
         callback: function(key, opt) {
-          jeeDialog.prompt("{{Nom la copie du design ?}}", function(result) {
+          let name = "";
+          for(let i in jeephp2js.planHeader){
+            if(jeephp2js.planHeader[i].id == jeephp2js.planHeader_id){
+              name = jeephp2js.planHeader[i].name+ " copie";
+            }
+          }
+          jeeDialog.prompt({
+            title : "{{Nom de la copie du design ?}}",
+            value : name,
+          }, function(result) {
             if (result !== null) {
               jeeP.savePlan(false, false)
               jeedom.plan.copyHeader({
@@ -1329,8 +1346,14 @@ document.body.registerEvent('click', function (event) {
 })
 
 //div_pageContainer events delegation:
+document.getElementById('div_pageContainer').addEventListener('mousedown', function(event) {
+  if (jeeFrontEnd.planEditOption.state === true && event.target.closest('div.jeeCtxMenu') == null) {
+    event.preventDefault()
+    return
+  }
+})
 document.getElementById('div_pageContainer').addEventListener('click', function(event) {
-  if (jeeFrontEnd.planEditOption.state === true) {
+  if (jeeFrontEnd.planEditOption.state === true && event.target.closest('div.jeeCtxMenu') == null) {
     event.preventDefault()
     return
   }

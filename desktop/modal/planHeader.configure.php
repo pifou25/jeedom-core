@@ -84,12 +84,12 @@ sendVarToJS([
             <div class="form-group">
               <label class="col-lg-4 control-label">{{Image}}</label>
               <div class="col-lg-8">
-                <span class="btn btn-default btn-file" style="position:absolute;">
+                <span class="btn btn-default btn-file btn-sm" style="position:absolute;">
                   <i class="fas fa-cloud-upload-alt"></i> {{Envoyer}}<input  id="bt_uploadImage" type="file" name="file" style="display: inline-block;">
                 </span>
                 <span class="objectImg">
                   <a class="btn btn-sm btn-danger" id="bt_removeBackgroundImage" style="position:absolute;bottom:0;"><i class="fas fa-trash"></i> {{Supprimer l'image}}</a>
-                  <img src="" height="160px" />
+                  <img src="" height="160px" style="min-height: 60px;"/>
                 </span>
               </div>
             </div>
@@ -179,8 +179,9 @@ if (!jeeFrontEnd.md_planHeaderConfigure) {
       this.setUploadFile()
     },
     displayBackground: function(_path, _update) {
+      var isObject = Object.prototype.toString.call(jeephp2js.md_planHeaderConfigure_planHeader.image) === '[object Object]'
       if (!isset(_path)) {
-        if (isset(jeephp2js.md_planHeaderConfigure_planHeader.image) && jeephp2js.md_planHeaderConfigure_planHeader.image.sha512 != '') {
+        if (isObject && jeephp2js.md_planHeaderConfigure_planHeader.image.sha512 != '') {
           var _path = '../../data/plan/planHeader' + jeephp2js.md_planHeaderConfigure_Id + '-' + jeephp2js.md_planHeaderConfigure_planHeader.image.sha512 + '.' + jeephp2js.md_planHeaderConfigure_planHeader.image.type
         } else {
           document.querySelector('#md_planHeaderConfigure .objectImg').unseen()

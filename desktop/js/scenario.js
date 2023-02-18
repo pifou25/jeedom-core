@@ -177,8 +177,10 @@ if (!jeeFrontEnd.scenario) {
         new Sortable(_Sortcontainer, commonOptions)
       })
       var root = document.getElementById('root')
-      if (Sortable.get(root)) Sortable.get(root).destroy()
-      new Sortable(root, commonOptions)
+      if (root) {
+        if (Sortable.get(root)) Sortable.get(root).destroy()
+        new Sortable(root, commonOptions)
+      }
     },
     setRootElements: function() {
       /*
@@ -1762,7 +1764,10 @@ document.getElementById('div_editScenario').querySelector('div.floatingbar').add
   }
 
   if (_target = event.target.closest('#bt_copyScenario')) {
-    jeeDialog.prompt("{{Nom du scénario}} ?", function(result) {
+    jeeDialog.prompt({
+      title : "{{Nom du scénario}} ?",
+      value : document.querySelector('.scenarioAttr[data-l1key="name"]').jeeValue() + ' {{copie}}'
+    }, function(result) {
       if (result !== null) {
         jeedom.scenario.copy({
           id: document.querySelector('.scenarioAttr[data-l1key="id"]').jeeValue(),
