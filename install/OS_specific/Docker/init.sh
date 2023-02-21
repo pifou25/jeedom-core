@@ -1,4 +1,26 @@
 #!/bin/bash
+VERT="\\033[1;32m"
+NORMAL="\\033[0;39m"
+ROUGE="\\033[1;31m"
+ROSE="\\033[1;35m"
+BLEU="\\033[1;34m"
+BLANC="\\033[0;02m"
+BLANCLAIR="\\033[1;08m"
+JAUNE="\\033[1;33m"
+CYAN="\\033[1;36m"
+  
+service_mariadb(){
+  service $1 mariadb > /dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    service $1 mysql > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+      echo "${ROUGE}Cannot start mariadb - Cancelling${NORMAL}"
+      exit 1
+    fi
+  fi
+  return 0
+}
+
 echo 'Start init'
 
 # $WEBSERVER_HOME and $VERSION env variables comes from Dockerfile
@@ -16,7 +38,7 @@ else
 	if [ $(which mysqld | wc -l) -ne 0 ]; then
 		chown -R mysql:mysql /var/lib/mysql
 		mysql_install_db --user=mysql --basedir=/usr/ --ldata=/var/lib/mysql/
-		service mariadb restart
+		service_mariadb restart
 		MYSQL_JEEDOM_PASSWD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
 		echo "DROP USER 'jeedom'@'localhost';" | mysql > /dev/null 2>&1
 		echo  "CREATE USER 'jeedom'@'localhost' IDENTIFIED BY '${MYSQL_JEEDOM_PASSWD}';" | mysql
@@ -40,10 +62,10 @@ service atd restart
 if [ $(which mysqld | wc -l) -ne 0 ]; then
 	echo 'Starting mariadb'
 	chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
-	service mariadb restart
+	service_mariadb restart
 	if [ $? -ne 0 ]; then
 		 rm /var/lib/mysql/ib_logfile*
-		 service mariadb restart
+		 service_mariadb restart
 	fi
 fi
 
