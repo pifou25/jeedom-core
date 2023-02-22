@@ -10,9 +10,9 @@ JAUNE="\\033[1;33m"
 CYAN="\\033[1;36m"
   
 service_mariadb(){
-  service $1 mariadb > /dev/null 2>&1
+  service mysql $1
   if [ $? -ne 0 ]; then
-    service $1 mysql > /dev/null 2>&1
+    service mariadb $1
     if [ $? -ne 0 ]; then
       echo "${ROUGE}Cannot start mariadb - Cancelling${NORMAL}"
       exit 1
