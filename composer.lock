@@ -4,8 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c2342a48450c788b0c48eb841c1b3f8",
+    "content-hash": "0b2f16dc6d0d17a434f385aa6bedbb67",
     "packages": [
+        {
+            "name": "abbadon1334/sun-position-spa-php",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/abbadon1334/sun-position-spa-php.git",
+                "reference": "e76a5821755c8993854c197d03eecbbafeae7a09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/abbadon1334/sun-position-spa-php/zipball/e76a5821755c8993854c197d03eecbbafeae7a09",
+                "reference": "e76a5821755c8993854c197d03eecbbafeae7a09",
+                "shasum": ""
+            },
+            "require-dev": {
+                "kint-php/kint": "2.2.0",
+                "phpunit/phpunit": "3.7.14"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SolarData\\": "src/",
+                    "SolarData\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Francesco Danti",
+                    "email": "fdanti@gmail.com"
+                }
+            ],
+            "description": "solar data calculation and sun position",
+            "support": {
+                "issues": "https://github.com/abbadon1334/sun-position-spa-php/issues",
+                "source": "https://github.com/abbadon1334/sun-position-spa-php/tree/1.1"
+            },
+            "time": "2019-07-08T07:18:08+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "1.0.3",
@@ -495,16 +534,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.9.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "e98e3e6d4f86621a9b75f623996e6bbdeb4b9318"
+                "reference": "e4490cabc77465aaee90b20cfc9a770f8c04be6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
-                "reference": "e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/e4490cabc77465aaee90b20cfc9a770f8c04be6b",
+                "reference": "e4490cabc77465aaee90b20cfc9a770f8c04be6b",
                 "shasum": ""
             },
             "require": {
@@ -523,11 +562,6 @@
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.9-dev"
-                }
-            },
             "autoload": {
                 "files": [
                     "src/functions_include.php"
@@ -585,7 +619,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/1.9.0"
+                "source": "https://github.com/guzzle/psr7/tree/1.9.1"
             },
             "funding": [
                 {
@@ -601,7 +635,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-20T21:43:03+00:00"
+            "time": "2023-04-17T16:00:37+00:00"
         },
         {
             "name": "knplabs/github-api",
@@ -816,16 +850,16 @@
         },
         {
             "name": "league/oauth2-client",
-            "version": "2.6.1",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth2-client.git",
-                "reference": "2334c249907190c132364f5dae0287ab8666aa19"
+                "reference": "160d6274b03562ebeb55ed18399281d8118b76c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/2334c249907190c132364f5dae0287ab8666aa19",
-                "reference": "2334c249907190c132364f5dae0287ab8666aa19",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/160d6274b03562ebeb55ed18399281d8118b76c8",
+                "reference": "160d6274b03562ebeb55ed18399281d8118b76c8",
                 "shasum": ""
             },
             "require": {
@@ -880,9 +914,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/oauth2-client/issues",
-                "source": "https://github.com/thephpleague/oauth2-client/tree/2.6.1"
+                "source": "https://github.com/thephpleague/oauth2-client/tree/2.7.0"
             },
-            "time": "2021-12-22T16:42:49+00:00"
+            "time": "2023-04-16T18:19:15+00:00"
         },
         {
             "name": "matthiasmullie/minify",
