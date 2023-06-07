@@ -22,11 +22,33 @@ require_once __DIR__ . '/../../core/php/core.inc.php';
 class scenario {
 	/*     * *************************Attributs****************************** */
 
+	/**
+	 * The unique identifier for the scenario.
+	*/
 	private $id;
+	/**
+	 * The name of the scenario.
+	*/
 	private $name;
+	/**
+	 * Indicates whether the scenario is active or not.
+	* @var int
+	*/
 	private $isActive = 1;
+	/**
+	 * The group that the scenario belongs to.
+	* @var string
+	*/
 	private $group = '';
+	/**
+	 * The mode of the scenario.
+	* @var mixed
+	*/
 	private $mode;
+	/**
+	 * The schedule for the scenario.
+	* @var mixed
+	*/
 	private $schedule;
 	private $scenarioElement;
 	private $trigger;
@@ -2015,7 +2037,7 @@ class scenario {
 		if (!is_array($this->_tags)) {
 			return [];
 		}
-		return $this->_tags;
+  		return $this->_tags;
 	}
 
 	/**
