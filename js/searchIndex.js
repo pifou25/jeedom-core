@@ -1883,12 +1883,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic",
             "name": "eqLogic",
-            "summary": "",
+            "summary": "eqLogic\u0020is\u0020the\u0020base\u0020class\u0020for\u0020any\u0020plugin\u0020equipment.",
             "url": "classes/eqLogic.html"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AgetAllTags\u0028\u0029",
             "name": "getAllTags",
-            "summary": "",
+            "summary": "static\u0020method\u0020to\u0020get\u0020all\u0020tags",
             "url": "classes/eqLogic.html#method_getAllTags"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AbyId\u0028\u0029",
@@ -1898,7 +1898,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003Acast\u0028\u0029",
             "name": "cast",
-            "summary": "",
+            "summary": "cast\u0020the\u0020input\u0020object\u0020or\u0020arrauyof\u0020objects\u0020into\u0020\u0028\u003F\u0029",
             "url": "classes/eqLogic.html#method_cast"
         },                {
             "fqsen": "\\eqLogic\u003A\u003Aall\u0028\u0029",
@@ -2388,12 +2388,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003A\u0024id",
             "name": "id",
-            "summary": "",
+            "summary": "internal\u0020id\u0020of\u0020the\u0020eqLogic\u0020object",
             "url": "classes/eqLogic.html#property_id"
         },                {
             "fqsen": "\\eqLogic\u003A\u003A\u0024name",
             "name": "name",
-            "summary": "",
+            "summary": "the\u0020name\u0020of\u0020the\u0020eqLogic\u0020object.\u0020Real\u0020Human\u0020Readable\u0020Name",
             "url": "classes/eqLogic.html#property_name"
         },                {
             "fqsen": "\\eqLogic\u003A\u003A\u0024logicalId",
