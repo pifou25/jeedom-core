@@ -441,6 +441,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/cmd.html#method_postExecCmd"
         },                {
+            "fqsen": "\\cmd\u003A\u003AisAlreadyInStateAllow\u0028\u0029",
+            "name": "isAlreadyInStateAllow",
+            "summary": "",
+            "url": "classes/cmd.html#method_isAlreadyInStateAllow"
+        },                {
+            "fqsen": "\\cmd\u003A\u003AalreadyInState\u0028\u0029",
+            "name": "alreadyInState",
+            "summary": "",
+            "url": "classes/cmd.html#method_alreadyInState"
+        },                {
             "fqsen": "\\cmd\u003A\u003AexecCmd\u0028\u0029",
             "name": "execCmd",
             "summary": "",
@@ -1978,7 +1988,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AbyString\u0028\u0029",
             "name": "byString",
-            "summary": "",
+            "summary": "byString",
             "url": "classes/eqLogic.html#method_byString"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AclearCacheWidget\u0028\u0029",
@@ -2480,6 +2490,11 @@ Search.appendIndex(
             "name": "_changed",
             "summary": "",
             "url": "classes/eqLogic.html#property__changed"
+        },                {
+            "fqsen": "\\eqLogic\u003A\u003A\u0024_cmds",
+            "name": "_cmds",
+            "summary": "",
+            "url": "classes/eqLogic.html#property__cmds"
         },                {
             "fqsen": "\\eqLogic\u003A\u003A\u0024_templateArray",
             "name": "_templateArray",
@@ -4471,6 +4486,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/log.html#method_get"
         },                {
+            "fqsen": "\\log\u003A\u003AgetDelta\u0028\u0029",
+            "name": "getDelta",
+            "summary": "",
+            "url": "classes/log.html#method_getDelta"
+        },                {
             "fqsen": "\\log\u003A\u003Aliste\u0028\u0029",
             "name": "liste",
             "summary": "",
@@ -5311,6 +5331,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/plan3d.html#property_configuration"
         },                {
+            "fqsen": "\\plan3d\u003A\u003A\u0024css",
+            "name": "css",
+            "summary": "",
+            "url": "classes/plan3d.html#property_css"
+        },                {
             "fqsen": "\\plan3d\u003A\u003A\u0024_changed",
             "name": "_changed",
             "summary": "",
@@ -5333,7 +5358,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\plan3dHeader\u003A\u003AsearchByUse\u0028\u0029",
             "name": "searchByUse",
-            "summary": "",
+            "summary": "searchByUse",
             "url": "classes/plan3dHeader.html#method_searchByUse"
         },                {
             "fqsen": "\\plan3dHeader\u003A\u003Arefresh\u0028\u0029",
@@ -5463,7 +5488,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\planHeader\u003A\u003AsearchByUse\u0028\u0029",
             "name": "searchByUse",
-            "summary": "",
+            "summary": "searchByUse",
             "url": "classes/planHeader.html#method_searchByUse"
         },                {
             "fqsen": "\\planHeader\u003A\u003Areport\u0028\u0029",
