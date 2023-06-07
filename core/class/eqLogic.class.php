@@ -19,14 +19,37 @@
 /* * ***************************Includes********************************* */
 require_once __DIR__ . '/../../core/php/core.inc.php';
 
+/**
+ * eqLogic is the base class for any plugin equipment.
+ * 
+ * @link https://doc.jeedom.com/fr_FR/dev/plugin_template
+ * 
+ */
 class eqLogic {
 	/*     * *************************Attributs****************************** */
 	const UIDDELIMITER = '__';
+	/**
+	 * internal id of the eqLogic object
+	 * 
+	 * @var int
+	 */
 	protected $id;
+
+	/**
+	 * the name of the eqLogic object. Real Human Readable Name
+	 *
+	 * @var String
+	 */
 	protected $name;
+
+	/** @var string the `logical`id */
 	protected $logicalId = '';
+	
 	protected $generic_type;
+
+	/** @var int|null the eqLogic object. inline description */
 	protected $object_id = null;
+	
 	protected $eqType_name;
 	protected $isVisible = 0;
 	protected $isEnable = 0;
@@ -50,6 +73,11 @@ class eqLogic {
 
 	/*     * ***********************Méthodes statiques*************************** */
 
+	/**
+	 * static method to get all tags
+	 *
+	 * @return array[string]
+	 */
 	public static function getAllTags() {
 		$values = array();
 		$sql = 'SELECT tags
@@ -84,6 +112,13 @@ class eqLogic {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__));
 	}
 
+	/**
+	 * cast the input object or arrauyof objects into (?)
+	 * @see decrypt
+	 *
+	 * @param eqLogic|array[eqLogic] $_inputs
+	 * @return eqLogic|array[eqLogic]
+	 */
 	private static function cast($_inputs) {
 		if (is_object($_inputs) && class_exists($_inputs->getEqType_name())) {
 			$return = cast($_inputs, $_inputs->getEqType_name());
@@ -226,6 +261,12 @@ class eqLogic {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 
+	/* Retrieve a list of objects of a specific class or a subclass that match the specified type and search configuration.
+	*
+	* @param string|null $_eqType_name The name of the class to search for. If null, the function returns objects of the current class.
+	* @param array|string $_configuration The search configuration. If it's an array, the function searches for objects that match the given type and contain all the values in the configuration array. If it's a string, the function searches for objects that match the given type and contain the string in their configuration.
+	* @return array An array of objects of the specified class or a subclass that match the search criteria.
+	*/
 	public static function byTypeAndSearchConfiguration($_eqType_name, $_configuration, $_onlyEnable=false, $_onlyVisible=false) {
 		if (is_array($_configuration)) {
 			$values = array(
@@ -346,6 +387,16 @@ class eqLogic {
 		}
 	}
 
+	/** Retrieves a list of distinct equipment logic IDs and names from a database table based on certain criteria.
+	 *
+	 * @param mixed $_object_id The ID of the object associated with the equipment logic (if any). If `null`, retrieves all equipment logic that do not have an object associated with them. If a non-empty string, retrieves all equipment logic associated with the specified object ID.
+	 * @param string $_typeCmd The type of command associated with the equipment logic. If `'all'`, retrieves all equipment logic regardless of command type. Otherwise, retrieves equipment logic with the specified command type.
+	 * @param string $subTypeCmd The subtype of command associated with the equipment logic (if any). If a non-empty string, retrieves equipment logic with the specified command subtype.
+	 *
+	 * @return array An array of distinct equipment logic IDs and names that match the specified criteria. The array is sorted by name in ascending order.
+	 *
+	 * @throws Exception if there is an error executing the SQL query.
+	 */
 	public static function listByObjectAndCmdType($_object_id, $_typeCmd, $subTypeCmd = '') {
 		$values = array();
 		$sql = 'SELECT DISTINCT(el.id),el.name
@@ -376,6 +427,15 @@ class eqLogic {
 		return DB::Prepare($sql, array(), DB::FETCH_TYPE_ALL);
 	}
 
+	/** Checks if each equipment logic is still alive by verifying if it has sent
+	 *  a message recently. If a message has not been sent within the specified timeout period,
+	 *  an alert is generated.
+	 *
+	 * @uses \message::byPluginLogicalId()
+	 * @uses \config::byKey()
+	 * 
+	 * @throws Exception if there is an error executing the SQL query.
+	 */
 	public static function checkAlive() {
 		foreach (eqLogic::byTimeout(1, true) as $eqLogic) {
 			$sendReport = false;
@@ -1001,6 +1061,16 @@ class eqLogic {
 		return DB::remove($this);
 	}
 
+	/** Saves the equipment logic with various checks and updates.
+	 *
+	 * @uses \message::byPluginLogicalId() 
+	 * @uses \DB::save() 
+	 * @uses \scenario::byId() 
+	 * 
+	 * @param bool $_direct Whether to save the equipment logic directly. Default is false.
+	 *
+	 * @throws Exception if the name of the equipment is empty or there is an error executing the SQL query.
+	 */
 	public function save($_direct = false) {
 		if ($this->getName() == '') {
 			throw new Exception(__('Le nom de l\'équipement ne peut pas être vide :', __FILE__) . ' ' . print_r($this, true));
@@ -1266,6 +1336,20 @@ class eqLogic {
 		return false;
 	}
 
+	/** Migrates an equipment logic from a source to a target equipment logic.
+	 *
+	 * @uses \jeedom::getConfiguration()
+	 * @uses \DB::prepare()
+	 * 
+	 * @param int $_sourceId The ID of the source equipment logic to migrate.
+	 * @param int $_targetId The ID of the target equipment logic to migrate to.
+	 * @param string $_mode The mode of migration. Default is 'replace'.
+	 *
+	 * @throws Exception if the source or target equipment logic does not exist 
+	 * or if there is an error executing the SQL query.
+	 *
+	 * @return eqLogic The migrated target equipment logic.
+	 */
 	public static function migrateEqlogic($_sourceId, $_targetId, $_mode = 'replace') {
 		$sourceEq = eqLogic::byId($_sourceId);
 		if (!is_object($sourceEq)) {
@@ -1510,6 +1594,15 @@ class eqLogic {
 		return $return;
 	}
 
+	/**
+	* Determine if a widget is possible for the given object.
+	*
+	* @param string $_key Optional key for which widget possibility needs to be checked.
+	* @param bool $_default Default value to return if widget possibility is not found.
+	* @return mixed Returns an array of widget possibilities if $_key is not provided,
+	*  or a specific widget possibility if $_key is provided. Returns $_default
+	*  if widget possibility is not found.
+	*/
 	public function widgetPossibility($_key = '', $_default = true) {
 		$class = new ReflectionClass($this->getEqType_name());
 		$method_toHtml = $class->getMethod('toHtml');
@@ -1644,6 +1737,14 @@ class eqLogic {
 		return $return;
 	}
 
+	/**
+	 * Check for dead commands in the specified plugin.
+	 * @uses \utils::o2a() Object-To-Array conversion
+	 * @uses \cmd::byId() 
+	 *
+	 * @param string $_plugin_id The ID of the plugin to check for dead commands.
+	 * @return array Returns an array of dead commands, if any are found.
+	 */
 	public static function deadCmdGeneric($_plugin_id) {
 		$return = array();
 		foreach (eqLogic::byType($_plugin_id) as $eqLogic) {
