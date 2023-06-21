@@ -1953,7 +1953,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AlistByObjectAndCmdType\u0028\u0029",
             "name": "listByObjectAndCmdType",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020list\u0020of\u0020distinct\u0020equipment\u0020logic\u0020IDs\u0020and\u0020names\u0020from\u0020a\u0020database\u0020table\u0020based\u0020on\u0020certain\u0020criteria.",
             "url": "classes/eqLogic.html#method_listByObjectAndCmdType"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AallType\u0028\u0029",
@@ -1963,7 +1963,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AcheckAlive\u0028\u0029",
             "name": "checkAlive",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020each\u0020equipment\u0020logic\u0020is\u0020still\u0020alive\u0020by\u0020verifying\u0020if\u0020it\u0020has\u0020sent\n\u0020a\u0020message\u0020recently.\u0020If\u0020a\u0020message\u0020has\u0020not\u0020been\u0020sent\u0020within\u0020the\u0020specified\u0020timeout\u0020period,\n\u0020an\u0020alert\u0020is\u0020generated.",
             "url": "classes/eqLogic.html#method_checkAlive"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AbyTimeout\u0028\u0029",
