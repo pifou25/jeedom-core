@@ -2113,7 +2113,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AmigrateEqlogic\u0028\u0029",
             "name": "migrateEqlogic",
-            "summary": "",
+            "summary": "Migrates\u0020an\u0020equipment\u0020logic\u0020from\u0020a\u0020source\u0020to\u0020a\u0020target\u0020equipment\u0020logic.",
             "url": "classes/eqLogic.html#method_migrateEqlogic"
         },                {
             "fqsen": "\\eqLogic\u003A\u003Aimport\u0028\u0029",
