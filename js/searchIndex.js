@@ -2068,7 +2068,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Saves\u0020the\u0020equipment\u0020logic\u0020with\u0020various\u0020checks\u0020and\u0020updates.",
             "url": "classes/eqLogic.html#method_save"
         },                {
             "fqsen": "\\eqLogic\u003A\u003Arefresh\u0028\u0029",
@@ -2128,7 +2128,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AwidgetPossibility\u0028\u0029",
             "name": "widgetPossibility",
-            "summary": "",
+            "summary": "Determine\u0020if\u0020a\u0020widget\u0020is\u0020possible\u0020for\u0020the\u0020given\u0020object.",
             "url": "classes/eqLogic.html#method_widgetPossibility"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AtoArray\u0028\u0029",
@@ -2158,7 +2158,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AdeadCmdGeneric\u0028\u0029",
             "name": "deadCmdGeneric",
-            "summary": "",
+            "summary": "Check\u0020for\u0020dead\u0020commands\u0020in\u0020the\u0020specified\u0020plugin.",
             "url": "classes/eqLogic.html#method_deadCmdGeneric"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AgetUsage\u0028\u0029",

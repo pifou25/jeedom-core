@@ -463,8 +463,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/eqLogic.html#method_deadCmdGeneric">deadCmdGeneric()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
+<dd>Check for dead commands in the specified plugin.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/eqLogic.html#method_displayDebug">displayDebug()</a>
@@ -780,6 +781,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Saves the equipment logic with various checks and updates.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/eqLogic.html#method_searchByString">searchByString()</a>
@@ -942,6 +944,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Determine if a widget is possible for the given object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/eqLogic.html#method_cast">cast()</a>
@@ -1858,7 +1861,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1186</span>
+    <span class="phpdocumentor-element-found-in__line">1196</span>
 
     </aside>
 
@@ -2514,7 +2517,7 @@
                     <span class="phpdocumentor-tag__name">uses</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\config::key()">config::key()</abbr></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/config.html#method_byKey"><abbr title="\config::byKey()">config::byKey()</abbr></a></span>
                                         
                                              
                                     </dd>
@@ -2673,14 +2676,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1699</span>
+    <span class="phpdocumentor-element-found-in__line">1726</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Check for dead commands in the specified plugin.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">deadCmdGeneric</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_plugin_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">deadCmdGeneric</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_plugin_id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2689,16 +2693,51 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_plugin_id</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The ID of the plugin to check for dead commands.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/eqLogic.html#method_deadCmdGeneric#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-    
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">uses</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/utils.html#method_o2a"><abbr title="\utils::o2a()">utils::o2a()</abbr></a></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>Object-To-Array conversion</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">uses</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/cmd.html#method_byId"><abbr title="\cmd::byId()">cmd::byId()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns an array of dead commands, if any are found.</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -2714,7 +2753,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1180</span>
+    <span class="phpdocumentor-element-found-in__line">1190</span>
 
     </aside>
 
@@ -2786,7 +2825,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1525</span>
+    <span class="phpdocumentor-element-found-in__line">1535</span>
 
     </aside>
 
@@ -2986,7 +3025,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2013</span>
+    <span class="phpdocumentor-element-found-in__line">2040</span>
 
     </aside>
 
@@ -3034,7 +3073,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1941</span>
+    <span class="phpdocumentor-element-found-in__line">1968</span>
 
     </aside>
 
@@ -3082,7 +3121,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2050</span>
+    <span class="phpdocumentor-element-found-in__line">2077</span>
 
     </aside>
 
@@ -3113,7 +3152,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1788</span>
+    <span class="phpdocumentor-element-found-in__line">1815</span>
 
     </aside>
 
@@ -3175,7 +3214,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1810</span>
+    <span class="phpdocumentor-element-found-in__line">1837</span>
 
     </aside>
 
@@ -3237,7 +3276,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1968</span>
+    <span class="phpdocumentor-element-found-in__line">1995</span>
 
     </aside>
 
@@ -3268,7 +3307,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1892</span>
+    <span class="phpdocumentor-element-found-in__line">1919</span>
 
     </aside>
 
@@ -3316,7 +3355,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1989</span>
+    <span class="phpdocumentor-element-found-in__line">2016</span>
 
     </aside>
 
@@ -3347,7 +3386,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1908</span>
+    <span class="phpdocumentor-element-found-in__line">1935</span>
 
     </aside>
 
@@ -3395,7 +3434,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1770</span>
+    <span class="phpdocumentor-element-found-in__line">1797</span>
 
     </aside>
 
@@ -3426,7 +3465,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1958</span>
+    <span class="phpdocumentor-element-found-in__line">1985</span>
 
     </aside>
 
@@ -3457,7 +3496,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1145</span>
+    <span class="phpdocumentor-element-found-in__line">1155</span>
 
     </aside>
 
@@ -3505,7 +3544,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1742</span>
+    <span class="phpdocumentor-element-found-in__line">1769</span>
 
     </aside>
 
@@ -3536,7 +3575,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1617</span>
+    <span class="phpdocumentor-element-found-in__line">1636</span>
 
     </aside>
 
@@ -3567,7 +3606,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1781</span>
+    <span class="phpdocumentor-element-found-in__line">1808</span>
 
     </aside>
 
@@ -3608,7 +3647,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1774</span>
+    <span class="phpdocumentor-element-found-in__line">1801</span>
 
     </aside>
 
@@ -3649,7 +3688,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1622</span>
+    <span class="phpdocumentor-element-found-in__line">1641</span>
 
     </aside>
 
@@ -3704,7 +3743,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1138</span>
+    <span class="phpdocumentor-element-found-in__line">1148</span>
 
     </aside>
 
@@ -3735,7 +3774,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1750</span>
+    <span class="phpdocumentor-element-found-in__line">1777</span>
 
     </aside>
 
@@ -3797,7 +3836,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1746</span>
+    <span class="phpdocumentor-element-found-in__line">1773</span>
 
     </aside>
 
@@ -3828,7 +3867,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1758</span>
+    <span class="phpdocumentor-element-found-in__line">1785</span>
 
     </aside>
 
@@ -3859,7 +3898,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1754</span>
+    <span class="phpdocumentor-element-found-in__line">1781</span>
 
     </aside>
 
@@ -3890,7 +3929,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2000</span>
+    <span class="phpdocumentor-element-found-in__line">2027</span>
 
     </aside>
 
@@ -3921,7 +3960,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1171</span>
+    <span class="phpdocumentor-element-found-in__line">1181</span>
 
     </aside>
 
@@ -3983,7 +4022,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2022</span>
+    <span class="phpdocumentor-element-found-in__line">2049</span>
 
     </aside>
 
@@ -4062,7 +4101,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1978</span>
+    <span class="phpdocumentor-element-found-in__line">2005</span>
 
     </aside>
 
@@ -4093,7 +4132,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1922</span>
+    <span class="phpdocumentor-element-found-in__line">1949</span>
 
     </aside>
 
@@ -4134,7 +4173,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1719</span>
+    <span class="phpdocumentor-element-found-in__line">1746</span>
 
     </aside>
 
@@ -4165,7 +4204,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1668</span>
+    <span class="phpdocumentor-element-found-in__line">1687</span>
 
     </aside>
 
@@ -4196,7 +4235,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1673</span>
+    <span class="phpdocumentor-element-found-in__line">1692</span>
 
     </aside>
 
@@ -4268,7 +4307,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1285</span>
+    <span class="phpdocumentor-element-found-in__line">1295</span>
 
     </aside>
 
@@ -4316,7 +4355,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1425</span>
+    <span class="phpdocumentor-element-found-in__line">1435</span>
 
     </aside>
 
@@ -4506,7 +4545,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1321</span>
+    <span class="phpdocumentor-element-found-in__line">1331</span>
 
     </aside>
 
@@ -4713,7 +4752,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1134</span>
+    <span class="phpdocumentor-element-found-in__line">1144</span>
 
     </aside>
 
@@ -4744,7 +4783,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1279</span>
+    <span class="phpdocumentor-element-found-in__line">1289</span>
 
     </aside>
 
@@ -4806,14 +4845,15 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1036</span>
+    <span class="phpdocumentor-element-found-in__line">1046</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Saves the equipment logic with various checks and updates.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_direct</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_direct</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -4822,14 +4862,57 @@ or if there is an error executing the SQL query.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_direct</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Whether to save the equipment logic directly. Default is false.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/eqLogic.html#method_save#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">uses</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/message.html#method_byPluginLogicalId"><abbr title="\message::byPluginLogicalId()">message::byPluginLogicalId()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">uses</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/DB.html#method_save"><abbr title="\DB::save()">DB::save()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">uses</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\scenario::byId()">scenario::byId()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the name of the equipment is empty or there is an error executing the SQL query.</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
     
 </article>
@@ -4888,7 +4971,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1832</span>
+    <span class="phpdocumentor-element-found-in__line">1859</span>
 
     </aside>
 
@@ -4984,7 +5067,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2018</span>
+    <span class="phpdocumentor-element-found-in__line">2045</span>
 
     </aside>
 
@@ -5032,7 +5115,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1948</span>
+    <span class="phpdocumentor-element-found-in__line">1975</span>
 
     </aside>
 
@@ -5080,7 +5163,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2054</span>
+    <span class="phpdocumentor-element-found-in__line">2081</span>
 
     </aside>
 
@@ -5121,7 +5204,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1972</span>
+    <span class="phpdocumentor-element-found-in__line">1999</span>
 
     </aside>
 
@@ -5162,7 +5245,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1896</span>
+    <span class="phpdocumentor-element-found-in__line">1923</span>
 
     </aside>
 
@@ -5210,7 +5293,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1993</span>
+    <span class="phpdocumentor-element-found-in__line">2020</span>
 
     </aside>
 
@@ -5251,7 +5334,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1912</span>
+    <span class="phpdocumentor-element-found-in__line">1939</span>
 
     </aside>
 
@@ -5299,7 +5382,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1865</span>
+    <span class="phpdocumentor-element-found-in__line">1892</span>
 
     </aside>
 
@@ -5340,7 +5423,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1962</span>
+    <span class="phpdocumentor-element-found-in__line">1989</span>
 
     </aside>
 
@@ -5381,7 +5464,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1836</span>
+    <span class="phpdocumentor-element-found-in__line">1863</span>
 
     </aside>
 
@@ -5422,7 +5505,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1880</span>
+    <span class="phpdocumentor-element-found-in__line">1907</span>
 
     </aside>
 
@@ -5463,7 +5546,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1871</span>
+    <span class="phpdocumentor-element-found-in__line">1898</span>
 
     </aside>
 
@@ -5504,7 +5587,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1852</span>
+    <span class="phpdocumentor-element-found-in__line">1879</span>
 
     </aside>
 
@@ -5545,7 +5628,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1842</span>
+    <span class="phpdocumentor-element-found-in__line">1869</span>
 
     </aside>
 
@@ -5586,7 +5669,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1765</span>
+    <span class="phpdocumentor-element-found-in__line">1792</span>
 
     </aside>
 
@@ -5627,7 +5710,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1858</span>
+    <span class="phpdocumentor-element-found-in__line">1885</span>
 
     </aside>
 
@@ -5668,7 +5751,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2007</span>
+    <span class="phpdocumentor-element-found-in__line">2034</span>
 
     </aside>
 
@@ -5709,7 +5792,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2027</span>
+    <span class="phpdocumentor-element-found-in__line">2054</span>
 
     </aside>
 
@@ -5757,7 +5840,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1982</span>
+    <span class="phpdocumentor-element-found-in__line">2009</span>
 
     </aside>
 
@@ -5798,7 +5881,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1929</span>
+    <span class="phpdocumentor-element-found-in__line">1956</span>
 
     </aside>
 
@@ -5839,7 +5922,7 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1610</span>
+    <span class="phpdocumentor-element-found-in__line">1629</span>
 
     </aside>
 
@@ -5952,14 +6035,15 @@ or if there is an error executing the SQL query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/eqLogic.class.php"><a href="files/core-class-eqlogic-class.html"><abbr title="core/class/eqLogic.class.php">eqLogic.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1565</span>
+    <span class="phpdocumentor-element-found-in__line">1584</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Determine if a widget is possible for the given object.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">widgetPossibility</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_key</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">widgetPossibility</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_key</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -5968,23 +6052,37 @@ or if there is an error executing the SQL query.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional key for which widget possibility needs to be checked.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_default</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Default value to return if widget possibility is not found.</p>
+</section>
+
             </dd>
             </dl>
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns an array of widget possibilities if $_key is not provided,
+or a specific widget possibility if $_key is provided. Returns $_default
+if widget possibility is not found.</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
