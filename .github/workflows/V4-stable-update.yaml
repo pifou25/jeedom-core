@@ -1,0 +1,28 @@
+name: Auto Merge to V4-stable
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  merge-to-v4-stable:
+    if: (github.event_name == 'pull_request' && github.event.pull_request.merged == true) || (github.event_name == 'push' && github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Merge to V4-stable
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git fetch origin
+          git checkout V4-stable
+          git merge master --no-edit
+          git push origin V4-stable
