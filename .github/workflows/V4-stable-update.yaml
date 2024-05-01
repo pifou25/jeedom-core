@@ -25,7 +25,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git fetch origin
-          git checkout origin/V4-stable
+          git checkout -B V4-stable origin/V4-stable
           git status
           git merge origin/master --no-edit
           git push origin V4-stable
