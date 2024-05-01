@@ -15,17 +15,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout code and create/checkout local V4-stable branch
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Fetches all history for all branches and tags
-        
+          ref: refs/heads/V4-stable
+    
       - name: Merge to V4-stable
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git fetch origin
-          git checkout -B V4-stable origin/V4-stable
-          git status
           git merge origin/master --no-edit
           git push origin V4-stable
