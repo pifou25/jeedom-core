@@ -16,13 +16,14 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         
       - name: Merge to V4-stable
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git fetch origin
-          git checkout V4-stable
-          git merge master --no-edit
+          git checkout origin/V4-stable
+          git status
+          git merge origin/master --no-edit
           git push origin V4-stable
