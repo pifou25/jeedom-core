@@ -16,6 +16,7 @@
     "nyholm/psr7": "^1.8"
   },
   "config": {
+    "php": "8.2",
       "allow-plugins": {
           "php-http/discovery": true
       }
