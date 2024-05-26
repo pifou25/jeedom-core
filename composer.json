@@ -9,7 +9,8 @@
     "guzzlehttp/guzzle" : "^6.5.8",
     "http-interop/http-factory-guzzle": "^1.2",
     "symfony/http-client": "^7.0",
-    "nyholm/psr7": "^1.8"
+    "nyholm/psr7": "^1.8",
+    "gitonomy/gitlib": "^1.4"
   },
   "config": {
       "allow-plugins": {

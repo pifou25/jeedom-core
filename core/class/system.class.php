@@ -114,7 +114,7 @@ class system {
 				$cmd .= ' | grep -v "' . $value . '"';
 			}
 		}
-		$results = explode("\n", trim(shell_exec($cmd)));
+		$results = explode("\n", trim(shell_exec($cmd) ?? ''));
 		if (!is_array($results) || count($results) == 0) {
 			return $return;
 		}
