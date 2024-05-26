@@ -128,6 +128,31 @@ try {
 		ajax::success();
 	}
 
+	/**
+	 * cette action permet de mettre à jour le formulaire plugin / add / (git)
+	 * - avec l'url du repo Git on renvoie le logicalId du plugin et la liste des branches
+	 * - possiblement d'autres actions utiles pour d'autres types de repo
+	 */
+	if (init('action') == 'repoUpdateForm') {
+		unautorizedInDemo();
+		$args = json_decode(init('update'), true);
+		log::add('update', 'info', 'repoUpdateForm ' . print_r($args, true));
+		if(isset($args['source'])){
+			$class = 'repo_' . $args['source'];
+			if (!class_exists($class)) {
+				ajax::error('bad repo or disabled : ' . $class);
+			} else if(!method_exists($class, 'repoUpdateForm')){
+				ajax::error(' bad method repoUpdateForm for repo : ' . $class);
+			} else if(!config::byKey("{$args['source']}::enable") == 1) {
+				ajax::error(' repo is disabled : ' . $class);
+			} else {
+				$result = $class::repoUpdateForm($args);
+			}
+		}
+
+		ajax::success($result);
+	}
+
 	if (init('action') == 'save') {
 		unautorizedInDemo();
 		$new = false;

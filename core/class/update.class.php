@@ -35,6 +35,8 @@ class update {
 	private $_changeUpdate = false;
 	private $_changed = false;
 
+	private static $_log = null; // log.class.php instance
+
 	/*     * ***********************Méthodes statiques*************************** */
 
 	public static function checkAllUpdate($_filter = '', $_findNewObject = true) {
@@ -86,6 +88,10 @@ class update {
 		config::save('update::lastCheck', date('Y-m-d H:i:s'));
 	}
 
+	/**
+	 * liste les fichiers ../repo/(name).repo.php en 1 seul 'mot' sans point
+	 * recherche la classe $repo_name
+	 */
 	public static function listRepo() {
 		$return = array();
 		foreach (ls(__DIR__ . '/../repo', '*.repo.php') as $file) {
@@ -133,10 +139,10 @@ class update {
 						try {
 							$update->doUpdate();
 						} catch (Exception $e) {
-							log::add(__CLASS__, 'alert', $e->getMessage());
+							self::log()->alert( $e->getMessage());
 							$error = true;
 						} catch (Error $e) {
-							log::add(__CLASS__, 'alert', $e->getMessage());
+							self::log()->alert( $e->getMessage());
 							$error = true;
 						}
 					}
@@ -270,6 +276,36 @@ class update {
 		return ls(__DIR__ . '/../../install/update', '*');
 	}
 
+	public static function getLastAvailableVersion() {
+		try {
+			$url = 'https://raw.githubusercontent.com/jeedom/core/' . config::byKey('core::branch', 'core', 'V4-stable') . '/core/config/version';
+			$request_http = new com_http($url);
+			return trim($request_http->exec(30));
+		} catch (Exception $e) {
+			self::log()->error( __('Erreur lors de la récuperation de la derniere version de Jeedom, url :', __FILE__) . ' ' . $url . ' => ' . $e->getMessage());
+		} catch (Error $e) {
+			self::log()->error( __('Erreur lors de la récuperation de la derniere version de Jeedom, url :', __FILE__) . ' ' . $url . ' => ' . $e->getMessage());
+		}
+		return null;
+	}
+
+	public static function repoUpdateForm($_args) {
+		self::log()->debug('repoUpdateForm: ' . print_r( $_args, true));
+		// check for additional values
+		
+	}
+
+	/**
+	 * private static logger object
+	 * @return log logger object
+	 */
+	public static function log() {
+		if(self::$_log == null) {
+			self::$_log = log::getObject( __CLASS__ );
+		}
+		return self::$_log;
+	}
+
 	/*     * *********************Méthodes d'instance************************* */
 
 	public function getInfo() {
@@ -284,13 +320,13 @@ class update {
 
 	public function doUpdate() {
 		if ($this->getConfiguration('doNotUpdate') == 1  && $this->getType() != 'core') {
-			log::add(__CLASS__, 'alert', __('Vérification des mises à jour, mise à jour et réinstallation désactivées sur', __FILE__) . ' ' . $this->getLogicalId());
+			self::log()->alert( __('Vérification des mises à jour, mise à jour et réinstallation désactivées sur', __FILE__) . ' ' . $this->getLogicalId());
 			return;
 		}
 		if ($this->getType() == 'core') {
 			jeedom::update();
 		} else {
-			log::add(__CLASS__, 'alert', __('Début de la mise à jour de :', __FILE__) . ' ' . $this->getLogicalId() . "\n");
+			self::log()->alert( __('Début de la mise à jour de :', __FILE__) . ' ' . $this->getLogicalId() . "\n");
 			$class = 'repo_' . $this->getSource();
 			if (class_exists($class) && method_exists($class, 'downloadObject') && config::byKey($this->getSource() . '::enable') == 1) {
 				$cibDir = jeedom::getTmpFolder('market') . '/' . $this->getLogicalId();
@@ -301,11 +337,11 @@ class update {
 				if (!file_exists($cibDir) && !mkdir($cibDir, 0775, true)) {
 					throw new Exception(__('Impossible de créer le dossier', __FILE__) . ' : ' . $cibDir . '. ' . __('Problème de droits ?', __FILE__));
 				}
-				log::add(__CLASS__, 'alert', __('Téléchargement du plugin (source', __FILE__) . ' : ' . $this->getSource() . ')...');
+				self::log()->alert( __('Téléchargement du plugin (source', __FILE__) . ' : ' . $this->getSource() . ')...');
 				$info = $class::downloadObject($this);
 				if ($info['path'] !== false) {
 					$tmp = $info['path'];
-					log::add(__CLASS__, 'alert', __("OK\n", __FILE__));
+					self::log()->alert( __("OK\n", __FILE__));
 
 					if (filesize($tmp) < 100) {
 						throw new Exception(__("Echec lors du téléchargement du plugin (taille inférieure à 100 octets), veuillez réessayer plus tard. Cela peut être dû à une absence de connexion au market (effectuez un test de connexion depuis la configuration générale), lié à un manque d'espace disque, une version minimale requise ou un souci sur le plugin ou son achat, etc...", __FILE__));
@@ -314,7 +350,7 @@ class update {
 					if (!in_array($extension, array('.zip'))) {
 						throw new Exception(__('Extension du fichier non valide (autorisé .zip) :', __FILE__) . ' ' . $extension);
 					}
-					log::add(__CLASS__, 'alert', __('Décompression du zip...', __FILE__));
+					self::log()->alert( __('Décompression du zip...', __FILE__));
 					$zip = new ZipArchive;
 					$res = $zip->open($tmp);
 					if ($res === TRUE) {
@@ -338,7 +374,7 @@ class update {
 						if (is_file($cibDir . '/plugin_info/info.json') && is_array($data = json_decode(file_get_contents($cibDir . '/plugin_info/info.json'), true)) && isset($data['require'])) {
 							$vJeedom = jeedom::version();
 							if (version_compare($data['require'], $vJeedom, '>')) {
-								log::add(__CLASS__, 'alert', 'KO ' . __("Version minimale requise", __FILE__) . ' (' . $data['require'] . ') > ' . __("Version Jeedom", __FILE__) . ' (' . $vJeedom . ')');
+								self::log()->alert( 'KO ' . __("Version minimale requise", __FILE__) . ' (' . $data['require'] . ') > ' . __("Version Jeedom", __FILE__) . ' (' . $vJeedom . ')');
 								rrmdir($cibDir);
 								$cibDir = jeedom::getTmpFolder('market') . '/' . $this->getLogicalId();
 								if (file_exists($cibDir)) {
@@ -347,7 +383,7 @@ class update {
 								throw new Exception($this->getLogicalId() . ' : ' . __('Version du core Jeedom non supportée, installation annulée', __FILE__));
 							}
 						}
-						log::add(__CLASS__, 'alert', __("OK\n", __FILE__));
+						self::log()->alert( __("OK\n", __FILE__));
 						$this->preInstallUpdate();
 						try {
 							if (file_exists(__DIR__ . '/../../plugins/' . $this->getLogicalId() . '/doc')) {
@@ -437,9 +473,9 @@ class update {
 				try {
 					$plugin = plugin::byId($this->getLogicalId());
 					if (is_object($plugin)) {
-						log::add(__CLASS__, 'alert', __('Action de pré-update...', __FILE__));
+						self::log()->alert( __('Action de pré-update...', __FILE__));
 						$plugin->callInstallFunction('pre_update');
-						log::add(__CLASS__, 'alert', __("OK\n", __FILE__));
+						self::log()->alert( __("OK\n", __FILE__));
 					}
 				} catch (Exception $e) {
 				} catch (Error $e) {
@@ -448,7 +484,7 @@ class update {
 	}
 
 	public function postInstallUpdate($_infos) {
-		log::add(__CLASS__, 'alert', __('Post-installation de', __FILE__) . ' ' . $this->getLogicalId() . '...');
+		self::log()->alert( __('Post-installation de', __FILE__) . ' ' . $this->getLogicalId() . '...');
 		try {
 			if (function_exists('opcache_reset')) {
 				opcache_reset();
@@ -460,13 +496,13 @@ class update {
 				try {
 					$plugin = plugin::byId($this->getLogicalId());
 					$cibDir = __DIR__ . '/../../plugins/' . $this->getLogicalId();
-					log::add(__CLASS__, 'alert',  __('Vérification des droits sur les fichiers...', __FILE__));
+					self::log()->alert(  __('Vérification des droits sur les fichiers...', __FILE__));
 					$cmd = system::getCmdSudo() . 'chown -R ' . system::get('www-uid') . ':' . system::get('www-gid') . ' ' . $cibDir . ';';
 					$cmd .= system::getCmdSudo() . 'chmod 775 -R ' . $cibDir . ';';
 					$cmd .= system::getCmdSudo() . 'chmod 775 -R ' . $cibDir . '/.*;';
 					exec($cmd);
-					log::add(__CLASS__, 'alert', __("OK", __FILE__) . "\n");
-					log::add(__CLASS__, 'alert',  __('Suppression des fichiers inutiles...', __FILE__));
+					self::log()->alert( __("OK", __FILE__) . "\n");
+					self::log()->alert(  __('Suppression des fichiers inutiles...', __FILE__));
 					foreach (array('3rdparty', '3rparty', 'desktop', 'mobile', 'core', 'docs', 'install', 'script', 'vendor', 'plugin_info') as $folder) {
 						if (!file_exists($cibDir . '/' . $folder)) {
 							continue;
@@ -490,26 +526,13 @@ class update {
 		}
 		$this->setUpdateDate(date('Y-m-d H:i:s'));
 		$this->save();
-		log::add(__CLASS__, 'alert', __("OK", __FILE__) . "\n");
-		log::add(__CLASS__, 'alert', __("END UPDATE SUCCESS", __FILE__) . "\n");
-	}
-
-	public static function getLastAvailableVersion() {
-		try {
-			$url = 'https://raw.githubusercontent.com/jeedom/core/' . config::byKey('core::branch', 'core', 'V4-stable') . '/core/config/version';
-			$request_http = new com_http($url);
-			return trim($request_http->exec(30));
-		} catch (Exception $e) {
-			log::add(__CLASS__, 'error', __('Erreur lors de la récuperation de la derniere version de Jeedom, url :', __FILE__) . ' ' . $url . ' => ' . $e->getMessage());
-		} catch (Error $e) {
-			log::add(__CLASS__, 'error', __('Erreur lors de la récuperation de la derniere version de Jeedom, url :', __FILE__) . ' ' . $url . ' => ' . $e->getMessage());
-		}
-		return null;
+		self::log()->alert( __("OK", __FILE__) . "\n");
+		self::log()->alert( __("END UPDATE SUCCESS", __FILE__) . "\n");
 	}
 
 	public function checkUpdate() {
 		if ($this->getConfiguration('doNotUpdate') == 1 && $this->getType() != 'core') {
-			log::add(__CLASS__, 'alert', __('Vérification des mises à jour, mise à jour et réinstallation désactivées sur', __FILE__) . ' ' . $this->getLogicalId());
+			self::log()->alert( __('Vérification des mises à jour, mise à jour et réinstallation désactivées sur', __FILE__) . ' ' . $this->getLogicalId());
 			return;
 		}
 		if ($this->getType() == 'core') {

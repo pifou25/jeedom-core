@@ -128,6 +128,25 @@ jeedom.update.get = function(_params) {
     domUtils.ajax(paramsAJAX);
 }
 
+jeedom.update.repoUpdateForm = function(_params) {
+    var paramsRequired = ['update'];
+    var paramsSpecifics = {};
+    try {
+        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+    } catch (e) {
+        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+        return;
+    }
+    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+    var paramsAJAX = jeedom.private.getParamsAJAX(params);
+    paramsAJAX.url = 'core/ajax/update.ajax.php';
+    paramsAJAX.data = {
+        action: 'repoUpdateForm',
+        update: JSON.stringify(_params.update)
+    };
+    domUtils.ajax(paramsAJAX);
+}
+
 jeedom.update.save = function(_params) {
     var paramsRequired = ['update'];
     var paramsSpecifics = {};
