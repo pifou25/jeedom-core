@@ -32,7 +32,17 @@ class log {
 
 	/*     * *************************Attributs****************************** */
 
+	/**
+	 * map of loggers, the key is the logger file name
+	 * and the value is the log object, instance of one of following:
+	 * - Monolog\Handler\SyslogHandler
+	 * - Monolog\Handler\SyslogUdpHandler
+	 * - Monolog\Handler\StreamHandler
+	 */
 	private static $logger = array();
+	/**
+	 * some log configuration parameters
+	 */
 	private static $config = null;
 
 	/*     * ***********************Methode static*************************** */
@@ -47,6 +57,14 @@ class log {
 		return $_default;
 	}
 
+	/**
+	 * get the logger object from the parameterized logger
+	 * @param string the file name of the logger
+	 * @return object of the following class according to `log::engine` parameter:
+	 * - Monolog\Handler\SyslogHandler
+	 * - Monolog\Handler\SyslogUdpHandler
+	 * - Monolog\Handler\StreamHandler
+	 */
 	public static function getLogger($_log) {
 		if (isset(self::$logger[$_log])) {
 			return self::$logger[$_log];
@@ -70,6 +88,34 @@ class log {
 		return self::$logger[$_log];
 	}
 
+	/**
+	 * get a log object.
+	 * 
+	 * usage into any other object :
+	 * 
+	 * private static $_log = null;
+	 * private static function log(){
+	 *   if(self::$_log == null){
+	 *     self::$_log = log::getObject(__CLASS__); // or 'core' or ... any log name or __FILE__
+	 *   }
+	 *   return self::$_log;
+	 * }
+	 * self::log()->debug('message');
+	 * self::log()->info('message', 'logicalId');
+	 * @param string $_name the logger name
+	 */
+	public static function getObject( $_name) {
+		return new log($_name, self::getLogger( $_name));
+	}
+
+	/**
+	 * get config of 'log::level::$_log'
+	 * this is an array:
+	 * {"100":"0","200":"0","300":"0","400":"0","1000":"0","default":"1"}
+	 * return default value if exists, or the first having value=1
+	 * @param string $_log the plugin id, or log file name
+	 * @return int the log level
+	 */
 	public static function getLogLevel($_log) {
 		$specific_level = self::getConfig('log::level::' . $_log);
 		if (is_array($specific_level)) {
@@ -88,6 +134,13 @@ class log {
 		return self::getConfig('log::level');
 	}
 
+	/**
+	 * convert integer log number into string name
+	 * (unused)
+	 * @param int $_level the log level value
+	 * @return string the log level:
+	 *         100=DEBUG 200=INFO 250=NOTICE 300=WARNING 400=ERROR 500=CRITICAL 550=ALERT 600=EMERGENCY
+	 */
 	public static function convertLogLevel($_level = 100) {
 		if ($_level > logger::EMERGENCY) {
 			return 'none';
@@ -510,6 +563,49 @@ class log {
 	}
 
 	/*     * *********************Methode d'instance************************* */
+
+	/**
+	 * the name of the logger is also the file name
+	 */
+	private $_name;
+	private $_logger;
+
+	private function __construct($name, $logger) {
+		$this->_name = $name;
+		$this->_logger = $logger;
+	}
+
+	/**
+	 * alias for static method to add message :
+	 * level = debug | info | notice | warning | error | critical | alert | emergency
+	 * @param string $_log = the log file name
+	 * @param string $_mmessage the text to log
+	 * @param string $_logicalId optional id of related object
+	 */
+	public function debug( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'debug', $_message, $_logicalId);
+	}
+	public function info( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'info', $_message, $_logicalId);
+	}
+	public function notice( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'notice', $_message, $_logicalId);
+	}
+	public function warn( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'warning', $_message, $_logicalId);
+	}
+	public function error( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'error', $_message, $_logicalId);
+	}
+	public function critical( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'critical', $_message, $_logicalId);
+	}
+	public function alert( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'alert', $_message, $_logicalId);
+	}
+	public function emergency( $_message, $_logicalId = '') {
+		self::add( $this->_name, 'emergency', $_message, $_logicalId);
+	}
 
 	/*     * **********************Getteur Setteur*************************** */
 }
