@@ -55,8 +55,11 @@ $repos = update::listRepo();
           </select>
         </div>
       </div>
-
-      <legend><i class="fas fa-wrench"></i> {{Configuration}}</legend>
+    </fieldset>
+  </form>
+  <legend>{{Configuration}}</legend>
+  <form class="form-horizontal" id="addJeedomPlugin" action="core/ajax/update.ajax.php" method="POST">
+    <fieldset>
       <?php
       foreach ($repos as $key => $value) {
         if ($value['configuration'] === false) {
@@ -87,8 +90,14 @@ $repos = update::listRepo();
           $div .= '<div class="col-sm-7">';
           switch ($parameter['type']) {
             case 'input':
-              $placeholder = (isset($parameter['placeholder'])) ? $parameter['placeholder'] : '';
-              $div .= '<input class="updateAttr form-control" data-l1key="configuration" data-l2key="' . $pKey . '" placeholder="' . $placeholder . '"/>';
+              $div .= '<input type="text" class="updateAttr form-control" data-l1key="configuration" data-l2key="' . $pKey . '" value="' . $default . '" />';
+              break;
+            case 'password':
+              $div .= '<input type="password" class="updateAttr form-control" data-l1key="configuration" data-l2key="' . $pKey . '" value="' . $default . '" />';
+              break;
+            case 'select':
+              $div .= '<select class="updateAttr form-control" data-l1key="configuration" data-l2key="' . $pKey . '">';
+              $div .= '<option>' . $default . '</option></select>';
               break;
             case 'select':
               $div .= '<select class="updateAttr form-control" data-l1key="configuration" data-l2key="' . $pKey . '">';
@@ -112,7 +121,8 @@ $repos = update::listRepo();
         echo $div;
       }
       ?>
-      <a class="btn btn-success pull-right" id="bt_repoAddSaveUpdate"><i class="fas fa-check-circle"></i> {{Installer le plugin}}</a>
+      <a class="btn btn-success pull-right" id="bt_repoAddSaveUpdate"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
+      <a class="btn btn-success pull-right" id="bt_repoUpdateForm"><i class="fas fa-check-circle"></i> {{Check Form}}</a>
     </fieldset>
   </form>
 </div>
@@ -131,8 +141,50 @@ $repos = update::listRepo();
           level: 'danger'
         })
       },
+      success: function() {
+        jeedomUtils.showAlert({
+          message: '{{Sauvegarde réussie}}',
+          level: 'success'
+        })
+      }
+    })
+  })
+
+  document.getElementById('bt_repoUpdateForm')?.addEventListener('click', function() {
+    // source = market | file | github | samba | git ...
+    var source = document.querySelector('.updateAttr[data-l1key="source"]').jeeValue()
+    // list of form input values, having .updateAttr class
+    var update = document.querySelectorAll('.repoSource.repo_' + source).getJeeValues('.updateAttr')[0]
+    update.source = source
+    jeedom.update.repoUpdateForm({
+      update: update,
+      error: function(error) {
+        jeedomUtils.showAlert({
+          message: error.message,
+          level: 'danger'
+        })
+      },
       success: function(data) {
-        jeeFrontEnd.plugin.installSuccess(data.logicalId)
+        // this is 'git_repo' specific:
+        logicalId = document.querySelectorAll('.updateAttr[data-l1key="logicalId"]')
+        logicalId.forEach( input => input.value = data.logicalId)
+        selectElt = document.querySelector('.updateAttr[data-l2key="branch"]');
+        if(selectElt == null){
+          alert('no branch select found!');
+        } else if(!Array.isArray(data.branch)){
+          alert('Git repo did not return any branch!');
+        } else {
+          for (a in selectElt.options) { selectElt.options.remove(0); }
+          for(const name of data.branch) {
+            selectElt.add(new Option(name));
+          }
+        }
+
+        jeedomUtils.showAlert({
+          message: '{{Plugin trouvé}} :' + data.logicalId + '(was: ' + logicalId.value + ') ('
+           + data.branch.length + ' branches :' + data.branch.join(',') + ')',
+          level: 'success'
+        })
       }
     })
   })
