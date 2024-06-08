@@ -1,0 +1,6 @@
+{
+  "name": "my-jeedom-devcontainer",
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "jeedom",
+  "workspaceFolder": "/var/www/html"
+}
