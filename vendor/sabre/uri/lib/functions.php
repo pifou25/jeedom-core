@@ -18,11 +18,6 @@ namespace Sabre\Uri;
  * This function takes a basePath, which itself _may_ also be relative, and
  * then applies the relative path on top of it.
  *
- * @param string $basePath
- * @param string $newPath
- *
- * @return string
- *
  * @throws InvalidUriException
  */
 function resolve(string $basePath, string $newPath): string
@@ -89,7 +84,7 @@ function resolve(string $basePath, string $newPath): string
     $path = implode('/', $newPathParts);
 
     // If the source url ended with a /, we want to preserve that.
-    $newParts['path'] = $path;
+    $newParts['path'] = 0 === strpos($path, '/') ? $path : '/'.$path;
     if ($delta['query']) {
         $newParts['query'] = $delta['query'];
     } elseif (!empty($base['query']) && empty($delta['host']) && empty($delta['path'])) {
@@ -111,10 +106,6 @@ function resolve(string $basePath, string $newPath): string
  * rfc3986.
  *
  * It will also change a %3a into a %3A.
- *
- * @param string $uri
- *
- * @return string
  *
  * @throws InvalidUriException
  */
@@ -183,9 +174,7 @@ function normalize(string $uri): string
  * Unlike PHP's parse_url, it will also convert any non-ascii characters to
  * percent-encoded strings. PHP's parse_url corrupts these characters on OS X.
  *
- * @param string $uri
- *
- * @return array
+ * @return array<string, string>
  *
  * @throws InvalidUriException
  */
@@ -225,9 +214,7 @@ function parse(string $uri): array
  * This function takes the components returned from PHP's parse_url, and uses
  * it to generate a new uri.
  *
- * @param array $parts
- *
- * @return string
+ * @param array<string, int|string|null> $parts
  */
 function build(array $parts): string
 {
@@ -274,16 +261,14 @@ function build(array $parts): string
  * is used) and we need a method that just operates on UTF-8 characters.
  *
  * In addition basename and dirname are platform aware, and will treat
- * backslash (\) as a directory separator on windows.
+ * backslash (\) as a directory separator on Windows.
  *
  * This method returns the 2 components as an array.
  *
  * If there is no dirname, it will return an empty string. Any / appearing at
  * the end of the string is stripped off.
  *
- * @param string $path
- *
- * @return array
+ * @return array<int, mixed>
  */
 function split(string $path): array
 {
@@ -305,9 +290,7 @@ function split(string $path): array
  * This function is only called if the main parse method fails. It's pretty
  * crude and probably slow, so the original parse_url is usually preferred.
  *
- * @param string $uri
- *
- * @return array
+ * @return array<string, mixed>
  *
  * @throws InvalidUriException
  */
@@ -358,15 +341,13 @@ function _parse_fallback(string $uri): array
         $result['host'] = '';
     } elseif ('//' === substr($uri, 0, 2)) {
         // Uris that have an authority part.
-        $regex = '
-          %^
+        $regex = '%^
             //
             (?: (?<user> [^:@]+) (: (?<pass> [^@]+)) @)?
             (?<host> ( [^:/]* | \[ [^\]]+ \] ))
             (?: : (?<port> [0-9]+))?
             (?<path> / .*)?
-          $%x
-        ';
+          $%x';
         if (!preg_match($regex, $uri, $matches)) {
             throw new InvalidUriException('Invalid, or could not parse URI');
         }

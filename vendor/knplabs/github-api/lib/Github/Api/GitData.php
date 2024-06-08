@@ -12,6 +12,7 @@ use Github\Api\GitData\Trees;
  * Getting full versions of specific files and trees in your Git repositories.
  *
  * @link   http://developer.github.com/v3/git/
+ *
  * @author Joseph Bielawski <stloyd@gmail.com>
  */
 class GitData extends AbstractApi
@@ -21,7 +22,7 @@ class GitData extends AbstractApi
      */
     public function blobs()
     {
-        return new Blobs($this->client);
+        return new Blobs($this->getClient());
     }
 
     /**
@@ -29,7 +30,7 @@ class GitData extends AbstractApi
      */
     public function commits()
     {
-        return new Commits($this->client);
+        return new Commits($this->getClient());
     }
 
     /**
@@ -37,7 +38,7 @@ class GitData extends AbstractApi
      */
     public function references()
     {
-        return new References($this->client);
+        return new References($this->getClient());
     }
 
     /**
@@ -45,7 +46,7 @@ class GitData extends AbstractApi
      */
     public function tags()
     {
-        return new Tags($this->client);
+        return new Tags($this->getClient());
     }
 
     /**
@@ -53,6 +54,6 @@ class GitData extends AbstractApi
      */
     public function trees()
     {
-        return new Trees($this->client);
+        return new Trees($this->getClient());
     }
 }

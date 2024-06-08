@@ -2,15 +2,16 @@
 
 namespace PragmaRX\Google2FA;
 
-use PragmaRX\Google2FA\Support\Base32;
-use PragmaRX\Google2FA\Support\QRCode;
-use PragmaRX\Google2FA\Support\Constants;
 use PragmaRX\Google2FA\Exceptions\InvalidAlgorithmException;
 use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
+use PragmaRX\Google2FA\Support\Base32;
+use PragmaRX\Google2FA\Support\Constants;
+use PragmaRX\Google2FA\Support\QRCode;
 
 class Google2FA
 {
-    use QRCode, Base32;
+    use QRCode;
+    use Base32;
 
     /**
      * Algorithm.
@@ -50,12 +51,12 @@ class Google2FA
     /**
      * Find a valid One Time Password.
      *
-     * @param string    $secret
-     * @param string    $key
-     * @param int|null  $window
-     * @param int       $startingTimestamp
-     * @param int       $timestamp
-     * @param int|null  $oldTimestamp
+     * @param string   $secret
+     * @param string   $key
+     * @param int|null $window
+     * @param int      $startingTimestamp
+     * @param int      $timestamp
+     * @param int|null $oldTimestamp
      *
      * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
@@ -71,8 +72,7 @@ class Google2FA
         $timestamp,
         $oldTimestamp = null
     ) {
-        for (
-            ;
+        for (;
             $startingTimestamp <= $timestamp + $this->getWindow($window);
             $startingTimestamp++
         ) {
@@ -89,10 +89,11 @@ class Google2FA
     }
 
     /**
-     * Generate the HMAC OTP
+     * Generate the HMAC OTP.
      *
      * @param string $secret
-     * @param int $counter
+     * @param int    $counter
+     *
      * @return string
      */
     protected function generateHotp($secret, $counter)
@@ -111,8 +112,9 @@ class Google2FA
      * @param int    $length
      * @param string $prefix
      *
-     * @throws Exceptions\InvalidCharactersException
-     * @throws Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      *
      * @return string
      */
@@ -220,7 +222,7 @@ class Google2FA
      * Make a window based starting timestamp.
      *
      * @param int|null $window
-     * @param int $timestamp
+     * @param int      $timestamp
      * @param int|null $oldTimestamp
      *
      * @return mixed
@@ -252,8 +254,8 @@ class Google2FA
      * Takes the secret key and the timestamp and returns the one time
      * password.
      *
-     * @param string $secret  - Secret key in binary form.
-     * @param int    $counter - Timestamp as returned by getTimestamp.
+     * @param string $secret  Secret key in binary form.
+     * @param int    $counter Timestamp as returned by getTimestamp.
      *
      * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
@@ -263,11 +265,11 @@ class Google2FA
      */
     public function oathTotp($secret, $counter)
     {
-        $secret = $this->base32Decode($this->getSecret($secret));
-
         if (strlen($secret) < 8) {
             throw new SecretKeyTooShortException();
         }
+
+        $secret = $this->base32Decode($this->getSecret($secret));
 
         return str_pad(
             $this->oathTruncate($this->generateHotp($secret, $counter)),
@@ -286,11 +288,11 @@ class Google2FA
      **/
     public function oathTruncate($hash)
     {
-        $offset = ord($hash[strlen($hash) - 1]) & 0xf;
+        $offset = ord($hash[strlen($hash) - 1]) & 0xF;
 
         $temp = unpack('N', substr($hash, $offset, 4));
 
-        $temp = $temp[1] & 0x7fffffff;
+        $temp = $temp[1] & 0x7FFFFFFF;
 
         return substr(
             (string) $temp,
@@ -308,7 +310,7 @@ class Google2FA
     public function removeInvalidChars($string)
     {
         return preg_replace(
-            '/[^' . Constants::VALID_FOR_B32 . ']/',
+            '/[^'.Constants::VALID_FOR_B32.']/',
             '',
             $string
         );
@@ -333,12 +335,15 @@ class Google2FA
      * Set the HMAC hashing algorithm.
      *
      * @param mixed $algorithm
+     *
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidAlgorithmException
+     *
      * @return \PragmaRX\Google2FA\Google2FA
      */
     public function setAlgorithm($algorithm)
     {
         // Default to SHA1 HMAC algorithm
-        if (! in_array($algorithm, $this->getValidAlgorithms())) {
+        if (!in_array($algorithm, $this->getValidAlgorithms())) {
             throw new InvalidAlgorithmException();
         }
 
@@ -391,11 +396,11 @@ class Google2FA
      * Verifies a user inputted key against the current timestamp. Checks $window
      * keys either side of the timestamp.
      *
-     * @param string        $key          - User specified key
-     * @param string        $secret
-     * @param null|int      $window
-     * @param null|int      $timestamp
-     * @param null|int      $oldTimestamp
+     * @param string   $key          User specified key
+     * @param string   $secret
+     * @param null|int $window
+     * @param null|int $timestamp
+     * @param null|int $oldTimestamp
      *
      * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
@@ -423,11 +428,11 @@ class Google2FA
      * Verifies a user inputted key against the current timestamp. Checks $window
      * keys either side of the timestamp.
      *
-     * @param string    $secret
-     * @param string    $key          - User specified key
-     * @param int|null  $window
-     * @param null|int  $timestamp
-     * @param null|int  $oldTimestamp
+     * @param string   $secret
+     * @param string   $key          User specified key
+     * @param int|null $window
+     * @param null|int $timestamp
+     * @param null|int $oldTimestamp
      *
      * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
      * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
@@ -461,8 +466,8 @@ class Google2FA
      * be used twice.
      *
      * @param string   $secret
-     * @param string   $key          - User specified key
-     * @param int      $oldTimestamp - The timestamp from the last verified key
+     * @param string   $key          User specified key
+     * @param int|null $oldTimestamp The timestamp from the last verified key
      * @param int|null $window
      * @param int|null $timestamp
      *
@@ -470,7 +475,7 @@ class Google2FA
      * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
      * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
      *
-     * @return bool|int - false (not verified) or the timestamp of the verified key
+     * @return bool|int
      */
     public function verifyKeyNewer(
         $secret,

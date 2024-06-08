@@ -2,29 +2,18 @@
 
 namespace Github\Api;
 
+use Github\Api\User\Migration;
+
 /**
  * Searching users, getting user information.
  *
  * @link   http://developer.github.com/v3/users/
+ *
  * @author Joseph Bielawski <stloyd@gmail.com>
  * @author Thibault Duplessis <thibault.duplessis at gmail dot com>
  */
 class User extends AbstractApi
 {
-    /**
-     * Search users by username.
-     *
-     * @link http://developer.github.com/v3/search/#search-users
-     *
-     * @param string $keyword the keyword to search
-     *
-     * @return array list of users found
-     */
-    public function find($keyword)
-    {
-        return $this->get('legacy/user/search/'.rawurlencode($keyword));
-    }
-
     /**
      * Request all users.
      *
@@ -37,10 +26,10 @@ class User extends AbstractApi
     public function all($id = null)
     {
         if (!is_int($id)) {
-            return $this->get('users');
+            return $this->get('/users');
         }
 
-        return $this->get('users?since=' . rawurldecode($id));
+        return $this->get('/users', ['since' => $id]);
     }
 
     /**
@@ -54,7 +43,22 @@ class User extends AbstractApi
      */
     public function show($username)
     {
-        return $this->get('users/'.rawurlencode($username));
+        return $this->get('/users/'.rawurlencode($username));
+    }
+
+    /**
+     * Get extended information about a user by its id.
+     * Note: at time of writing this is an undocumented feature but GitHub support have advised that it can be relied on.
+     *
+     * @link http://developer.github.com/v3/users/
+     *
+     * @param int $id the id of the user to show
+     *
+     * @return array information about the user
+     */
+    public function showById($id)
+    {
+        return $this->get('/user/'.$id);
     }
 
     /**
@@ -68,7 +72,19 @@ class User extends AbstractApi
      */
     public function organizations($username)
     {
-        return $this->get('users/'.rawurlencode($username).'/orgs');
+        return $this->get('/users/'.rawurlencode($username).'/orgs');
+    }
+
+    /**
+     * Get user organizations.
+     *
+     * @link https://developer.github.com/v3/orgs/#list-your-organizations
+     *
+     * @return array information about organizations that authenticated user belongs to
+     */
+    public function orgs()
+    {
+        return $this->get('/user/orgs');
     }
 
     /**
@@ -76,13 +92,15 @@ class User extends AbstractApi
      *
      * @link http://developer.github.com/v3/users/followers/
      *
-     * @param string $username the username
+     * @param string $username       the username
+     * @param array  $parameters     parameters for the query string
+     * @param array  $requestHeaders additional headers to set in the request
      *
      * @return array list of followed users
      */
-    public function following($username)
+    public function following($username, array $parameters = [], array $requestHeaders = [])
     {
-        return $this->get('users/'.rawurlencode($username).'/following');
+        return $this->get('/users/'.rawurlencode($username).'/following', $parameters, $requestHeaders);
     }
 
     /**
@@ -90,27 +108,15 @@ class User extends AbstractApi
      *
      * @link http://developer.github.com/v3/users/followers/
      *
-     * @param string $username the username
+     * @param string $username       the username
+     * @param array  $parameters     parameters for the query string
+     * @param array  $requestHeaders additional headers to set in the request
      *
      * @return array list of following users
      */
-    public function followers($username)
+    public function followers($username, array $parameters = [], array $requestHeaders = [])
     {
-        return $this->get('users/'.rawurlencode($username).'/followers');
-    }
-
-    /**
-     * Request the repository that a specific user is watching.
-     *
-     * @deprecated see subscriptions method
-     *
-     * @param string $username the username
-     *
-     * @return array list of watched repositories
-     */
-    public function watched($username)
-    {
-        return $this->get('users/'.rawurlencode($username).'/watched');
+        return $this->get('/users/'.rawurlencode($username).'/followers', $parameters, $requestHeaders);
     }
 
     /**
@@ -118,16 +124,22 @@ class User extends AbstractApi
      *
      * @link http://developer.github.com/v3/activity/starring/
      *
-     * @param string $username the username
-     * @param int    $page     the page number of the paginated result set
+     * @param string $username  the username
+     * @param int    $page      the page number of the paginated result set
+     * @param int    $perPage   the number of results per page
+     * @param string $sort      sort by (possible values: created, updated)
+     * @param string $direction direction of sort (possible values: asc, desc)
      *
      * @return array list of starred repositories
      */
-    public function starred($username, $page = 1)
+    public function starred($username, $page = 1, $perPage = 30, $sort = 'created', $direction = 'desc')
     {
-        return $this->get('users/'.rawurlencode($username).'/starred', array(
-            'page' => $page
-        ));
+        return $this->get('/users/'.rawurlencode($username).'/starred', [
+            'page' => $page,
+            'per_page' => $perPage,
+            'sort' => $sort,
+            'direction' => $direction,
+        ]);
     }
 
     /**
@@ -141,28 +153,46 @@ class User extends AbstractApi
      */
     public function subscriptions($username)
     {
-        return $this->get('users/'.rawurlencode($username).'/subscriptions');
+        return $this->get('/users/'.rawurlencode($username).'/subscriptions');
     }
 
     /**
-     * Get the repositories of a user.
+     * List public repositories for the specified user.
      *
-     * @link http://developer.github.com/v3/repos/
+     * @link https://developer.github.com/v3/repos/#list-user-repositories
      *
-     * @param string $username  the username
-     * @param string $type      role in the repository
-     * @param string $sort      sort by
-     * @param string $direction direction of sort, asc or desc
+     * @param string $username    the username
+     * @param string $type        role in the repository
+     * @param string $sort        sort by
+     * @param string $direction   direction of sort, asc or desc
+     * @param string $visibility  visibility of repository
+     * @param string $affiliation relationship to repository
      *
      * @return array list of the user repositories
      */
-    public function repositories($username, $type = 'owner', $sort = 'full_name', $direction = 'asc')
+    public function repositories($username, $type = 'owner', $sort = 'full_name', $direction = 'asc', $visibility = 'all', $affiliation = 'owner,collaborator,organization_member')
     {
-        return $this->get('users/'.rawurlencode($username).'/repos', array(
+        return $this->get('/users/'.rawurlencode($username).'/repos', [
             'type' => $type,
             'sort' => $sort,
-            'direction' => $direction
-        ));
+            'direction' => $direction,
+            'visibility' => $visibility,
+            'affiliation' => $affiliation,
+        ]);
+    }
+
+    /**
+     * List repositories that are accessible to the authenticated user.
+     *
+     * @link https://developer.github.com/v3/repos/#list-your-repositories
+     *
+     * @param array $params visibility, affiliation, type, sort, direction
+     *
+     * @return array list of the user repositories
+     */
+    public function myRepositories(array $params = [])
+    {
+        return $this->get('/user/repos', $params);
     }
 
     /**
@@ -176,7 +206,7 @@ class User extends AbstractApi
      */
     public function gists($username)
     {
-        return $this->get('users/'.rawurlencode($username).'/gists');
+        return $this->get('/users/'.rawurlencode($username).'/gists');
     }
 
     /**
@@ -190,7 +220,7 @@ class User extends AbstractApi
      */
     public function keys($username)
     {
-        return $this->get('users/'.rawurlencode($username).'/keys');
+        return $this->get('/users/'.rawurlencode($username).'/keys');
     }
 
     /**
@@ -204,6 +234,26 @@ class User extends AbstractApi
      */
     public function publicEvents($username)
     {
-        return $this->get('users/'.rawurlencode($username) . '/events/public');
+        return $this->get('/users/'.rawurlencode($username).'/events/public');
+    }
+
+    /**
+     * List events performed by an authenticated user.
+     *
+     * @link https://docs.github.com/en/rest/reference/activity#list-events-for-the-authenticated-user
+     *
+     * @return array
+     */
+    public function events(string $username)
+    {
+        return $this->get('/users/'.rawurlencode($username).'/events');
+    }
+
+    /**
+     * @return Migration
+     */
+    public function migration(): Migration
+    {
+        return new Migration($this->getClient());
     }
 }
