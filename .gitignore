@@ -45,4 +45,3 @@ tmp/*
 !tmp/.htaccess
 
 !.htaccess
-.github/
