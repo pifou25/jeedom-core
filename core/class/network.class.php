@@ -27,10 +27,6 @@ class network {
 		if (!filter_var($jeedom_ip, FILTER_VALIDATE_IP)) {
 			return 'external';
 		}
-		$jeedom_ips = explode('.', $jeedom_ip);
-		if (count($jeedom_ips) != 4) {
-			return 'external';
-		}
 		if (config::byKey('network::localip') != '') {
 			$localIps = explode(';', config::byKey('network::localip'));
 			foreach ($localIps as $localIp) {
@@ -38,6 +34,10 @@ class network {
 					return 'internal';
 				}
 			}
+		}
+		$jeedom_ips = explode('.', $jeedom_ip);
+		if (count($jeedom_ips) != 4) {
+			return 'external';
 		}
 		$match = $jeedom_ips[0] . '.' . $jeedom_ips[1] . '.' . $jeedom_ips[2] . '.*';
 		return netMatch($match, $client_ip) ? 'internal' : 'external';
@@ -93,7 +93,7 @@ class network {
 			}
 			if ($_protocol == 'http:127.0.0.1:port:comp') {
 				if (jeedom::getHardwareName() == 'docker') {
-					return trim(config::byKey('internalProtocol') . config::byKey('internalProtocol') . ':' . config::byKey('internalPort', 'core', 80) . '/' . trim(config::byKey('internalComplement'), '/'), '/');
+					return trim('http://'. config::byKey('internalAddr') . ':' . config::byKey('internalPort', 'core', 80) . '/' . trim(config::byKey('internalComplement'), '/'), '/');
 				}
 				return trim('http://127.0.0.1:' . config::byKey('internalPort', 'core', 80) . '/' . trim(config::byKey('internalComplement'), '/'), '/');
 			}
@@ -221,22 +221,27 @@ class network {
 			config::save($_mode . 'Complement', '');
 		}
 		if ($_mode == 'internal') {
-			foreach ((self::getInterfacesInfo()) as $interface) {
-				if ($interface['ifname'] == 'lo' || !isset($interface['addr_info']) || strpos($interface['ifname'], 'docker') !== false  || strpos($interface['ifname'], 'tun') !== false || strpos($interface['ifname'], 'br') !== false) {
-					continue;
-				}
-				$ip = null;
-				foreach ($interface['addr_info'] as $addr_info) {
-					if (isset($addr_info['family']) && $addr_info['family'] == 'inet') {
-						$ip = $addr_info['local'];
+			if (config::byKey('network::disableInternalAuto','core',0) == 0) {
+				foreach ((self::getInterfacesInfo()) as $interface) {
+					if ($interface['ifname'] == 'lo' || !isset($interface['addr_info']) || strpos($interface['ifname'], 'docker') !== false  || strpos($interface['ifname'], 'tun') !== false || strpos($interface['ifname'], 'br') !== false) {
+						continue;
 					}
-				}
-				if ($ip == null) {
-					continue;
-				}
-				if (!netMatch('127.0.*.*', $ip) && $ip != '' && filter_var($ip, FILTER_VALIDATE_IP)) {
-					config::save('internalAddr', $ip);
-					break;
+					if (config::byKey('network::internalAutoInterface','core','auto') != 'auto' && $interface['ifname'] != config::byKey('network::internalAutoInterface','core','auto')){
+						continue;
+					}
+					$ip = null;
+					foreach ($interface['addr_info'] as $addr_info) {
+						if (isset($addr_info['family']) && $addr_info['family'] == 'inet') {
+							$ip = $addr_info['local'];
+						}
+					}
+					if ($ip == null) {
+						continue;
+					}
+					if (!netMatch('127.0.*.*', $ip) && !netMatch('169.*.*.*', $ip) && $ip != '' && filter_var($ip, FILTER_VALIDATE_IP)) {
+						config::save('internalAddr', $ip);
+						break;
+					}
 				}
 			}
 		}
@@ -262,10 +267,10 @@ class network {
 		}
 		$data = curl_exec($ch);
 		if (curl_errno($ch)) {
-			usleep(rand(1000, 100000));
+			usleep(rand(1000, 10000));
 			$data = curl_exec($ch);
 			if (curl_errno($ch)) {
-				log::add('network', 'debug', 'Erreur sur ' . $url . ' => ' . curl_errno($ch));
+				log::add('network', 'debug', 'Erreur sur ' . $url . ' => ' . curl_error($ch));
 				curl_close($ch);
 				return false;
 			}
@@ -284,29 +289,9 @@ class network {
 		if (config::byKey('dns::token') == '') {
 			return;
 		}
-		if (!in_array(config::byKey('dns::mode'), array('openvpn', 'wireguard'))) {
-			config::save('dns::mode', 'openvpn');
-		}
-		if (config::byKey('dns::mode') == 'openvpn') {
-			$wireguard = eqLogic::byLogicalId('dnsjeedom', 'wireguard');
-			if (is_object($wireguard)) {
-				$wireguard->remove();
-			}
-			try {
-				$plugin = plugin::byId('openvpn');
-				if (!is_object($plugin)) {
-					$update = update::byLogicalId('openvpn');
-					if (!is_object($update)) {
-						$update = new update();
-					}
-					$update->setLogicalId('openvpn');
-					$update->setSource('market');
-					$update->setConfiguration('version', 'stable');
-					$update->save();
-					$update->doUpdate();
-					$plugin = plugin::byId('openvpn');
-				}
-			} catch (Exception $e) {
+		try {
+			$plugin = plugin::byId('openvpn');
+			if (!is_object($plugin)) {
 				$update = update::byLogicalId('openvpn');
 				if (!is_object($update)) {
 					$update = new update();
@@ -318,108 +303,69 @@ class network {
 				$update->doUpdate();
 				$plugin = plugin::byId('openvpn');
 			}
-			if (!is_object($plugin)) {
-				throw new Exception(__('Le plugin OpenVPN doit être installé', __FILE__));
+		} catch (Exception $e) {
+			$update = update::byLogicalId('openvpn');
+			if (!is_object($update)) {
+				$update = new update();
 			}
-			if (!$plugin->isActive()) {
-				$plugin->setIsEnable(1);
-				$plugin->dependancy_install();
-			}
-			if (!$plugin->isActive()) {
-				throw new Exception(__('Le plugin OpenVPN doit être actif', __FILE__));
-			}
-			$openvpn = eqLogic::byLogicalId('dnsjeedom', 'openvpn');
-			$direct = true;
-			if (!is_object($openvpn)) {
-				$direct = false;
-				$openvpn = new openvpn();
-				$openvpn->setName('DNS Jeedom');
-			}
-			$openvpn->setIsEnable(1);
-			$openvpn->setLogicalId('dnsjeedom');
-			$openvpn->setEqType_name('openvpn');
-			$openvpn->setConfiguration('dev', 'tun');
-			$openvpn->setConfiguration('proto', 'udp');
-			if (config::byKey('dns::vpnurl') != '') {
-				$openvpn->setConfiguration('remote_host', config::byKey('dns::vpnurl'));
-			} else {
-				$openvpn->setConfiguration('remote_host', 'vpn.dns' . config::byKey('dns::number', 'core', 1) . '.jeedom.com');
-			}
-			if (config::byKey('dns::remote') != '') {
-				$openvpn->setConfiguration('remote', config::byKey('dns::remote'));
-			}
-			$openvpn->setConfiguration('username', jeedom::getHardwareKey());
-			$openvpn->setConfiguration('password', config::byKey('dns::token'));
-			$openvpn->setConfiguration('compression', 'comp-lzo');
-			$openvpn->setConfiguration('remote_port', config::byKey('vpn::port', 'core', 1194));
-			$openvpn->setConfiguration('auth_mode', 'password');
-			$openvpn->save($direct);
-			if (!file_exists(__DIR__ . '/../../plugins/openvpn/data')) {
-				shell_exec('mkdir -p ' . __DIR__ . '/../../plugins/openvpn/data');
-			}
-			$path_ca = __DIR__ . '/../../plugins/openvpn/data/ca_' . $openvpn->getConfiguration('key') . '.crt';
-			if (file_exists($path_ca)) {
-				unlink($path_ca);
-			}
-			copy(__DIR__ . '/../../resources/ca_dns.crt', $path_ca);
-			if (!file_exists($path_ca)) {
-				throw new Exception(__('Impossible de créer le fichier  :', __FILE__) . ' ' . $path_ca);
-			}
-			return $openvpn;
-		} elseif (config::byKey('dns::mode') == 'wireguard') {
-			$openvpn = eqLogic::byLogicalId('dnsjeedom', 'openvpn');
-			if (is_object($openvpn)) {
-				$openvpn->remove();
-			}
-			try {
-				$plugin = plugin::byId('wireguard');
-				if (!is_object($plugin)) {
-					$update = update::byLogicalId('wireguard');
-					if (!is_object($update)) {
-						$update = new update();
-					}
-					$update->setLogicalId('wireguard');
-					$update->setSource('market');
-					$update->setConfiguration('version', 'stable');
-					$update->save();
-					$update->doUpdate();
-					$plugin = plugin::byId('wireguard');
-				}
-			} catch (Exception $e) {
-				$update = update::byLogicalId('wireguard');
-				if (!is_object($update)) {
-					$update = new update();
-				}
-				$update->setLogicalId('wireguard');
-				$update->setSource('market');
-				$update->setConfiguration('version', 'stable');
-				$update->save();
-				$update->doUpdate();
-				$plugin = plugin::byId('wireguard');
-			}
-			if (!is_object($plugin)) {
-				throw new Exception(__('Le plugin Wireguard doit être installé', __FILE__));
-			}
-			if (!$plugin->isActive()) {
-				$plugin->setIsEnable(1);
-				$plugin->dependancy_install();
-			}
-			if (!$plugin->isActive()) {
-				throw new Exception(__('Le plugin Wireguard doit être actif', __FILE__));
-			}
-			$wireguard = eqLogic::byLogicalId('dnsjeedom', 'wireguard');
-			$direct = true;
-			if (!is_object($wireguard)) {
-				$direct = false;
-				$wireguard = new wireguard();
-				$wireguard->setName('DNS Jeedom');
-			}
-			$wireguard->setIsEnable(1);
-			$wireguard->setLogicalId('dnsjeedom');
-			$wireguard->setEqType_name('wireguard');
-			$wireguard->save($direct);
-			return $wireguard;
+			$update->setLogicalId('openvpn');
+			$update->setSource('market');
+			$update->setConfiguration('version', 'stable');
+			$update->save();
+			$update->doUpdate();
+			$plugin = plugin::byId('openvpn');
 		}
+		if (!is_object($plugin)) {
+			throw new Exception(__('Le plugin OpenVPN doit être installé', __FILE__));
+		}
+		if (!$plugin->isActive()) {
+			$plugin->setIsEnable(1);
+			$plugin->dependancy_install();
+		}
+		if (!$plugin->isActive()) {
+			throw new Exception(__('Le plugin OpenVPN doit être actif', __FILE__));
+		}
+		$openvpn = eqLogic::byLogicalId('dnsjeedom', 'openvpn');
+		$direct = true;
+		if (!is_object($openvpn)) {
+			$direct = false;
+			$openvpn = new openvpn();
+			$openvpn->setName('DNS Jeedom');
+		}
+		$openvpn->setIsEnable(1);
+		$openvpn->setLogicalId('dnsjeedom');
+		$openvpn->setEqType_name('openvpn');
+		$openvpn->setConfiguration('dev', 'tun');
+		$openvpn->setConfiguration('proto', 'udp');
+		if(config::byKey('dns::preferProtocol') != '' && strpos(config::byKey('dns::protocol'),config::byKey('dns::preferProtocol')) !== false){
+			$openvpn->setConfiguration('proto', config::byKey('dns::preferProtocol'));
+		}
+		if (config::byKey('dns::vpnurl') != '') {
+			$openvpn->setConfiguration('remote_host', config::byKey('dns::vpnurl'));
+		} else {
+			$openvpn->setConfiguration('remote_host', 'vpn.dns' . config::byKey('dns::number', 'core', 1) . '.jeedom.com');
+		}
+		if (config::byKey('dns::remote') != '') {
+			$openvpn->setConfiguration('remote', config::byKey('dns::remote'));
+		}
+		$openvpn->setConfiguration('username', jeedom::getHardwareKey());
+		$openvpn->setConfiguration('password', config::byKey('dns::token'));
+		$openvpn->setConfiguration('compression', 'comp-lzo');
+		$openvpn->setConfiguration('remote_port', config::byKey('vpn::port', 'core', 1194));
+		$openvpn->setConfiguration('auth_mode', 'password');
+		$openvpn->save($direct);
+		if (!file_exists(__DIR__ . '/../../plugins/openvpn/data')) {
+			shell_exec('mkdir -p ' . __DIR__ . '/../../plugins/openvpn/data');
+		}
+		$path_ca = __DIR__ . '/../../plugins/openvpn/data/ca_' . $openvpn->getConfiguration('key') . '.crt';
+		if (file_exists($path_ca)) {
+			unlink($path_ca);
+		}
+		copy(__DIR__ . '/../../resources/ca_dns.crt', $path_ca);
+		if (!file_exists($path_ca)) {
+			throw new Exception(__('Impossible de créer le fichier  :', __FILE__) . ' ' . $path_ca);
+		}
+		return $openvpn;
 	}
 
 

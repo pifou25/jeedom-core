@@ -29,6 +29,7 @@ class plugin {
 	private $installation;
 	private $author;
 	private $require;
+	private $requireOsVersion;
 	private $category;
 	private $filepath;
 	private $index;
@@ -50,6 +51,7 @@ class plugin {
 	private $info = array();
 	private $include = array();
 	private $functionality = array();
+	private $usedSpace = 0;
 	private static $_cache = array();
 	private static $_enable = null;
 
@@ -95,6 +97,7 @@ class plugin {
 		$plugin->maxDependancyInstallTime = (isset($data['maxDependancyInstallTime'])) ? $data['maxDependancyInstallTime'] : 30;
 		$plugin->eventjs = (isset($data['eventjs'])) ? $data['eventjs'] : 0;
 		$plugin->require = (isset($data['require'])) ? $data['require'] : '';
+		$plugin->requireOsVersion = (isset($data['requireOsVersion'])) ? $data['requireOsVersion'] : '';
 		$plugin->category = (isset($data['category'])) ? $data['category'] : '';
 		$plugin->filepath = $path;
 		$plugin->index = (isset($data['index'])) ? $data['index'] : $data['id'];
@@ -150,6 +153,7 @@ class plugin {
 				}
 			}
 		}
+		$plugin->usedSpace = getDirectorySize(__DIR__ . '/../../plugins/' . $data['id']);
 		self::$_cache[$plugin->id] = $plugin;
 		return $plugin;
 	}
@@ -289,7 +293,7 @@ class plugin {
 		foreach (self::listPlugin(true) as $plugin) {
 			try {
 				$heartbeat = config::byKey('heartbeat::delay::' . $plugin->getId(), 'core', 0);
-				if ($heartbeat == 0 || is_nan($heartbeat)) {
+				if ($heartbeat == 0 || !is_numeric($heartbeat)) {
 					continue;
 				}
 				$eqLogics = eqLogic::byType($plugin->getId());
@@ -667,7 +671,7 @@ class plugin {
 		}
 		if (file_exists(__DIR__ . '/../../plugins/' . $plugin_id . '/plugin_info/packages.json')) {
 			$return = array('log' => $plugin_id . '_packages');
-			$packages = system::checkAndInstall(json_decode(file_get_contents(__DIR__ . '/../../plugins/' . $plugin_id . '/plugin_info/packages.json'), true));
+			$packages = system::checkAndInstall(json_decode(file_get_contents(__DIR__ . '/../../plugins/' . $plugin_id . '/plugin_info/packages.json'), true), false, false, $plugin_id);
 			$has_dep_to_install = false;
 			foreach ($packages as $package => $info) {
 				if ($info['status'] != 0 || $info['optional']) {
@@ -692,6 +696,12 @@ class plugin {
 			}
 			$return['last_launch'] = config::byKey('lastDependancyInstallTime', $this->getId(), __('Inconnue', __FILE__));
 			$return['auto'] = config::byKey('dependancyAutoMode', $this->getId(), 1);
+			if ($return['state'] != 'in_progress' && method_exists($plugin_id, 'additionnalDependancyCheck')) {
+				$additionnal = $plugin_id::additionnalDependancyCheck();
+				if (isset($additionnal['state'])) {
+					$return['state'] = $additionnal['state'];
+				}
+			}
 			if ($return['state'] == 'ok') {
 				cache::set('dependancy' . $this->getID(), $return);
 			}
@@ -734,9 +744,9 @@ class plugin {
 	 * @return null
 	 * @throws Exception
 	 */
-	public function dependancy_install() {
+	public function dependancy_install($_force = false, $_foreground  = false) {
 		$plugin_id = $this->getId();
-		if (config::byKey('dontProtectTooFastLaunchDependancy') == 0 && abs(strtotime('now') - strtotime(config::byKey('lastDependancyInstallTime', $plugin_id))) <= 60) {
+		if (!$_force && config::byKey('dontProtectTooFastLaunchDependancy') == 0 && abs(strtotime('now') - strtotime(config::byKey('lastDependancyInstallTime', $plugin_id))) <= 60) {
 			$cache = cache::byKey('dependancy' . $this->getID());
 			$cache->remove();
 			throw new Exception(__('Vous devez attendre au moins 60 secondes entre deux lancements d\'installation de dépendances', __FILE__));
@@ -748,7 +758,7 @@ class plugin {
 		if (file_exists(__DIR__ . '/../../plugins/' . $plugin_id . '/plugin_info/packages.json')) {
 			$this->deamon_stop();
 			config::save('lastDependancyInstallTime', date('Y-m-d H:i:s'), $plugin_id);
-			system::checkAndInstall(json_decode(file_get_contents(__DIR__ . '/../../plugins/' . $plugin_id . '/plugin_info/packages.json'), true), true, false, $plugin_id);
+			system::checkAndInstall(json_decode(file_get_contents(__DIR__ . '/../../plugins/' . $plugin_id . '/plugin_info/packages.json'), true), true, $_foreground, $plugin_id, $_force);
 			$cache = cache::byKey('dependancy' . $this->getID());
 			$cache->remove();
 			return;
@@ -921,9 +931,16 @@ class plugin {
 		}
 	}
 
-	public function setIsEnable($_state) {
+	public function setIsEnable($_state, $_force = false, $_foreground = false) {
 		if (version_compare(jeedom::version(), $this->getRequire()) == -1 && $_state == 1) {
 			throw new Exception(__('Votre version de Jeedom n\'est pas assez récente pour activer ce plugin', __FILE__));
+		}
+		$osVersion = $this->getRequireOsVersion();
+		$distrib = system::getDistrib();
+		if(isset($osVersion)){
+			if ($distrib == 'debian' && version_compare(system::getOsVersion(), $osVersion) == -1 && $_state == 1) {
+				throw new Exception(__('Votre version Debian n\'est pas assez récente pour activer cette version du plugin, '.$osVersion.' minimum demandé', __FILE__));
+			}
 		}
 		$alreadyActive = config::byKey('active', $this->getId(), 0);
 		if ($_state == 1) {
@@ -953,6 +970,11 @@ class plugin {
 				}
 			}
 		} else if ($alreadyActive == 0 && $_state == 1) {
+			try {
+				include_file('core', $this->getId(), 'class', $this->getId());
+			} catch (Exception $e) {
+			} catch (Error $e) {
+			}
 			foreach (eqLogic::byType($this->getId()) as $eqLogic) {
 				try {
 					$eqLogic->setIsEnable($eqLogic->getConfiguration('previousIsEnable', 1));
@@ -982,7 +1004,7 @@ class plugin {
 				$dependancy_info = $this->dependancy_info(true);
 				if ($dependancy_info['state'] == 'nok' && config::byKey('dependancyAutoMode', $this->getId(), 1) == 1) {
 					try {
-						$this->dependancy_install();
+						$this->dependancy_install($_force, $_foreground);
 					} catch (Exception $e) {
 					}
 				}
@@ -1080,6 +1102,19 @@ class plugin {
 		return 'index.php?v=d&p=plugin&id=' . $this->getId();
 	}
 
+	public static function getConfigForCommunity($_separator = '<br>') {
+		// retrieve core version and branch
+		$infoCore = 'Core : ' . config::byKey('version', 'core', '#NA#') . ' (' . config::byKey('core::branch') . ')' . $_separator;
+
+		// check if connexion used jeedom DNS
+		$url =  network::getNetworkAccess('external');
+		$hasDns  = ((strpos($url, 'jeedom.com') !== false || strpos($url, 'eu.jeedom.link')) !== false);
+		$infoCore .= 'DNS ' . config::byKey('product_name') . ' : ' . ($hasDns ? __('oui', __FILE__) : __('non', __FILE__));
+		$infoCore .= $_separator;
+
+		return $infoCore;
+	}
+
 	/*     * **********************Getteur Setteur*************************** */
 
 	public function getId() {
@@ -1129,6 +1164,10 @@ class plugin {
 
 	public function getRequire() {
 		return $this->require;
+	}
+
+	public function getRequireOsVersion() {
+		return $this->requireOsVersion;
 	}
 
 	public function getCategory() {

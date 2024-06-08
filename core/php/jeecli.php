@@ -50,7 +50,7 @@ switch ($argv[1]) {
                     echo "Error plugin not found";
                     die();
                 }
-                $plugin->setIsEnable(1);
+                $plugin->setIsEnable(1,true,true);
                 break;
             case 'dependancy_end':
                 if (!isset($argv[3])) {
@@ -89,6 +89,26 @@ switch ($argv[1]) {
                 }
                 $user->setPassword(sha512($argv[4]));
                 $user->save();
+                break;
+            case 'add':
+                if (!isset($argv[3]) || !isset($argv[4])) {
+                    echo "Username and password are mandatory";
+                    break;
+                }
+                if (strlen($argv[4]) < 8) {
+                    echo "Password need 8 characteres length";
+                    break;
+                }
+                $user = user::byLogin($argv[3]);
+                if (is_object($user)) {
+                    echo "User " . $argv[3] . " already exist";
+                    die();
+                }
+                $user = new user();
+        		$user->setLogin($argv[3]);
+        		$user->setPassword(sha512($argv[4]));
+        		$user->setProfils('admin');
+        		$user->save();
                 break;
             default:
                 echo "No action provide : list,password";

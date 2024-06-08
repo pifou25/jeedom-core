@@ -144,7 +144,7 @@ if (!jeeFrontEnd.history) {
         compare: 0,
         success: function(data) {
           if (isset(data.error)) {
-            document.querySelector('.li_history[data-cmd_id="' + _cmd_id + '"]').removeClass('active')
+            document.querySelector('.li_history[data-cmd_id="' + _cmd_id + '"]')?.removeClass('active')
             return
           }
           jeeP.__lastId__ = _cmd_id
@@ -223,9 +223,9 @@ if (!jeeFrontEnd.history) {
               var text = '{{Comparer}} ' + diffPeriod + ' {{jours avec}} ' + cdiffPeriod + ' {{jours il y a}} ' + document.getElementById('sel_comparePeriod').selectedOptions[0].text
               _md.querySelector('.spanCompareDiffResult').textContent = text
               if (diffPeriod != cdiffPeriod) {
-                jeeDialog.get('#md_historyCompare').show()
+                _md.querySelector('.spanCompareDiff').seen()
               } else {
-                jeeDialog.get('#md_historyCompare').hide()
+                _md.querySelector('.spanCompareDiff').unseen()
               }
               return
             }
@@ -237,7 +237,7 @@ if (!jeeFrontEnd.history) {
 
               var m_startDate = moment(startDate, 'YYYY-MM-DD HH:mm:ss')
               var endDate = m_startDate.subtract(num, type).format("YYYY-MM-DD")
-              document.getElementById('in_compareStart1').value = endDate
+              _md.querySelector('#in_compareStart1').value = endDate
 
               //range to compare with:
               num = _md.querySelector('#sel_comparePeriod').value.split('.')[0]
@@ -247,6 +247,7 @@ if (!jeeFrontEnd.history) {
               m_startDate = moment(startDate, 'YYYY-MM-DD HH:mm:ss')
               endDate = m_startDate.subtract(num, type).format("YYYY-MM-DD")
               _md.querySelector('#in_compareStart2').value = endDate
+              _md.querySelector('input.in_datepicker').triggerEvent('change')
               return
             }
 
@@ -263,6 +264,7 @@ if (!jeeFrontEnd.history) {
               m_startDate = moment(startDate, 'YYYY-MM-DD HH:mm:ss')
               endDate = m_startDate.subtract(num, type).format("YYYY-MM-DD")
               _md.querySelector('#in_compareStart2').value = endDate
+              _md.querySelector('input.in_datepicker').triggerEvent('change')
               return
             }
           })
@@ -274,6 +276,7 @@ if (!jeeFrontEnd.history) {
         },
         onShown: function() {
           jeeDialog.get('#md_historyCompare', 'content').querySelector('#md_getCompareRange').removeClass('hidden')
+          jeedomUtils.datePickerInit()
         },
         buttons: {
           confirm: {
@@ -311,7 +314,7 @@ if (!jeeFrontEnd.history) {
       jeedom.history.emptyChart(this.__el__, true)
 
       //add data from both date range:
-      self = this
+      let self = this
       jeedom.history.drawChart({
         cmd_id: _cmd_id,
         el: self.__el__,
@@ -343,7 +346,7 @@ if (!jeeFrontEnd.history) {
     setHistoryOptions: function(_mode) {
       if (!isset(_mode)) _mode = true
       document.getElementById('div_historyOptions').querySelectorAll('input, select, a').forEach(_ctrl => {
-        if (_ctrl.getAttribute('id') != 'bt_compare') {
+        if (_ctrl.getAttribute('id') != 'in_startDate' && _ctrl.getAttribute('id') != 'in_endDate' && _ctrl.getAttribute('id') != 'bt_validChangeDate' && _ctrl.getAttribute('id') != 'bt_compare' && _ctrl.getAttribute('id') != 'bt_clearGraph') {
           if (_mode) {
             _ctrl.removeClass('disabled')
           } else {
@@ -607,13 +610,11 @@ document.getElementById('sidebar').addEventListener('click', function(event) {
   if (_target = event.target.closest('.li_history .remove')) {
     jeedomUtils.hideAlert()
     jeeDialog.prompt({
-      inputType: 'date',
-      pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}',
-      placeholder: 'yyyy-mm-dd hh:mm:ss',
-      message: '{{Veuillez indiquer la date (Y-m-d H:m:s) avant laquelle il faut supprimer l\'historique de}} <span style="font-weight: bold ;"> ' + _target.closest('.li_history').querySelector('.history').textContent + ' ?</span><br>({{Mettez -1 pour ton supprimer}})'
+      placeholder: 'yyyy-mm-dd hh:mm:ss or -1',
+      message: '{{Veuillez indiquer la date (Y-m-d H:m:s) avant laquelle il faut supprimer l\'historique de}} <span style="font-weight: bold ;"> ' + _target.closest('.li_history').querySelector('.history').textContent + ' ?</span><br>({{Mettez -1 pour tout supprimer}})'
       }, function(result) {
       if (result !== null) {
-        jeeP.emptyHistory(_target.closest('.li_history').attr('data-cmd_id'), result)
+        jeeP.emptyHistory(_target.closest('.li_history').getAttribute('data-cmd_id'), result)
       }
     })
     return

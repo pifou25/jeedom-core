@@ -44,6 +44,18 @@ if (!jeeFrontEnd.dashboard) {
           jeeFrontEnd.dashboard.getObjectHtml(objId)
         })
       }
+      jeedom.getInfoApplication({
+        version: 'dashboard',
+        error: function(error) {
+          jeedomUtils.showAlert({
+            message: error.message,
+            level: 'danger'
+          })
+        },
+        success: function(data) {
+          jeedom.appMobile.postToApp('initSummary', data.summary)
+        }
+      })
     },
     postInit: function() {
       jeedomUI.isEditing = false
@@ -57,6 +69,7 @@ if (!jeeFrontEnd.dashboard) {
       })
       document.querySelectorAll('div.div_object, div.eqLogic-widget, div.scenario-widget').seen()
       document.querySelectorAll('#dashTopBar button.dropdown-toggle').removeClass('warning')
+      document.querySelectorAll('div.div_displayEquipement').forEach(_div => { Packery.data(_div).layout() })
     },
     filterByCategory: function() {
       //get defined categories:
@@ -108,18 +121,11 @@ if (!jeeFrontEnd.dashboard) {
       } else {
         document.querySelector('#dashTopBar button.dropdown-toggle').addClass('warning')
       }
+      document.querySelectorAll('div.div_displayEquipement').forEach(_div => { Packery.data(_div).layout() })
 
     },
     editWidgetMode: function(_mode, _save) {
       if (document.getElementById('bt_editDashboardWidgetOrder') == null) return
-      if (!isset(_mode)) {
-        if (document.getElementById('bt_editDashboardWidgetOrder').getAttribute('data-mode') != undefined && document.getElementById('bt_editDashboardWidgetOrder').getAttribute('data-mode') == 1) {
-          this.editWidgetMode(0, false)
-          this.editWidgetMode(1, false)
-        }
-        return
-      }
-
       if (_mode == 0) { //Exit edit mode:
         document.getElementById('div_displayObject').style.height = 'auto'
         document.querySelectorAll('.widget-name a.reportModeHidden, .scenario-widget .widget-name a').removeClass('disabled')
@@ -157,7 +163,7 @@ if (!jeeFrontEnd.dashboard) {
         jeedom.cmd.disableExecute = true
         this.resetCategoryFilter()
         document.querySelectorAll('#dashTopBar .btn:not(#bt_editDashboardWidgetOrder)').addClass('disabled')
-        
+
         //set resizables:
         new jeeResize('div.eqLogic-widget, div.scenario-widget', {
           handles: ['right', 'bottom-right', 'bottom'],
@@ -231,7 +237,7 @@ if (!jeeFrontEnd.dashboard) {
     },
     getObjectHtmlFromSummary: function(_object_id) {
       if (_object_id == null) return
-      self = this
+      let self = this
       self._object_id = _object_id
       self.summaryObjEqs = []
       self.summaryObjEqs[_object_id] = []
@@ -297,7 +303,7 @@ if (!jeeFrontEnd.dashboard) {
       })
     },
     getObjectHtml: function(_object_id) {
-      self = this
+      let self = this
       jeedom.object.toHtml({
         id: _object_id,
         version: 'dashboard',
@@ -407,7 +413,7 @@ document.getElementById('in_searchDashboard')?.addEventListener('keyup', functio
   var match, text
   document.querySelectorAll('div.eqLogic-widget').forEach(function(element) {
     match = false
-    text = jeedomUtils.normTextLower(element.querySelector('div.widget-name > a')?.textContent)
+    text = jeedomUtils.normTextLower(element.querySelector('.widget-name > a')?.textContent)
     if (text.includes(search)) match = true
 
     if (element.getAttribute('data-tags') != undefined) {
@@ -706,9 +712,19 @@ document.getElementById('div_pageContainer').addEventListener('mousedown', funct
   }
 })
 
+//Event for App Mobile:
+document.body.addEventListener('jeeObject::summary::update', function(_event) {
+  for (var i in _event.detail) {
+    if(isset(_event.detail[i].force) && _event.detail[i].force == 1) continue
+    if(_event.detail[i].object_id == 'global') {
+      /* SEND UPDATE SUMMARY TO APP */
+      jeedom.appMobile.postToApp('updateSummary', _event.detail[i].keys)
+    }
+  }
+})
+
 //Resize responsive tiles:
 window.registerEvent('resize', function dashboard(event) {
   if (event.isTrigger) return
   jeedomUtils.positionEqLogic()
 })
-

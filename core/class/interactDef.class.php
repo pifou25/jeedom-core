@@ -263,7 +263,6 @@ class interactDef {
 				'(la|le) humidité',
 				'la genre',
 				'la résumé',
-				'le bouton',
 				'la status',
 				'la volume',
 				'le piste',
@@ -277,7 +276,6 @@ class interactDef {
 				'la lapin',
 				'la greenmomit',
 				'le prise',
-				'le frigo',
 				'le (petite | )lumière',
 				'la boutton',
 				'la sommeil',
@@ -709,6 +707,7 @@ class interactDef {
 	}
 
 	public function setName($_name) {
+		$_name = trim($_name);
 		$this->_changed = utils::attrChanged($this->_changed, $this->name, $_name);
 		$this->name = $_name;
 		return $this;

@@ -31,6 +31,7 @@ class com_http {
 	private $sleepTime = 500000;
 	private $post = '';
 	private $put = '';
+	private $patch = '';
 	private $delete = '';
 	private $header = array('Connection: close');
 	private $cookiesession = false;
@@ -39,6 +40,8 @@ class com_http {
 	private $userAgent = '';
 	private $CURLOPT_HTTPAUTH = '';
 	private $CURLOPT = array();
+	private $getinfo = '';
+	private $streamHeaders = array();
 	
 	/*     * ********************Fonctions statiques********************* */
 	
@@ -75,6 +78,7 @@ class com_http {
 			} else {
 				curl_setopt($ch, CURLOPT_TIMEOUT, $_timeout);
 			}
+			curl_setopt( $ch, CURLOPT_HEADERFUNCTION, array( $this, 'streamHeaders' ) );
 			if ($this->getCookiesession()) {
 				curl_setopt($ch, CURLOPT_COOKIESESSION, true);
 			} else {
@@ -95,6 +99,10 @@ class com_http {
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getPut());
 			}
+			if ($this->getPatch() != '') {
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getPatch());
+			}
 			if ($this->getDelete() != '') {
 				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getDelete());
@@ -108,6 +116,7 @@ class com_http {
 				}
 			}
 			$response = curl_exec($ch);
+			$this->getinfo = curl_getinfo($ch);
 			$nbRetry++;
 			if (curl_errno($ch) && $nbRetry < $_maxRetry) {
 				curl_close($ch);
@@ -248,6 +257,15 @@ class com_http {
 		return $this;
 	}
 	
+	public function getPatch() {
+		return $this->patch;
+	}
+	
+	public function setPatch($patch = array()) {
+		$this->patch = $patch;
+		return $this;
+	}
+
 	public function getUserAgent() {
 		return $this->userAgent;
 	}
@@ -274,5 +292,22 @@ class com_http {
 		$this->CURLOPT = $CURLOPT;
 		return $this;
 	}
+
+	public function getInfos() {
+		return $this->getinfo;
+	}
 	
+	public function getHttpCode() {
+		$getInfos = $this->getInfos();
+		return $getInfos['http_code'];
+	}
+
+	private function streamHeaders($handle, $headers) {
+		$this->streamHeaders[] = $headers;
+		return strlen( $headers );
+	}
+
+	public function getStreamHeaders() {
+		return $this->streamHeaders;
+	}
 }

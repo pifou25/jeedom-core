@@ -21,9 +21,9 @@ var jeedomUtils = {
   backgroundIMG: null,
   _elBackground: null
 }
-jeedomUtils.tileWidthStep = (parseInt(jeedom.theme['widget::step::width']) > 80 ? parseInt(jeedom.theme['widget::step::width']) : 80) + parseInt(jeedom.theme['widget::margin']) // with margin
-jeedomUtils.tileHeightStep = (parseInt(jeedom.theme['widget::step::height']) > 60 ? parseInt(jeedom.theme['widget::step::height']) : 60) + parseInt(jeedom.theme['widget::margin']) // with margin
-jeedomUtils.tileHeightSteps = Array.apply(null, { length: 50 }).map(function(value, index) { return (index + 1) * jeedomUtils.tileHeightStep })
+jeedomUtils.tileWidthStep = (parseInt(jeedom.theme['widget::step::width']) > 1 ? parseInt(jeedom.theme['widget::step::width']) : 1) + parseInt(jeedom.theme['widget::margin']) // with margin
+jeedomUtils.tileHeightStep = (parseInt(jeedom.theme['widget::step::height']) > 1 ? parseInt(jeedom.theme['widget::step::height']) : 1) + parseInt(jeedom.theme['widget::margin']) // with margin
+jeedomUtils.tileHeightSteps = Array.apply(null, { length: 500 }).map(function(value, index) { return (index + 1) * jeedomUtils.tileHeightStep })
 
 
 /*Hijack jQuery ready function, still used in plugins
@@ -109,6 +109,7 @@ jeedomUtils.checkPageModified = function() {
 var prePrintEqLogic = undefined
 var printEqLogic = undefined
 var addCmdToTable = undefined
+var saveEqLogic = undefined
 jeedomUtils.userDevice = getDeviceType()
 
 //OnePage design PageLoader -------------------------------------
@@ -159,7 +160,7 @@ jeedomUtils.loadPage = function(_url, _noPushHistory) {
   jeedom.scenario.update = []
   jeephp2js = {}
   delete window.jeeP
-  prePrintEqLogic = printEqLogic = addCmdToTable = undefined
+  prePrintEqLogic = printEqLogic = addCmdToTable = saveEqLogic = undefined
   if (typeof jQuery === 'function') $('body').off('changeThemeEvent')
 
   if (_url.indexOf('#') == -1) {
@@ -362,7 +363,7 @@ jeedomUtils.showAlert = function(_options) {
   options.message = init(options.message, '')
   options.level = init(options.level, '')
   options.emptyBefore = init(options.emptyBefore, false)
-  options.timeOut = init(options.timeOut, parseInt(jeedom.theme['interface::toast::duration']) * 1000)
+  options.timeOut = init(options.timeOut, init(options.ttl, parseInt(jeedom.theme['interface::toast::duration']) * 1000))
   options.extendedTimeOut = init(options.extendedTimeOut, parseInt(jeedom.theme['interface::toast::duration']) * 1000)
   if (options.level == 'danger') {
     options.timeOut = 0
@@ -430,7 +431,7 @@ jeedomUtils.setJeedomTheme = function() {
     }
     setCookie('currentTheme', themeCook, 30)
     cssTag.setAttribute('href', theme)
-    document.getElementById('bt_switchTheme').innerHTML = themeButton
+    if (document.getElementById('bt_switchTheme') != null) document.getElementById('bt_switchTheme').innerHTML = themeButton
     if (document.getElementById('shadows_theme_css') != null) document.getElementById('shadows_theme_css').href = themeShadows
     jeedomUtils.triggerThemechange()
     let backgroundImgPath = jeedomUtils._elBackground.querySelector('#bottom').style.backgroundImage
@@ -480,8 +481,8 @@ jeedomUtils.checkThemechange = function() {
 
   //if (parseInt(jeedom.theme.theme_start_day_hour.replace(':', '')) < currentTime && parseInt(jeedom.theme.theme_end_day_hour.replace(':', '')) > currentTime) {
   if (
-    (parseInt(jeedom.theme.theme_start_day_hour.replace(':','')) < currentTime
-    && parseInt(jeedom.theme.theme_end_day_hour.replace(':','')) > currentTime)
+    (parseInt(jeedom.theme.theme_start_day_hour.replace(':', '')) < currentTime
+      && parseInt(jeedom.theme.theme_end_day_hour.replace(':', '')) > currentTime)
     || typeof jeedom.theme.theme_changeAccordingTime == 'undefined'
     || jeedom.theme.theme_changeAccordingTime == 0
   ) {
@@ -514,7 +515,7 @@ jeedomUtils.triggerThemechange = function() {
   }
 
   //trigger event for widgets:
-  if (document.body.hasAttribute('data-page') && ['dashboard', 'view', 'plan', 'widgets'].includes(document.body.getAttribute('data-page'))) {
+  if (document.body.hasAttribute('data-page') && ['dashboard', 'view', 'plan', 'widgets', 'panel'].includes(document.body.getAttribute('data-page'))) {
     if (currentTheme.endsWith('Dark')) {
       document.body.triggerEvent('changeThemeEvent', { detail: { theme: 'Dark' } })
     } else {
@@ -527,7 +528,7 @@ jeedomUtils.triggerThemechange = function() {
   if (currentTheme.endsWith('Dark')) {
     flatpickrDarkCss.disabled = false
   } else {
-    flatpickrDarkCss.disabled= true
+    flatpickrDarkCss.disabled = true
   }
 }
 
@@ -869,14 +870,18 @@ jeedomUtils.setJeedomGlobalUI = function() {
   })
 
   document.body.addEventListener('keydown', function(event) {
-    //search input escape:
-    if (event.target.matches('input[id^="in_search"]')) {
-      if (event.key == 'Escape') {
+    if (event.key == 'Escape') {
+      if (event.target.matches('input[id^="in_search"]')) {
+        //search input escape
         event.stopPropagation()
         var els = ((els = document.querySelectorAll('#categoryfilter li .catFilterKey')) != null ? els.forEach(function(item) { item.checked = true }) : null)
         var els = ((els = document.querySelectorAll('#dashTopBar button.dropdown-toggle')) != null ? els.removeClass('warning') : null)
         event.target.value = ''
         return
+      }
+      else if (event.target.matches('body')) {
+        //close active modal
+        document.querySelector('div.jeeDialog.active')?._jeeDialog.close()
       }
     }
   })
@@ -1033,6 +1038,7 @@ jeedomUtils.TOOLTIPSOPTIONS = {
   allowHTML: true,
   distance: 10,
   delay: [50, 0],
+  touch: ['hold', 200],
   //trigger: 'click',
   //hideOnClick: false
 }
@@ -1058,7 +1064,7 @@ jeedomUtils.initTooltips = function(_el) {
     }
   })
 
-  tippy(items , jeedomUtils.TOOLTIPSOPTIONS)
+  tippy(items, jeedomUtils.TOOLTIPSOPTIONS)
 }
 
 
@@ -1175,6 +1181,7 @@ jeedomUtils.datePickerInit = function(_format, _selector) {
       enableTime: _enableTime,
       dateFormat: _format,
       time_24hr: true,
+      allowInput: true,
     })
   })
 }
@@ -1231,11 +1238,17 @@ jeedomUtils.initSpinners = function() {
       wrapOverflow: true,
       parse: Number
     })
+    if (_spin.hasClass('roundedLeft')) {
+      _spin.closest('.ispin-wrapper').addClass('roundedLeft')
+    }
+    if (_spin.hasClass('roundedRight')) {
+      _spin.closest('.ispin-wrapper').addClass('roundedRight')
+    }
   })
 }
 
 jeedomUtils.jeeCtxMenuDestroy = function() {
-  document.querySelectorAll('div.jeeCtxMenu').forEach(_ctx =>  {
+  document.querySelectorAll('div.jeeCtxMenu').forEach(_ctx => {
     if (isset(_ctx._jeeCtxMenu)) {
       _ctx._jeeCtxMenu.destroy()
     } else {
@@ -1467,7 +1480,7 @@ jeedomUtils.positionEqLogic = function(_id, _preResize, _scenario) {
   var cols = Math.floor(containerWidth / jeedomUtils.tileWidthStep)
   var tileWidthAdd = containerWidth - (cols * jeedomUtils.tileWidthStep)
   var widthStep = jeedomUtils.tileWidthStep + (tileWidthAdd / cols)
-  var widthSteps = Array.apply(null, { length: 50 }).map(function(value, index) { return (index + 1) * widthStep })
+  var widthSteps = Array.apply(null, { length: 500 }).map(function(value, index) { return (index + 1) * widthStep })
 
   if (_id != undefined) {
     var tile = (_scenario) ? document.querySelector('.scenario-widget[data-scenario_id="' + _id + '"]') : document.querySelector('.eqLogic-widget[data-eqlogic_id="' + _id + '"]')
@@ -1492,14 +1505,14 @@ jeedomUtils.positionEqLogic = function(_id, _preResize, _scenario) {
 
     for (idx = 0; idx < elements.length; idx++) {
       tile = elements[idx]
-     
+
       if (tile.dataset.confWidth === undefined) {
         tile.dataset.confWidth = tile.offsetWidth
         tile.dataset.stepHeight = jeedomUtils.tileHeightSteps.indexOf(jeedomUtils.getClosestInArray(tile.offsetHeight, jeedomUtils.tileHeightSteps))
       }
       width = jeedomUtils.getClosestInArray(tile.dataset.confWidth, widthSteps)
       height = jeedomUtils.tileHeightSteps[tile.dataset.stepHeight]
-      
+
       Object.assign(tile.style, {
         width: (width - parseInt(jeedom.theme['widget::margin'])) + 'px',
         height: (height - parseInt(jeedom.theme['widget::margin'])) + 'px',
@@ -1598,9 +1611,9 @@ jeedomUtils.chooseIcon = function(_callback, _params) {
         className: 'success',
         callback: {
           click: function(event) {
-            if(document.getElementById('mod_selectIcon').querySelector('.iconSelected .iconSel') === null){
+            if (document.getElementById('mod_selectIcon').querySelector('.iconSelected .iconSel') === null) {
               jeeDialog.get('#mod_selectIcon').close()
-              return;
+              return
             }
             var icon = document.getElementById('mod_selectIcon').querySelector('.iconSelected .iconSel').innerHTML
             if (icon == undefined) {
@@ -1659,7 +1672,7 @@ jeedomUtils.closeModal = function(_modals = '') {
 }
 
 jeedomUtils.closeJeeDialogs = function() {
-  document.querySelectorAll('div.jeeDialog').forEach( _dialog => {
+  document.querySelectorAll('div.jeeDialog').forEach(_dialog => {
     //uninitialized modal doesn't have _jeeDialog
     if (isset(_dialog._jeeDialog)) _dialog._jeeDialog.close(_dialog)
   })
@@ -1717,7 +1730,7 @@ jeedomUtils.setCheckContextMenu = function(_callback) {
   try {
     document.querySelector('.contextmenu-checkbox')._jeeCtxMenu.destroy()
     document.querySelector('.contextmenu-checkbox')?.remove()
-  } catch(e) { }
+  } catch (e) { }
 
   jeedomUtils.checkContextMenu = new jeeCtxMenu({
     selector: ctxSelector,
@@ -1748,6 +1761,16 @@ jeedomUtils.setCheckContextMenu = function(_callback) {
       }
     }
   })
+}
+
+jeedomUtils.readableFileSize = function(size) {
+  const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  let i = 0;
+  while (size >= 1024 && i < units.length - 1) {
+      size /= 1024;
+      ++i;
+  }
+  return size.toFixed(1) + ' ' + units[i];
 }
 
 //Need jQuery and jQuery UI plugin loaded:

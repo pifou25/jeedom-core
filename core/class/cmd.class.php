@@ -52,8 +52,8 @@ class cmd {
 	protected $_needRefreshAlert;
 	/** @var bool */
 	protected $_changed = false;
-	private static $_templateArray = array();
-	private static $_unite_conversion = array(
+	protected static $_templateArray = array();
+	protected static $_unite_conversion = array(
 		's' => array(60, 's', 'min', 'h'),
 		'W' => array(1000, 'W', 'kW', 'MW'),
 		'Wh' => array(1000, 'Wh', 'kWh', 'MWh'),
@@ -165,6 +165,15 @@ class cmd {
 		return array_merge($result1, $result2);
 	}
 
+	/**
+	 *
+	 * @param int|array<int> $_eqLogic_id
+	 * @param string $_type ['action'|'info']
+	 * @param bool $_visible
+	 * @param eqLogic $_eqLogic
+	 * @param bool $_has_generic_type
+	 * @return array<cmd>
+	 */
 	public static function byEqLogicId($_eqLogic_id, $_type = null, $_visible = null, $_eqLogic = null, $_has_generic_type = null) {
 		$values = array();
 		if (is_array($_eqLogic_id)) {
@@ -196,6 +205,12 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__), $_eqLogic);
 	}
 
+	/**
+	 *
+	 * @param string $_logical_id
+	 * @param string $_type ['action'|'info']
+	 * @return array<cmd>
+	 */
 	public static function byLogicalId($_logical_id, $_type = null) {
 		$values = array(
 			'logicalId' => $_logical_id,
@@ -211,6 +226,13 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 
+	/**
+	 *
+	 * @param string|array<string> $_generic_type
+	 * @param int $_eqLogic_id
+	 * @param boolean $_one
+	 * @return cmd|array<cmd> first cmd if $_one is true otherwise an array of all cmd
+	 */
 	public static function byGenericType($_generic_type, $_eqLogic_id = null, $_one = false) {
 		if (is_array($_generic_type)) {
 			$in = '';
@@ -240,6 +262,12 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 
+	/**
+	 * Search a command on eqType, logicalId, generic_type or name
+	 *
+	 * @param string $_search the needle
+	 * @return array<cmd>
+	 */
 	public static function searchByString($_search) {
 		$values = array(
 			'search' => '%' . $_search . '%'
@@ -250,6 +278,12 @@ class cmd {
 		return self::cast(DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__));
 	}
 
+	/**
+	 *
+	 * @param string|array<string> $_configuration
+	 * @param string $_eqType
+	 * @return array<cmd>
+	 */
 	public static function searchConfiguration($_configuration, $_eqType = null) {
 		if (!is_array($_configuration)) {
 			$values = array(
@@ -990,7 +1024,7 @@ class cmd {
 						$binary = true;
 					} elseif ((is_numeric(intval($_value)) && intval($_value) >= 1)) { // Handle number and numeric string
 						$binary = true;
-					} elseif (in_array(strtolower($_value), array('on', 'true', 'high'))) { // Handle common string boolean values
+					} elseif (in_array(strtolower($_value), array('on', 'true', 'high', 'enable', 'enabled'))) { // Handle common string boolean values
 						$binary = true;
 					} else { // Handle everything else as false
 						$binary = false;
@@ -1493,9 +1527,9 @@ class cmd {
 					if (!isset($test['state_dark'])) {
 						$test['state_dark'] = '';
 					}
-					$test['state_light'] = str_replace('#value#', '"+_options.display_value+"', str_replace('"', "'", $test['state_light']));
-					$test['state_dark'] = str_replace('#value#', '"+_options.display_value+"', str_replace('"', "'", $test['state_dark']));
-					$test['operation'] = str_replace('"', "'", str_replace('#value#', '_options.display_value', $test['operation']));
+					$test['state_light'] = str_replace(array('#value#', '#state#', '#unite#', '#raw_unite#'), array('"+_options.value+"', '"+_options.display_value+"', '"+_options.unit+"', '"+_options.raw_unit+"'), str_replace('"', "'", $test['state_light']));
+					$test['state_dark'] = str_replace(array('#value#', '#state#', '#unite#', '#raw_unite#'), array('"+_options.value+"', '"+_options.display_value+"', '"+_options.unit+"', '"+_options.raw_unit+"'), str_replace('"', "'", $test['state_dark']));
+					$test['operation'] = str_replace('"', "'", str_replace('#value#', '_options.value', $test['operation']));
 
 					//ltrim avoid js variable starting with # error
 					if ($_version == 'dashboard') {
@@ -1605,6 +1639,7 @@ class cmd {
 			'#history#' => '',
 			'#hide_history#' => 'hidden',
 			'#unite#' => $this->getUnite(),
+			'#raw_unite#' => $this->getUnite(),
 			'#minValue#' => $this->getConfiguration('minValue', 0),
 			'#maxValue#' => $this->getConfiguration('maxValue', 100),
 			'#logicalId#' => $this->getLogicalId(),
@@ -1630,7 +1665,11 @@ class cmd {
 						$listOption .= '<option value="' . $coupleArray[0] . '">' . $coupleArray[1] . '</option>';
 					}
 				} else {
-					$listOption .= '<option value="' . $coupleArray[0] . '">' . $coupleArray[1] . '</option>';
+					if (isset($coupleArray[1])) {
+						$listOption .= '<option value="' . $coupleArray[0] . '">' . $coupleArray[1] . '</option>';
+					} else {
+						$listOption .= '<option value="' . $coupleArray[0] . '">' . $coupleArray[0] . '</option>';
+					}
 				}
 			}
 			if (!$foundSelect) {
@@ -1829,6 +1868,7 @@ class cmd {
 		$this->setValueDate(($repeat) ? $this->getValueDate() : $this->getCollectDate());
 		$eqLogic->setStatus(array('lastCommunication' => $this->getCollectDate(), 'timeout' => 0));
 		$unit = $this->getUnite();
+		$raw_unit = $this->getUnite();
 		$display_value = $value;
 		if ($this->getSubType() == 'binary' && $this->getDisplay('invertBinary') == 1) {
 			$display_value = ($display_value == 1) ? 0 : 1;
@@ -1848,7 +1888,7 @@ class cmd {
 		if ($repeat && $this->getConfiguration('repeatEventManagement', 'never') == 'never') {
 			$this->addHistoryValue($value, $this->getCollectDate());
 			$eqLogic->emptyCacheWidget();
-			event::adds('cmd::update', array(array('cmd_id' => $this->getId(), 'value' => $value, 'display_value' => $display_value, 'unit' => $unit, 'valueDate' => $this->getValueDate(), 'collectDate' => $this->getCollectDate())));
+			event::adds('cmd::update', array(array('cmd_id' => $this->getId(), 'value' => $value, 'display_value' => $display_value, 'unit' => $unit, 'raw_unit' => $raw_unit, 'valueDate' => $this->getValueDate(), 'collectDate' => $this->getCollectDate())));
 			return;
 		}
 		$_loop++;
@@ -1865,7 +1905,7 @@ class cmd {
 			$this->setCache(array('value' => $value, 'valueDate' => $this->getValueDate()));
 			scenario::check($this, false, $this->getGeneric_type(), $object, $value);
 			$level = $this->checkAlertLevel($value);
-			$events[] = array('cmd_id' => $this->getId(), 'value' => $value, 'display_value' => $display_value, 'unit' => $unit, 'valueDate' => $this->getValueDate(), 'collectDate' => $this->getCollectDate(), 'alertLevel' => $level);
+			$events[] = array('cmd_id' => $this->getId(), 'value' => $value, 'display_value' => $display_value, 'unit' => $unit, 'raw_unit' => $raw_unit, 'valueDate' => $this->getValueDate(), 'collectDate' => $this->getCollectDate(), 'alertLevel' => $level);
 			$foundInfo = false;
 			$value_cmd = self::byValue($this->getId(), null, true);
 			if (is_array($value_cmd) && count($value_cmd) > 0) {
@@ -1885,7 +1925,7 @@ class cmd {
 				listener::backgroundCalculDependencyCmd($this->getId());
 			}
 		} else {
-			$events[] = array('cmd_id' => $this->getId(), 'value' => $value, 'display_value' => $display_value, 'unit' => $unit, 'valueDate' => $this->getValueDate(), 'collectDate' => $this->getCollectDate());
+			$events[] = array('cmd_id' => $this->getId(), 'value' => $value, 'display_value' => $display_value, 'unit' => $unit, 'raw_unit' => $raw_unit, 'valueDate' => $this->getValueDate(), 'collectDate' => $this->getCollectDate());
 		}
 		if (count($events) > 0) {
 			event::adds('cmd::update', $events);
@@ -1936,7 +1976,7 @@ class cmd {
 	}
 
 	public function checkCmdAlert($_value) {
-		if ($this->getConfiguration('jeedomCheckCmdOperator') == '' || $this->getConfiguration('jeedomCheckCmdTest') == '' || is_nan($this->getConfiguration('jeedomCheckCmdTime', 0))) {
+		if ($this->getConfiguration('jeedomCheckCmdOperator') == '' || $this->getConfiguration('jeedomCheckCmdTest') == '' || !is_numeric($this->getConfiguration('jeedomCheckCmdTime', 0))) {
 			return;
 		}
 		$checkCmdValue = $this->getConfiguration('jeedomCheckCmdTest');
@@ -2115,7 +2155,7 @@ class cmd {
 				}
 			}
 		} elseif ($this->getConfiguration('alert::messageReturnBack') == 1) {
-			$message = __('Retour à la normal de ', __FILE__) . ' ' . $this->getHumanName() . ' ' . __('valeur :', __FILE__) . ' ' . $_value . trim(' ' . $this->getUnite());
+			$message = __('Retour à la normale de ', __FILE__) . ' ' . $this->getHumanName() . ' ' . __('valeur :', __FILE__) . ' ' . $_value . trim(' ' . $this->getUnite());
 			log::add('event', 'info', $message);
 			$action = '<a href="/' . $this->getEqLogic()->getLinkToConfiguration() . '">' . __('Equipement', __FILE__) . '</a>';
 			message::add($this->getEqLogic()->getEqType_name(), $message, $action, 'alertReturnBack_' . $this->getId() . '_' . strtotime('now') . '_' . rand(0, 999), true, 'alertingReturnBack');
@@ -2477,6 +2517,21 @@ class cmd {
 		return history::all($this->id, $_dateStart, $_dateEnd, $_groupingType, $_addFirstPreviousValue);
 	}
 
+	public function getLastHistory($_time, $_previous = true) {
+		$value = 0;
+		if ($this->getIsHistorized() == 1) {
+			if (!$this->getConfiguration('isHistorizedCalc', 0)) {
+				$result = history::byCmdIdAtDatetime($this->getId(), $_time, $_previous);
+				if ($result) {
+					$value = $result->getValue();
+				}
+			} else {
+				$value = history::byCmdIdAtDatetimeFromCalcul(jeedom::fromHumanReadable($this->getConfiguration('calcul')), $_time, $_previous);
+			}
+		}
+		return (array('value' => $value, 'unite' => $this->getUnite()));
+	}
+
 	public function getOldest() {
 		return history::getOldestValue($this->id);
 	}
@@ -2508,6 +2563,9 @@ class cmd {
 		if (property_exists($class, '_widgetPossibility')) {
 			$return = $class::$_widgetPossibility;
 			if ($_key != '') {
+				if (isset($return[$_key])) {
+					return $return[$_key];
+				}
 				$keys = explode('::', $_key);
 				foreach ($keys as $k) {
 					if (!isset($return[$k])) {
@@ -2570,8 +2628,6 @@ class cmd {
 			'historyPurge' => '',
 			'historizeRound' => '',
 			'calcul' => '',
-			'returnStateValue' => '',
-			'returnStateTime' => '',
 			'calculValueOffset' => '',
 			'denyValues' => '',
 			'returnStateValue' => '',
@@ -2790,7 +2846,7 @@ class cmd {
 
 	public function getUsedBy($_array = false) {
 		$return = array('cmd' => array(), 'eqLogic' => array(), 'scenario' => array(), 'plan' => array(), 'view' => array());
-		$return['cmd'] = self::searchConfiguration('#' . $this->getId() . '#');
+		$return['cmd'] = array_merge(self::searchConfiguration('#' . $this->getId() . '#'), cmd::byValue($this->getId()));
 		$return['eqLogic'] = eqLogic::searchConfiguration('#' . $this->getId() . '#');
 		$return['object'] = jeeObject::searchConfiguration('#' . $this->getId() . '#');
 		$return['scenario'] = scenario::searchByUse(array(array('action' => '#' . $this->getId() . '#')));
@@ -2895,11 +2951,12 @@ class cmd {
 
 	/**
 	 *
-	 * @param string $name
+	 * @param string $_name
 	 * @return $this
 	 */
 	public function setName($_name) {
 		$_name = substr(cleanComponanteName($_name), 0, 127);
+		$_name = trim($_name);
 		if ($this->name != $_name) {
 			$this->_needRefreshWidget = true;
 			$this->_changed = true;

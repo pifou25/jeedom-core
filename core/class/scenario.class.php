@@ -94,7 +94,20 @@ class scenario {
 			WHERE s.object_id IS NULL
 			ORDER BY s.group, s.name';
 			$result2 = DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
-			return array_merge($result1, $result2);
+			if (!is_array($result2)) {
+				$result2 = array();
+			}
+			$sql = 'SELECT ' . DB::buildField(__CLASS__, 's') . '
+			FROM scenario s
+            		LEFT JOIN object ob ON s.object_id=ob.id
+			WHERE ob.id IS NULL
+   			AND s.object_id IS NOT NULL
+			ORDER BY s.group, s.name';
+			$result3 = DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
+			if (!is_array($result3)) {
+				$result3 = array();
+			}
+			return array_merge($result1, $result2,$result3);
 		} elseif ($_group === null) {
 			$sql = 'SELECT ' . DB::buildField(__CLASS__, 's') . '
 			FROM scenario s
@@ -111,7 +124,21 @@ class scenario {
 			AND s.object_id IS NULL
 			ORDER BY  s.name';
 			$result2 = DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
-			return array_merge($result1, $result2);
+			if (!is_array($result2)) {
+				$result2 = array();
+			}
+			$sql = 'SELECT ' . DB::buildField(__CLASS__, 's') . '
+			FROM scenario s
+            		LEFT JOIN object ob ON s.object_id=ob.id
+			WHERE (`group` IS NULL OR `group` = "")
+			AND ob.id IS NULL
+   			AND s.object_id IS NOT NULL
+			ORDER BY s.group, s.name';
+			$result3 = DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
+			if (!is_array($result3)) {
+				$result3 = array();
+			}
+			return array_merge($result1, $result2,$result3);
 		} else {
 			$values = array(
 				'group' => $_group,
@@ -128,7 +155,21 @@ class scenario {
 			AND s.object_id IS NULL
 			ORDER BY s.group, s.name';
 			$result2 = DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
-			return array_merge($result1, $result2);
+			if (!is_array($result2)) {
+				$result2 = array();
+			}
+			$sql = 'SELECT ' . DB::buildField(__CLASS__, 's') . '
+			FROM scenario s
+            		LEFT JOIN object ob ON s.object_id=ob.id
+			WHERE `group`=:group
+			AND ob.id IS NULL
+   			AND s.object_id IS NOT NULL
+			ORDER BY s.group, s.name';
+			$result3 = DB::Prepare($sql, $values, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
+			if (!is_array($result3)) {
+				$result3 = array();
+			}
+			return array_merge($result1, $result2,$result3);
 		}
 	}
 	/**
@@ -297,7 +338,7 @@ class scenario {
 	 * @param null|string $_value
 	 * @return void|true
 	 */
-	public static function check($_event = null, $_forceSyncMode = false, $_generic = null, $_object = null, $_value = null) {
+	public static function check($_event = null, $_forceSyncMode = false, $_generic = null, $_object = null, $_value = null, $_options = null) {
 		if (config::byKey('enableScenario') != 1) {
 			return;
 		}
@@ -363,7 +404,7 @@ class scenario {
 
 		if (count($scenarios) > 0) {
 			foreach ($scenarios as $scenario_) {
-				$scenario_->launch($trigger, $message, $_forceSyncMode);
+				$scenario_->launch($trigger, $message, $_forceSyncMode, $_options);
 			}
 		}
 		return true;
@@ -619,6 +660,9 @@ class scenario {
 	 * @return string|object|array return value will depends on $_input received
 	 */
 	public static function fromHumanReadable($_input) {
+		if(empty($_input)){
+			return $_input;
+		}
 		$isJson = false;
 		if (is_json($_input)) {
 			$isJson = true;
@@ -766,7 +810,7 @@ class scenario {
 	 * @param boolean $_forceSyncMode
 	 * @return boolean
 	 */
-	public function launch($_trigger = '', $_message = '', $_forceSyncMode = false) {
+	public function launch($_trigger = '', $_message = '', $_forceSyncMode = false, $_options = null) {
 		if (config::byKey('enableScenario') != 1 || $this->getIsActive() != 1) {
 			return false;
 		}
@@ -800,12 +844,22 @@ class scenario {
 		if ($state == 'in progress' && $this->getConfiguration('allowMultiInstance', 0) == 0) {
 			return false;
 		}
+		if (is_array($_options) && count($_options) > 0) {
+			$tags = $this->getTags();
+			if (!is_array($tags)) {
+				$tags = array();
+			}
+			foreach ($_options as $key => $value) {
+				$tags[$key] = $value;
+			}
+			$this->setTags($tags);
+		}
 		$this->setCache(array('startingTime' => strtotime('now'), 'state' => 'starting'));
 		if ($this->getConfiguration('syncmode') == 1 || $_forceSyncMode) {
 			$this->setLog($GLOBALS['JEEDOM_SCLOG_TEXT']['launchScenarioSync']['txt']);
 			return $this->execute($_trigger, $_message);
 		} else {
-			if (count($this->getTags()) != '') {
+			if (count($this->getTags()) > 0) {
 				$this->setCache('tags', $this->getTags());
 			}
 			$cmd = __DIR__ . '/../../core/php/jeeScenario.php ';
@@ -878,9 +932,9 @@ class scenario {
 			return;
 		}
 		if (count($this->getTags()) == 0) {
-			$this->setLog('Start : ' . trim($_message, "'") . '.');
+			$this->setLog($GLOBALS['JEEDOM_SCLOG_TEXT']['start']['txt'] . ' ' . trim($_message, "'") . '.');
 		} else {
-			$this->setLog('Start : ' . trim($_message, "'") . '. Tags : ' . json_encode($this->getTags()));
+			$this->setLog($GLOBALS['JEEDOM_SCLOG_TEXT']['start']['txt'] . ' ' . trim($_message, "'") . '. Tags : ' . json_encode($this->getTags()));
 		}
 		$this->setLastLaunch(date('Y-m-d H:i:s'));
 		$this->setState('in progress');
@@ -1542,9 +1596,6 @@ class scenario {
 		if (isset($_data['node']['scenario' . $this->getId()])) {
 			return;
 		}
-		if ($_level > 2) {
-			return $_data;
-		}
 		$_level++;
 		if ($_level > $_drill) {
 			return $_data;
@@ -1679,6 +1730,7 @@ class scenario {
 	 */
 	public function setName($_name) {
 		$_name = cleanComponanteName($_name);
+		$_name = trim($_name);
 		if ($_name != $this->getName()) {
 			$this->_changeState = true;
 			$this->_changed = true;
@@ -1846,7 +1898,7 @@ class scenario {
 	 * @return $this
 	 */
 	public function setTimeout($_timeout) {
-		if ($_timeout === '' || is_nan(intval($_timeout)) || $_timeout < 1) {
+		if ($_timeout === '' || !is_numeric($_timeout) || $_timeout < 1) {
 			$_timeout = 0;
 		}
 		$this->_changed = utils::attrChanged($this->_changed, $this->timeout, $_timeout);

@@ -66,6 +66,7 @@ try {
 			$return['custom']['js'] = file_exists(__DIR__ . '/../../mobile/custom/custom.js');
 			$return['custom']['css'] = file_exists(__DIR__ . '/../../mobile/custom/custom.css');
 		}
+		$return['summary'] = jeeObject::getGlobalArraySummary();
 		ajax::success($return);
 	}
 
@@ -314,7 +315,7 @@ try {
 			$cmd .= system::checkInstallationLog();
 			$cmd .= system::getCmdSudo() . " apt update\n";
 			$package = explode('::', init('package'));
-			$cmd .= system::installPackage($package[0], $package[1]) . "\n";
+			$cmd .= system::installPackage($package[0], $package[1], $package[3], $package[2]) . "\n";
 			if (file_exists('/tmp/jeedom_fix_package')) {
 				shell_exec(system::getCmdSudo() . ' rm /tmp/jeedom_fix_package');
 			}
@@ -610,7 +611,9 @@ try {
 
 	if (init('action') == 'emptyRemoveHistory') {
 		unautorizedInDemo();
-		unlink(__DIR__ . '/../../data/remove_history.json');
+		if (file_exists(__DIR__ . '/../../data/remove_history.json')) {
+			unlink(__DIR__ . '/../../data/remove_history.json');
+		}
 		ajax::success();
 	}
 

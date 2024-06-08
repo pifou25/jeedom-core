@@ -147,6 +147,9 @@ class jeeObject {
 	}
 
 	public static function fromHumanReadable($_input) {
+		if(empty($_input)){
+			return $_input;
+		}
 		$isJson = false;
 		if (is_json($_input)) {
 			$isJson = true;
@@ -463,6 +466,81 @@ class jeeObject {
 		return $return;
 	}
 
+	public static function getGlobalArraySummary($_version = 'dashboard') {
+		$objects = self::all();
+		$def = config::byKey('object:summary');
+		$values = array();
+		$return = array();
+		foreach ($def as $key => $value) {
+			foreach ($objects as $object) {
+				if ($object->getConfiguration('summary::global::' . $key, 0) == 0) {
+					continue;
+				}
+				if (!isset($values[$key])) {
+					$values[$key] = array();
+				}
+				$result = $object->getSummary($key, true);
+				if ($result === null || !is_array($result)) {
+					continue;
+				}
+				$values[$key] = array_merge($values[$key], $result);
+			}
+		}
+		foreach ($values as $key => $value) {
+			if (count($value) == 0) {
+				continue;
+			}
+			$allowDisplayZero = $def[$key]['allowDisplayZero'];
+			if ($def[$key]['calcul'] == 'text') {
+				$result = trim(implode(',', $value), ',');
+				$allowDisplayZero = 1;
+			} else {
+				$result = jeedom::calculStat($def[$key]['calcul'], $value);
+			}
+			if (!isset($def[$key]['hidenumber'])) {
+				$def[$key]['hidenumber'] = 0;
+			}
+			if (!isset($def[$key]['hidenulnumber'])) {
+				$def[$key]['hidenulnumber'] = 0;
+			}
+            
+			$return[$key]['icon'] = array();
+			if (isset($def[$key]['icon']) && $def[$key]['icon'] != '') {
+				$def[$key]['icon'] = substr(substr($def[$key]['icon'], 10), 0, -6);
+				$def[$key]['icon'] = str_replace(array(' fab', ' fas'), '', $def[$key]['icon']);
+				$arrayIcon = explode(' ', $def[$key]['icon']);
+				$iconName = substr(strstr($arrayIcon[1], '-'), 1);
+				$libName = strstr($arrayIcon[1], '-', true);
+				$iconColor = (isset($arrayIcon[2])) ? substr(strstr($arrayIcon[2], '_'), 1) : '';
+				if ($libName == 'mdi') $libName = 'Mdi';
+				$return[$key]['icon']['type'] = $libName;
+				$return[$key]['icon']['name'] = $iconName;
+				$return[$key]['icon']['color'] = $iconColor;
+			}
+            
+			$return[$key]['iconnul'] = array();
+			if (isset($def[$key]['iconnul']) && $def[$key]['iconnul'] != '') {
+				$def[$key]['iconnul'] = substr(substr($def[$key]['iconnul'], 10), 0, -6);
+				$def[$key]['iconnul'] = str_replace(array(' fab', ' fas', 'far'), '', $def[$key]['iconnul']);
+				$arrayIcon = explode(' ', $def[$key]['iconnul']);
+				$iconName = substr(strstr($arrayIcon[1], '-'), 1);
+				$libName = strstr($arrayIcon[1], '-', true);
+				$iconColor = (isset($arrayIcon[2])) ? substr(strstr($arrayIcon[2], '_'), 1) : '';
+				if ($libName == 'mdi') $libName = 'Mdi';
+				$return[$key]['iconnul']['type'] = $libName;
+				$return[$key]['iconnul']['name'] = $iconName;
+				$return[$key]['iconnul']['color'] = $iconColor;
+			}
+			else $return[$key]['iconnul'] = $return[$key]['icon'];
+          
+			$return[$key]['displayzerovalue'] = $allowDisplayZero;
+			$return[$key]['hidenulnumber'] = $def[$key]['hidenulnumber'];
+			$return[$key]['value'] = $result;
+			$return[$key]['unit'] = $def[$key]['unit'];
+		}
+		return $return;
+	}
+
 	public static function createSummaryToVirtual($_key = '') {
 		if ($_key == '') {
 			return;
@@ -664,7 +742,7 @@ class jeeObject {
 			$usage = $eqLogic->getUsage();
 			$eqLogics[$eqLogic->getId()] = array(
 				'eqLogic' => $eqLogic,
-				'usage' => config::byKey('autoreorder::weight_automation_action') * $usage['automation'] + config::byKey('autoreorder::weight_human_actio') * $usage['ui'] + config::byKey('autoreorder::weight_history') * $usage['history'],
+				'usage' => config::byKey('autoreorder::weight_automation_action') * $usage['automation'] + config::byKey('autoreorder::weight_human_action') * $usage['ui'] + config::byKey('autoreorder::weight_history') * $usage['history'],
 			);
 		}
 		usort($eqLogics, function ($a, $b) {
@@ -1192,14 +1270,14 @@ class jeeObject {
 	}
 
 	public function getFather_id($_default = null) {
-		if ($this->father_id == '' || !is_numeric($this->father_id)) {
+		if (!is_numeric($this->father_id)) {
 			return $_default;
 		}
 		return $this->father_id;
 	}
 
 	public function getIsVisible($_default = null) {
-		if ($this->isVisible == '' || !is_numeric($this->isVisible)) {
+		if (!is_numeric($this->isVisible)) {
 			return $_default;
 		}
 		return $this->isVisible;
@@ -1213,6 +1291,7 @@ class jeeObject {
 
 	public function setName($_name) {
 		$_name = substr(cleanComponanteName($_name), 0, 127);
+		$_name = trim($_name);
 		$this->_changed = utils::attrChanged($this->_changed, $this->name, $_name);
 		$this->name = $_name;
 		return $this;

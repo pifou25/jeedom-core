@@ -1,5 +1,14 @@
 # Änderungsprotokoll Jeedom V4.4
 
+>**WICHTIG**
+>
+>Auch wenn sie auf den ersten Blick nicht unbedingt sichtbar sind, Version 4.4 von Jeedom bringt große Änderungen mit einer völlig neu geschriebenen Benutzeroberfläche für vollständige Kontrolle und vor allem einen unübertroffenen Gewinn an flüssiger Navigation. Auch die Verwaltung der PHP-Abhängigkeiten wurde überarbeitet, um diese automatisch auf dem neuesten Stand halten zu können. Auch wenn das Jeedom-Team und die Betatester viele Tests durchgeführt haben, gibt es so viele Versionen von Jeedom, wie es Jeedom gibt ... Es ist daher nicht möglich, die ordnungsgemäße Funktion in 100 % der Fälle zu garantieren du kannst [Öffnen Sie im Forum ein Thema mit der Bezeichnung „v4_4“](https://community.jeedom.com/) oder wenden Sie sich über Ihr Marktprofil an den Support *(vorausgesetzt, Sie verfügen über ein Service Pack oder höher)*.
+
+## 4.4.1
+
+- PHP8-Unterstützung.
+- Überprüfen Sie die erforderliche Mindestkernversion, bevor Sie ein Plugin installieren oder aktualisieren.
+- Hinzufügen einer Schaltfläche **Hilfe** auf der Plugin-Konfigurationsseite *(Automatische Erstellung einer Hilfeanfrage im Forum)*
 
 ### 4.4 : Voraussetzungen
 
@@ -29,6 +38,7 @@
 - **Thema** : Entfernen des Themas **Core2019 Vermächtnis** *(alpha)*.
 - **Bericht** : Möglichkeit, das Thema während eines Berichts auf einer Jeedom-Seite zu wählen.
 - **Jeedom-Menü** : Eine Verzögerung von 0.25s wurde beim Öffnen von Untermenüs eingeführt.
+- **System** : Möglichkeit zum Hinzufügen personalisierter Befehle (siehe Dokumentation))
 
 
 ### 4.4 : Autre

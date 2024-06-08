@@ -24,6 +24,25 @@ if (!jeeFrontEnd.view_edit) {
         this.printView(getUrlVars('view_id'))
       }
     },
+    copyView: function(_viewResult) {
+      jeeDialog.prompt("{{Nom de la vue ?}}", function(result) {
+        if (result !== null) {
+          jeedom.view.copy({
+            id: document.querySelector(".li_view.active").getAttribute('data-view_id'),
+            name: result,
+            error: function(error) {
+              jeedomUtils.showAlert({
+                message: error.message,
+                level: 'danger'
+              })
+            },
+            success: function(data) {
+              window.location = 'index.php?v=d&p=view_edit&view_id=' + data.id
+            }
+          })
+        }
+      })
+    },
     saveView: function(_viewResult) {
       jeedomUtils.hideAlert()
       var view = document.getElementById('div_view').getJeeValues('.viewAttr')[0]
@@ -53,7 +72,7 @@ if (!jeeFrontEnd.view_edit) {
         }
         view.zones.push(viewZoneInfo)
       })
-      
+
       jeedom.view.save({
         id: document.querySelector(".li_view.active").getAttribute('data-view_id'),
         view: view,
@@ -391,7 +410,7 @@ Sortable.create(document.getElementById('div_viewZones'), {
   preventOnFilter: false,
   removeCloneOnHide: true,
   onStart: function (event) {
-    console.log('div_viewZones onStart', event, event.oldIndex)
+    // console.log('div_viewZones onStart', event, event.oldIndex)
   },
 })
 
@@ -447,6 +466,12 @@ document.getElementById('div_pageContainer').addEventListener('click', function(
     })
     return
   }
+
+  if (_target = event.target.closest('#bt_copyView')) {
+    jeeP.copyView()
+    return
+  }
+
 
   if (_target = event.target.closest('#bt_saveView')) {
     jeeP.saveView()
@@ -693,4 +718,3 @@ document.getElementById('div_pageContainer').addEventListener('change', function
     return
   }
 })
-

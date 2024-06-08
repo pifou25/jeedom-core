@@ -1,7 +1,7 @@
 #!/bin/bash
 
-installVer='16' 	#NodeJS major version to be installed
-minVer='16'	      #min NodeJS major version to be accepted
+installVer='18' 	#NodeJS major version to be installed
+minVer='18'	      #min NodeJS major version to be accepted
 
 # vérifier si toujours nécessaire, cette source traine encore sur certaines smart et si une source est invalide -> nodejs ne s'installera pas
 if ls /etc/apt/sources.list.d/deb-multimedia.list* &>/dev/null; then
@@ -60,6 +60,18 @@ then
 fi
 fi
 
+#stretch doesn't support NodeJS 18
+lsb_release -c | grep stretch
+if [ $? -eq 0 ]
+then
+  today=$(date +%Y%m%d)
+  if [[ "$today" > "20220630" ]]; 
+  then 
+  echo "== ATTENTION Debian 9 Stretch n'est officiellement plus supportée depuis le 30 juin 2022, merci de mettre à jour votre distribution !!!"
+  exit 1
+fi
+fi
+
 #x86 32 bits not supported by nodesource anymore
 bits=$(getconf LONG_BIT)
 if { [ "$arch" = "i386" ] || [ "$arch" = "i686" ]; } && [ "$bits" -eq "32" ]
@@ -95,25 +107,16 @@ else
   if [[ $arch == "armv6l" ]]
   then
     #version to install for armv6 (to check on https://unofficial-builds.nodejs.org)
-    if [[ $installVer == "12" ]]
-    then
+    if [[ $installVer == "12" ]]; then
       armVer="12.22.12"
-    fi
-    if [[ $installVer == "13" ]]
-    then
-      armVer="13.14.0"
-    fi
-    if [[ $installVer == "14" ]]
-    then
-      armVer="14.19.2"
-    fi
-    if [[ $installVer == "15" ]]
-    then
-      armVer="15.14.0"
-    fi
-    if [[ $installVer == "16" ]]
-    then
-      armVer="16.15.0"
+    elif [[ $installVer == "14" ]]; then
+      armVer="14.21.3"
+    elif [[ $installVer == "16" ]]; then
+      armVer="16.20.2"
+    elif [[ $installVer == "18" ]]; then
+      armVer="18.18.0"
+    elif [[ $installVer == "20" ]]; then
+      armVer="20.8.0"
     fi
     echo "Jeedom Mini ou Raspberry 1, 2 ou zéro détecté, non supporté mais on essaye l'utilisation du paquet non-officiel ${armVer} pour armv6l"
     wget https://unofficial-builds.nodejs.org/download/release/${armVer}/node-v${armVer}-linux-armv6l.tar.gz
@@ -128,8 +131,14 @@ else
     sudo npm install -g npm
   else
     echo "Utilisation du dépot officiel"
-    curl -sL https://deb.nodesource.com/setup_${installVer}.x | sudo -E bash -
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs  
+    NODE_MAJOR=$installVer
+    sudo mkdir -p /etc/apt/keyrings
+    sudo rm /etc/apt/keyrings/nodesource.gpg
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+    sudo rm /etc/apt/sources.list.d/nodesource.list
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    sudo apt-get update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
   fi
   
   npm config set prefix ${npmPrefix} &>/dev/null

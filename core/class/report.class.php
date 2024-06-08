@@ -42,9 +42,9 @@ class report {
 		}
 		$out = realpath($out);
 		$out .= '/' . date('Y_m_d_H_i_s') . '.' . $_format;
-		$min_width = (isset($_parameter['width']) && $_parameter['width'] > 800) ? $_parameter['width'] : 1280;
-		$min_height = (isset($_parameter['height']) && $_parameter['height'] > 600) ? $_parameter['height'] : 1280;
-		$delay = (isset($_parameter['delay']) && $_parameter['delay'] > 1000) ? $_parameter['delay'] : config::byKey('report::delay');
+		$min_width = (isset($_parameter['width']) && $_parameter['width'] >= 800) ? $_parameter['width'] : 800;
+		$min_height = (isset($_parameter['height']) && $_parameter['height'] >= 600) ? $_parameter['height'] : 600;
+		$delay = (isset($_parameter['delay']) && $_parameter['delay'] >= 1000) ? $_parameter['delay'] : config::byKey('report::delay');
 		if ($_name != 'url') {
 			$_url .= '&auth=' . user::getAccessKeyForReport();
 		}
@@ -56,7 +56,7 @@ class report {
 				$_url .= '#' . $_parameter['tab'];
 			}
 			if ($_format == 'pdf') {
-				$cmd = 'chromium --headless --no-sandbox --disable-gpu --print-to-pdf=' . $out . ' --window-size=' . $min_width . ',' . $min_height . ' "' . $_url . '"';
+				$cmd = 'chromium --headless --no-sandbox --disable-gpu --no-pdf-header-footer --print-to-pdf-no-header --print-to-pdf=' . $out . ' --window-size=' . $min_width . ',' . $min_height . ' "' . $_url . '"';
 			} else {
 				$cmd = 'chromium --headless --no-sandbox --disable-gpu --screenshot=' . $out . ' --window-size=' . $min_width . ',' . $min_height . ' "' . $_url . '"';
 			}

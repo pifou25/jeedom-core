@@ -22,8 +22,8 @@
       wrapperClass: 'ispin-wrapper',
       buttonsClass: 'ispin-button',
       step: step,
-      min: #minValue# || undefined,
-      max: #maxValue# || undefined,
+      min: parseFloat('#minValue#') || undefined,
+      max: parseFloat('#maxValue#') || undefined,
       disabled: false,
       repeatInterval: 200,
       wrapOverflow: false,
@@ -57,6 +57,13 @@
 
       window['mySlider#id#'].on('change', function(values, handle) {
         jeedom.cmd.execute({ id: '#id#', value: { slider: values[handle] } })
+      })
+
+      document.querySelector('.cmd[data-cmd_uid="#uid#"] #sliderInput#id#').addEventListener("keyup", function(event) {
+        if (event.which != 13) {
+          return;
+        }
+        jeedom.cmd.execute({ id: '#id#', value: { slider: parseFloat(this.value) } })
       })
 
       if (domUtils.issetWidgetOptParam('#color#', 'color')) {

@@ -84,7 +84,7 @@ try {
 		if (!is_object($plugin)) {
 			ajax::success();
 		}
-		ajax::success($plugin->dependancy_install());
+		ajax::success($plugin->dependancy_install(true));
 	}
 
 	if (init('action') == 'dependancyChangeAutoMode') {
@@ -148,6 +148,59 @@ try {
 			ajax::success();
 		}
 		ajax::success($plugin->deamon_changeAutoMode(init('mode')));
+	}
+
+	if (init('action') == 'createCommunityPost') {
+		$header = __('Remplacez ce texte par votre demande en prenant soin de ne pas effacer les informations renseignées ci-dessous.', __FILE__) . '<br><br><br><br>';
+		$header .= '<br>---<br>';
+		$header .= '**' . __('Informations', __FILE__) . ' ' . config::byKey('product_name') . '**';
+		$header .= '<br>```<br>';
+		$footer = '<br>```<br>';
+
+		$infoPost = plugin::getConfigForCommunity();
+
+		/** @var plugin $plugin */
+		$plugin = plugin::byId(init('type'));
+		$plugin_id = $plugin->getId();
+		$infoPost .= '<br>Plugin : ' . $plugin->getName() . '<br>';
+
+		/** @var update $update */
+		$update = $plugin->getUpdate();
+		$isBeta = false;
+		if (is_object($update)) {
+			$version = $update->getConfiguration('version');
+			$isBeta = ($version && $version != 'stable');
+		}
+
+		$infoPost .= __('Version', __FILE__) . ' : ' . $update->getLocalVersion() . ' (' . ($isBeta ? 'beta' : 'stable') . ')';
+
+		if ($plugin->getHasOwnDeamon()) {
+			$daemon_info = $plugin->deamon_info();
+			$infoPost .= '<br>' . __('Statut Démon', __FILE__) . ' : ' . ($daemon_info['state'] == 'ok' ?  __('Démarré', __FILE__) :  __('Stoppé', __FILE__));
+			$infoPost .= ' - (' . ($daemon_info['last_launch'] ?? __('Inconnue', __FILE__)) . ')';
+		}
+
+		$infoPlugin = '';
+		if (method_exists($plugin_id, 'getConfigForCommunity')) {
+			$infoPlugin .= '**' . __('Informations complémentaires', __FILE__) .  '**<br>';
+			$infoPlugin .= $plugin_id::getConfigForCommunity();
+		}
+
+		// GENERATE URL with Query Param to create a new post
+		$communitUrl = 'https://community.jeedom.com';
+		$ressource = '/new-topic?';
+
+		$finalBody = br2nl($header . $infoPost . $footer . $infoPlugin);
+
+		$data = array(
+			'category' => 'plugins/' . $plugin->getCategory(),
+			'tags' => 'plugin-' . $plugin->getId(),
+			'body' => $finalBody
+		);
+
+		$query = http_build_query($data);
+		$url = $communitUrl . $ressource . $query;
+		ajax::success(array('url' => $url, 'plugin' => $plugin->getName()));
 	}
 
 	throw new Exception(__('Aucune méthode correspondante à :', __FILE__) . ' ' . init('action'));

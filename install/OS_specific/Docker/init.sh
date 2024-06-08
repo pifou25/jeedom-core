@@ -1,4 +1,5 @@
 #!/bin/bash
+
 VERT="\\033[1;32m"
 NORMAL="\\033[0;39m"
 ROUGE="\\033[1;31m"
@@ -8,17 +9,34 @@ BLANC="\\033[0;02m"
 BLANCLAIR="\\033[1;08m"
 JAUNE="\\033[1;33m"
 CYAN="\\033[1;36m"
-  
+
+FILE_STOP="/root/stop_requested"
+
+docker_stop(){
+	echo "${JAUNE}Stopping Jeedom container${NORMAL}"
+	echo "${VERT}Killing CRON${NORMAL}"
+	killall cron
+	echo "${VERT}Stopping Apache gracefully${NORMAL}"
+	service apache2 stop
+	echo "${VERT}Stopping Database gracefully${NORMAL}"
+	service_mariadb stop
+	echo "${VERT}Stopping ATD gracefully${NORMAL}"
+	service atd stop
+	echo "${ROUGE}Requesting stop on init.sh${NORMAL}"
+	touch ${FILE_STOP}
+	exit 0
+}
+
 service_mariadb(){
-  service mysql $1
-  if [ $? -ne 0 ]; then
-    service mariadb $1
-    if [ $? -ne 0 ]; then
-      echo "${ROUGE}Cannot start mariadb - Cancelling${NORMAL}"
-      exit 1
-    fi
-  fi
-  return 0
+	service mysql $1
+	if [ $? -ne 0 ]; then
+		service mariadb $1
+		if [ $? -ne 0 ]; then
+			echo "${ROUGE}Cannot start mariadb - Cancelling${NORMAL}"
+			return 1
+		fi
+	fi
+	return 0
 }
 
 echo 'Start init'
@@ -39,21 +57,22 @@ else
 		chown -R mysql:mysql /var/lib/mysql
 		mysql_install_db --user=mysql --basedir=/usr/ --ldata=/var/lib/mysql/
 		service_mariadb restart
-		MYSQL_JEEDOM_PASSWD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
+		DB_PASSWORD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
 		echo "DROP USER 'jeedom'@'localhost';" | mysql > /dev/null 2>&1
-		echo  "CREATE USER 'jeedom'@'localhost' IDENTIFIED BY '${MYSQL_JEEDOM_PASSWD}';" | mysql
+		echo  "CREATE USER 'jeedom'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';" | mysql
 		echo  "DROP DATABASE IF EXISTS jeedom;" | mysql
 		echo  "CREATE DATABASE jeedom;" | mysql
 		echo  "GRANT ALL PRIVILEGES ON jeedom.* TO 'jeedom'@'localhost';" | mysql
-		cp ${WEBSERVER_HOME}/core/config/common.config.sample.php ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#PASSWORD#/${MYSQL_JEEDOM_PASSWD}/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#DBNAME#/jeedom/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#USERNAME#/jeedom/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#PORT#/3306/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#HOST#/localhost/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		/root/install.sh -s 10 -v ${VERSION} -w ${WEBSERVER_HOME}
-		/root/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME}
 	fi
+
+	cp ${WEBSERVER_HOME}/core/config/common.config.sample.php ${WEBSERVER_HOME}/core/config/common.config.php
+	sed -i "s/#PASSWORD#/${DB_PASSWORD}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+	sed -i "s/#DBNAME#/${DB_NAME:-jeedom}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+	sed -i "s/#USERNAME#/${DB_USERNAME:-jeedom}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+	sed -i "s/#PORT#/${DB_PORT:-3306}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+	sed -i "s/#HOST#/${DB_HOST:-localhost}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+	/root/install.sh -s 10 -v ${VERSION} -w ${WEBSERVER_HOME}
+	/root/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME}
 fi
 
 echo 'Start atd'
@@ -64,8 +83,11 @@ if [ $(which mysqld | wc -l) -ne 0 ]; then
 	chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 	service_mariadb restart
 	if [ $? -ne 0 ]; then
-		 rm /var/lib/mysql/ib_logfile*
-		 service_mariadb restart
+		# That can lead to FATAL corruption of databases
+		# rm /var/lib/mysql/ib_logfile*
+		# service_mariadb restart
+		echo "${ROUGE}Starting Database FAILED${NORMAL}"
+		exit 1
 	fi
 fi
 
@@ -89,4 +111,12 @@ chown -R www-data:www-data ${WEBSERVER_HOME}
 echo 'Start apache2'
 service apache2 start
 
-cron -f
+echo 'Start CRON daemon'
+cron
+
+#TAKE CARE : the init.sh script is running under sh so trap only takes signal_number
+echo 'Add trap docker_stop'
+trap "docker_stop $$ ;" 15
+
+rm "${FILE_STOP}" 1>/dev/null 2>&1
+while [ ! -e "${FILE_STOP}" ]; do sleep 1; done

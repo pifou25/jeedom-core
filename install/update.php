@@ -30,6 +30,7 @@ $backup_ok = false;
 $update_begin = false;
 try {
 	require_once __DIR__ . '/../core/php/core.inc.php';
+	
 	echo "[PROGRESS][1]\n";
 	if (count(system::ps('install/update.php', 'sudo')) > 1) {
 		echo "Update in progress. I will wait 10s\n";
@@ -155,13 +156,14 @@ try {
 				echo "[PROGRESS][35]\n";
 				echo "Unzip in progress...";
 				$zip = new ZipArchive;
-				if ($zip->open($tmp) === TRUE) {
+                                $open = $zip->open($tmp);
+				if ($open === TRUE) {
 					if (!$zip->extractTo($cibDir)) {
-						throw new Exception('Can not unzip file');
+						throw new Exception('Can not unzip file => '.$zip->getStatusString());
 					}
 					$zip->close();
 				} else {
-					throw new Exception('Unable to unzip file : ' . $tmp);
+					throw new Exception('Unable to unzip file : ' . $tmp.' =>'.$open);
 				}
 				echo "OK\n";
 				if (disk_free_space($cibDir) < 10) {
@@ -203,6 +205,9 @@ try {
 				}
 				jeedom::stop();
 				echo "[PROGRESS][45]\n";
+				if(version_compare(PHP_VERSION, '8.0.0') >= 0 && file_exists($cibDir . '/vendor')){
+					shell_exec('rm -rf ' . $cibDir . '/vendor');
+				}
 				echo "Moving files...";
 				$update_begin = true;
 				$file_copy = array();
@@ -220,10 +225,31 @@ try {
 				echo "OK\n";
 				echo "[PROGRESS][52]\n";
 				echo "Remove useless files...\n";
-				foreach (array('3rdparty', 'desktop', 'mobile', 'core', 'docs', 'install', 'script', 'vendor') as $folder) {
+				foreach (array('3rdparty', 'desktop', 'mobile', 'core', 'docs', 'install', 'script') as $folder) {
 					echo 'Cleaning ' . $folder . "\n";
 					shell_exec('find ' . __DIR__ . '/../' . $folder . '/* -mtime +7 -type f ! -iname "custom.*" ! -iname "common.config.php" -delete');
 				}
+				echo "OK\n";
+				echo "[PROGRESS][53]\n";
+				if(config::byKey('update::composerUpdate') == 1 || version_compare(PHP_VERSION, '8.0.0') >= 0){
+					if (exec('which composer | wc -l') == 0) {
+						echo "\nNeed to install composer...";
+						echo shell_exec('sudo ' . __DIR__ . '/../resources/install_composer.sh');
+						echo "OK\n";
+					}
+					echo "Update composer file...\n";
+					if (exec('which composer | wc -l') > 0) {
+						shell_exec('export COMPOSER_HOME="/tmp/composer";export COMPOSER_ALLOW_SUPERUSER=1;'.system::getCmdSudo().' composer self-update > /dev/null 2>&1');
+						shell_exec('cd ' . __DIR__ . '/../;export COMPOSER_ALLOW_SUPERUSER=1;export COMPOSER_HOME="/tmp/composer";'.system::getCmdSudo().' composer update --no-interaction --no-plugins --no-scripts --no-ansi --no-dev --no-progress --optimize-autoloader --with-all-dependencies --no-cache > /dev/null 2>&1');
+						shell_exec(system::getCmdSudo().' rm /tmp/composer 2>/dev/null');
+						if(method_exists('jeedom','cleanFileSystemRight')){
+							jeedom::cleanFileSystemRight();
+						}
+					}
+					echo "OK\n";
+					echo "[PROGRESS][58]\n";
+				}
+				echo "Update jeedom information date...\n";
 				try {
 					$update = update::byLogicalId('jeedom');
 					if (is_object($update) && method_exists($update, 'setUpdateDate')) {
@@ -232,6 +258,8 @@ try {
 					}
 				} catch (\Exception $e) {
 				}
+				echo "OK\n";
+				echo "[PROGRESS][59]\n";
 			} catch (Exception $e) {
 				if (init('force') != 1) {
 					throw $e;
@@ -242,7 +270,7 @@ try {
 		} else {
 			jeedom::stop();
 		}
-		echo "[PROGRESS][55]\n";
+		echo "[PROGRESS][60]\n";
 		if (init('update::reapply') != '') {
 			$updateScript = __DIR__ . '/update/' . init('update::reapply') . '.php';
 			if (file_exists($updateScript)) {

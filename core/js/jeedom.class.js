@@ -36,7 +36,6 @@ jeeFrontEnd = {
   //@index.php
   serverDatetime: null,
   clientServerDiffDatetime: null,
-  serverDatetime: null,
   serverTZoffsetMin: null,
 }
 
@@ -325,6 +324,7 @@ jeedom.refreshMessageNumber = function() {
 jeedom.UPDATE_NUMBER
 jeedom.refreshUpdateNumber = function() {
   if (jeedom.update == undefined) return //mobile
+  if (document.getElementById('span_nbUpdate') === null) return // for a not admin profil
   jeedom.update.number({
     error: function(error) {
       jeedomUtils.showAlert({
@@ -446,6 +446,24 @@ jeedom.getConfiguration = function(_params) {
   paramsAJAX.data = {
     action: 'getConfiguration',
     key: ''
+  }
+  domUtils.ajax(paramsAJAX)
+}
+
+jeedom.getInfoApplication = function(_params) {
+  var paramsRequired = []
+  var paramsSpecifics = {}
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired)
+  } catch (e) {
+    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e)
+    return
+  }
+  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {})
+  var paramsAJAX = jeedom.private.getParamsAJAX(params)
+  paramsAJAX.url = 'core/ajax/jeedom.ajax.php'
+  paramsAJAX.data = {
+    action: 'getInfoApplication',
   }
   domUtils.ajax(paramsAJAX)
 }

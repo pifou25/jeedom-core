@@ -182,7 +182,7 @@ if (!jeeFrontEnd.md_scenarioSummary) {
   })
 
   document.getElementById('bt_saveSummaryScenario')?.addEventListener('click', function(event) {
-    var scenarios = document.querySelector('#table_scenarioSummary tbody .scenario').getJeeValues('.scenarioAttr')
+    var scenarios = document.querySelectorAll('#table_scenarioSummary tbody .scenario').getJeeValues('.scenarioAttr')
     jeedom.scenario.saveAll({
       scenarios : scenarios,
       error: function(error) {
@@ -204,7 +204,7 @@ if (!jeeFrontEnd.md_scenarioSummary) {
     var _target = null
     if (_target = event.target.closest('.bt_summaryRemoveScenario')) {
       jeedomUtils.hideAlert()
-      var id = _target.closest('tr').attr('data-id')
+      var id = _target.closest('tr').getAttribute('data-id')
       var name = _target.closest('tr').querySelector('span[data-l1key="humanName"]').textContent
       jeeDialog.confirm('{{Êtes-vous sûr de vouloir supprimer le scénario}} <span style="font-weight: bold ;">' + name + '</span> ?', function(result) {
         if (result) {
@@ -256,7 +256,7 @@ if (!jeeFrontEnd.md_scenarioSummary) {
 
     if (_target = event.target.closest('.bt_summaryLaunchScenario')) {
       jeedom.scenario.changeState({
-        id: _target.closest('tr').attr('data-id'),
+        id: _target.closest('tr').getAttribute('data-id'),
         state: 'start',
         error: function (error) {
           jeedomUtils.showAlert({

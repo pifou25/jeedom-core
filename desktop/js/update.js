@@ -54,6 +54,7 @@ if (!jeeFrontEnd.update) {
         type: 'POST',
         url: 'core/ajax/log.ajax.php',
         data: {
+          // Warning get is slow, prefer getDelta in ajax or use jeedom.log.autoUpdateDelta js class
           action: 'get',
           log: _log,
         },
@@ -108,7 +109,7 @@ if (!jeeFrontEnd.update) {
           if (init(_autoUpdate, 0) == 1) {
             setTimeout(function() {
               jeeP.getJeedomLog(_autoUpdate, _log)
-            }, 1000);
+            }, 1000)
           } else {
             document.getElementById('bt_' + _log + 'Jeedom .fa-refresh')?.unseen()
             document.querySelectorAll('.bt_' + _log + 'Jeedom .fa-refresh')?.unseen()
@@ -139,9 +140,11 @@ if (!jeeFrontEnd.update) {
           for (var tr of tr_updates) {
             tbody.appendChild(tr)
           }
+          jeedomUtils.initTooltips(tbody)
+
           if (isset(jeeFrontEnd.update.updtDataTable)) jeeFrontEnd.update.updtDataTable.refresh()
 
-          jeedomUtils.initDataTables('#coreplugin')
+          jeedomUtils.initDataTables('#coreplugin', false, true)
           jeeFrontEnd.update.updtDataTable = document.querySelector('#table_update')._dataTable
 
           jeeFrontEnd.update.updtDataTable.on('columns.sort', function(column, direction) {
@@ -149,7 +152,6 @@ if (!jeeFrontEnd.update) {
             tbody.prepend(tbody.querySelector('tr[data-type="core"]'))
           })
           jeeFrontEnd.update.updtDataTable.columns().sort(0, 'desc')
-
 
           if (jeeP.hasUpdate) {
             document.querySelector('li a[data-target="#coreplugin"] i').style.color = 'var(--al-warning-color)'
@@ -202,23 +204,47 @@ if (!jeeFrontEnd.update) {
       var tr = '<tr>'
       tr += '<td style="width:40px"><span class="updateAttr label ' + labelClass + '" data-l1key="status"></span></td>'
       tr += '<td>'
-      tr += '<span class="hidden-1280"><span class="updateAttr" data-l1key="source"></span> / <span class="updateAttr" data-l1key="type"></span> : </span><span class="updateAttr label label-info" data-l1key="name"></span>'
-      tr += '<span class="hidden">' + _update.name + '</span><span class="updateAttr hidden" data-l1key="id"></span>'
-      if (_update.configuration && _update.configuration.version) {
-          var updClass;
-          switch (_update.configuration.version.toLowerCase()) {
-              case 'stable':
-              case 'master':
-                  updClass = 'label-success';
-                  break;
-              case 'beta':
-                  updClass = 'label-warning';
-                  break;
-              default:
-                  updClass = 'label-danger';
+      tr += '<span class="hidden-1280"><span class="updateAttr" data-l1key="source"></span> / <span class="updateAttr" data-l1key="type"></span> : </span>'
+      if (_update.name == 'jeedom') {
+        tr += '<span class="updateAttr label label-info text-capitalize" data-l1key="name"></span>'
+        if (_update.branch) {
+          var updClass
+          switch (_update.branch.toLowerCase()) {
+            case 'alpha':
+              updClass = 'label-danger'
+              break
+            case 'beta':
+              updClass = 'label-warning'
+              break
+            default:
+              updClass = 'label-success'
           }
-          tr += ' <span class="label ' + updClass + ' hidden-992">' + _update.configuration.version + '</span>'
+          tr += ' <span class="label ' + updClass + ' hidden-992">' + _update.branch + '</span>'
+        }
       }
+      else {
+        tr += '<span class="label label-info"><span class="updateAttr text-capitalize" data-l1key="plugin" data-l2key="name"></span> (<span class="updateAttr" data-l1key="name"></span>)</span>'
+        if (_update.configuration && _update.configuration.version) {
+          var updClass
+          switch (_update.configuration.version.toLowerCase()) {
+            case 'stable':
+            case 'master':
+              updClass = 'label-success'
+              break
+            case 'beta':
+              updClass = 'label-warning'
+              break
+            default:
+              updClass = 'label-danger'
+          }
+          if (typeof _update.configuration.user!== 'undefined'){
+            tr += ' <span class="label ' + updClass + ' hidden-992">' + _update.configuration.version +' - '+ _update.configuration.user + '</span>'
+          } else {
+            tr += ' <span class="label ' + updClass + ' hidden-992">' + _update.configuration.version + '</span>'
+          }
+        }
+      }
+      tr += '<span class="hidden">' + _update.name + '</span><span class="updateAttr hidden" data-l1key="id"></span>'
 
       if (_update.localVersion !== null && _update.localVersion.length > 19) _update.localVersion = _update.localVersion.substring(0, 16) + '...'
       if (_update.remoteVersion !== null && _update.remoteVersion.length > 19) _update.remoteVersion = _update.remoteVersion.substring(0, 16) + '...'
@@ -227,9 +253,9 @@ if (!jeeFrontEnd.update) {
       }
 
       tr += '</td>'
-      tr += '<td style="width:160px;"><span class="label label-primary" data-l1key="localVersion">' + _update.localVersion + '</span></td>'
-      tr += '<td style="width:160px;"><span class="label label-primary" data-l1key="remoteVersion">' + _update.remoteVersion + '</span></td>'
-      tr += '<td style="width:160px;"><span class="label label-primary" data-l1key="updateDate">' + _update.updateDate + '</span></td>'
+      tr += '<td style="width:160px;" data-order="' + Date.parse(_update.localVersion) + '"><span class="label label-primary" data-l1key="localVersion">' + _update.localVersion + '</span></td>'
+      tr += '<td style="width:160px;" data-order="' + Date.parse(_update.remoteVersion) + '"><span class="label label-primary" data-l1key="remoteVersion">' + _update.remoteVersion + '</span></td>'
+      tr += '<td style="width:160px;" data-order="' + Date.parse(_update.updateDate) + '"><span class="label label-primary" data-l1key="updateDate">' + _update.updateDate + '</span></td>'
       tr += '<td>'
       if (_update.type != 'core') {
         tr += '<i class="fas fa-pencil-ruler" title="{{Ne pas mettre à jour}}"></i> <input id="' + _update.name + '" type="checkbox" class="updateAttr checkContext warning" data-l1key="configuration" data-l2key="doNotUpdate" title="{{Sauvegarder pour conserver les modifications}}">'
@@ -241,18 +267,18 @@ if (!jeeFrontEnd.update) {
         if (_update.configuration && _update.configuration.version == 'beta') {
           if (isset(_update.plugin) && isset(_update.plugin.changelog_beta) && _update.plugin.changelog_beta != '') {
             tr += '<a class="btn btn-xs cursor" target="_blank" href="' + _update.plugin.changelog_beta + '"><i class="fas fa-book"></i><span class="hidden-1280"> {{Changelog}}</span></a> '
-          }else {
+          } else {
             tr += '<a class="btn btn-xs disabled"><i class="fas fa-book"></i><span class="hidden-1280"> {{Changelog}}</span></a> '
           }
         } else {
           if (isset(_update.plugin) && isset(_update.plugin.changelog) && _update.plugin.changelog != '') {
             tr += '<a class="btn btn-xs cursor" target="_blank" href="' + _update.plugin.changelog + '"><i class="fas fa-book"></i><span class="hidden-1280"> {{Changelog}}</span></a> '
-          }else {
+          } else {
             tr += '<a class="btn btn-xs disabled"><i class="fas fa-book"></i><span class="hidden-1280"> {{Changelog}}</span></a> '
           }
         }
       } else {
-        tr += '<a class="btn btn-xs" id="bt_changelogCore" target="_blank"><i class="fas fa-book"></i><span class="hidden-1280"> {{Changelog}}</span></a> '
+        tr += '<a class="btn btn-xs" id="bt_changelogCore"><i class="fas fa-book"></i><span class="hidden-1280"> {{Changelog}}</span></a> '
       }
       if (_update.type != 'core') {
         if (_update.status == 'UPDATE') {
@@ -474,7 +500,7 @@ if (!jeeFrontEnd.update) {
                 { select: 0, sort: "asc" }
               ],
               paging: false,
-              searchable: true,
+              searchable: true
             })
           }
         }
@@ -533,20 +559,8 @@ if (!jeeFrontEnd.update) {
           })
 
           contentEl.querySelector('.bt_changelogCore').addEventListener('click', function(event) {
-            jeedom.getDocumentationUrl({
-              page: 'changelog',
-              theme: document.body.getAttribute('data-theme'),
-              error: function(error) {
-                jeedomUtils.showAlert({
-                  message: error.message,
-                  level: 'danger'
-                })
-              },
-              success: function(url) {
-                window.open(url, '_blank')
-              }
-            })
-        })
+            document.getElementById('bt_changelogCore').triggerEvent('click')
+          })
         },
         onShown: function() {
           jeeDialog.get('#md_update', 'content').querySelector('#md_specifyUpdate').removeClass('hidden')
@@ -614,9 +628,26 @@ document.getElementById('div_pageContainer').addEventListener('click', function(
     return
   }
 
+  if (_target = event.target.closest('#bt_changelogCore')) {
+    jeedom.getDocumentationUrl({
+      page: 'changelog',
+      theme: document.body.getAttribute('data-theme'),
+      error: function(error) {
+        jeedomUtils.showAlert({
+          message: error.message,
+          level: 'danger'
+        })
+      },
+      success: function(url) {
+        window.open(url, '_blank')
+      }
+    })
+    return
+  }
+
   if (_target = event.target.closest('#table_update input[data-l2key="doNotUpdate"]')) {
     _target._tippy.show()
-    setTimeout(()=>{_target._tippy.hide()}, 1500)
+    setTimeout(() => { _target._tippy.hide() }, 1500)
     if (_target.checked) {
       _target.closest('tr').querySelector('a.btn.update').addClass('disabled')
     } else {
@@ -631,7 +662,7 @@ document.getElementById('div_pageContainer').addEventListener('click', function(
     var logicalId = _target.closest('tr').getAttribute('data-logicalid')
     jeeDialog.confirm('{{Êtes-vous sûr de vouloir mettre à jour :}}' + ' ' + logicalId + ' ?', function(result) {
       if (result) {
-        jeeP.progress = -1;
+        jeeP.progress = -1
         document.getElementById('progressbarContainer').removeClass('hidden')
         document.querySelector('.bt_refreshOsPackageUpdate').addClass('disabled')
         jeeP.updateProgressBar()
@@ -654,11 +685,11 @@ document.getElementById('div_pageContainer').addEventListener('click', function(
   }
 
   if (_target = event.target.closest('#table_update .remove')) {
-    var id = _target.closest('tr').getAttribute('data-id');
+    var id = _target.closest('tr').getAttribute('data-id')
     var logicalId = _target.closest('tr').getAttribute('data-logicalid')
     jeeDialog.confirm('{{Êtes-vous sûr de vouloir supprimer :}}' + ' ' + logicalId + ' ?', function(result) {
       if (result) {
-        jeedomUtils.hideAlert();
+        jeedomUtils.hideAlert()
         jeedom.update.remove({
           id: id,
           error: function(error) {
@@ -721,13 +752,13 @@ document.getElementById('div_pageContainer').addEventListener('click', function(
     if (_target.getAttribute('disabled')) {
       return
     }
-    let type = _target.getAttribute('data-type');
+    let type = _target.getAttribute('data-type')
     jeeDialog.confirm('{{Êtes-vous sûr de vouloir mettre à jour les packages de type}}' + ' : ' + type + ' ? {{Attention cette opération est toujours risquée et peut prendre plusieurs dizaines de minutes}}.', function(result) {
       if (!result) {
         return
       }
       jeedom.systemUpgradablePackage({
-        type : type,
+        type: type,
         error: function(error) {
           jeedomUtils.showAlert({
             message: error.message,

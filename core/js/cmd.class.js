@@ -54,7 +54,7 @@ jeedom.cmd.execute = function(_params) {
   if (jeedom.cmd.disableExecute) {
     return
   }
-  var notify = _params.notify || true
+  var notify = _params.notify ?? true
   if (notify) {
     var eqLogic = document.querySelector('.cmd[data-cmd_id="' + _params.id + '"]')?.closest('div.eqLogic-widget')
     if (eqLogic) jeedom.cmd.notifyEq(eqLogic, false)
@@ -433,7 +433,7 @@ jeedom.cmd.refreshValue = function(_params) {
     }
     //update tile graph info:
     if (document.querySelector('.eqlogicbackgraph[data-cmdid="' + _params[i].cmd_id + '"]') != null) {
-      jeedom.eqLogic.drawGraphInfo(_params[i].cmd_id)
+      jeedom.eqLogic.drawGraphInfo(document.querySelector('.eqlogicbackgraph[data-cmdid="' + _params[i].cmd_id + '"]').closest('.eqLogic').getAttribute('data-eqLogic_uid'),_params[i].cmd_id)
     }
     if (document.querySelector('.cmd[data-cmd_id="' + _params[i].cmd_id + '"]')?.hasClass('noRefresh')) {
       continue
@@ -1118,6 +1118,9 @@ jeedom.cmd.normalizeName = function(_tagname) {
     'désactiver': 'off',
     'lock': 'on',
     'unlock': 'off',
+    'verrouiller': 'on',
+    'deverrouiller': 'off',
+    'déverrouiller': 'off',
     'marche': 'on',
     'arret': 'off',
     'arrêt': 'off',

@@ -43,7 +43,7 @@ if (!jeeFrontEnd.pluginTemplate) {
           if (coreSupport) {
             document.querySelectorAll('.eqLogicDisplayCard')?.addClass('displayAsTable')
             document.querySelectorAll('.eqLogicDisplayCard .hiddenAsCard')?.removeClass('hidden')
-            document.querySelector('.eqLogicThumbnailContainer').addClass('containerAsTable')
+            document.querySelectorAll('.eqLogicThumbnailContainer')?.addClass('containerAsTable')
           }
         }
         //core event:
@@ -54,13 +54,13 @@ if (!jeeFrontEnd.pluginTemplate) {
               setCookie('jeedom_displayAsTable', 'true', 2)
               document.querySelectorAll('.eqLogicDisplayCard')?.addClass('displayAsTable')
               document.querySelectorAll('.eqLogicDisplayCard .hiddenAsCard')?.removeClass('hidden')
-              document.querySelector('.eqLogicThumbnailContainer').addClass('containerAsTable')
+              document.querySelectorAll('.eqLogicThumbnailContainer')?.addClass('containerAsTable')
             } else {
               butDisp.removeClass('active').dataset.state = '0'
               setCookie('jeedom_displayAsTable', 'false', 2)
               document.querySelectorAll('.eqLogicDisplayCard')?.removeClass('displayAsTable')
               document.querySelectorAll('.eqLogicDisplayCard .hiddenAsCard')?.addClass('hidden')
-              document.querySelector('.eqLogicThumbnailContainer').removeClass('containerAsTable')
+              document.querySelectorAll('.eqLogicThumbnailContainer')?.removeClass('containerAsTable')
             }
           })
         }
@@ -85,7 +85,7 @@ if (!jeeFrontEnd.pluginTemplate) {
         type: _type != null ? _type : eqType,
         id: _eqlogicId,
         status: 1,
-        getCmdState : 1,
+        getCmdState: 1,
         error: function(error) {
           domUtils.hideLoading()
           jeedomUtils.showAlert({
@@ -108,17 +108,17 @@ if (!jeeFrontEnd.pluginTemplate) {
           for (var i in data.cmd) {
             if (data.cmd[i].type == 'info') {
               data.cmd[i].state = String(data.cmd[i].state).replace(/<[^>]*>?/gm, '')
-              data.cmd[i]['htmlstate'] =  '<span class="cmdTableState"'
-              data.cmd[i]['htmlstate'] += 'data-cmd_id="' + data.cmd[i].id+ '"'
+              data.cmd[i]['htmlstate'] = '<span class="cmdTableState"'
+              data.cmd[i]['htmlstate'] += 'data-cmd_id="' + data.cmd[i].id + '"'
               data.cmd[i]['htmlstate'] += 'title="{{Date de valeur}} : ' + data.cmd[i].valueDate + '<br/>{{Date de collecte}} : ' + data.cmd[i].collectDate
               if (data.cmd[i].state.length > 50) {
-                data.cmd[i]['htmlstate'] += '<br/>' + data.cmd[i].state.replaceAll('"','&quot;')
+                data.cmd[i]['htmlstate'] += '<br/>' + data.cmd[i].state.replaceAll('"', '&quot;')
               }
               data.cmd[i]['htmlstate'] += '" >'
-              data.cmd[i]['htmlstate'] += data.cmd[i].state.substring(0, 50) +  ' ' + data.cmd[i].unite
+              data.cmd[i]['htmlstate'] += data.cmd[i].state.substring(0, 50) + ' ' + data.cmd[i].unite
               data.cmd[i]['htmlstate'] += '<span>'
             } else {
-              data.cmd[i]['htmlstate'] = '';
+              data.cmd[i]['htmlstate'] = ''
             }
             if (typeof addCmdToTable === 'function') {
               addCmdToTable(data.cmd[i])
@@ -162,72 +162,72 @@ if (!jeeFrontEnd.pluginTemplate) {
     addCmdToTableDefault: function(_cmd) {
       if (document.getElementById('table_cmd') == null) return
       if (document.querySelector('#table_cmd thead') == null) {
-        table = '<thead>';
-        table += '<tr>';
-        table += '<th>{{Id}}</th>';
-        table += '<th>{{Nom}}</th>';
-        table += '<th>{{Type}}</th>';
-        table += '<th>{{Logical ID}}</th>';
-        table += '<th>{{Options}}</th>';
-        table += '<th>{{Paramètres}}</th>';
-        table += '<th>{{Etat}}</th>';
-        table += '<th>{{Action}}</th>';
-        table += '</tr>';
-        table += '</thead>';
-        table += '<tbody>';
-        table += '</tbody>';
+        table = '<thead>'
+        table += '<tr>'
+        table += '<th>{{Id}}</th>'
+        table += '<th>{{Nom}}</th>'
+        table += '<th>{{Type}}</th>'
+        table += '<th>{{Logical ID}}</th>'
+        table += '<th>{{Options}}</th>'
+        table += '<th>{{Paramètres}}</th>'
+        table += '<th>{{Etat}}</th>'
+        table += '<th>{{Action}}</th>'
+        table += '</tr>'
+        table += '</thead>'
+        table += '<tbody>'
+        table += '</tbody>'
         document.getElementById('table_cmd').insertAdjacentHTML('beforeend', table)
       }
       if (!isset(_cmd)) {
-        var _cmd = {configuration: {}};
+        var _cmd = { configuration: {} }
       }
       if (!isset(_cmd.configuration)) {
-        _cmd.configuration = {};
+        _cmd.configuration = {}
       }
-      var tr = '<tr>';
-        tr += '<td style="min-width:50px;width:70px;">';
-        tr += '<span class="cmdAttr" data-l1key="id"></span>';
-        tr += '</td>';
-        tr += '<td>';
-        tr += '<div class="row">';
-        tr += '<div class="col-sm-6">';
-        tr += '<a class="cmdAction btn btn-default btn-sm" data-l1key="chooseIcon"><i class="fa fa-flag"></i> Icône</a>';
-        tr += '<span class="cmdAttr" data-l1key="display" data-l2key="icon" style="margin-left : 10px;"></span>';
-        tr += '</div>';
-        tr += '<div class="col-sm-6">';
-        tr += '<input class="cmdAttr form-control input-sm" data-l1key="name">';
-        tr += '</div>';
-        tr += '</div>';
-        tr += '<select class="cmdAttr form-control input-sm" data-l1key="value" style="display : none;margin-top : 5px;" title="{{La valeur de la commande vaut par défaut la commande}}">';
-        tr += '<option value="">Aucune</option>';
-        tr += '</select>';
-        tr += '</td>';
-        tr += '<td>';
-        tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>';
-        tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
-        tr += '</td>';
-        tr += '<td style="min-width:400px"><input class="cmdAttr form-control input-sm" data-l1key="logicalId" value="0" style="width : 70%; display : inline-block;" placeholder="{{Commande}}"><br/>';
-        tr += '</td>';
-        tr += '<td>';
-        tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="returnStateValue" placeholder="{{Valeur retour d\'état}}" style="width:48%;display:inline-block;">';
-        tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="returnStateTime" placeholder="{{Durée avant retour d\'état (min)}}" style="width:48%;display:inline-block;margin-left:2px;">';
-        tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdId" style="display : none;" title="{{Commande d\'information à mettre à jour}}">';
-        tr += '<option value="">Aucune</option>';
-        tr += '</select>';
-        tr += '</td>';
-        tr += '<td>';
-        tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}" style="width:30%;display:inline-block;">';
-        tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}" style="width:30%;display:inline-block;">';
-        tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite" placeholder="{{Unité}}" title="{{Unité}}" style="width:30%;display:inline-block;margin-left:2px;">';
-        tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="listValue" placeholder="{{Liste de valeur|texte séparé par ;}}" title="{{Liste}}">';
-        tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
-        tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
-        tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> ';
-        tr += '</td>';
-        tr += '<td>';
-        tr += '<span class="cmdAttr" data-l1key="htmlstate"></span>';
-        tr += '</td>';
-        tr += '<td>';
+      var tr = '<tr>'
+      tr += '<td style="min-width:50px;width:70px;">'
+      tr += '<span class="cmdAttr" data-l1key="id"></span>'
+      tr += '</td>'
+      tr += '<td>'
+      tr += '<div class="row">'
+      tr += '<div class="col-sm-6">'
+      tr += '<a class="cmdAction btn btn-default btn-sm" data-l1key="chooseIcon"><i class="fa fa-flag"></i> Icône</a>'
+      tr += '<span class="cmdAttr" data-l1key="display" data-l2key="icon" style="margin-left : 10px;"></span>'
+      tr += '</div>'
+      tr += '<div class="col-sm-6">'
+      tr += '<input class="cmdAttr form-control input-sm" data-l1key="name">'
+      tr += '</div>'
+      tr += '</div>'
+      tr += '<select class="cmdAttr form-control input-sm" data-l1key="value" style="display : none;margin-top : 5px;" title="{{La valeur de la commande vaut par défaut la commande}}">'
+      tr += '<option value="">Aucune</option>'
+      tr += '</select>'
+      tr += '</td>'
+      tr += '<td>'
+      tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>'
+      tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>'
+      tr += '</td>'
+      tr += '<td style="min-width:400px"><input class="cmdAttr form-control input-sm" data-l1key="logicalId" value="0" style="width : 70%; display : inline-block;" placeholder="{{Commande}}"><br/>'
+      tr += '</td>'
+      tr += '<td>'
+      tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="returnStateValue" placeholder="{{Valeur retour d\'état}}" style="width:48%;display:inline-block;">'
+      tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="returnStateTime" placeholder="{{Durée avant retour d\'état (min)}}" style="width:48%;display:inline-block;margin-left:2px;">'
+      tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdId" style="display : none;" title="{{Commande d\'information à mettre à jour}}">'
+      tr += '<option value="">Aucune</option>'
+      tr += '</select>'
+      tr += '</td>'
+      tr += '<td>'
+      tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}" style="width:30%;display:inline-block;">'
+      tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}" style="width:30%;display:inline-block;">'
+      tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite" placeholder="{{Unité}}" title="{{Unité}}" style="width:30%;display:inline-block;margin-left:2px;">'
+      tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="listValue" placeholder="{{Liste de valeur|texte séparé par ;}}" title="{{Liste}}">'
+      tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> '
+      tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> '
+      tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> '
+      tr += '</td>'
+      tr += '<td>'
+      tr += '<span class="cmdAttr" data-l1key="htmlstate"></span>'
+      tr += '</td>'
+      tr += '<td>'
       if (is_numeric(_cmd.id)) {
         tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fas fa-cogs"></i></a> '
         tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>'
@@ -244,11 +244,11 @@ if (!jeeFrontEnd.pluginTemplate) {
 
       jeedom.eqLogic.buildSelectCmd({
         id: document.querySelector('.eqLogicAttr[data-l1key="id"]').jeeValue(),
-        filter: {type: 'info'},
-        error: function (error) {
-          jeedomUtils.showAlert({message: error.message, level: 'danger'})
+        filter: { type: 'info' },
+        error: function(error) {
+          jeedomUtils.showAlert({ message: error.message, level: 'danger' })
         },
-        success: function (result) {
+        success: function(result) {
           newRow.querySelector('.cmdAttr[data-l1key="value"]').insertAdjacentHTML('beforeend', result)
           newRow.setJeeValues(_cmd, '.cmdAttr')
           jeedom.cmd.changeType(newRow, init(_cmd.subType))
@@ -267,7 +267,7 @@ if (!jeeFrontEnd.pluginTemplate) {
               jeedomUtils.showAlert({
                 message: error.message,
                 level: 'danger'
-              });
+              })
             },
             success: function(_data) {
               var vars = getUrlVars()
@@ -308,7 +308,7 @@ if (!jeeFrontEnd.pluginTemplate) {
         }
       })
       let thisEqType = null
-      if(event.target){
+      if (event.target) {
         thisEqType = event.target.getAttribute('data-eqLogic_type')
       }
       jeedom.eqLogic.save({
@@ -365,7 +365,7 @@ if (!jeeFrontEnd.pluginTemplate) {
                   jeedomUtils.showAlert({
                     message: error.message,
                     level: 'danger'
-                  });
+                  })
                 },
                 success: function(data) {
                   jeeFrontEnd.modifyWithoutSave = false
@@ -489,7 +489,7 @@ domUtils(function() {
       },
       success: function(_eqs) {
         if (_eqs.length == 0) {
-          return;
+          return
         }
         var eqsGroups = []
         var humanName, humanCut, group, name
@@ -585,10 +585,11 @@ domUtils(function() {
     delayOnTouchOnly: true,
     touchStartThreshold: 20,
     draggable: 'tr.cmd',
-    filter: 'a, input, textarea',
+    filter: 'a, input, textarea, label, select',
     preventOnFilter: false,
     direction: 'vertical',
-    onEnd: function (event) {
+    chosenClass: 'dragSelected',
+    onEnd: function(event) {
       jeeFrontEnd.modifyWithoutSave = true
     },
   })
@@ -693,7 +694,6 @@ document.getElementById('div_pageContainer').addEventListener('click', function(
     return
   }
 
-
   //Cmd-->
   if (_target = event.target.closest('.cmdAction[data-action="add"]')) {
     if (typeof addCmdToTable === 'function') {
@@ -759,6 +759,7 @@ document.getElementById('div_pageContainer').addEventListener('click', function(
     })
     return
   }
+
 })
 
 
@@ -768,7 +769,7 @@ document.getElementById('div_pageContainer').addEventListener('mouseup', functio
     if (event.which == 2) {
       event.preventDefault()
       let id = _target.getAttribute('data-eqlogic_id')
-      document.querySelector('.eqLogicDisplayCard[data-eqlogic_id="' + id + '"]')?.triggerEvent('click', {detail: {ctrlKey: true}})
+      document.querySelector('.eqLogicDisplayCard[data-eqlogic_id="' + id + '"]')?.triggerEvent('click', { detail: { ctrlKey: true } })
     }
     return
   }
@@ -778,7 +779,7 @@ document.getElementById('div_pageContainer').addEventListener('dblclick', functi
   var _target = null
   if (event.target.matches('.cmd input, textarea, select, span, a')) {
     event.stopPropagation()
-    return;
+    return
   }
   //Cmd-->
   if (_target = event.target.closest('.cmdAttr[data-l1key="display"][data-l2key="icon"]')) {
@@ -818,4 +819,3 @@ document.getElementById('div_pageContainer').addEventListener('change', function
     return
   }
 })
-

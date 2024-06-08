@@ -173,6 +173,14 @@ class jeedom {
 
 	public static function health() {
 		$return = array();
+		$return[] = array(
+			'name' => __('Matériel', __FILE__),
+			'state' => true,
+			'result' => jeedom::getHardwareName(),
+			'comment' => '',
+			'key' => 'hardware'
+		);
+
 		$nbNeedUpdate = update::nbNeedUpdate();
 		$state = ($nbNeedUpdate == 0) ? true : false;
 		$return[] = array(
@@ -181,6 +189,18 @@ class jeedom {
 			'result' => ($state) ? __('OK', __FILE__) : $nbNeedUpdate,
 			'comment' => '',
 			'key' => 'uptodate'
+		);
+
+		$status = shell_exec('systemctl status fail2ban.service');
+		$failed = stripos($status, 'failed') !== false;
+		$running = stripos($status, 'running') !== false;
+		$state = $failed ? 0 : ($running ? 1 : 2);
+		$return[] = array(
+			'name' => __('Etat du service fail2ban', __FILE__),
+			'state' => $failed ? 0 : ($running ? 1 : 2),
+			'result' => $failed ? __('En échec', __FILE__) : ($running ? __('Actif', __FILE__) : __('Désactivé', __FILE__)),
+			'comment' => ($failed || !$running) ? __("Le service Linux fail2ban est désactivé ou en échec : les tentatives d'accès infructueuses à Jeedom ne résulteront pas en un bannissement des IP concernées. Vérifiez l'état du service si vous souhaitez réactiver fail2ban.", __FILE__) : '',
+			'key' => 'service::fail2ban'
 		);
 
 		$state = (config::byKey('enableCron', 'core', 1, true) != 0) ? true : false;
@@ -217,7 +237,7 @@ class jeedom {
 			'name' => __('Date système (dernière heure enregistrée)', __FILE__),
 			'state' => $state,
 			'result' => ($state) ? __('OK', __FILE__) . ' ' . date('Y-m-d H:i:s') . ' (' . gmdate('Y-m-d H:i:s', $lastKnowDate) . ')' : date('Y-m-d H:i:s'),
-			'comment' => ($state) ? '' : __('Si la derniere heure enregistrée est fausse, il faut la remettre à zéro', __FILE__),
+			'comment' => ($state) ? '' : __('Si la dernière heure enregistrée est fausse, il faut la remettre à zéro', __FILE__),
 			'key' => 'hour'
 		);
 
@@ -268,7 +288,7 @@ class jeedom {
 
 		$apaches = count(system::ps('apache2'));
 		$return[] = array(
-			'name' => __('Apache', __FILE__),
+			'name' => __('Nombre de processus Apache', __FILE__),
 			'state' => ($apaches > 0),
 			'result' => $apaches,
 			'comment' => '',
@@ -347,7 +367,7 @@ class jeedom {
 			'name' => __('Mémoire suffisante', __FILE__),
 			'state' => ($value == 0),
 			'result' => $value,
-			'comment' => ($value == 0) ? '' : __('Nombre de processus tués par le noyau pour manque de mémoire. Votre système manque de mémoire. Essayez de reduire le nombre de plugins ou de scénarios', __FILE__),
+			'comment' => ($value == 0) ? '' : __('Nombre de processus tués par le noyau pour manque de mémoire. Votre système manque de mémoire. Essayez de réduire le nombre de plugins ou de scénarios', __FILE__),
 		);
 
 		$value = shell_exec('sudo dmesg | grep "CRC error" | grep "mmcblk0" | grep "card status" | wc -l');
@@ -429,6 +449,38 @@ class jeedom {
 			'key' => 'network::external'
 		);
 
+		$value = shell_exec('node --version');
+		$return[] = array(
+			'name' => __('Node', __FILE__),
+			'state' => true,
+			'result' => $value,
+			'comment' => '',
+			'key' => 'node::version'
+		);
+
+		if (shell_exec('which python') != '') {
+			$value = shell_exec('python --version');
+			$return[] = array(
+				'name' => __('Python', __FILE__),
+				'state' => true,
+				'result' => $value,
+				'comment' => '',
+				'key' => 'python::version'
+			);
+		}
+
+		if (shell_exec('which python3') != '') {
+			$value = shell_exec('python3 --version');
+			$return[] = array(
+				'name' => __('Python 3', __FILE__),
+				'state' => true,
+				'result' => $value,
+				'comment' => '',
+				'key' => 'python3::version'
+			);
+		}
+
+
 		$cache_health = array('comment' => '', 'name' => __('Persistance du cache', __FILE__), 'key' => 'cache::persit');
 		if (cache::isPersistOk()) {
 			if (config::byKey('cache::engine') != 'FilesystemCache' && config::byKey('cache::engine') != 'PhpFileCache') {
@@ -446,14 +498,16 @@ class jeedom {
 		}
 		$return[] = $cache_health;
 
-		$state = shell_exec('systemctl show apache2 | grep  PrivateTmp | grep yes | wc -l');
-		$return[] = array(
-			'name' => __('Apache private tmp', __FILE__),
-			'state' => $state,
-			'result' => ($state) ? __('OK', __FILE__) : __('NOK', __FILE__),
-			'comment' => ($state) ? '' : __('Veuillez désactiver le private tmp d\'Apache (Jeedom ne peut marcher avec).', __FILE__) . '</a>',
-			'key' => 'apache2::privateTmp'
-		);
+		if (jeedom::getHardwareName() != 'docker') {
+			$state = shell_exec('systemctl show apache2 | grep  PrivateTmp | grep yes | wc -l');
+			$return[] = array(
+				'name' => __('Apache private tmp', __FILE__),
+				'state' => $state,
+				'result' => ($state) ? __('OK', __FILE__) : __('NOK', __FILE__),
+				'comment' => ($state) ? '' : __('Veuillez désactiver le private tmp d\'Apache (Jeedom ne peut marcher avec).', __FILE__) . '</a>',
+				'key' => 'apache2::privateTmp'
+			);
+		}
 
 		foreach ((update::listRepo()) as $repo) {
 			if (!$repo['enable']) {
@@ -572,8 +626,9 @@ class jeedom {
 		}
 		$apikey = self::getApiKey($_plugin);
 		if (trim($apikey) != '' && $apikey === $_apikey) {
+			/** @var bool $_RESTRICTED */
 			global $_RESTRICTED;
-			$_RESTRICTED = config::byKey('api::' . $_plugin . '::restricted', 'core', 0);
+			$_RESTRICTED = config::byKey('api::' . $_plugin . '::restricted', 'core', false);
 			return true;
 		}
 		return false;
@@ -644,7 +699,7 @@ class jeedom {
 		} else {
 			$name = trim($vendor . ' ' . $model);
 			$number = 2;
-			while (isset($result[$name])) {
+			while (isset($_usbMapping[$name])) {
 				$name = trim($vendor . ' ' . $model . ' ' . $number);
 				$number++;
 			}
@@ -817,7 +872,7 @@ class jeedom {
 	public static function update($_options = array()) {
 		log::clear('update');
 		$params = '';
-		if (count($_options) > 0) {
+		if (is_array($_options) && count($_options) > 0) {
 			foreach ($_options as $key => $value) {
 				$params .= '"' . $key . '"="' . $value . '" ';
 			}
@@ -940,6 +995,10 @@ class jeedom {
 			echo "Enable task : ";
 			config::save('enableCron', 1);
 			echo "OK\n";
+			/*             * *********Check Network Conf**************** */
+			echo "Check Network Conf : ";
+			network::checkConf('internal');
+			echo "OK\n";
 		} catch (Exception $e) {
 			if (!isset($_GET['mode']) || $_GET['mode'] != 'force') {
 				throw $e;
@@ -991,8 +1050,8 @@ class jeedom {
 		return true;
 	}
 
-	public static function event($_event, $_forceSyncMode = false) {
-		scenario::check($_event, $_forceSyncMode);
+	public static function event($_event, $_forceSyncMode = false, $_options = null) {
+		scenario::check($_event, $_forceSyncMode, null, null, null, $_options);
 	}
 
 	/*****************************************CRON JEEDOM****************************************************************/
@@ -1267,6 +1326,7 @@ class jeedom {
 			$datas = array_merge($datas, plan3d::searchByConfiguration($key));
 			$datas = array_merge($datas, listener::searchEvent($key));
 			$datas = array_merge($datas, user::searchByOptions($key));
+			$datas = array_merge($datas, user::searchByRight($key));
 		}
 		if (count($datas) > 0) {
 			foreach ($datas as $data) {
@@ -1472,7 +1532,7 @@ class jeedom {
 		if (file_exists(__DIR__ . '/../../data/remove_history.json')) {
 			$remove_history = json_decode(file_get_contents(__DIR__ . '/../../data/remove_history.json'), true);
 		}
-		if (!is_array($remove_history)) {
+		if (!isset($remove_history) || !is_array($remove_history)) {
 			$remove_history = array();
 		}
 		return $remove_history;
@@ -1704,7 +1764,7 @@ class jeedom {
 		$result = 'diy';
 		$uname = shell_exec('uname -a');
 		$hostname = shell_exec('cat /etc/hostname');
-		if (file_exists('/.dockerinit')) {
+		if (file_exists('/.dockerinit') || file_exists('/.dockerenv')) {
 			$result = 'docker';
 		} else if (file_exists('/usr/bin/raspi-config')) {
 			$result = 'rpi';

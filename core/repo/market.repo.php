@@ -31,8 +31,7 @@ class repo_market {
 		'hasConfiguration' => true,
 		'proxy' => true,
 		'hasStore' => true,
-		'test' => true,
-		'pullInstall' => true,
+		'test' => true
 	);
 
 	private $id;
@@ -82,7 +81,7 @@ class repo_market {
 				),
 				'password' => array(
 					'name' => __('Mot de passe', __FILE__),
-					'type' => 'password',
+					'type' => 'password_noshow',
 				),
 				'no_ssl_verify' => array(
 					'name' => __('Pas de validation SSL (non recommandé)', __FILE__),
@@ -145,6 +144,7 @@ class repo_market {
 				$update->setType($repo->getType());
 				$update->setLocalVersion($repo->getDatetime($plugin['version']));
 				$update->setConfiguration('version', $plugin['version']);
+				$update->setConfiguration('user',null);
 				$update->save();
 				$update->doUpdate();
 				$nbInstall++;
@@ -671,6 +671,9 @@ class repo_market {
 			if (isset($_result['register::vpnPort']) && config::byKey('vpn::port') != $_result['register::vpnPort']) {
 				config::save('vpn::port', $_result['register::vpnPort']);
 				$restart_dns = true;
+			}
+			if (isset($_result['register::vpnProtocol']) && config::byKey('vpn::protocol') != $_result['register::vpnProtocol']) {
+				config::save('vpn::protocol', $_result['register::vpnProtocol']);
 			}
 			if (isset($_result['dns::remote']) && config::byKey('dns::remote') != $_result['dns::remote']) {
 				config::save('dns::remote', $_result['dns::remote']);

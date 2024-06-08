@@ -1,5 +1,14 @@
 # Registro de cambios Jeedom V4.4
 
+>**IMPORTANTE**
+>
+>Aunque no sean necesariamente visibles a primera vista, la versión 4.4 de Jeedom trae cambios importantes con una interfaz que ha sido completamente reescrita para un control total y, sobre todo, una ganancia inigualable en fluidez de navegación. También se ha revisado la gestión de dependencias PHP para poder mantenerlas actualizadas automáticamente. Incluso si el equipo de Jeedom y los probadores beta han hecho muchas pruebas, hay tantas versiones de jeedom como jeedom... Por lo tanto, no es posible garantizar el correcto funcionamiento en el 100% de los casos. Sin embargo, en caso de problema puede [abrir un tema en el foro con la etiqueta `v4_4`](https://community.jeedom.com/) o contacta con soporte desde tu perfil de mercado *(siempre que tenga un paquete de servicio o superior)*.
+
+## 4.4.1
+
+- Soporte PHP8.
+- Verificar la versión básica mínima requerida antes de instalar o actualizar un complemento.
+- Agregar un botón **Asistencia** en la página de configuración del complemento *(Creación automática de una solicitud de ayuda en el foro)*
 
 ### 4.4 : Prerrequisitos
 
@@ -29,6 +38,7 @@
 - **Temática** : Eliminación del tema **Legado Core2019** *(alpha)*.
 - **Relación** : Posibilidad de elegir el tema durante un informe en una página de jeedom.
 - **Menú Jeedom** : Un retraso de 0.25s se introdujo en la apertura de submenús.
+- **Sistema** : Posibilidad de añadir comandos personalizados (ver documentación)
 
 
 ### 4.4 : Autre

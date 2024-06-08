@@ -33,6 +33,7 @@ jeedom.appMobile.postToApp = function (_action, _options = {}) {
 }
 
 jeedom.appMobile.vibration = function (type = "impactMedium") {
+  /* vibration > impactLight, impactMedium, impactHeavy, rigid, soft, notificationSuccess, notificationWarning, notificationError */
   jeedom.appMobile.postToApp('vibration', {type: type})
 }
 
@@ -40,26 +41,32 @@ jeedom.appMobile.syncBoxs = function () {
   jeedom.appMobile.postToApp('syncBoxs')
 }
 
-jeedom.appMobile.notifee = function (title, body, time) {
+jeedom.appMobile.addBoxQrCode = function () {
+  /* open windows for add box QrCode on App */
+  jeedom.appMobile.postToApp('addBoxQrCode')
+}
+
+jeedom.appMobile.notifee = function (title, body, time = 5000, display = "") {
    /**
-   * time : display time for inapp notification, in ms
+   * time (Number) : display time for inapp notification, in ms 
+   * display (string) : display notiication : error(red), success(green), warn(orange) and info(blue). if "" : classic notification in App
    * 
  */
   jeedom.appMobile.postToApp('notifee', {
     body: body,
     time: time,
-    title: title
+    title: title,
+    display : display
   });
 }
 
 jeedom.appMobile.modal = function (_options) {
   /**
    * default sizeModal : 100 (optionnal)
-   * For type : 'qrCode' or 'barreCode' :
+   * For type : 'barreCode' :
    *      'optionText' : Optionnal Text on Modal
    *      'method' : method for API
    *      'plugin : Plugin for API
-   * @example  _options = { 'type' : 'qrCode', 'optionText':'ExampleTextOnModal', 'method':'qrcodemethod','plugin':'mobile'}
    * @example  _options = { 'type' : 'barreCode', 'optionText':'ExampleTextOnModal', 'method':'qrcodemethod','plugin':'mobile'}
    *   type : 'WebviewApp' for internalLink or 'urlwww' for externalLink
    * @example  _options = { 'type' : 'WebviewApp', 'uri' : '/plugins/mobile/core/php/menuForPanel.php' , 'sizeModal' : 50 }
@@ -70,4 +77,9 @@ jeedom.appMobile.modal = function (_options) {
 
 jeedom.appMobile.modalClose = function () {
   jeedom.appMobile.postToApp('modal:close');
+}
+
+jeedom.appMobile.reloadView = function () {
+  // Reload actual tab webview
+  jeedom.appMobile.postToApp('reload');
 }

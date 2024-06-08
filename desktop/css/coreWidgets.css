@@ -50,12 +50,13 @@ div.eqLogic-widget div.cmd-widget {
   display: none !important;
 }
 
+/* commented for test from 2024-02-25
 div.cmd-widget .title>.cmdName {
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
+} */
 
 div.cmd-widget .cmdName {
   color: var(--txt-color);
@@ -368,6 +369,7 @@ div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="button"
 
 div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="button"] .in_value {
   width: 70px;
+  text-align: center;
 }
 
 div.cmd-widget[data-type="action"][data-subtype="message"][data-template="default"] {
@@ -395,6 +397,10 @@ div.cmd-widget[data-type="info"][data-template="tile"] .state {
 
 div.cmd-widget[data-type="info"][data-subtype="numeric"][data-template="badge"] .state {
   padding: 6px;
+}
+
+div.cmd-widget[data-type="info"][data-subtype="string"][data-template="color"] .color {
+  border-radius: var(--border-radius);
 }
 
 div.cmd-widget[data-type="info"][data-subtype="string"][data-template="multiline"] {
@@ -476,6 +482,7 @@ label.binarySwitch>input:checked+span.binarySwitch {
 div.arcgauge .content {
   position: relative;
   clip-path: polygon(0 -5px, 100% -5px, 100% 100%, 0 100%);
+  min-width: 80px;
 }
 
 div.arcgauge .gauge,
@@ -606,7 +613,7 @@ div.cmd-widget.widget-compass .widget-compass-needle-placer {
 }
 
 div.cmd-widget.widget-compass .widget-compass-needle {
-  position: relative;
+  position: fixed;
   width: 0px;
   height: 0px;
   border: 8px solid transparent;

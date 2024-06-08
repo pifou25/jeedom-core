@@ -70,6 +70,26 @@ class view {
 
 	/*     * *********************Méthodes d'instance************************* */
 
+	public function copy($_name) {
+		$view = clone $this;
+		$view->setName($_name);
+		$view->setId('');
+		$view->save();
+		foreach (($this->getviewZone()) as $viewZone) {
+			$viewZoneCopy = clone $viewZone;
+			$viewZoneCopy->setId('');
+			$viewZoneCopy->setView_id($view->getId());
+			$viewZoneCopy->save();
+			foreach (($viewZone->getviewData()) as $viewData) {
+				$viewDataCopy = clone $viewData;
+				$viewDataCopy->setId('');
+				$viewDataCopy->setviewZone_id($viewZoneCopy->getId());
+				$viewDataCopy->save();
+			}
+		}
+		return $view;
+	}
+
 	public function report($_format = 'pdf', $_parameters = array()) {
 		$url = network::getNetworkAccess('internal') . '/index.php?v=d&p=view';
 		$url .= '&view_id=' . $this->getId();
@@ -92,7 +112,7 @@ class view {
 		}
 	}
 
-	public function refresh() {
+	public function refresh():void {
 		DB::refresh($this);
 	}
 
@@ -241,7 +261,7 @@ class view {
 		);
 	}
 
-	public function hasRight($_right, $_user = null) {
+	public function hasRight($_right, $_user = null): bool {
 		if ($_user != null) {
 			if ($_user->getProfils() == 'admin' || $_user->getProfils() == 'user') {
 				return true;
@@ -280,6 +300,7 @@ class view {
 	}
 
 	public function setName($_name) {
+		$_name = trim($_name);
 		$this->_changed = utils::attrChanged($this->_changed, $this->name, $_name);
 		$this->name = $_name;
 		return $this;
