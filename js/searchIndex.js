@@ -253,7 +253,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cmd\u003A\u003AsearchByString\u0028\u0029",
             "name": "searchByString",
-            "summary": "",
+            "summary": "Search\u0020a\u0020command\u0020on\u0020eqType,\u0020logicalId,\u0020generic_type\u0020or\u0020name",
             "url": "classes/cmd.html#method_searchByString"
         },                {
             "fqsen": "\\cmd\u003A\u003AsearchConfiguration\u0028\u0029",
@@ -625,6 +625,11 @@ Search.appendIndex(
             "name": "getHistory",
             "summary": "",
             "url": "classes/cmd.html#method_getHistory"
+        },                {
+            "fqsen": "\\cmd\u003A\u003AgetLastHistory\u0028\u0029",
+            "name": "getLastHistory",
+            "summary": "",
+            "url": "classes/cmd.html#method_getLastHistory"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetOldest\u0028\u0029",
             "name": "getOldest",
@@ -2213,12 +2218,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AgetCmd\u0028\u0029",
             "name": "getCmd",
-            "summary": "",
+            "summary": "get\u0020one\u0020or\u0020multiple\u0020cmd\u0020of\u0020the\u0020eqLogic",
             "url": "classes/eqLogic.html#method_getCmd"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AgetCmdByGenericType\u0028\u0029",
             "name": "getCmdByGenericType",
-            "summary": "",
+            "summary": "get\u0020one\u0020or\u0020multiple\u0020cmd\u0020of\u0020the\u0020eqLogic",
             "url": "classes/eqLogic.html#method_getCmdByGenericType"
         },                {
             "fqsen": "\\eqLogic\u003A\u003AsearchCmdByConfiguration\u0028\u0029",
@@ -2585,6 +2590,11 @@ Search.appendIndex(
             "name": "byCmdIdAtDatetime",
             "summary": "Value\u0020of\u0020a\u0020command\u0020on\u0020a\u0020given\u0020date",
             "url": "classes/history.html#method_byCmdIdAtDatetime"
+        },                {
+            "fqsen": "\\history\u003A\u003AbyCmdIdAtDatetimeFromCalcul\u0028\u0029",
+            "name": "byCmdIdAtDatetimeFromCalcul",
+            "summary": "",
+            "url": "classes/history.html#method_byCmdIdAtDatetimeFromCalcul"
         },                {
             "fqsen": "\\history\u003A\u003Aarchive\u0028\u0029",
             "name": "archive",
@@ -3671,6 +3681,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/jeeObject.html#method_getGlobalHtmlSummary"
         },                {
+            "fqsen": "\\jeeObject\u003A\u003AgetGlobalArraySummary\u0028\u0029",
+            "name": "getGlobalArraySummary",
+            "summary": "",
+            "url": "classes/jeeObject.html#method_getGlobalArraySummary"
+        },                {
             "fqsen": "\\jeeObject\u003A\u003AcreateSummaryToVirtual\u0028\u0029",
             "name": "createSummaryToVirtual",
             "summary": "",
@@ -4483,13 +4498,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\log\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "",
+            "summary": "Get\u0020\u0024_nbLines\u0020from\u0020a\u0020\u0024_log\u0020from\u0020\u0024_begin\u0020position",
             "url": "classes/log.html#method_get"
         },                {
             "fqsen": "\\log\u003A\u003AgetDelta\u0028\u0029",
             "name": "getDelta",
-            "summary": "",
+            "summary": "Get\u0020the\u0020log\u0020delta\u0020from\u0020\u0024_position\u0020to\u0020the\u0020end\u0020of\u0020the\u0020file\nNew\u0020position\u0020is\u0020stored\u0020in\u0020\u0024_position\u0020when\u0020eof\u0020is\u0020reached",
             "url": "classes/log.html#method_getDelta"
+        },                {
+            "fqsen": "\\log\u003A\u003AgetLastLine\u0028\u0029",
+            "name": "getLastLine",
+            "summary": "Efficiently\u0020get\u0020the\u0020last\u0020line\u0020of\u0020a\u0020file",
+            "url": "classes/log.html#method_getLastLine"
         },                {
             "fqsen": "\\log\u003A\u003Aliste\u0028\u0029",
             "name": "liste",
@@ -5811,6 +5831,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/plugin.html#method_getLinkToConfiguration"
         },                {
+            "fqsen": "\\plugin\u003A\u003AgetConfigForCommunity\u0028\u0029",
+            "name": "getConfigForCommunity",
+            "summary": "",
+            "url": "classes/plugin.html#method_getConfigForCommunity"
+        },                {
             "fqsen": "\\plugin\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
@@ -5845,6 +5870,11 @@ Search.appendIndex(
             "name": "getRequire",
             "summary": "",
             "url": "classes/plugin.html#method_getRequire"
+        },                {
+            "fqsen": "\\plugin\u003A\u003AgetRequireOsVersion\u0028\u0029",
+            "name": "getRequireOsVersion",
+            "summary": "",
+            "url": "classes/plugin.html#method_getRequireOsVersion"
         },                {
             "fqsen": "\\plugin\u003A\u003AgetCategory\u0028\u0029",
             "name": "getCategory",
@@ -6046,6 +6076,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/plugin.html#property_require"
         },                {
+            "fqsen": "\\plugin\u003A\u003A\u0024requireOsVersion",
+            "name": "requireOsVersion",
+            "summary": "",
+            "url": "classes/plugin.html#property_requireOsVersion"
+        },                {
             "fqsen": "\\plugin\u003A\u003A\u0024category",
             "name": "category",
             "summary": "",
@@ -6150,6 +6185,11 @@ Search.appendIndex(
             "name": "functionality",
             "summary": "",
             "url": "classes/plugin.html#property_functionality"
+        },                {
+            "fqsen": "\\plugin\u003A\u003A\u0024usedSpace",
+            "name": "usedSpace",
+            "summary": "",
+            "url": "classes/plugin.html#property_usedSpace"
         },                {
             "fqsen": "\\plugin\u003A\u003A\u0024_cache",
             "name": "_cache",
@@ -7065,6 +7105,21 @@ Search.appendIndex(
             "name": "upgradePackage",
             "summary": "",
             "url": "classes/system.html#method_upgradePackage"
+        },                {
+            "fqsen": "\\system\u003A\u003AgetPython3VenvDir\u0028\u0029",
+            "name": "getPython3VenvDir",
+            "summary": "",
+            "url": "classes/system.html#method_getPython3VenvDir"
+        },                {
+            "fqsen": "\\system\u003A\u003AgetCmdPython3\u0028\u0029",
+            "name": "getCmdPython3",
+            "summary": "",
+            "url": "classes/system.html#method_getCmdPython3"
+        },                {
+            "fqsen": "\\system\u003A\u003AsplitpackageByPlugin\u0028\u0029",
+            "name": "splitpackageByPlugin",
+            "summary": "",
+            "url": "classes/system.html#method_splitpackageByPlugin"
         },                {
             "fqsen": "\\system\u003A\u003AgetInstallPackage\u0028\u0029",
             "name": "getInstallPackage",
@@ -8056,6 +8111,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/utils.html#method_decrypt"
         },                {
+            "fqsen": "\\utils\u003A\u003AexecuteAsync\u0028\u0029",
+            "name": "executeAsync",
+            "summary": "This\u0020function\u0020allows\u0020asynchronous\u0020execution\u0020of\u0020any\u0020class\u0020function.",
+            "url": "classes/utils.html#method_executeAsync"
+        },                {
             "fqsen": "\\utils\u003A\u003A\u0024properties",
             "name": "properties",
             "summary": "",
@@ -8085,6 +8145,11 @@ Search.appendIndex(
             "name": "searchByUse",
             "summary": "",
             "url": "classes/view.html#method_searchByUse"
+        },                {
+            "fqsen": "\\view\u003A\u003Acopy\u0028\u0029",
+            "name": "copy",
+            "summary": "",
+            "url": "classes/view.html#method_copy"
         },                {
             "fqsen": "\\view\u003A\u003Areport\u0028\u0029",
             "name": "report",
@@ -8901,6 +8966,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/com-http.html#method_setPut"
         },                {
+            "fqsen": "\\com_http\u003A\u003AgetPatch\u0028\u0029",
+            "name": "getPatch",
+            "summary": "",
+            "url": "classes/com-http.html#method_getPatch"
+        },                {
+            "fqsen": "\\com_http\u003A\u003AsetPatch\u0028\u0029",
+            "name": "setPatch",
+            "summary": "",
+            "url": "classes/com-http.html#method_setPatch"
+        },                {
             "fqsen": "\\com_http\u003A\u003AgetUserAgent\u0028\u0029",
             "name": "getUserAgent",
             "summary": "",
@@ -8930,6 +9005,26 @@ Search.appendIndex(
             "name": "setCURLOPT",
             "summary": "",
             "url": "classes/com-http.html#method_setCURLOPT"
+        },                {
+            "fqsen": "\\com_http\u003A\u003AgetInfos\u0028\u0029",
+            "name": "getInfos",
+            "summary": "",
+            "url": "classes/com-http.html#method_getInfos"
+        },                {
+            "fqsen": "\\com_http\u003A\u003AgetHttpCode\u0028\u0029",
+            "name": "getHttpCode",
+            "summary": "",
+            "url": "classes/com-http.html#method_getHttpCode"
+        },                {
+            "fqsen": "\\com_http\u003A\u003A\u0024streamHeaders",
+            "name": "streamHeaders",
+            "summary": "",
+            "url": "classes/com-http.html#property_streamHeaders"
+        },                {
+            "fqsen": "\\com_http\u003A\u003AgetStreamHeaders\u0028\u0029",
+            "name": "getStreamHeaders",
+            "summary": "",
+            "url": "classes/com-http.html#method_getStreamHeaders"
         },                {
             "fqsen": "\\com_http\u003A\u003A\u0024url",
             "name": "url",
@@ -8976,6 +9071,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/com-http.html#property_put"
         },                {
+            "fqsen": "\\com_http\u003A\u003A\u0024patch",
+            "name": "patch",
+            "summary": "",
+            "url": "classes/com-http.html#property_patch"
+        },                {
             "fqsen": "\\com_http\u003A\u003A\u0024delete",
             "name": "delete",
             "summary": "",
@@ -9015,6 +9115,11 @@ Search.appendIndex(
             "name": "CURLOPT",
             "summary": "",
             "url": "classes/com-http.html#property_CURLOPT"
+        },                {
+            "fqsen": "\\com_http\u003A\u003A\u0024getinfo",
+            "name": "getinfo",
+            "summary": "",
+            "url": "classes/com-http.html#property_getinfo"
         },                {
             "fqsen": "\\com_shell",
             "name": "com_shell",

@@ -126,10 +126,38 @@
                         <h3>Table of Contents</h3>
             <table class="phpdocumentor-table_of_contents">
                                     <tr>
+                        <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/class/log.class.php">core/class/log.class.php</a></td>
+                    </tr>
+                                    <tr>
                         <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/com/shell.com.php">core/com/shell.com.php</a></td>
                     </tr>
                             </table>
             
+                            <a id="core/class/log.class.php"></a>
+                <h3><abbr title="core/class/log.class.php">log.class.php</abbr></h3>
+                <table>
+                    <tr>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Element</th>
+                        <th class="phpdocumentor-heading">Reason</th>
+                    </tr>
+                                                                        <tr>
+                                <td class="phpdocumentor-cell">248</td>
+                                <td class="phpdocumentor-cell"><a href="classes/log.html#method_get"><abbr title="\log::get()">log::get()</abbr></a></td>
+                                <td class="phpdocumentor-cell"><p>v4.4
+=&gt; removed in v4.6 (use log::getDelta() instead)</p>
+<p>Note that log::get($_log, $_begin, $_nbLines) is equivalent to:
+$path = (!file_exists($_log) || !is_file($_log)) ? self::getPathToLog($_log) : $_log;
+if (!file_exists($path)) {
+return false;
+}
+$delta = self::getDelta($_log, $_begin, '', false, false, 0, $_nbLines);
+$arr = explode(&quot;\n&quot;, $delta['logText']);
+unset($arr[count($arr) - 1]);
+$res = array_reverse($arr);</p>
+</td>
+                            </tr>
+                                                            </table>
                             <a id="core/com/shell.com.php"></a>
                 <h3><abbr title="core/com/shell.com.php">shell.com.php</abbr></h3>
                 <table>
