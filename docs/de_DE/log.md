@@ -1,4 +1,5 @@
 # Logs
+
 **Analyse → Protokolle**
 
 Protokolle sind Protokolldateien, mit denen Sie verfolgen können, was in Ihrer Hausautomation geschieht. In den meisten Fällen werden die Protokolle nur zum Debuggen und Lösen von Problemen durch das Support-Team verwendet.

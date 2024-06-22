@@ -1,4 +1,5 @@
 # Interactions
+
 **Herramientas → Interacciones**
 
 El sistema de interacción en Jeedom le permite realizar acciones desde texto o comandos de voz.
@@ -15,11 +16,13 @@ El valor de las interacciones radica en la integración simplificada en otros si
 > **Consejo**
 >
 > Puede abrir una interacción haciendo :
+>
 > - Haga clic en uno de ellos.
 > - Ctrl Clic o Clic Center para abrirlo en una nueva pestaña del navegador.
 
 Tiene un motor de búsqueda para filtrar la visualización de interacciones. La tecla Escape cancela la búsqueda.
 A la derecha del campo de búsqueda, se encuentran tres botones en varios lugares de Jeedom:
+
 - La cruz para cancelar la búsqueda.
 - La carpeta abierta para desplegar todos los paneles y mostrar todas las interacciones.
 - La carpeta cerrada para doblar todos los paneles.
@@ -127,7 +130,7 @@ Por lo tanto, en sinónimos, indicaremos el nombre del comando y los sinónimos 
 
 ![interact008](../images/interact008.png)
 
-Podemos ver aquí una sintaxis algo nueva para sinónimos. Un nombre de comando puede tener varios sinónimos, aquí "on" tiene el sinónimo "encender" y "encender"". La sintaxis es por lo tanto "*Nombre de la orden*" ***=*** "*sinónimo 1*"***,*** "*sinónimo 2*" (podemos poner tantos sinónimos como queramos). Luego, para agregar sinónimos para otro nombre de comando, simplemente agregue una barra vertical después del último sinónimo "*\|*" después de lo cual puede nombrar nuevamente el comando que tendrá sinónimos en la primera parte, etc.
+Podemos ver aquí una sintaxis algo nueva para sinónimos. Un nombre de comando puede tener varios sinónimos, aquí "on" tiene el sinónimo "encender" y "encender"". La sintaxis es por lo tanto "_Nombre de la orden_" **_=_** "_sinónimo 1_"**_,_** "_sinónimo 2_" (podemos poner tantos sinónimos como queramos). Luego, para agregar sinónimos para otro nombre de comando, simplemente agregue una barra vertical después del último sinónimo "_\|_" después de lo cual puede nombrar nuevamente el comando que tendrá sinónimos en la primera parte, etc.
 
 Ya es mejor, pero aún le falta el comando &quot;en&quot; &quot;entrada&quot; la &quot;l&quot; y para otros la &quot;la&quot; o &quot;le&quot; o &quot;a&quot;, etc. Podríamos cambiar el nombre del equipo para agregarlo, sería una solución, de lo contrario, podemos usar las variaciones en la solicitud. Esto consiste en enumerar una serie de palabras posibles en un lugar de la oración, por lo tanto, Jeedom generará oraciones con estas variaciones.
 
@@ -180,6 +183,7 @@ Podemos imaginar que una alarma puede ser activada o desactivada por un niño o 
 Es posible crear [Expresión regular](https://fr.wikipedia.org/wiki/Expression_rationnelle) exclusión, si una oración generada coincide con esta expresión regular, se eliminará. El interés es poder eliminar los falsos positivos, es decir, una oración generada por Jeedom que activa algo que no corresponde a lo que queremos o que interferiría con otra interacción que tendría una oración similar.
 
 Tenemos 2 lugares para aplicar un Regexp :
+
 - En la interacción misma en el campo "Exclusión de expresiones regulares"".
 - En el campo Administración → Configuración → Interacciones → campo "Regexp de exclusión general para interacciones"".
 
@@ -242,7 +246,7 @@ En este ejemplo, vemos una oración simple que devolverá una respuesta con 3 te
 
 ![interact017](../images/interact017.png)
 
-Este ejemplo se dirige específicamente a equipos específicos que permiten una respuesta personalizada. Entonces podríamos imaginar reemplazar la respuesta del ejemplo con "no, no hay nadie en la sala *julio*\|si hay alguien en la sala *julio*"
+Este ejemplo se dirige específicamente a equipos específicos que permiten una respuesta personalizada. Entonces podríamos imaginar reemplazar la respuesta del ejemplo con "no, no hay nadie en la sala _julio_\|si hay alguien en la sala _julio_"
 
 #### Evolution
 
@@ -297,7 +301,7 @@ Es posible controlar una lámpara como un porcentaje (dimmer) o un termostato co
 
 ![interact022](../images/interact022.png)
 
-Como podemos ver, aquí está en la solicitud la etiqueta **\#consigne\#** (puede poner lo que quiera) que se incluye en el control de la unidad para aplicar el valor deseado. Para hacer esto, tenemos 3 partes : \* Solicitud : en el que creamos una etiqueta que representará el valor que se enviará a la interacción. \* Respuesta : reutilizamos la etiqueta para la respuesta para asegurarnos de que Jeedom entendió correctamente la solicitud. \* Valores : ponemos una acción sobre la lámpara que queremos conducir y en el valor le pasamos nuestra etiqueta *consigna*.
+Como podemos ver, aquí está en la solicitud la etiqueta **\#consigne\#** (puede poner lo que quiera) que se incluye en el control de la unidad para aplicar el valor deseado. Para hacer esto, tenemos 3 partes : \* Solicitud : en el que creamos una etiqueta que representará el valor que se enviará a la interacción. \* Respuesta : reutilizamos la etiqueta para la respuesta para asegurarnos de que Jeedom entendió correctamente la solicitud. \* Valores : ponemos una acción sobre la lámpara que queremos conducir y en el valor le pasamos nuestra etiqueta _consigna_.
 
 > **Nota**
 >
@@ -334,6 +338,7 @@ Como podemos ver en la captura de pantalla, no hay un color configurado, por lo 
 Podemos agregar tantos como queramos, podemos poner cualquier nombre como sea, para que podamos imaginar asignar un color al nombre de cada miembro de la familia.
 
 Una vez configurado, dices &quot;Enciende el árbol en verde&quot;, Jeedom buscará en la solicitud un color y lo aplicará al pedido.
+
 ### Uso junto con un escenario
 
 #### Versión básica

@@ -1,4 +1,5 @@
 # Mecanismo de tarefas
+
 **Configurações → Sistema → Mecanismo de Tarefas**
 
 Esta página informa sobre todas as tarefas do aplicativo Jeedom em execução no servidor.
@@ -35,10 +36,9 @@ Nesta tabela, encontramos :
 - **Status** : Status atual da tarefa (como lembrete, uma tarefa daemon é sempre "executada"").
 
 - **Ações** :
-    - **Detalhes** : Veja o cron em detalhes (como armazenado na base).
-    - **Iniciar / Parar** : Iniciar ou parar a tarefa (dependendo do status).
-    - **Eliminação** : Excluir tarefa.
-
+  - **Detalhes** : Veja o cron em detalhes (como armazenado na base).
+  - **Iniciar / Parar** : Iniciar ou parar a tarefa (dependendo do status).
+  - **Eliminação** : Excluir tarefa.
 
 ## Guia Ouvinte
 
@@ -47,6 +47,7 @@ Os ouvintes são apenas visíveis na leitura e permitem que você veja as funç�
 ## Guia Demon
 
 Tabela de todos os daemons com seu estado, a data do último lançamento, bem como a possibilidade de :
+
 - Iniciar / reiniciar um daemon.
 - Pare um daemon se o gerenciamento automático estiver desativado.
 - Ativar / desativar o gerenciamento automático de um daemon.

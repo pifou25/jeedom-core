@@ -4,7 +4,8 @@ Page reserved for advanced users, allows you to launch SSH commands directly fro
 
 ## Adding command
 
-It is possible to add custom commands for this from the Jeedom editor (Configuration -> OS/DB -> File editor) you must create a `systemCustomCmd file.json` in `data`. The file must have the following form : 
+It is possible to add custom commands for this from the Jeedom editor (Configuration -> OS/DB -> File editor) you must create a `systemCustomCmd file.json` in `data`. The file must have the following form :
+
 ```
 [
    {

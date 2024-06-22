@@ -1,4 +1,5 @@
 # Design
+
 **Accueil → Design**
 
 Cette page permet de configurer l’affichage de toute votre domotique de manière très fine.
@@ -21,21 +22,21 @@ Dans le menu (clic droit), nous retrouvons les actions suivantes :
 - **Ajouter texte/html** : Permet d’ajouter du texte ou du code HTML/JavaScript.
 - **Ajouter scénario** : Permet d’ajouter un scénario.
 - **Ajouter lien**
-    - **Vers une vue** : Permet d’ajouter un lien vers une vue.
-    - **Vers un design** : Permet d’ajouter un lien vers un autre design.
+  - **Vers une vue** : Permet d’ajouter un lien vers une vue.
+  - **Vers un design** : Permet d’ajouter un lien vers un autre design.
 - **Ajouter équipement** : Permet d’ajouter un équipement.
 - **Ajouter commande** : Permet d’ajouter une commande.
 - **Ajouter image/caméra** : Permet d’ajouter une image ou le flux d’une caméra.
 - **Ajouter zone** : Permet d’ajouter une zone transparente cliquable qui pourra exécuter une série d’actions lors d’un clic (en fonction ou non de l’état d’une autre commande).
 - **Ajouter résumé** : Ajoute les informations d’un résumé d’objet ou général.
 - **Affichage**
-    - **Aucune** : N’affiche aucune grille.
-    - **10x10** : Affiche une grille de 10 par 10.
-    - **15x15** : Affiche une grille de 15 par 15.
-    - **20x20** : Affiche une grille de 20 par 20.
-    - **Aimanter les éléments** : Ajoute une aimantation entre les éléments pour permettre de les coller plus facilement.
-    - **Aimanter à la grille** : Ajoute une aimantation des éléments à la grille (attention : en fonction du zoom de l’élément cette fonctionnalité peut plus ou moins fonctionner).
-    - **Masquer la surbrillance des éléments** : Masque la surbrillance autour des éléments.
+  - **Aucune** : N’affiche aucune grille.
+  - **10x10** : Affiche une grille de 10 par 10.
+  - **15x15** : Affiche une grille de 15 par 15.
+  - **20x20** : Affiche une grille de 20 par 20.
+  - **Aimanter les éléments** : Ajoute une aimantation entre les éléments pour permettre de les coller plus facilement.
+  - **Aimanter à la grille** : Ajoute une aimantation des éléments à la grille (attention : en fonction du zoom de l’élément cette fonctionnalité peut plus ou moins fonctionner).
+  - **Masquer la surbrillance des éléments** : Masque la surbrillance autour des éléments.
 - **Supprimer le design** : Supprime le design.
 - **Créer un design** : Permet d’ajouter un nouveau design.
 - **Dupliquer le design** : Duplique le design courant.
@@ -51,17 +52,17 @@ Dans le menu (clic droit), nous retrouvons les actions suivantes :
 On retrouve ici :
 
 - **Général**
-    - **Nom** : Le nom de votre design.
-    - **Position** : La position du design dans le menu. Permet d'ordonner les designs.
-    - **Fond transparent** : Rend le fond transparent. Attention si la case est cochée, la couleur de fond n’est pas utilisée.
-    - **Couleur de fond** : Couleur de fond du design.
-    - **Code d'accès** : Code d’accès à votre design (si vide, aucun code n’est demandé).
-    - **Icône** : Une icône pour celui-ci (apparaît dans le menu de choix de design).
-    - **Image**
-        - **Envoyer** : Permet d’ajouter une image de fond au design.
-        - **Supprimer l’image** : Permet de supprimer l’image.
+  - **Nom** : Le nom de votre design.
+  - **Position** : La position du design dans le menu. Permet d'ordonner les designs.
+  - **Fond transparent** : Rend le fond transparent. Attention si la case est cochée, la couleur de fond n’est pas utilisée.
+  - **Couleur de fond** : Couleur de fond du design.
+  - **Code d'accès** : Code d’accès à votre design (si vide, aucun code n’est demandé).
+  - **Icône** : Une icône pour celui-ci (apparaît dans le menu de choix de design).
+  - **Image**
+    - **Envoyer** : Permet d’ajouter une image de fond au design.
+    - **Supprimer l’image** : Permet de supprimer l’image.
 - **Tailles**
-    - **Taille (LxH)** : Permet de fixer la taille en pixels de votre design.
+  - **Taille (LxH)** : Permet de fixer la taille en pixels de votre design.
 
 ## Configuration générale des éléments
 
@@ -125,7 +126,7 @@ Permet de choisir les commandes à grapher.
 
 ## Scénario
 
-*Aucun paramètre spécifique d’affichage*
+_Aucun paramètre spécifique d’affichage_
 
 ## Lien
 
@@ -158,6 +159,7 @@ Permet de choisir les commandes à grapher.
 ### Commandes
 
 La liste des commandes présentes sur l'équipement vous permet, pour chaque commande, de:
+
 - Masquer le nom de la commande.
 - Masquer la commande.
 - Afficher la commande avec une fond transparent.
@@ -168,7 +170,7 @@ Affiche la fenêtre de configuration avancée de l’équipement (voir documenta
 
 ## Commande
 
-*Aucun paramètre spécifique d’affichage*
+_Aucun paramètre spécifique d’affichage_
 
 ### Configuration avancée
 
@@ -223,8 +225,8 @@ Dans ce mode, lors du survol ou du clic dans la zone Jeedom, vous afficherez le 
 
 ## FAQ
 
->**Je n'arrive plus à éditer mon design**
->Si vous avez mis un widget ou une image qui prend quasiment la totalité du design, il faut bien cliquer en dehors du widget ou de l'image pour avoir accès au menu par clic droit.
+> **Je n'arrive plus à éditer mon design**
+> Si vous avez mis un widget ou une image qui prend quasiment la totalité du design, il faut bien cliquer en dehors du widget ou de l'image pour avoir accès au menu par clic droit.
 
->**Supprimer un design qui ne marche plus**
->Dans la partie administration puis OS/DB, faire "select * from planHeader", récupérer l'id du design en question et faire un "delete from planHeader where id=#TODO#" et "delete from plan where planHeader_id=#todo#" en remplaçant bien #TODO# par l'id du design trouvé précédemment.
+> **Supprimer un design qui ne marche plus**
+> Dans la partie administration puis OS/DB, faire "select \* from planHeader", récupérer l'id du design en question et faire un "delete from planHeader where id=#TODO#" et "delete from plan where planHeader_id=#todo#" en remplaçant bien #TODO# par l'id du design trouvé précédemment.

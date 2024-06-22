@@ -1,4 +1,5 @@
 # Interactions
+
 **Werkzeuge → Interaktionen**
 
 Mit dem Interaktionssystem in Jeedom können Sie Aktionen über Text- oder Sprachbefehle ausführen.
@@ -15,11 +16,13 @@ Der Wert von Interaktionen liegt in der vereinfachten Integration in andere Syst
 > **Tipp**
 >
 > Sie können eine Interaktion öffnen, indem Sie dies tun :
+>
 > - Klicken Sie auf eine davon.
 > - Strg Clic oder Clic Center, um es in einem neuen Browser-Tab zu öffnen.
 
 Sie haben eine Suchmaschine, um die Anzeige von Interaktionen zu filtern. Die Escape-Taste bricht die Suche ab.
 Rechts neben dem Suchfeld befinden sich drei Schaltflächen, die an mehreren Stellen in Jeedom gefunden wurden:
+
 - Das Kreuz, um die Suche abzubrechen.
 - Der geöffnete Ordner zum Entfalten aller Bedienfelder und Anzeigen aller Interaktionen.
 - Der geschlossene Ordner zum Falten aller Panels.
@@ -127,7 +130,7 @@ In Synonymen geben wir daher den Namen des Befehls und die zu verwendenden Synon
 
 ![interact008](../images/interact008.png)
 
-Wir können hier eine etwas neue Syntax für Synonyme sehen. Ein Befehlsname kann mehrere Synonyme haben, hier hat "Ein" das Synonym "Einschalten" und "Einschalten"". Die Syntax lautet daher "*Name der Bestellung*" ***=*** "*Synonym 1*"***,*** "*Synonym 2*" (Wir können so viele Synonyme setzen, wie wir wollen). Um dann Synonyme für einen anderen Befehlsnamen hinzuzufügen, fügen Sie einfach einen vertikalen Balken nach dem letzten Synonym hinzu "*\.|*" Danach können Sie den Befehl erneut benennen, der Synonyme für den ersten Teil usw. enthält.
+Wir können hier eine etwas neue Syntax für Synonyme sehen. Ein Befehlsname kann mehrere Synonyme haben, hier hat "Ein" das Synonym "Einschalten" und "Einschalten"". Die Syntax lautet daher "_Name der Bestellung_" **_=_** "_Synonym 1_"**_,_** "_Synonym 2_" (Wir können so viele Synonyme setzen, wie wir wollen). Um dann Synonyme für einen anderen Befehlsnamen hinzuzufügen, fügen Sie einfach einen vertikalen Balken nach dem letzten Synonym hinzu "_\.|_" Danach können Sie den Befehl erneut benennen, der Synonyme für den ersten Teil usw. enthält.
 
 Es ist schon besser, aber es fehlt immer noch für den Befehl &quot;on&quot; &quot;input&quot; das &quot;l&quot; und für andere das &quot;la&quot; oder &quot;le&quot; oder &quot;a&quot; usw. Wir könnten den Namen des Geräts ändern, um es hinzuzufügen, es wäre eine Lösung, andernfalls könnten wir die Variationen in der Anfrage verwenden. Dies besteht aus der Auflistung einer Reihe möglicher Wörter an einer Stelle im Satz. Jeedom generiert daher Sätze mit diesen Variationen.
 
@@ -180,6 +183,7 @@ Wir können uns vorstellen, dass ein Alarm von einem Kind oder einem Nachbarn ak
 Es ist möglich zu erstellen [Regexp](https://fr.wikipedia.org/wiki/Expression_rationnelle) Ausschluss: Wenn ein generierter Satz mit diesem regulären Ausdruck übereinstimmt, wird er gelöscht. Das Interesse besteht darin, falsch positive Ergebnisse entfernen zu können, dh einen von Jeedom erzeugten Satz, der etwas aktiviert, das nicht dem entspricht, was wir wollen, oder das eine andere Interaktion stören würde, die einen ähnlichen Satz hätte.
 
 Wir haben 2 Stellen, an denen Sie einen Regexp anwenden können :
+
 - In der Interaktion selbst im Feld "Regexp-Ausschluss"".
 - Im Menü Administration → Konfiguration → Interaktionen → Feld "Allgemeine Ausschluss-Regexp für Interaktionen"".
 
@@ -204,7 +208,7 @@ Wenn wir diesen Ausdruck in einen Satz übersetzen, würde er "nach dem Wort Jul
 
 Es ist eine extrem einfache Version von regulären Ausdrücken, aber bereits sehr kompliziert zu verstehen. Ich habe eine Weile gebraucht, um zu verstehen, wie es funktioniert. Als etwas komplexeres Beispiel ein regulärer Ausdruck zum Überprüfen einer URL :
 
-/\.^(https?:\\ / \\ /)?(\ [\\ da-z \\ .- \] +) \\. (\ [az \\. \] {2,6}) (\ [\\ / \\ w \\ .- \] \*)\.*\\ /?\ $ /
+/\.^(https?:\\ / \\ /)?(\ [\\ da-z \\ .- \] +) \\. (\ [az \\. \] {2,6}) (\ [\\ / \\ w \\ .- \] \*)\.\*\\ /?\ $ /
 
 Sobald Sie dies schreiben können, verstehen Sie die regulären Ausdrücke.
 
@@ -242,7 +246,7 @@ In diesem Beispiel sehen wir einen einfachen Satz, der eine Antwort mit 3 versch
 
 ![interact017](../images/interact017.png)
 
-Dieses Beispiel zielt speziell auf bestimmte Geräte ab, die eine personalisierte Antwort ermöglichen. Wir könnten uns also vorstellen, die Antwort des Beispiels durch "Nein, es ist niemand im Raum" zu ersetzen *Julia*\.|Ja, da ist jemand im Raum *Julia*"
+Dieses Beispiel zielt speziell auf bestimmte Geräte ab, die eine personalisierte Antwort ermöglichen. Wir könnten uns also vorstellen, die Antwort des Beispiels durch "Nein, es ist niemand im Raum" zu ersetzen _Julia_\.|Ja, da ist jemand im Raum _Julia_"
 
 #### Evolution
 
@@ -297,7 +301,7 @@ Es ist möglich, eine Lampe als Prozentsatz (Dimmer) oder einen Thermostat mit d
 
 ![interact022](../images/interact022.png)
 
-Wie wir sehen können, gibt es hier in der Anfrage das Tag **\.#consigne\.#** (Sie können eingeben, was Sie möchten), was in der Antriebssteuerung enthalten ist, um den gewünschten Wert anzuwenden. Dazu haben wir 3 Teile : \.* Anfrage : in dem wir ein Tag erstellen, das den Wert darstellt, der an die Interaktion gesendet wird. \* Antwort : Wir verwenden das Tag für die Antwort erneut, um sicherzustellen, dass Jeedom die Anfrage richtig verstanden hat. \* Aktie : Wir setzen eine Aktion auf die Lampe, die wir fahren möchten, und geben in dem Wert, den wir geben, unser Etikett an *bestellen*.
+Wie wir sehen können, gibt es hier in der Anfrage das Tag **\.#consigne\.#** (Sie können eingeben, was Sie möchten), was in der Antriebssteuerung enthalten ist, um den gewünschten Wert anzuwenden. Dazu haben wir 3 Teile : \.* Anfrage : in dem wir ein Tag erstellen, das den Wert darstellt, der an die Interaktion gesendet wird. \* Antwort : Wir verwenden das Tag für die Antwort erneut, um sicherzustellen, dass Jeedom die Anfrage richtig verstanden hat. \* Aktie : Wir setzen eine Aktion auf die Lampe, die wir fahren möchten, und geben in dem Wert, den wir geben, unser Etikett an *bestellen\*.
 
 > **Notiz**
 >
@@ -334,6 +338,7 @@ Wie wir auf dem Screenshot sehen können, ist keine Farbe konfiguriert, daher m�
 Wir können so viele hinzufügen, wie wir wollen, wir können jeden Namen wie jeden setzen, so dass wir uns vorstellen können, dem Namen jedes Familienmitglieds eine Farbe zuzuweisen.
 
 Nach der Konfiguration sagen Sie &quot;Beleuchten Sie den Baum in Grün&quot;. Jeedom sucht in der Anfrage nach einer Farbe und wendet sie auf die Bestellung an.
+
 ### Verwendung in Verbindung mit einem Szenario
 
 #### Basisversion

@@ -1,4 +1,5 @@
 # A personalização avançada
+
 **Configurações → Sistema → Personalização avançada**
 
 Aqui você pode gerenciar funções **javascript** e regras **CSS** aplicado em desktop ou celular.
@@ -34,4 +35,3 @@ Nesse caso, duas soluções:
 
 - Abra um navegador no modo de recuperação : `IP / index.php?rescue=1`
 - Conecte-se no SSH e exclua os arquivos de personalização : `desktop / custom` e` mobile / custom`
-

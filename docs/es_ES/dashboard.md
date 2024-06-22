@@ -1,4 +1,5 @@
 # Dashboard
+
 **Inicio → Tablero**
 
 <small>[Raccourcis clavier/souris](shortcuts.md)</small>
@@ -24,6 +25,7 @@ Este informe (a diferencia de las vistas y los diseños) es autogenerado por Jee
 > El orden de visualización de los objetos en el Tablero es el visible en **Análisis → Resumen de domótica**. Puede modificar este orden en esta página arrastrando y soltando.
 
 Para que el equipo aparezca en el Tablero, debe :
+
 - Estar activo.
 - Ser visible.
 - Tener como objeto principal un objeto visible en el Tablero.
@@ -32,6 +34,7 @@ Cuando el equipo aparece por primera vez en el Tablero, Jeedom intenta dimension
 Para mantener un tablero equilibrado, puede cambiar al modo Editar con el lápiz en la parte superior derecha de la barra de búsqueda, para cambiar el tamaño y / o reordenar los mosaicos del equipo.
 
 Al mover el mouse sobre un pedido, aparece un marcador de color en la parte inferior izquierda del mosaico:
+
 - Azul para un pedido de información. Si está registrado, un clic en él abre la ventana de registro.
 - Naranja para un comando de acción. Un clic activará la acción.
 
@@ -51,12 +54,11 @@ Además, puede hacer clic en el título del mosaico (el nombre del equipo) para 
 
 - Un clic en un pedido de tipo de información muestra el historial del pedido (si es histórico).
 - Un comando Ctrl + clic en un tipo de información muestra el historial de todos los comandos (históricos) para este mosaico.
-- Un clic en la información *tiempo* de un comando de acción muestra el historial del comando (si está historizado).
-
+- Un clic en la información _tiempo_ de un comando de acción muestra el historial del comando (si está historizado).
 
 ## Modo de edición
 
-En modo edición (*el lápiz en la esquina superior derecha*), puede cambiar el tamaño de los mosaicos y su disposición en el Tablero.
+En modo edición (_el lápiz en la esquina superior derecha_), puede cambiar el tamaño de los mosaicos y su disposición en el Tablero.
 
 los íconos de actualización del equipo se reemplazan por un ícono que permite acceder a su configuración. Este icono abre una ventana de edición con los parámetros de visualización del equipo y sus controles.
 

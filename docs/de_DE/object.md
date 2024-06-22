@@ -1,4 +1,5 @@
 # Objets
+
 **Werkzeuge → Objekte**
 
 Das **Objekte** Mit dieser Option können Sie die Baumstruktur Ihrer Hausautomation definieren.
@@ -12,6 +13,7 @@ Um der Personalisierung freie Wahl zu lassen, können Sie diese Objekte nach Ihr
 ## Gestion
 
 Sie haben zwei Möglichkeiten :
+
 - **Hinzufügen** : Erstellen Sie ein neues Objekt.
 - **Übersicht** : Zeigt die Liste der erstellten Objekte und deren Konfiguration an.
 
@@ -35,6 +37,7 @@ Sobald Sie ein Objekt erstellt haben, wird es in diesem Teil angezeigt.
 > **Tipp**
 >
 > Sie können ein Objekt öffnen, indem Sie dies tun :
+>
 > - Klicken Sie auf eine davon.
 > - Strg Clic oder Clic Center, um es in einem neuen Browser-Tab zu öffnen.
 
@@ -60,7 +63,7 @@ Hier sind die verschiedenen Merkmale zum Konfigurieren eines Objekts :
 - **Sichtbar** : Aktivieren Sie dieses Kontrollkästchen, um dieses Objekt sichtbar zu machen.
 - **Im Dashboard ausblenden** : Aktivieren Sie dieses Kontrollkästchen, um das Objekt im Dashboard auszublenden. Es wird weiterhin in der Liste gespeichert, sodass es angezeigt werden kann, jedoch nur explizit.
 - **Zusammenfassung ausblenden** : Aktivieren Sie dieses Kontrollkästchen, um das Objekt in der Zusammenfassung auszublenden'. Es wird weiterhin in der Liste gespeichert, sodass es angezeigt werden kann, jedoch nur explizit.
-- **Aktion aus der Synthese** : Hier können Sie eine Ansicht oder ein Design angeben, zu dem Sie wechseln möchten, wenn Sie in der Zusammenfassung auf das Objekt klicken. *Defekt : Armaturenbrett*.
+- **Aktion aus der Synthese** : Hier können Sie eine Ansicht oder ein Design angeben, zu dem Sie wechseln möchten, wenn Sie in der Zusammenfassung auf das Objekt klicken. _Defekt : Armaturenbrett_.
 
 #### Anzeige :
 
@@ -68,7 +71,7 @@ Hier sind die verschiedenen Merkmale zum Konfigurieren eines Objekts :
 - **Benutzerdefinierte Farben** : Aktiviert die Berücksichtigung der beiden folgenden benutzerdefinierten Farbparameter.
 - **Tag Farbe** : Ermöglicht die Auswahl der Farbe des Objekts und der daran angeschlossenen Ausrüstung.
 - **Tag-Textfarbe** : Hier können Sie die Farbe des Textes des Objekts auswählen. Dieser Text wird über dem **Tag Farbe**. Sie wählen eine Farbe, um den Text lesbar zu machen.
-- **Nur bei Synthese** : Ermöglicht das Einfügen eines Bildes für die Synthese, ohne dass es als Hintergrundbild verwendet wird, insbesondere auf der Seite *Armaturenbrett* dieses Objekts.
+- **Nur bei Synthese** : Ermöglicht das Einfügen eines Bildes für die Synthese, ohne dass es als Hintergrundbild verwendet wird, insbesondere auf der Seite _Armaturenbrett_ dieses Objekts.
 - **Bild** : Sie haben die Möglichkeit, ein Bild hochzuladen oder zu löschen. Im JPEG-Format ist dieses Bild das Hintergrundbild des Objekts, wenn Sie es im Dashboard anzeigen. Es wird auch für das Vorschaubild des Stücks über die Synthese verwendet.
 
 > **Tipp**
@@ -86,5 +89,3 @@ Hier sind die verschiedenen Merkmale zum Konfigurieren eines Objekts :
 ## Zusammenfassungs-Tabs
 
 [Siehe Abstracts-Dokumentation.](/de_DE/concept/summary)
-
-

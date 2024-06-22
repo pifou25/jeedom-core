@@ -1,4 +1,5 @@
 # Dashboard
+
 **Accueil → Dashboard**
 
 <small>[Raccourcis clavier/souris](shortcuts.md)</small>
@@ -24,6 +25,7 @@ Ce compte-rendu (contrairement aux vues et designs) est auto-généré par Jeedo
 > L'ordre d'affichage des objets sur le Dashboard est celui visible dans **Analyse → Résumé domotique**. Vous pouvez sur cette page modifier cet ordre par glisser - déposer.
 
 Pour qu'un équipement apparaisse sur le Dashboard, il doit :
+
 - Être actif.
 - Être visible.
 - Avoir comme objet parent un objet visible sur le Dashboard.
@@ -32,6 +34,7 @@ A la première apparition de l'équipement sur le Dashboard, Jeedom essaye de di
 Afin de conserver un Dashboard équilibré, vous pouvez passer en mode Édition avec le crayon en haut à droite de la barre de recherche, afin de redimensionner et/ou réordonner les tuiles des équipements.
 
 En passant la souris sur une commande, un repère de couleur apparaît en bas à gauche de la tuile:
+
 - Bleu pour une commande info. Si elle est historisée, un clic dessus ouvre la fenêtre d'historique.
 - Orange pour une commande action. Un clic déclenchera donc l'action.
 
@@ -51,12 +54,11 @@ De plus, vous pouvez cliquer sur le titre de la tuile (le nom de l'équipement) 
 
 - Un clic sur une commande de type information permet d’afficher l’historique de la commande (si elle est historisée).
 - Un Ctrl+Clic sur une commande de type information permet d’afficher l’historique de toutes les commandes (historisées) de cette tuile.
-- Un clic sur l'information *time* d'une commande action permet d’afficher l’historique de la commande (si elle est historisée).
-
+- Un clic sur l'information _time_ d'une commande action permet d’afficher l’historique de la commande (si elle est historisée).
 
 ## Mode édition
 
-En mode édition (*le crayon tout en haut à droite*), vous pouvez changer la taille des tuiles et leur disposition sur le Dashboard.
+En mode édition (_le crayon tout en haut à droite_), vous pouvez changer la taille des tuiles et leur disposition sur le Dashboard.
 
 les icônes refresh des équipements sont remplacées par une icône permettant d'accéder à leur configuration. Cette icône ouvre une fenêtre d'édition comportant les paramètres d'affichage de l'équipement et de ses commandes.
 

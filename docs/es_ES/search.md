@@ -1,4 +1,5 @@
 # Recherche
+
 **Menú de análisis → Buscar**
 
 Jeedom ofrece un buscador interno.
@@ -59,24 +60,24 @@ El motor se mostrará en las tablas a continuación :
 
 ## Por palabra
 
-Ingrese una cadena de caracteres en el campo de búsqueda. Validar con *ingresar* o con el botón *Buscar*.
+Ingrese una cadena de caracteres en el campo de búsqueda. Validar con _ingresar_ o con el botón _Buscar_.
 
 El motor se mostrará en las tablas a continuación :
 
 - Los **Escenarios** usando esta cuerda.
-	Buscar en expresiones, comentarios, bloques de código.
+  Buscar en expresiones, comentarios, bloques de código.
 - Los **interacciones** usando esta cuerda.
-	Buscar en campos *Solicitud*.
+  Buscar en campos _Solicitud_.
 - Los **equipo** usando esta cuerda.
-	Buscar en campos *nombre*, *ID lógico*, *eqType*, *¿Cómo? 'O' ¿Qué?*, *etiquetas*.
+  Buscar en campos _nombre_, _ID lógico_, _eqType_, _¿Cómo? 'O' ¿Qué?_, _etiquetas_.
 - Los **pedidos** usando esta cuerda.
-	Buscar en campos *nombre*, *ID lógico*, *eqType*, *tipo_genérico*, .
+  Buscar en campos _nombre_, _ID lógico_, _eqType_, _tipo_genérico_, .
 - Los **Los grados** usando esta cuerda.
-	Búsqueda de texto de notas.
+  Búsqueda de texto de notas.
 
 ## Por ID
 
-Ingrese un número correspondiente a una identificación buscada en el campo de búsqueda. Validar con *ingresar* o con el botón *Buscar*.
+Ingrese un número correspondiente a una identificación buscada en el campo de búsqueda. Validar con _ingresar_ o con el botón _Buscar_.
 
 El motor se mostrará en las tablas a continuación :
 
@@ -91,6 +92,7 @@ El motor se mostrará en las tablas a continuación :
 ## Resultados
 
 Para cada tipo de resultado, permite acciones:
+
 - **Escenarios** : Abra el registro del escenario o vaya a la página del escenario, con la búsqueda activa del término buscado.
 - **diseños** : Mostrar diseño.
 - **puntos de vista** : Mostrar vista.
@@ -100,4 +102,3 @@ Para cada tipo de resultado, permite acciones:
 - **Los grados** : Nota abierta.
 
 Cada una de estas opciones abre una pestaña diferente en su navegador para no perder la búsqueda actual.
-

@@ -14,60 +14,87 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-jeedom.cron = function() {};
+jeedom.cron = function () {};
 
-jeedom.cron.setState = function(_params) {
-    var paramsRequired = ['id', 'state'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/cron.ajax.php';
-    paramsAJAX.data = {
-        action: _params.state,
-        id: _params.id
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.cron.setState = function (_params) {
+  var paramsRequired = ["id", "state"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/cron.ajax.php";
+  paramsAJAX.data = {
+    action: _params.state,
+    id: _params.id,
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.cron.all = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/cron.ajax.php';
-    paramsAJAX.data = {
-        action: 'all'
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.cron.all = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/cron.ajax.php";
+  paramsAJAX.data = {
+    action: "all",
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.cron.save = function(_params) {
-    var paramsRequired = ['crons'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/cron.ajax.php';
-    paramsAJAX.data = {
-        action: 'save',
-        crons: JSON.stringify(_params.crons),
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.cron.save = function (_params) {
+  var paramsRequired = ["crons"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/cron.ajax.php";
+  paramsAJAX.data = {
+    action: "save",
+    crons: JSON.stringify(_params.crons),
+  };
+  domUtils.ajax(paramsAJAX);
+};

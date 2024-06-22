@@ -1,4 +1,5 @@
 # Equipment analysis
+
 **Analysis → Equipment**
 
 The Equipment Analysis page allows you to view a lot of information relating to equipment in a centralized way :
@@ -10,7 +11,6 @@ The Equipment Analysis page allows you to view a lot of information relating to 
 - Orphan commands
 
 ## Batteries tab
-
 
 You can see on this tab the list of your battery modules, their remaining level (the color of the tile depends on this level), the type and number of batteries that must be put in the module, the type of module as well that the date the battery level information was updated. You can also see if a specific threshold has been set for the particular module (represented by a hand)
 
@@ -35,7 +35,7 @@ Each alert will be represented by the color of the tile (the alert level) and a 
 
 ## Defined Actions tab
 
-This tab allows you to view the actions defined directly on a  command. Indeed, we can put on different commands and it can be difficult to remember all. This tab is there for that and synthesizes several things :
+This tab allows you to view the actions defined directly on a command. Indeed, we can put on different commands and it can be difficult to remember all. This tab is there for that and synthesizes several things :
 
 - Actions on status (found in the advanced parameters of info commands and allowing one or more actions to be performed on the value of an order - immediately or after a delay).
 - Confirmations of actions (configurable in the same place on an info command and allowing to request a confirmation to execute an action).
@@ -62,6 +62,7 @@ This tab allows you to see at a glance if you have orphaned commands used throug
 - Those used to trigger a scenario.
 
 And used in many other places like (not exhaustive) :
+
 - The interactions.
 - Jeedom configurations.
 - In pre or post action of a command.

@@ -1,4 +1,5 @@
 # Geräteanalyse
+
 **Analyse → Ausrüstung**
 
 Auf der Seite Geräteanalyse können Sie viele Informationen zu Geräten zentral anzeigen :
@@ -10,7 +11,6 @@ Auf der Seite Geräteanalyse können Sie viele Informationen zu Geräten zentral
 - Orphan Orders
 
 ## Registerkarte &quot;Batterien&quot;
-
 
 Auf dieser Registerkarte sehen Sie die Liste Ihrer Batteriemodule, deren verbleibenden Füllstand (die Farbe der Kachel hängt von diesem Füllstand ab), den Typ und die Anzahl der Batterien, die in das Modul eingelegt werden müssen, sowie den Modultyp dass das Datum, an dem die Informationen zum Batteriestand aktualisiert wurden. Sie können auch sehen, ob für das jeweilige Modul ein bestimmter Schwellenwert festgelegt wurde (dargestellt durch eine Hand))
 
@@ -62,6 +62,7 @@ Auf dieser Registerkarte können Sie auf einen Blick sehen, ob Sie verwaiste Bef
 - Diejenigen, die zum Auslösen eines Szenarios verwendet werden.
 
 Und an vielen anderen Orten verwendet wie (nicht erschöpfend) :
+
 - Interaktionen.
 - Jeedom-Konfigurationen.
 - In Vor- oder Nachbearbeitung einer Bestellung.

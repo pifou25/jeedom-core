@@ -1,12 +1,14 @@
 # Gestion des plugins
+
 **Plugins → Gestion des plugins**
 
 Cette page permet d'accéder aux configurations des plugins.
 Vous pouvez également manipuler les plugins, à savoir : les télécharger, les mettre à jour et les activer, …​
 
 On y trouve donc la liste des plugins dans l’ordre alphabétique et un lien vers le market.
+
 - Les plugins désactivés sont grisés.
-- Les plugins qui ne sont pas en version *stable* on un point orange devant leur nom.
+- Les plugins qui ne sont pas en version _stable_ on un point orange devant leur nom.
 
 En cliquant sur un plugin, vous accédez à sa configuration. En haut, vous retrouvez le nom du plugin, puis entre parenthèses, son nom dans Jeedom (ID) et enfin, le type de version installée (stable, beta).
 
@@ -26,9 +28,9 @@ Vous avez ici trois boutons :
 
 Depuis un navigateur, rendez-vous sur le [Market](https://market.jeedom.com).
 Connectez vous à votre compte.
-Cliquez sur un plugin, puis choisissez *Installer stable* ou *Installer beta* (si votre compte Market le permet).
+Cliquez sur un plugin, puis choisissez _Installer stable_ ou _Installer beta_ (si votre compte Market le permet).
 
-Si votre compte Market est bien configuré sur votre Jeedom (Configuration→Mises à jour/Market→Onglet Market), vous pouvez cliquer sur *Synchroniser Market* ou attendre qu'il s'installe tout seul.
+Si votre compte Market est bien configuré sur votre Jeedom (Configuration→Mises à jour/Market→Onglet Market), vous pouvez cliquer sur _Synchroniser Market_ ou attendre qu'il s'installe tout seul.
 
 ### Market
 
@@ -39,6 +41,7 @@ Pour installer un nouveau plugin, il suffit de cliquer sur le bouton "Market" (e
 > Vous devez avoir saisi les informations de votre compte du Market dans l’administration (Configuration→Mises à jour/Market→Onglet Market) afin de retrouver les plugins que vous avez déjà achetés par exemple.
 
 En haut de la fenêtre, vous avez des filtres :
+
 - **Gratuit/Payant** : permet d’afficher uniquement les gratuits ou les payants.
 - **Officiel/Conseillé** : permet d’afficher uniquement les plugins officiels ou les conseillés.
 - **Menu déroulant Catégorie** : permet d’afficher uniquement certaines catégories de plugins.
@@ -53,10 +56,10 @@ Une fois que vous avez trouvé le plugin voulu, il suffit de cliquer sur celui-c
 
 - S’il est officiel/recommandé ou s’il est obsolète (il faut vraiment éviter d’installer des plugins obsolètes).
 - 4 actions :
-    - **Installer stable** : permet d’installer le plugin dans sa version stable.
-    - **Installer beta** : permet d’installer le plugin dans sa version beta (seulement pour les betatesteurs).
-    - **Installer pro** : permet d’installer la version pro (très peu utilisé).
-    - **Supprimer** : si le plugin est actuellement installé, ce bouton permet de le supprimer.
+  - **Installer stable** : permet d’installer le plugin dans sa version stable.
+  - **Installer beta** : permet d’installer le plugin dans sa version beta (seulement pour les betatesteurs).
+  - **Installer pro** : permet d’installer la version pro (très peu utilisé).
+  - **Supprimer** : si le plugin est actuellement installé, ce bouton permet de le supprimer.
 
 En dessous, vous retrouvez la description du plugin, la compatibilité (si Jeedom détecte une incompatibilité, il vous le signalera), les avis sur le plugin (vous pouvez ici le noter) et des informations complémentaires (l’auteur, la personne ayant fait la dernière mise à jour, un lien vers la doc, le nombre de téléchargements). Sur la droite vous retrouvez un bouton "Changelog" qui vous permet d’avoir tout l’historique des modifications, un bouton "Documentation" qui renvoie vers la documentation du plugin. Ensuite vous avez la langue disponible et les diverses informations sur la date de la dernière version stable.
 
@@ -72,7 +75,7 @@ En dessous, vous retrouvez la description du plugin, la compatibilité (si Jeedo
 
 Vous pouvez ajouter un plugin à Jeedom à partir d’un fichier ou depuis un dépôt Github. Pour cela, il faut, dans la configuration de Jeedom, activer la fonction adéquate dans la partie "Mises à jour/Market".
 
-Attention, dans le cas de l’ajout par un fichier zip, le nom du zip doit être le même que l’ID du plugin et dès l’ouverture du ZIP un dossier plugin\_info doit être présent.
+Attention, dans le cas de l’ajout par un fichier zip, le nom du zip doit être le même que l’ID du plugin et dès l’ouverture du ZIP un dossier plugin_info doit être présent.
 
 ## Mes plugins
 
@@ -100,7 +103,6 @@ En cliquant sur l'icône d'un plugin, vous ouvrez sa page de configuration.
 - **Action** : Permet d’activer ou désactiver le plugin. Le bouton **Ouvrir** Permet de vous rendre directement sur la page du plugin.
 - **Version** : La version du plugin installée.
 - **Pré-requis** : Indique la version de Jeedom minimum requise pour le plugin.
-
 
 ### A droite, on retrouve la zone **Log et surveillance** qui permet de définir :
 

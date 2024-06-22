@@ -1,9 +1,9 @@
 # Configuration
+
 **Einstellungen → System → Konfiguration**
 
 Hier befinden sich die meisten Konfigurationsparameter.
 Obwohl viele, sind die meisten Parameter standardmäßig konfiguriert.
-
 
 ## Registerkarte &quot;Allgemein&quot;
 
@@ -34,7 +34,7 @@ Auf dieser Registerkarte finden Sie die Parameter für die Anpassung der Anzeige
 - **Heller und dunkler Desktop** : Hier können Sie ein helles und ein dunkles Thema für den Desktop auswählen.
 - **Helles und dunkles Handy** : Gleich wie oben für die Mobile-Version.
 - **Klares Thema von / bis** : Ermöglicht Ihnen, ein Zeitfenster zu definieren, in dem das zuvor ausgewählte Lichtthema verwendet wird. Aktivieren Sie jedoch die Option **Thema basierend auf der Zeit umschalten**.
-- **Helligkeitssensor**   : Nur mobile Schnittstelle, muss aktiviert werden *generischer zusätzlicher Sensor* in Chrom, Chrom Seite://flags.
+- **Helligkeitssensor** : Nur mobile Schnittstelle, muss aktiviert werden _generischer zusätzlicher Sensor_ in Chrom, Chrom Seite://flags.
 
 ### Tuiles
 
@@ -42,10 +42,9 @@ Auf dieser Registerkarte finden Sie die Parameter für die Anpassung der Anzeige
 - **Nicht vertikal** : Beschränkt die Höhe der Kacheln alle x Pixel.
 - **Rand** : Vertikaler und horizontaler Abstand zwischen Kacheln in Pixel.
 - **Vertikale Zentrierung von Fliesen** : Zentriert den Inhalt der Kacheln vertikal.
-- **Bunte Widget-Symbole** : Einfärben von Widget-Symbolen basierend auf ihrem Status. Veränderbar durch Szenario, *setColoredIcon* ('Symbolfärbung').
+- **Bunte Widget-Symbole** : Einfärben von Widget-Symbolen basierend auf ihrem Status. Veränderbar durch Szenario, _setColoredIcon_ ('Symbolfärbung').
 - **Farbige Kategorien** : Einfärbung des Titels der Kacheln nach Kategorie.
 - **Handy, Mobiltelefon : eine Standardspalte** : Anzeige von Kacheln in voller Breite auf Mobilgeräten
-
 
 ### Hintergrundbilder
 
@@ -55,7 +54,7 @@ Auf dieser Registerkarte finden Sie die Parameter für die Anpassung der Anzeige
 - **Bildanalyse** : Hintergrundbild für die Seiten des Analysemenüs.
 - **Bildtools** : Hintergrundbild für die Seiten des Tools-Menüs.
 - **Deckkraft-Themenlicht** : Deckkraft von Hintergrundbildern im Lichtthema. Passen Sie die Helligkeit der Hintergrundbilder für eine bessere Lesbarkeit an.
-- **Deckkraft des dunklen Themas** : Deckkraft von Hintergrundbildern im dunklen Thema.  Passen Sie die Helligkeit der Hintergrundbilder für eine bessere Lesbarkeit an.
+- **Deckkraft des dunklen Themas** : Deckkraft von Hintergrundbildern im dunklen Thema. Passen Sie die Helligkeit der Hintergrundbilder für eine bessere Lesbarkeit an.
 
 ### Options
 
@@ -70,8 +69,6 @@ Auf dieser Registerkarte finden Sie die Parameter für die Anpassung der Anzeige
 - **Runden** : Zeigt Schnittstellenelemente mit abgerundeten Winkeln an. 0 : keine Rundung, 1 : maximale Rundung.
 - **Schatten deaktivieren** : Deaktiviert Schatten von Kacheln im Dashboard, in Menüs und bestimmten Oberflächenelementen.
 
-
-
 ## Registerkarte &quot;Netzwerke&quot;
 
 Es ist unbedingt erforderlich, diesen wichtigen Teil von Jeedom korrekt zu konfigurieren, da sonst viele Plugins möglicherweise nicht funktionieren. Es gibt zwei Möglichkeiten, auf Jeedom zuzugreifen : L'**Interner Zugriff** (aus dem gleichen lokalen Netzwerk wie Jeedom) und l'**Externer Zugriff** (aus einem anderen Netzwerk, insbesondere aus dem Internet).
@@ -79,29 +76,31 @@ Es ist unbedingt erforderlich, diesen wichtigen Teil von Jeedom korrekt zu konfi
 > **Wichtig**
 >
 > Dieser Teil ist nur dazu da, Jeedom seine Umgebung zu erklären :
-> Durch Ändern des Ports oder der IP auf dieser Registerkarte wird der Port oder die IP von Jeedom nicht geändert. Dazu müssen Sie eine Verbindung in SSH herstellen und die Datei / etc / network / interfaces für IP und die Dateien etc / apache2 / sites-available / default und etc / apache2 / sites-available / default\_ssl (für HTTPS) bearbeiten).
+> Durch Ändern des Ports oder der IP auf dieser Registerkarte wird der Port oder die IP von Jeedom nicht geändert. Dazu müssen Sie eine Verbindung in SSH herstellen und die Datei / etc / network / interfaces für IP und die Dateien etc / apache2 / sites-available / default und etc / apache2 / sites-available / default_ssl (für HTTPS) bearbeiten).
 > Im Falle eines unsachgemäßen Umgangs mit Ihrem Jeedom kann das Jeedom-Team jedoch nicht zur Verantwortung gezogen werden und kann jede Bitte um Unterstützung ablehnen.
 
 - **Interner Zugriff** : Informationen zum Beitritt zu Jeedom von Geräten im selben Netzwerk wie Jeedom (LAN))
-    - **OK / NOK** : Gibt an, ob die interne Netzwerkkonfiguration korrekt ist.
-    - **Protokoll** : das zu verwendende Protokoll, oft HTTP.
-    - **URL oder IP-Adresse** : Jeedom IP eingeben.
-    - **Hafen** : der Port der Jeedom-Weboberfläche, in der Regel 80.
-        Bitte beachten Sie, dass durch Ändern des Ports hier nicht der tatsächliche Jeedom-Port geändert wird, der gleich bleibt.
-    - **Ergänzen** : das Fragment einer zusätzlichen URL (Beispiel : / jeedom), um auf Jeedom zuzugreifen.
+
+  - **OK / NOK** : Gibt an, ob die interne Netzwerkkonfiguration korrekt ist.
+  - **Protokoll** : das zu verwendende Protokoll, oft HTTP.
+  - **URL oder IP-Adresse** : Jeedom IP eingeben.
+  - **Hafen** : der Port der Jeedom-Weboberfläche, in der Regel 80.
+    Bitte beachten Sie, dass durch Ändern des Ports hier nicht der tatsächliche Jeedom-Port geändert wird, der gleich bleibt.
+  - **Ergänzen** : das Fragment einer zusätzlichen URL (Beispiel : / jeedom), um auf Jeedom zuzugreifen.
 
 - **Externer Zugriff** : Informationen, um Jeedom von außerhalb des lokalen Netzwerks zu erreichen. Nur auszufüllen, wenn Sie Jeedom DNS nicht verwenden.
-    - **OK / NOK** : Gibt an, ob die externe Netzwerkkonfiguration korrekt ist.
-    - **Protokoll** : Protokoll für den Zugang im Freien.
-    - **URL oder IP-Adresse** : Externe IP, falls behoben. Andernfalls geben Sie die URL an, die auf die externe IP-Adresse Ihres Netzwerks verweist.
-    - **Ergänzen** : das Fragment einer zusätzlichen URL (Beispiel : / jeedom), um auf Jeedom zuzugreifen.
+
+  - **OK / NOK** : Gibt an, ob die externe Netzwerkkonfiguration korrekt ist.
+  - **Protokoll** : Protokoll für den Zugang im Freien.
+  - **URL oder IP-Adresse** : Externe IP, falls behoben. Andernfalls geben Sie die URL an, die auf die externe IP-Adresse Ihres Netzwerks verweist.
+  - **Ergänzen** : das Fragment einer zusätzlichen URL (Beispiel : / jeedom), um auf Jeedom zuzugreifen.
 
 - **Proxy für den Markt** : Proxy-Aktivierung.
-    - Aktivieren Sie das Kontrollkästchen Proxy aktivieren.
-    - **Proxy-Adresse** : Geben Sie die Proxy-Adresse ein,
-    - **Proxy-Port** : Geben Sie den Proxy-Port ein,
-    - **Anmeldung** : Geben Sie den Proxy-Login ein,
-    - **Passwort** : Geben Sie das Passwort ein.
+  - Aktivieren Sie das Kontrollkästchen Proxy aktivieren.
+  - **Proxy-Adresse** : Geben Sie die Proxy-Adresse ein,
+  - **Proxy-Port** : Geben Sie den Proxy-Port ein,
+  - **Anmeldung** : Geben Sie den Proxy-Login ein,
+  - **Passwort** : Geben Sie das Passwort ein.
 
 > **Tipp**
 >
@@ -112,15 +111,16 @@ Es ist unbedingt erforderlich, diesen wichtigen Teil von Jeedom korrekt zu konfi
 > Um herauszufinden, ob Sie einen Wert im Feld festlegen müssen **Ergänzen**, Schauen Sie, wenn Sie sich in Ihrem Internetbrowser bei Jeedom anmelden, ob Sie / Jeedom (oder was auch immer) nach der IP hinzufügen müssen.
 
 - **Erweiterte Verwaltung** : Dieser Teil wird je nach Kompatibilität mit Ihrer Hardware möglicherweise nicht angezeigt.
-    Dort finden Sie die Liste Ihrer Netzwerkschnittstellen. Sie können Jeedom anweisen, das Netzwerk nicht zu überwachen, indem Sie auf klicken **Deaktivieren Sie die Jeedom-Netzwerkverwaltung** (Überprüfen Sie, ob Jeedom nicht mit einem Netzwerk verbunden ist). Sie können den lokalen IP-Bereich auch im Formular 192.168.1 angeben.* (Nur in Docker-Installationen zu verwenden).
+  Dort finden Sie die Liste Ihrer Netzwerkschnittstellen. Sie können Jeedom anweisen, das Netzwerk nicht zu überwachen, indem Sie auf klicken **Deaktivieren Sie die Jeedom-Netzwerkverwaltung** (Überprüfen Sie, ob Jeedom nicht mit einem Netzwerk verbunden ist). Sie können den lokalen IP-Bereich auch im Formular 192.168.1 angeben.\* (Nur in Docker-Installationen zu verwenden).
 - **Proxy-Markt** : Ermöglicht den Fernzugriff auf Ihr Jeedom, ohne dass ein DNS oder eine feste IP erforderlich ist oder die Ports Ihrer Internetbox geöffnet werden müssen.
-    - **Verwenden von Jeedom DNS** : Aktiviert Jeedom DNS (beachten Sie, dass hierfür mindestens ein Service Pack erforderlich ist).
-    - **DNS Status** : DNS-HTTP-Status.
-    - **Management** : Ermöglicht das Stoppen und Neustarten des Jeedom-DNS-Dienstes.
+  - **Verwenden von Jeedom DNS** : Aktiviert Jeedom DNS (beachten Sie, dass hierfür mindestens ein Service Pack erforderlich ist).
+  - **DNS Status** : DNS-HTTP-Status.
+  - **Management** : Ermöglicht das Stoppen und Neustarten des Jeedom-DNS-Dienstes.
 
 > **Wichtig**
 >
 > Wenn Sie das Jeedom DNS nicht zum Laufen bringen können, überprüfen Sie die Konfiguration der Firewall und des Kindersicherungsfilters Ihrer Internetbox (auf der Livebox benötigen Sie beispielsweise die Firewall auf mittlerer Ebene).
+
 - **Lebensdauer der Sitzungen (Stunde)** : Während der Lebensdauer von PHP-Sitzungen wird nicht empfohlen, diesen Parameter zu berühren.
 
 ## Registerkarte &quot;Protokolle&quot;
@@ -133,9 +133,7 @@ Es ist unbedingt erforderlich, diesen wichtigen Teil von Jeedom korrekt zu konfi
 ### Messages
 
 - **Eine Nachricht zu jedem Fehler in den Protokollen hinzufügen** : Wenn ein Plugin oder Jeedom eine Fehlermeldung in ein Protokoll schreibt, fügt Jeedom automatisch eine Nachricht im Nachrichtenzentrum hinzu (zumindest werden Sie sie sicher nicht verpassen).
-- **Aktion auf Nachricht** : Ermöglicht es Ihnen, eine Aktion auszuführen, wenn Sie dem Nachrichtenzentrum eine Nachricht hinzufügen. Sie haben 2 Tags für diese Aktionen :
-        - #subject# : Nachricht in Frage.
-        - #plugin# : Plugin, das die Nachricht ausgelöst hat.
+- **Aktion auf Nachricht** : Ermöglicht es Ihnen, eine Aktion auszuführen, wenn Sie dem Nachrichtenzentrum eine Nachricht hinzufügen. Sie haben 2 Tags für diese Aktionen : - #subject# : Nachricht in Frage. - #plugin# : Plugin, das die Nachricht ausgelöst hat.
 
 ### Alertes
 
@@ -191,10 +189,10 @@ Viele Bestellungen können protokolliert werden. So erhalten Sie unter Analyse �
 ### Push
 
 - **Globale Push URL** : Mit dieser Option können Sie eine URL hinzufügen, die im Falle einer Auftragsaktualisierung aufgerufen werden soll. Sie können die folgenden Tags verwenden :
-**\.#value\.#** für den Bestellwert, **\.#cmd\._name\.#** für den Namen des Befehls,
-**\.#cmd\._id\.#** für die eindeutige Kennung der Bestellung,
-**\.#humanname\.#** für den vollständigen Namen der Bestellung (z : \.#\.[Salle de bain\.]\.[Hydrometrie\.]\.[Humidité\.]\.#),
-**\.#eq_name\.#** für den Namen des Geräts
+  **\.#value\.#** für den Bestellwert, **\.#cmd\.\_name\.#** für den Namen des Befehls,
+  **\.#cmd\.\_id\.#** für die eindeutige Kennung der Bestellung,
+  **\.#humanname\.#** für den vollständigen Namen der Bestellung (z : \.#\.[Salle de bain\.]\.[Hydrometrie\.]\.[Humidité\.]\.#),
+  **\.#eq_name\.#** für den Namen des Geräts
 
 ## Registerkarte &quot;Berichte&quot;
 
@@ -228,29 +226,29 @@ Auf dieser Registerkarte können Sie globale Parameter für die Interaktionen fe
 Hier haben Sie drei Parameter :
 
 - **Empfindlichkeit** : Es gibt 4 Korrespondenzstufen (Die Empfindlichkeit reicht von 1 (entspricht genau) bis 99) für
-    -   1 Wort : Übereinstimmungsstufe für Einzelwortinteraktionen.
-    -   2 Wörter : die Übereinstimmungsstufe für Zwei-Wort-Interaktionen.
-    -   3 Wörter : die Übereinstimmungsstufe für Interaktionen mit drei Wörtern.
-    -   mehr als 3 Wörter : Übereinstimmungsstufe für Interaktionen, die länger als drei Wörter sind.
+  - 1 Wort : Übereinstimmungsstufe für Einzelwortinteraktionen.
+  - 2 Wörter : die Übereinstimmungsstufe für Zwei-Wort-Interaktionen.
+  - 3 Wörter : die Übereinstimmungsstufe für Interaktionen mit drei Wörtern.
+  - mehr als 3 Wörter : Übereinstimmungsstufe für Interaktionen, die länger als drei Wörter sind.
 - **Reagieren Sie nicht, wenn die Interaktion nicht enthalten ist** : Standardmäßig antwortet Jeedom &quot;Ich habe nicht verstanden&quot;, wenn keine Interaktion entspricht. Es ist möglich, diesen Vorgang zu deaktivieren, damit Jeedom nicht reagiert. Aktivieren Sie das Kontrollkästchen, um die Antwort zu deaktivieren.
 - **Allgemeine Ausschluss-Regex für Interaktionen** : ermöglicht die Definition eines regulären Ausdrucks, der, wenn er einer Interaktion entspricht, diesen Satz automatisch aus der Generation löscht (für Experten reserviert)). Weitere Informationen finden Sie in den Erläuterungen im Kapitel **Regexp-Ausschluss** Dokumentation zu Interaktionen.
 
 ### Automatische Interaktion, kontextuelle & Warnung
 
--   Das **automatische Interaktionen** Erlaube Jeedom, zu versuchen, eine Interaktionsanforderung zu verstehen, auch wenn keine definiert ist. Er wird dann nach einem Objektnamen und / oder einer Ausrüstung suchen und / oder versuchen, so gut wie möglich zu reagieren.
+- Das **automatische Interaktionen** Erlaube Jeedom, zu versuchen, eine Interaktionsanforderung zu verstehen, auch wenn keine definiert ist. Er wird dann nach einem Objektnamen und / oder einer Ausrüstung suchen und / oder versuchen, so gut wie möglich zu reagieren.
 
--   Das **kontextuelle Interaktionen** Sie können beispielsweise mehrere Anforderungen verketten, ohne alles zu wiederholen :
-    - *Jeedom hält den Kontext :*
-        - *Du* : Wie viel ist er im Raum ?
-        - *Jeedom* : Temperatur 25.2 ° C.
-        - *Du* : und im Wohnzimmer ?
-        - *Jeedom* : Temperatur 27.2 ° C.
-    - *Stellen Sie zwei Fragen in einer :*
-        - *Du* : Wie ist es im Schlafzimmer und im Wohnzimmer? ?
-        - *Jeedom* : Temperatur 23.6 ° C, Temperatur 27.2 ° C.
--   Typ Interaktionen **Lassen Sie uns wissen** Erlauben Sie Jeedom, Sie zu warnen, wenn eine Bestellung einen bestimmten Wert überschreitet / fällt oder wert ist.
-    - *Du* : Benachrichtigen Sie mich, wenn die Wohnzimmertemperatur 25 ° C überschreitet ?
-    - *Jeedom* : OK (*Sobald die Wohnzimmertemperatur 25 ° C überschreitet, wird Jeedom es Ihnen einmal mitteilen*)
+- Das **kontextuelle Interaktionen** Sie können beispielsweise mehrere Anforderungen verketten, ohne alles zu wiederholen :
+  - _Jeedom hält den Kontext :_
+    - _Du_ : Wie viel ist er im Raum ?
+    - _Jeedom_ : Temperatur 25.2 ° C.
+    - _Du_ : und im Wohnzimmer ?
+    - _Jeedom_ : Temperatur 27.2 ° C.
+  - _Stellen Sie zwei Fragen in einer :_
+    - _Du_ : Wie ist es im Schlafzimmer und im Wohnzimmer? ?
+    - _Jeedom_ : Temperatur 23.6 ° C, Temperatur 27.2 ° C.
+- Typ Interaktionen **Lassen Sie uns wissen** Erlauben Sie Jeedom, Sie zu warnen, wenn eine Bestellung einen bestimmten Wert überschreitet / fällt oder wert ist.
+  - _Du_ : Benachrichtigen Sie mich, wenn die Wohnzimmertemperatur 25 ° C überschreitet ?
+  - _Jeedom_ : OK (_Sobald die Wohnzimmertemperatur 25 ° C überschreitet, wird Jeedom es Ihnen einmal mitteilen_)
 
 > **Notiz**
 >
@@ -286,7 +284,7 @@ Hier sind die verschiedenen Optionen verfügbar :
 - **Administratorfilter (optional)** : Administratoren filtern nach AD (z. B. für die Gruppenverwaltung))
 - **Benutzerfilter (optional)** : Benutzerfilter auf dem AD (zum Beispiel für die Gruppenverwaltung)
 - **Eingeschränkter Benutzerfilter (optional)** : Filtern Sie eingeschränkte Benutzer im AD (z. B. für die Gruppenverwaltung))
-- **REMOTE\_USER zulassen** : Aktivieren Sie REMOTE\_USER (wird beispielsweise in SSO verwendet).
+- **REMOTE_USER zulassen** : Aktivieren Sie REMOTE_USER (wird beispielsweise in SSO verwendet).
 
 ### Connexion
 
@@ -359,7 +357,7 @@ Einzahlung, die es ermöglicht, automatisch ein Backup von Jeedom auf einer Samb
 
 > **Wichtig**
 >
-> Das Samba-Protokoll hat mehrere Versionen, die Version 1 ist in Bezug auf die Sicherheit gefährdet und auf einigen NAS können Sie den Client zwingen, die Verbindung mit Version 2 oder Version 3 herzustellen. Also, wenn Sie einen Fehler haben *Protokollaushandlung fehlgeschlagen: NT_STATUS_INVAID_NETWORK_RESPONSE* Es besteht eine gute Chance, dass auf der NAS-Seite die Einschränkung besteht. Sie müssen dann die Datei / etc / samba / smb auf Ihrem Jeedom-Betriebssystem ändern.conf und füge diese beiden Zeilen hinzu :
+> Das Samba-Protokoll hat mehrere Versionen, die Version 1 ist in Bezug auf die Sicherheit gefährdet und auf einigen NAS können Sie den Client zwingen, die Verbindung mit Version 2 oder Version 3 herzustellen. Also, wenn Sie einen Fehler haben _Protokollaushandlung fehlgeschlagen: NT_STATUS_INVAID_NETWORK_RESPONSE_ Es besteht eine gute Chance, dass auf der NAS-Seite die Einschränkung besteht. Sie müssen dann die Datei / etc / samba / smb auf Ihrem Jeedom-Betriebssystem ändern.conf und füge diese beiden Zeilen hinzu :
 > Client-Max-Protokoll = SMB3
 > Client-Min-Protokoll = SMB2
 > Der Jeedom-Seite smbclient verwendet dann v2, wobei v3 und indem SMB3 auf beide nur SMB3 gesetzt wird. Es liegt also an Ihnen, sich an die Einschränkungen des NAS oder eines anderen Samba-Servers anzupassen
@@ -380,7 +378,7 @@ Ermöglicht die Überwachung und Bearbeitung des Jeedom-Cache :
 - **Statistiken** : Anzahl der aktuell zwischengespeicherten Objekte.
 - **Cache Reinigung** : Erzwingen Sie das Löschen von Objekten, die nicht mehr nützlich sind. Jeedom macht das automatisch jede Nacht.
 - **Alle Daten aus dem Cache entfernen** : Leeren Sie den Deckel vollständig.
-    Bitte beachten Sie, dass dies zu Datenverlust führen kann !
+  Bitte beachten Sie, dass dies zu Datenverlust führen kann !
 - **Leeren Sie den Widget-Cache** : Leeren Sie den Cache für Widgets.
 - **Widget-Cache deaktivieren** : Aktivieren Sie das Kontrollkästchen, um den Widget-Cache zu deaktivieren.
 - **Pausenzeit für das lange Polling** : Häufigkeit, mit der Jeedom prüft, ob Ereignisse für Kunden ausstehen (Weboberfläche, mobile Anwendung usw.)). Je kürzer diese Zeit ist, desto schneller wird die Schnittstelle aktualisiert. Im Gegenzug verbraucht sie mehr Ressourcen und kann daher Jeedom verlangsamen.
@@ -402,7 +400,7 @@ Für jeden API-Plugin-Schlüssel sowie für HTTP-, JsonRPC- und TTS-APIs können
 
 Für jeden Plugin-API-Schlüssel können Sie Kernmethoden (allgemein) verbieten, um sie auf ihre einzige eingebettete Methode zu beschränken (achten Sie darauf, dass einige Plugins wie Mobile oder Jeelink unbedingt Kernmethoden benötigen)
 
-## Onglet &gt;;\._OS/DB
+## Onglet &gt;;\.\_OS/DB
 
 > **Wichtig**
 >
@@ -416,7 +414,6 @@ Für jeden Plugin-API-Schlüssel können Sie Kernmethoden (allgemein) verbieten,
 - **Systempakete prüfen** : Ermöglicht das Starten einer Überprüfung der installierten Pakete.
 - **Datenbanküberprüfung** : Ermöglicht das Starten einer Überprüfung in der Jeedom-Datenbank und das Korrigieren von Fehlern, falls erforderlich.
 - **Datenbankbereinigung** : Führt eine Datenbankprüfung durch und bereinigt alle nicht verwendeten Einträge.
-
 
 ### Systemprogramme
 

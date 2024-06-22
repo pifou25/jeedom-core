@@ -1,1585 +1,2108 @@
 @font-face {
-  font-family: 'kiko';
-  src: url('fonts/kiko.woff2') format('woff2'),
-       url('fonts/kiko.woff') format('woff'),
-       url('fonts/kiko.ttf') format('ttf'),
-       url('fonts/kiko.eot') format('eot'),
-       url('fonts/kiko.svg') format('svg');
+  font-family: "kiko";
+  src:
+    url("fonts/kiko.woff2") format("woff2"),
+    url("fonts/kiko.woff") format("woff"),
+    url("fonts/kiko.ttf") format("ttf"),
+    url("fonts/kiko.eot") format("eot"),
+    url("fonts/kiko.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="kiko-"], [class*=" kiko-"] {
-	font-family: 'kiko';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+[class^="kiko-"],
+[class*=" kiko-"] {
+  font-family: "kiko";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .kiko-train:before {
-  content: '\f001'; }
+  content: "\f001";
+}
 
 .kiko-car:before {
-  content: '\f002'; }
+  content: "\f002";
+}
 
 .kiko-truck:before {
-  content: '\f003'; }
+  content: "\f003";
+}
 
 .kiko-bike:before {
-  content: '\f004'; }
+  content: "\f004";
+}
 
 .kiko-sailboat:before {
-  content: '\f005'; }
+  content: "\f005";
+}
 
 .kiko-airplane:before {
-  content: '\f006'; }
+  content: "\f006";
+}
 
 .kiko-helicopter:before {
-  content: '\f007'; }
+  content: "\f007";
+}
 
 .kiko-motor-scooter:before {
-  content: '\f008'; }
+  content: "\f008";
+}
 
 .kiko-motorcycle:before {
-  content: '\f009'; }
+  content: "\f009";
+}
 
 .kiko-air-balloon:before {
-  content: '\f010'; }
+  content: "\f010";
+}
 
 .kiko-plane-takes-off:before {
-  content: '\f011'; }
+  content: "\f011";
+}
 
 .kiko-plane-lands:before {
-  content: '\f012'; }
+  content: "\f012";
+}
 
 .kiko-bus:before {
-  content: '\f013'; }
+  content: "\f013";
+}
 
 .kiko-cargo-vessel:before {
-  content: '\f014'; }
+  content: "\f014";
+}
 
 .kiko-electromobile:before {
-  content: '\f015'; }
+  content: "\f015";
+}
 
 .kiko-rocket:before {
-  content: '\f016'; }
+  content: "\f016";
+}
 
 .kiko-rocket-shuttle:before {
-  content: '\f017'; }
+  content: "\f017";
+}
 
 .kiko-ambulance:before {
-  content: '\f018'; }
+  content: "\f018";
+}
 
 .kiko-police:before {
-  content: '\f019'; }
+  content: "\f019";
+}
 
 .kiko-tank:before {
-  content: '\f020'; }
+  content: "\f020";
+}
 
 .kiko-tractor:before {
-  content: '\f021'; }
+  content: "\f021";
+}
 
 .kiko-tow-truck:before {
-  content: '\f022'; }
+  content: "\f022";
+}
 
 .kiko-airship:before {
-  content: '\f023'; }
+  content: "\f023";
+}
 
 .kiko-scooter:before {
-  content: '\f024'; }
+  content: "\f024";
+}
 
 .kiko-self-balancing-scooter:before {
-  content: '\f025'; }
+  content: "\f025";
+}
 
 .kiko-segway:before {
-  content: '\f026'; }
+  content: "\f026";
+}
 
 .kiko-metro:before {
-  content: '\f027'; }
+  content: "\f027";
+}
 
 .kiko-syringe:before {
-  content: '\f028'; }
+  content: "\f028";
+}
 
 .kiko-pills:before {
-  content: '\f029'; }
+  content: "\f029";
+}
 
 .kiko-microscope:before {
-  content: '\f030'; }
+  content: "\f030";
+}
 
 .kiko-jar-of-medicine:before {
-  content: '\f031'; }
+  content: "\f031";
+}
 
 .kiko-tubes:before {
-  content: '\f032'; }
+  content: "\f032";
+}
 
 .kiko-medicine:before {
-  content: '\f033'; }
+  content: "\f033";
+}
 
 .kiko-toilet:before {
-  content: '\f034'; }
+  content: "\f034";
+}
 
 .kiko-patch:before {
-  content: '\f035'; }
+  content: "\f035";
+}
 
 .kiko-pregnancy:before {
-  content: '\f036'; }
+  content: "\f036";
+}
 
 .kiko-medical-app:before {
-  content: '\f037'; }
+  content: "\f037";
+}
 
 .kiko-herbs:before {
-  content: '\f038'; }
+  content: "\f038";
+}
 
 .kiko-recipe:before {
-  content: '\f039'; }
+  content: "\f039";
+}
 
 .kiko-crushing-of-medicines:before {
-  content: '\f040'; }
+  content: "\f040";
+}
 
 .kiko-blood:before {
-  content: '\f041'; }
+  content: "\f041";
+}
 
 .kiko-donor:before {
-  content: '\f042'; }
+  content: "\f042";
+}
 
 .kiko-brain:before {
-  content: '\f043'; }
+  content: "\f043";
+}
 
 .kiko-kidneys:before {
-  content: '\f044'; }
+  content: "\f044";
+}
 
 .kiko-liver:before {
-  content: '\f045'; }
+  content: "\f045";
+}
 
 .kiko-lungs:before {
-  content: '\f046'; }
+  content: "\f046";
+}
 
 .kiko-heart:before {
-  content: '\f047'; }
+  content: "\f047";
+}
 
 .kiko-intestine:before {
-  content: '\f048'; }
+  content: "\f048";
+}
 
 .kiko-stomach:before {
-  content: '\f049'; }
+  content: "\f049";
+}
 
 .kiko-healthy-tooth:before {
-  content: '\f050'; }
+  content: "\f050";
+}
 
 .kiko-aching-tooth:before {
-  content: '\f051'; }
+  content: "\f051";
+}
 
 .kiko-nose:before {
-  content: '\f052'; }
+  content: "\f052";
+}
 
 .kiko-ear:before {
-  content: '\f053'; }
+  content: "\f053";
+}
 
 .kiko-eye:before {
-  content: '\f054'; }
+  content: "\f054";
+}
 
 .kiko-chest:before {
-  content: '\f055'; }
+  content: "\f055";
+}
 
 .kiko-doctor:before {
-  content: '\f056'; }
+  content: "\f056";
+}
 
 .kiko-doctor-woman:before {
-  content: '\f057'; }
+  content: "\f057";
+}
 
 .kiko-scheduled-med:before {
-  content: '\f058'; }
+  content: "\f058";
+}
 
 .kiko-hand:before {
-  content: '\f059'; }
+  content: "\f059";
+}
 
 .kiko-foot:before {
-  content: '\f060'; }
+  content: "\f060";
+}
 
 .kiko-hospital:before {
-  content: '\f061'; }
+  content: "\f061";
+}
 
 .kiko-stethoscope:before {
-  content: '\f062'; }
+  content: "\f062";
+}
 
 .kiko-bacteria:before {
-  content: '\f063'; }
+  content: "\f063";
+}
 
 .kiko-DNA:before {
-  content: '\f064'; }
+  content: "\f064";
+}
 
 .kiko-spine:before {
-  content: '\f065'; }
+  content: "\f065";
+}
 
 .kiko-bed-rest:before {
-  content: '\f066'; }
+  content: "\f066";
+}
 
 .kiko-bone:before {
-  content: '\f067'; }
+  content: "\f067";
+}
 
 .kiko-medical-cross:before {
-  content: '\f068'; }
+  content: "\f068";
+}
 
 .kiko-medical-cross-usa:before {
-  content: '\f069'; }
+  content: "\f069";
+}
 
 .kiko-dropper:before {
-  content: '\f070'; }
+  content: "\f070";
+}
 
 .kiko-heart-rate:before {
-  content: '\f071'; }
+  content: "\f071";
+}
 
 .kiko-marijuana:before {
-  content: '\f072'; }
+  content: "\f072";
+}
 
 .kiko-fracture:before {
-  content: '\f073'; }
+  content: "\f073";
+}
 
 .kiko-urine:before {
-  content: '\f074'; }
+  content: "\f074";
+}
 
 .kiko-fecal:before {
-  content: '\f075'; }
+  content: "\f075";
+}
 
 .kiko-diagnostics:before {
-  content: '\f076'; }
+  content: "\f076";
+}
 
 .kiko-allergy:before {
-  content: '\f077'; }
+  content: "\f077";
+}
 
 .kiko-call-med:before {
-  content: '\f078'; }
+  content: "\f078";
+}
 
 .kiko-crutches:before {
-  content: '\f079'; }
+  content: "\f079";
+}
 
 .kiko-wheelchair:before {
-  content: '\f080'; }
+  content: "\f080";
+}
 
 .kiko-skull:before {
-  content: '\f081'; }
+  content: "\f081";
+}
 
 .kiko-childbirth:before {
-  content: '\f082'; }
+  content: "\f082";
+}
 
 .kiko-vitamins:before {
-  content: '\f083'; }
+  content: "\f083";
+}
 
 .kiko-exclamation-circle:before {
-  content: '\f084'; }
+  content: "\f084";
+}
 
 .kiko-exclamation-triangle:before {
-  content: '\f085'; }
+  content: "\f085";
+}
 
 .kiko-arrow-down-circle:before {
-  content: '\f086'; }
+  content: "\f086";
+}
 
 .kiko-arrow-up-circle:before {
-  content: '\f087'; }
+  content: "\f087";
+}
 
 .kiko-arrow-left-circle:before {
-  content: '\f088'; }
+  content: "\f088";
+}
 
 .kiko-arrow-right-circle:before {
-  content: '\f089'; }
+  content: "\f089";
+}
 
 .kiko-arrow-up:before {
-  content: '\f090'; }
+  content: "\f090";
+}
 
 .kiko-arrow-down:before {
-  content: '\f091'; }
+  content: "\f091";
+}
 
 .kiko-arrow-right:before {
-  content: '\f092'; }
+  content: "\f092";
+}
 
 .kiko-arrow-left:before {
-  content: '\f093'; }
+  content: "\f093";
+}
 
 .kiko-double-arrow-up:before {
-  content: '\f094'; }
+  content: "\f094";
+}
 
 .kiko-double-arrow-down:before {
-  content: '\f095'; }
+  content: "\f095";
+}
 
 .kiko-double-arrow-left:before {
-  content: '\f096'; }
+  content: "\f096";
+}
 
 .kiko-double-arrow-right:before {
-  content: '\f097'; }
+  content: "\f097";
+}
 
 .kiko-clip:before {
-  content: '\f098'; }
+  content: "\f098";
+}
 
 .kiko-triangular-arrow-up:before {
-  content: '\f099'; }
+  content: "\f099";
+}
 
 .kiko-triangular-arrow-down:before {
-  content: '\f100'; }
+  content: "\f100";
+}
 
 .kiko-triangular-arrow-left:before {
-  content: '\f101'; }
+  content: "\f101";
+}
 
 .kiko-triangular-arrow-right:before {
-  content: '\f102'; }
+  content: "\f102";
+}
 
 .kiko-email-at:before {
-  content: '\f103'; }
+  content: "\f103";
+}
 
 .kiko-signal:before {
-  content: '\f104'; }
+  content: "\f104";
+}
 
 .kiko-bad-signal:before {
-  content: '\f105'; }
+  content: "\f105";
+}
 
 .kiko-no-signal:before {
-  content: '\f106'; }
+  content: "\f106";
+}
 
 .kiko-video:before {
-  content: '\f107'; }
+  content: "\f107";
+}
 
 .kiko-sound-on:before {
-  content: '\f108'; }
+  content: "\f108";
+}
 
 .kiko-sound-off:before {
-  content: '\f109'; }
+  content: "\f109";
+}
 
 .kiko-call-on:before {
-  content: '\f110'; }
+  content: "\f110";
+}
 
 .kiko-call-off:before {
-  content: '\f111'; }
+  content: "\f111";
+}
 
 .kiko-bluetooth:before {
-  content: '\f112'; }
+  content: "\f112";
+}
 
 .kiko-wifi:before {
-  content: '\f113'; }
+  content: "\f113";
+}
 
 .kiko-book-open:before {
-  content: '\f114'; }
+  content: "\f114";
+}
 
 .kiko-book-close:before {
-  content: '\f115'; }
+  content: "\f115";
+}
 
 .kiko-bookmark:before {
-  content: '\f116'; }
+  content: "\f116";
+}
 
 .kiko-light-turn-on:before {
-  content: '\f117'; }
+  content: "\f117";
+}
 
 .kiko-light-turn-off:before {
-  content: '\f118'; }
+  content: "\f118";
+}
 
 .kiko-brush:before {
-  content: '\f119'; }
+  content: "\f119";
+}
 
 .kiko-full-battery:before {
-  content: '\f120'; }
+  content: "\f120";
+}
 
 .kiko-half-empty-battery:before {
-  content: '\f121'; }
+  content: "\f121";
+}
 
 .kiko-empty-battery:before {
-  content: '\f122'; }
+  content: "\f122";
+}
 
 .kiko-check-circle:before {
-  content: '\f123'; }
+  content: "\f123";
+}
 
 .kiko-check-square:before {
-  content: '\f124'; }
+  content: "\f124";
+}
 
 .kiko-check:before {
-  content: '\f125'; }
+  content: "\f125";
+}
 
 .kiko-cross-circle:before {
-  content: '\f126'; }
+  content: "\f126";
+}
 
 .kiko-cross-square:before {
-  content: '\f127'; }
+  content: "\f127";
+}
 
 .kiko-cross:before {
-  content: '\f128'; }
+  content: "\f128";
+}
 
 .kiko-clock:before {
-  content: '\f129'; }
+  content: "\f129";
+}
 
 .kiko-cloud-download:before {
-  content: '\f130'; }
+  content: "\f130";
+}
 
 .kiko-cloud-load:before {
-  content: '\f131'; }
+  content: "\f131";
+}
 
 .kiko-cloud:before {
-  content: '\f132'; }
+  content: "\f132";
+}
 
 .kiko-loading:before {
-  content: '\f133'; }
+  content: "\f133";
+}
 
 .kiko-credit-card:before {
-  content: '\f134'; }
+  content: "\f134";
+}
 
 .kiko-crop:before {
-  content: '\f135'; }
+  content: "\f135";
+}
 
 .kiko-pencil:before {
-  content: '\f136'; }
+  content: "\f136";
+}
 
 .kiko-pencil-write:before {
-  content: '\f137'; }
+  content: "\f137";
+}
 
 .kiko-drop:before {
-  content: '\f138'; }
+  content: "\f138";
+}
 
 .kiko-no-drop:before {
-  content: '\f139'; }
+  content: "\f139";
+}
 
 .kiko-email:before {
-  content: '\f140'; }
+  content: "\f140";
+}
 
 .kiko-email-open:before {
-  content: '\f141'; }
+  content: "\f141";
+}
 
 .kiko-email-forward:before {
-  content: '\f142'; }
+  content: "\f142";
+}
 
 .kiko-email-deleted:before {
-  content: '\f143'; }
+  content: "\f143";
+}
 
 .kiko-email-attachment:before {
-  content: '\f144'; }
+  content: "\f144";
+}
 
 .kiko-emails:before {
-  content: '\f145'; }
+  content: "\f145";
+}
 
 .kiko-expand:before {
-  content: '\f146'; }
+  content: "\f146";
+}
 
 .kiko-open-eye:before {
-  content: '\f147'; }
+  content: "\f147";
+}
 
 .kiko-no-eye:before {
-  content: '\f148'; }
+  content: "\f148";
+}
 
 .kiko-trash:before {
-  content: '\f149'; }
+  content: "\f149";
+}
 
 .kiko-sheet:before {
-  content: '\f150'; }
+  content: "\f150";
+}
 
 .kiko-sheet-plus:before {
-  content: '\f151'; }
+  content: "\f151";
+}
 
 .kiko-sheet-minus:before {
-  content: '\f152'; }
+  content: "\f152";
+}
 
 .kiko-sheet-text:before {
-  content: '\f153'; }
+  content: "\f153";
+}
 
 .kiko-video-file:before {
-  content: '\f154'; }
+  content: "\f154";
+}
 
 .kiko-flag:before {
-  content: '\f155'; }
+  content: "\f155";
+}
 
 .kiko-gift:before {
-  content: '\f156'; }
+  content: "\f156";
+}
 
 .kiko-globe-europe:before {
-  content: '\f157'; }
+  content: "\f157";
+}
 
 .kiko-globe-north-america:before {
-  content: '\f158'; }
+  content: "\f158";
+}
 
 .kiko-globe-asia:before {
-  content: '\f159'; }
+  content: "\f159";
+}
 
 .kiko-globe-australia:before {
-  content: '\f160'; }
+  content: "\f160";
+}
 
 .kiko-globe:before {
-  content: '\f161'; }
+  content: "\f161";
+}
 
 .kiko-home:before {
-  content: '\f162'; }
+  content: "\f162";
+}
 
 .kiko-hashtag:before {
-  content: '\f163'; }
+  content: "\f163";
+}
 
 .kiko-headphones:before {
-  content: '\f164'; }
+  content: "\f164";
+}
 
 .kiko-microphone:before {
-  content: '\f165'; }
+  content: "\f165";
+}
 
 .kiko-microphone-off:before {
-  content: '\f166'; }
+  content: "\f166";
+}
 
 .kiko-link:before {
-  content: '\f167'; }
+  content: "\f167";
+}
 
 .kiko-zoom:before {
-  content: '\f168'; }
+  content: "\f168";
+}
 
 .kiko-zoom-minus:before {
-  content: '\f169'; }
+  content: "\f169";
+}
 
 .kiko-zoom-plus:before {
-  content: '\f170'; }
+  content: "\f170";
+}
 
 .kiko-heart-symbol:before {
-  content: '\f171'; }
+  content: "\f171";
+}
 
 .kiko-picture:before {
-  content: '\f172'; }
+  content: "\f172";
+}
 
 .kiko-information:before {
-  content: '\f173'; }
+  content: "\f173";
+}
 
 .kiko-layers:before {
-  content: '\f174'; }
+  content: "\f174";
+}
 
 .kiko-hamburger-menu:before {
-  content: '\f175'; }
+  content: "\f175";
+}
 
 .kiko-plus:before {
-  content: '\f176'; }
+  content: "\f176";
+}
 
 .kiko-circle-plus:before {
-  content: '\f177'; }
+  content: "\f177";
+}
 
 .kiko-square-plus:before {
-  content: '\f178'; }
+  content: "\f178";
+}
 
 .kiko-pause:before {
-  content: '\f179'; }
+  content: "\f179";
+}
 
 .kiko-record:before {
-  content: '\f180'; }
+  content: "\f180";
+}
 
 .kiko-forward:before {
-  content: '\f181'; }
+  content: "\f181";
+}
 
 .kiko-previous:before {
-  content: '\f182'; }
+  content: "\f182";
+}
 
 .kiko-note:before {
-  content: '\f183'; }
+  content: "\f183";
+}
 
 .kiko-treble-clef:before {
-  content: '\f184'; }
+  content: "\f184";
+}
 
 .kiko-navigation:before {
-  content: '\f185'; }
+  content: "\f185";
+}
 
 .kiko-moon:before {
-  content: '\f186'; }
+  content: "\f186";
+}
 
 .kiko-sun:before {
-  content: '\f187'; }
+  content: "\f187";
+}
 
 .kiko-comment:before {
-  content: '\f188'; }
+  content: "\f188";
+}
 
 .kiko-dialogue:before {
-  content: '\f189'; }
+  content: "\f189";
+}
 
 .kiko-user:before {
-  content: '\f190'; }
+  content: "\f190";
+}
 
 .kiko-user-add:before {
-  content: '\f191'; }
+  content: "\f191";
+}
 
 .kiko-user-minus:before {
-  content: '\f192'; }
+  content: "\f192";
+}
 
 .kiko-user-check:before {
-  content: '\f193'; }
+  content: "\f193";
+}
 
 .kiko-user-x:before {
-  content: '\f194'; }
+  content: "\f194";
+}
 
 .kiko-users:before {
-  content: '\f195'; }
+  content: "\f195";
+}
 
 .kiko-phone:before {
-  content: '\f196'; }
+  content: "\f196";
+}
 
 .kiko-turn-off-phone:before {
-  content: '\f197'; }
+  content: "\f197";
+}
 
 .kiko-question:before {
-  content: '\f198'; }
+  content: "\f198";
+}
 
 .kiko-label:before {
-  content: '\f199'; }
+  content: "\f199";
+}
 
 .kiko-off:before {
-  content: '\f200'; }
+  content: "\f200";
+}
 
 .kiko-shield:before {
-  content: '\f201'; }
+  content: "\f201";
+}
 
 .kiko-shield-crossed:before {
-  content: '\f202'; }
+  content: "\f202";
+}
 
 .kiko-gear:before {
-  content: '\f203'; }
+  content: "\f203";
+}
 
 .kiko-several-gears:before {
-  content: '\f204'; }
+  content: "\f204";
+}
 
 .kiko-wrench:before {
-  content: '\f205'; }
+  content: "\f205";
+}
 
 .kiko-shopping-cart:before {
-  content: '\f206'; }
+  content: "\f206";
+}
 
 .kiko-shopping-cart-add:before {
-  content: '\f207'; }
+  content: "\f207";
+}
 
 .kiko-shopping-cart-delete:before {
-  content: '\f208'; }
+  content: "\f208";
+}
 
 .kiko-shopping-cart-pay:before {
-  content: '\f209'; }
+  content: "\f209";
+}
 
 .kiko-shopping-basket:before {
-  content: '\f210'; }
+  content: "\f210";
+}
 
 .kiko-shopping-basket-add:before {
-  content: '\f211'; }
+  content: "\f211";
+}
 
 .kiko-shopping-basket-delete:before {
-  content: '\f212'; }
+  content: "\f212";
+}
 
 .kiko-termometer-minus:before {
-  content: '\f213'; }
+  content: "\f213";
+}
 
 .kiko-termometer-plus:before {
-  content: '\f214'; }
+  content: "\f214";
+}
 
 .kiko-star:before {
-  content: '\f215'; }
+  content: "\f215";
+}
 
 .kiko-half-star:before {
-  content: '\f216'; }
+  content: "\f216";
+}
 
 .kiko-text:before {
-  content: '\f217'; }
+  content: "\f217";
+}
 
 .kiko-lock:before {
-  content: '\f218'; }
+  content: "\f218";
+}
 
 .kiko-unlock:before {
-  content: '\f219'; }
+  content: "\f219";
+}
 
 .kiko-umbrella:before {
-  content: '\f220'; }
+  content: "\f220";
+}
 
 .kiko-save:before {
-  content: '\f221'; }
+  content: "\f221";
+}
 
 .kiko-save-error:before {
-  content: '\f222'; }
+  content: "\f222";
+}
 
 .kiko-paper-bag:before {
-  content: '\f223'; }
+  content: "\f223";
+}
 
 .kiko-circle-checkbox:before {
-  content: '\f224'; }
+  content: "\f224";
+}
 
 .kiko-circle-checkbox-full:before {
-  content: '\f225'; }
+  content: "\f225";
+}
 
 .kiko-square-checkbox:before {
-  content: '\f226'; }
+  content: "\f226";
+}
 
 .kiko-square-checkbox-full:before {
-  content: '\f227'; }
+  content: "\f227";
+}
 
 .kiko-marker-map:before {
-  content: '\f228'; }
+  content: "\f228";
+}
 
 .kiko-pin:before {
-  content: '\f229'; }
+  content: "\f229";
+}
 
 .kiko-map:before {
-  content: '\f230'; }
+  content: "\f230";
+}
 
 .kiko-lightning:before {
-  content: '\f231'; }
+  content: "\f231";
+}
 
 .kiko-lightning-off:before {
-  content: '\f232'; }
+  content: "\f232";
+}
 
 .kiko-pipette:before {
-  content: '\f233'; }
+  content: "\f233";
+}
 
 .kiko-compass:before {
-  content: '\f234'; }
+  content: "\f234";
+}
 
 .kiko-copy:before {
-  content: '\f235'; }
+  content: "\f235";
+}
 
 .kiko-cut:before {
-  content: '\f236'; }
+  content: "\f236";
+}
 
 .kiko-past:before {
-  content: '\f237'; }
+  content: "\f237";
+}
 
 .kiko-information-symbol:before {
-  content: '\f238'; }
+  content: "\f238";
+}
 
 .kiko-download-file:before {
-  content: '\f239'; }
+  content: "\f239";
+}
 
 .kiko-broken-link:before {
-  content: '\f240'; }
+  content: "\f240";
+}
 
 .kiko-email-read:before {
-  content: '\f241'; }
+  content: "\f241";
+}
 
 .kiko-spam:before {
-  content: '\f242'; }
+  content: "\f242";
+}
 
 .kiko-globe-latin-america:before {
-  content: '\f243'; }
+  content: "\f243";
+}
 
 .kiko-globe-japan:before {
-  content: '\f244'; }
+  content: "\f244";
+}
 
 .kiko-globe-africa:before {
-  content: '\f245'; }
+  content: "\f245";
+}
 
 .kiko-globe-east:before {
-  content: '\f246'; }
+  content: "\f246";
+}
 
 .kiko-globe-antarctic:before {
-  content: '\f247'; }
+  content: "\f247";
+}
 
 .kiko-fire:before {
-  content: '\f248'; }
+  content: "\f248";
+}
 
 .kiko-support:before {
-  content: '\f249'; }
+  content: "\f249";
+}
 
 .kiko-recycle-symbol:before {
-  content: '\f250'; }
+  content: "\f250";
+}
 
 .kiko-reload-arrow:before {
-  content: '\f251'; }
+  content: "\f251";
+}
 
 .kiko-cross-line:before {
-  content: '\f252'; }
+  content: "\f252";
+}
 
 .kiko-check-line:before {
-  content: '\f253'; }
+  content: "\f253";
+}
 
 .kiko-plus-line:before {
-  content: '\f254'; }
+  content: "\f254";
+}
 
 .kiko-timer:before {
-  content: '\f255'; }
+  content: "\f255";
+}
 
 .kiko-alarm:before {
-  content: '\f256'; }
+  content: "\f256";
+}
 
 .kiko-alarm-off:before {
-  content: '\f257'; }
+  content: "\f257";
+}
 
 .kiko-fingerprint:before {
-  content: '\f258'; }
+  content: "\f258";
+}
 
 .kiko-scan-fingerprint:before {
-  content: '\f259'; }
+  content: "\f259";
+}
 
 .kiko-computer-virus:before {
-  content: '\f260'; }
+  content: "\f260";
+}
 
 .kiko-the-compass:before {
-  content: '\f234'; }
+  content: "\f234";
+}
 
 .kiko-wifi-off:before {
-  content: '\f261'; }
+  content: "\f261";
+}
 
 .kiko-quote-left:before {
-  content: '\f262'; }
+  content: "\f262";
+}
 
 .kiko-quote-right:before {
-  content: '\f263'; }
+  content: "\f263";
+}
 
 .kiko-ellipsis-menu-v:before {
-  content: '\f264'; }
+  content: "\f264";
+}
 
 .kiko-ellipsis-menu-h:before {
-  content: '\f265'; }
+  content: "\f265";
+}
 
 .kiko-iphone:before {
-  content: '\f266'; }
+  content: "\f266";
+}
 
 .kiko-android-phone:before {
-  content: '\f267'; }
+  content: "\f267";
+}
 
 .kiko-google-pixel-phone:before {
-  content: '\f268'; }
+  content: "\f268";
+}
 
 .kiko-old-phone:before {
-  content: '\f269'; }
+  content: "\f269";
+}
 
 .kiko-nokia-3310:before {
-  content: '\f270'; }
+  content: "\f270";
+}
 
 .kiko-bendable-smartphone:before {
-  content: '\f271'; }
+  content: "\f271";
+}
 
 .kiko-tablet:before {
-  content: '\f272'; }
+  content: "\f272";
+}
 
 .kiko-imac-computer:before {
-  content: '\f274'; }
+  content: "\f274";
+}
 
 .kiko-notebook:before {
-  content: '\f275'; }
+  content: "\f275";
+}
 
 .kiko-top-notebook:before {
-  content: '\f276'; }
+  content: "\f276";
+}
 
 .kiko-screen:before {
-  content: '\f277'; }
+  content: "\f277";
+}
 
 .kiko-mouse:before {
-  content: '\f278'; }
+  content: "\f278";
+}
 
 .kiko-graphic-pen:before {
-  content: '\f279'; }
+  content: "\f279";
+}
 
 .kiko-vr:before {
-  content: '\f280'; }
+  content: "\f280";
+}
 
 .kiko-google-glass:before {
-  content: '\f281'; }
+  content: "\f281";
+}
 
 .kiko-graphics-tablet:before {
-  content: '\f282'; }
+  content: "\f282";
+}
 
 .kiko-printer:before {
-  content: '\f283'; }
+  content: "\f283";
+}
 
 .kiko-scanner:before {
-  content: '\f284'; }
+  content: "\f284";
+}
 
 .kiko-warehouse-scanner:before {
-  content: '\f285'; }
+  content: "\f285";
+}
 
 .kiko-iwatch:before {
-  content: '\f286'; }
+  content: "\f286";
+}
 
 .kiko-smart-watch:before {
-  content: '\f287'; }
+  content: "\f287";
+}
 
 .kiko-navigator:before {
-  content: '\f288'; }
+  content: "\f288";
+}
 
 .kiko-dashcam:before {
-  content: '\f289'; }
+  content: "\f289";
+}
 
 .kiko-music-speaker:before {
-  content: '\f290'; }
+  content: "\f290";
+}
 
 .kiko-yandex-alice:before {
-  content: '\f291'; }
+  content: "\f291";
+}
 
 .kiko-cortana-station:before {
-  content: '\f292'; }
+  content: "\f292";
+}
 
 .kiko-hello-google:before {
-  content: '\f293'; }
+  content: "\f293";
+}
 
 .kiko-amazon-station:before {
-  content: '\f294'; }
+  content: "\f294";
+}
 
 .kiko-web-camera:before {
-  content: '\f295'; }
+  content: "\f295";
+}
 
 .kiko-desktop-microphone:before {
-  content: '\f296'; }
+  content: "\f296";
+}
 
 .kiko-earphones:before {
-  content: '\f297'; }
+  content: "\f297";
+}
 
 .kiko-music-headphones:before {
-  content: '\f298'; }
+  content: "\f298";
+}
 
 .kiko-headphones-microphone:before {
-  content: '\f299'; }
+  content: "\f299";
+}
 
 .kiko-cable:before {
-  content: '\f300'; }
+  content: "\f300";
+}
 
 .kiko-socket-eu:before {
-  content: '\f301'; }
+  content: "\f301";
+}
 
 .kiko-socket-us:before {
-  content: '\f302'; }
+  content: "\f302";
+}
 
 .kiko-fitness-bracelet:before {
-  content: '\f303'; }
+  content: "\f303";
+}
 
 .kiko-gps-tracker:before {
-  content: '\f304'; }
+  content: "\f304";
+}
 
 .kiko-satellite-communication:before {
-  content: '\f305'; }
+  content: "\f305";
+}
 
 .kiko-television:before {
-  content: '\f306'; }
+  content: "\f306";
+}
 
 .kiko-digital-tv:before {
-  content: '\f307'; }
+  content: "\f307";
+}
 
 .kiko-router:before {
-  content: '\f308'; }
+  content: "\f308";
+}
 
 .kiko-external-drive:before {
-  content: '\f309'; }
+  content: "\f309";
+}
 
 .kiko-go-pro-camera:before {
-  content: '\f310'; }
+  content: "\f310";
+}
 
 .kiko-quadcopter:before {
-  content: '\f311'; }
+  content: "\f311";
+}
 
 .kiko-radio:before {
-  content: '\f312'; }
+  content: "\f312";
+}
 
 .kiko-transmitter:before {
-  content: '\f313'; }
+  content: "\f313";
+}
 
 .kiko-baby-radio-monitor:before {
-  content: '\f314'; }
+  content: "\f314";
+}
 
 .kiko-baby-monitor:before {
-  content: '\f315'; }
+  content: "\f315";
+}
 
 .kiko-joystick:before {
-  content: '\f316'; }
+  content: "\f316";
+}
 
 .kiko-portable-console:before {
-  content: '\f317'; }
+  content: "\f317";
+}
 
 .kiko-ipod:before {
-  content: '\f318'; }
+  content: "\f318";
+}
 
 .kiko-handsfree:before {
-  content: '\f319'; }
+  content: "\f319";
+}
 
 .kiko-camera:before {
-  content: '\f320'; }
+  content: "\f320";
+}
 
 .kiko-professional-camera:before {
-  content: '\f321'; }
+  content: "\f321";
+}
 
 .kiko-professional-video-camera:before {
-  content: '\f322'; }
+  content: "\f322";
+}
 
 .kiko-journalist-microphone:before {
-  content: '\f323'; }
+  content: "\f323";
+}
 
 .kiko-studio-lighting:before {
-  content: '\f324'; }
+  content: "\f324";
+}
 
 .kiko-robot-pet:before {
-  content: '\f325'; }
+  content: "\f325";
+}
 
 .kiko-robot-vacuum-cleaner:before {
-  content: '\f326'; }
+  content: "\f326";
+}
 
 .kiko-robot-big-dog:before {
-  content: '\f327'; }
+  content: "\f327";
+}
 
 .kiko-humanoid-robot:before {
-  content: '\f328'; }
+  content: "\f328";
+}
 
 .kiko-robot:before {
-  content: '\f329'; }
+  content: "\f329";
+}
 
 .kiko-robot-head:before {
-  content: '\f330'; }
+  content: "\f330";
+}
 
 .kiko-desktop-computer:before {
-  content: '\f273'; }
+  content: "\f273";
+}
 
 .kiko-anchor:before {
-  content: '\f331'; }
+  content: "\f331";
+}
 
 .kiko-calendar:before {
-  content: '\f332'; }
+  content: "\f332";
+}
 
 .kiko-schedule:before {
-  content: '\f333'; }
+  content: "\f333";
+}
 
 .kiko-address-book:before {
-  content: '\f334'; }
+  content: "\f334";
+}
 
 .kiko-facebook:before {
-  content: '\f335'; }
+  content: "\f335";
+}
 
 .kiko-twitter:before {
-  content: '\f336'; }
+  content: "\f336";
+}
 
 .kiko-dribbble:before {
-  content: '\f337'; }
+  content: "\f337";
+}
 
 .kiko-behance:before {
-  content: '\f338'; }
+  content: "\f338";
+}
 
 .kiko-pinterest:before {
-  content: '\f339'; }
+  content: "\f339";
+}
 
 .kiko-vkontakte:before {
-  content: '\f340'; }
+  content: "\f340";
+}
 
 .kiko-odnoklassniki:before {
-  content: '\f341'; }
+  content: "\f341";
+}
 
 .kiko-flipboard:before {
-  content: '\f342'; }
+  content: "\f342";
+}
 
 .kiko-whatsapp:before {
-  content: '\f343'; }
+  content: "\f343";
+}
 
 .kiko-blogger:before {
-  content: '\f344'; }
+  content: "\f344";
+}
 
 .kiko-evernote:before {
-  content: '\f345'; }
+  content: "\f345";
+}
 
 .kiko-gmail:before {
-  content: '\f346'; }
+  content: "\f346";
+}
 
 .kiko-line:before {
-  content: '\f347'; }
+  content: "\f347";
+}
 
 .kiko-myspace:before {
-  content: '\f348'; }
+  content: "\f348";
+}
 
 .kiko-pocket:before {
-  content: '\f349'; }
+  content: "\f349";
+}
 
 .kiko-skype:before {
-  content: '\f350'; }
+  content: "\f350";
+}
 
 .kiko-viadeo:before {
-  content: '\f351'; }
+  content: "\f351";
+}
 
 .kiko-xing:before {
-  content: '\f352'; }
+  content: "\f352";
+}
 
 .kiko-linkedin:before {
-  content: '\f353'; }
+  content: "\f353";
+}
 
 .kiko-naver:before {
-  content: '\f354'; }
+  content: "\f354";
+}
 
 .kiko-stumbleupon:before {
-  content: '\f355'; }
+  content: "\f355";
+}
 
 .kiko-viber:before {
-  content: '\f356'; }
+  content: "\f356";
+}
 
 .kiko-snapchat:before {
-  content: '\f357'; }
+  content: "\f357";
+}
 
 .kiko-yammer:before {
-  content: '\f358'; }
+  content: "\f358";
+}
 
 .kiko-digg:before {
-  content: '\f359'; }
+  content: "\f359";
+}
 
 .kiko-messenger:before {
-  content: '\f360'; }
+  content: "\f360";
+}
 
 .kiko-live-journal:before {
-  content: '\f361'; }
+  content: "\f361";
+}
 
 .kiko-newsvine:before {
-  content: '\f362'; }
+  content: "\f362";
+}
 
 .kiko-qzone:before {
-  content: '\f363'; }
+  content: "\f363";
+}
 
 .kiko-telegram:before {
-  content: '\f364'; }
+  content: "\f364";
+}
 
 .kiko-yummly:before {
-  content: '\f365'; }
+  content: "\f365";
+}
 
 .kiko-douban:before {
-  content: '\f366'; }
+  content: "\f366";
+}
 
 .kiko-flattr:before {
-  content: '\f367'; }
+  content: "\f367";
+}
 
 .kiko-hatena:before {
-  content: '\f368'; }
+  content: "\f368";
+}
 
 .kiko-reddit:before {
-  content: '\f369'; }
+  content: "\f369";
+}
 
 .kiko-tumblr:before {
-  content: '\f370'; }
+  content: "\f370";
+}
 
 .kiko-weibo:before {
-  content: '\f371'; }
+  content: "\f371";
+}
 
 .kiko-google:before {
-  content: '\f372'; }
+  content: "\f372";
+}
 
 .kiko-yandex:before {
-  content: '\f373'; }
+  content: "\f373";
+}
 
 .kiko-share:before {
-  content: '\f374'; }
+  content: "\f374";
+}
 
 .kiko-yandex-aura:before {
-  content: '\f375'; }
+  content: "\f375";
+}
 
 .kiko-wechat:before {
-  content: '\f376'; }
+  content: "\f376";
+}
 
 .kiko-baidu:before {
-  content: '\f377'; }
+  content: "\f377";
+}
 
 .kiko-bing:before {
-  content: '\f378'; }
+  content: "\f378";
+}
 
 .kiko-like:before {
-  content: '\f379'; }
+  content: "\f379";
+}
 
 .kiko-unlike:before {
-  content: '\f380'; }
+  content: "\f380";
+}
 
 .kiko-house:before {
-  content: '\f381'; }
+  content: "\f381";
+}
 
 .kiko-villa:before {
-  content: '\f382'; }
+  content: "\f382";
+}
 
 .kiko-apartment:before {
-  content: '\f383'; }
+  content: "\f383";
+}
 
 .kiko-townhouse:before {
-  content: '\f384'; }
+  content: "\f384";
+}
 
 .kiko-apartment-plan:before {
-  content: '\f385'; }
+  content: "\f385";
+}
 
 .kiko-half-house:before {
-  content: '\f386'; }
+  content: "\f386";
+}
 
 .kiko-rise-prices:before {
-  content: '\f387'; }
+  content: "\f387";
+}
 
 .kiko-falling-price:before {
-  content: '\f388'; }
+  content: "\f388";
+}
 
 .kiko-real-estate-discount:before {
-  content: '\f389'; }
+  content: "\f389";
+}
 
 .kiko-square-footage:before {
-  content: '\f390'; }
+  content: "\f390";
+}
 
 .kiko-parking-space:before {
-  content: '\f391'; }
+  content: "\f391";
+}
 
 .kiko-garage:before {
-  content: '\f392'; }
+  content: "\f392";
+}
 
 .kiko-price-real-estate:before {
-  content: '\f393'; }
+  content: "\f393";
+}
 
 .kiko-sale:before {
-  content: '\f394'; }
+  content: "\f394";
+}
 
 .kiko-rent:before {
-  content: '\f395'; }
+  content: "\f395";
+}
 
 .kiko-sold:before {
-  content: '\f396'; }
+  content: "\f396";
+}
 
 .kiko-handed:before {
-  content: '\f397'; }
+  content: "\f397";
+}
 
 .kiko-eco-home:before {
-  content: '\f398'; }
+  content: "\f398";
+}
 
 .kiko-price-calculation:before {
-  content: '\f399'; }
+  content: "\f399";
+}
 
 .kiko-calculation-mortgage:before {
-  content: '\f400'; }
+  content: "\f400";
+}
 
 .kiko-mortgage:before {
-  content: '\f401'; }
+  content: "\f401";
+}
 
 .kiko-real-estate-agent:before {
-  content: '\f402'; }
+  content: "\f402";
+}
 
 .kiko-real-estate-agent-2:before {
-  content: '\f403'; }
+  content: "\f403";
+}
 
 .kiko-real-estate-auction:before {
-  content: '\f404'; }
+  content: "\f404";
+}
 
 .kiko-private-territory:before {
-  content: '\f405'; }
+  content: "\f405";
+}
 
 .kiko-property-insurance:before {
-  content: '\f406'; }
+  content: "\f406";
+}
 
 .kiko-security-system:before {
-  content: '\f407'; }
+  content: "\f407";
+}
 
 .kiko-living-room:before {
-  content: '\f408'; }
+  content: "\f408";
+}
 
 .kiko-dining-room:before {
-  content: '\f409'; }
+  content: "\f409";
+}
 
 .kiko-bedroom:before {
-  content: '\f410'; }
+  content: "\f410";
+}
 
 .kiko-kitchen:before {
-  content: '\f411'; }
+  content: "\f411";
+}
 
 .kiko-children-room:before {
-  content: '\f412'; }
+  content: "\f412";
+}
 
 .kiko-storage:before {
-  content: '\f413'; }
+  content: "\f413";
+}
 
 .kiko-basement:before {
-  content: '\f414'; }
+  content: "\f414";
+}
 
 .kiko-attic:before {
-  content: '\f415'; }
+  content: "\f415";
+}
 
 .kiko-gas:before {
-  content: '\f416'; }
+  content: "\f416";
+}
 
 .kiko-electricity:before {
-  content: '\f417'; }
+  content: "\f417";
+}
 
 .kiko-sewerage:before {
-  content: '\f418'; }
+  content: "\f418";
+}
 
 .kiko-water-supply:before {
-  content: '\f419'; }
+  content: "\f419";
+}
 
 .kiko-real-estate-search:before {
-  content: '\f420'; }
+  content: "\f420";
+}
 
 .kiko-air-conditioner:before {
-  content: '\f421'; }
+  content: "\f421";
+}
 
 .kiko-heating:before {
-  content: '\f422'; }
+  content: "\f422";
+}
 
 .kiko-pets-allowed:before {
-  content: '\f423'; }
+  content: "\f423";
+}
 
 .kiko-pets-no-allowed:before {
-  content: '\f424'; }
+  content: "\f424";
+}
 
 .kiko-children-allowed:before {
-  content: '\f425'; }
+  content: "\f425";
+}
 
 .kiko-children-no-allowed:before {
-  content: '\f426'; }
+  content: "\f426";
+}
 
 .kiko-fitted-wardrobe:before {
-  content: '\f427'; }
+  content: "\f427";
+}
 
 .kiko-stairs:before {
-  content: '\f428'; }
+  content: "\f428";
+}
 
 .kiko-laundry:before {
-  content: '\f429'; }
+  content: "\f429";
+}
 
 .kiko-pool:before {
-  content: '\f430'; }
+  content: "\f430";
+}
 
 .kiko-sauna:before {
-  content: '\f431'; }
+  content: "\f431";
+}
 
 .kiko-fitness-room:before {
-  content: '\f432'; }
+  content: "\f432";
+}
 
 .kiko-jacuzzi:before {
-  content: '\f433'; }
+  content: "\f433";
+}
 
 .kiko-guest-toilet:before {
-  content: '\f434'; }
+  content: "\f434";
+}
 
 .kiko-separate-toilet-and-bathroom:before {
-  content: '\f435'; }
+  content: "\f435";
+}
 
 .kiko-bathroom:before {
-  content: '\f436'; }
+  content: "\f436";
+}
 
 .kiko-combined-toilet-and-bathroom:before {
-  content: '\f437'; }
+  content: "\f437";
+}
 
 .kiko-shower-cabin:before {
-  content: '\f438'; }
+  content: "\f438";
+}
 
 .kiko-contract:before {
-  content: '\f439'; }
+  content: "\f439";
+}
 
 .kiko-cleaning-services:before {
-  content: '\f440'; }
+  content: "\f440";
+}
 
 .kiko-key-real-estate:before {
-  content: '\f441'; }
+  content: "\f441";
+}
 
 .kiko-repair:before {
-  content: '\f442'; }
+  content: "\f442";
+}
 
 .kiko-without-repair:before {
-  content: '\f443'; }
+  content: "\f443";
+}
 
 .kiko-video-control:before {
-  content: '\f444'; }
+  content: "\f444";
+}
 
 .kiko-sea-view:before {
-  content: '\f445'; }
+  content: "\f445";
+}
 
 .kiko-city-view:before {
-  content: '\f446'; }
+  content: "\f446";
+}
 
 .kiko-parking:before {
-  content: '\f447'; }
+  content: "\f447";
+}
 
 .kiko-fence:before {
-  content: '\f448'; }
+  content: "\f448";
+}
 
 .kiko-property-search:before {
-  content: '\f449'; }
+  content: "\f449";
+}
 
 .kiko-commission:before {
-  content: '\f450'; }
+  content: "\f450";
+}
 
 .kiko-pledge:before {
-  content: '\f451'; }
+  content: "\f451";
+}
 
 .kiko-smart-key:before {
-  content: '\f452'; }
+  content: "\f452";
+}
 
 .kiko-key-in-hand:before {
-  content: '\f453'; }
+  content: "\f453";
+}
 
 .kiko-start-construction:before {
-  content: '\f454'; }
+  content: "\f454";
+}
 
 .kiko-new-building:before {
-  content: '\f455'; }
+  content: "\f455";
+}
 
 .kiko-resale-property:before {
-  content: '\f456'; }
+  content: "\f456";
+}
 
 .kiko-move:before {
-  content: '\f457'; }
+  content: "\f457";
+}
 
 .kiko-notary:before {
-  content: '\f458'; }
+  content: "\f458";
+}
 
 .kiko-apartment-ownership:before {
-  content: '\f459'; }
+  content: "\f459";
+}
 
 .kiko-elevator:before {
-  content: '\f460'; }
+  content: "\f460";
+}
 
 .kiko-wifi-in-house:before {
-  content: '\f461'; }
+  content: "\f461";
+}
 
 .kiko-smart-house:before {
-  content: '\f462'; }
+  content: "\f462";
+}
 
 .kiko-park-nearby:before {
-  content: '\f463'; }
+  content: "\f463";
+}
 
 .kiko-entire-housing:before {
-  content: '\f464'; }
+  content: "\f464";
+}
 
 .kiko-room-in-housing:before {
-  content: '\f465'; }
+  content: "\f465";
+}
 
 .kiko-accessible-environment:before {
-  content: '\f466'; }
+  content: "\f466";
+}
 
 .kiko-deposit-apartment:before {
-  content: '\f467'; }
+  content: "\f467";
+}
 
 .kiko-public-transport:before {
-  content: '\f468'; }
+  content: "\f468";
+}
 
 .kiko-area-without-cars:before {
-  content: '\f469'; }
+  content: "\f469";
+}
 
 .kiko-balcony:before {
-  content: '\f470'; }
+  content: "\f470";
+}
 
 .kiko-no-smoking:before {
-  content: '\f471'; }
+  content: "\f471";
+}
 
 .kiko-dog-walking-prohibited:before {
-  content: '\f472'; }
+  content: "\f472";
+}
 
 .kiko-area-for-dogs:before {
-  content: '\f473'; }
+  content: "\f473";
+}
 
 .kiko-kids-playground:before {
-  content: '\f474'; }
+  content: "\f474";
+}
 
 .kiko-school:before {
-  content: '\f475'; }
+  content: "\f475";
+}
 
 .kiko-kindergarten:before {
-  content: '\f476'; }
+  content: "\f476";
+}
 
 .kiko-questionnaire-housing-search:before {
-  content: '\f477'; }
+  content: "\f477";
+}
 
 .kiko-open-day:before {
-  content: '\f478'; }
+  content: "\f478";
+}
 
 .kiko-management-company:before {
-  content: '\f479'; }
+  content: "\f479";
+}
 
 .kiko-school-bell:before {
-  content: '\f480'; }
+  content: "\f480";
+}
 
 .kiko-school-bell-off:before {
-  content: '\f481'; }
+  content: "\f481";
+}
 
 .kiko-school-backpack:before {
-  content: '\f482'; }
+  content: "\f482";
+}
 
 .kiko-big-school-backpack:before {
-  content: '\f483'; }
+  content: "\f483";
+}
 
 .kiko-school-competition:before {
-  content: '\f484'; }
+  content: "\f484";
+}
 
 .kiko-library:before {
-  content: '\f485'; }
+  content: "\f485";
+}
 
 .kiko-schoolbook:before {
-  content: '\f486'; }
+  content: "\f486";
+}
 
 .kiko-school-notebook:before {
-  content: '\f487'; }
+  content: "\f487";
+}
 
 .kiko-school-building:before {
-  content: '\f488'; }
+  content: "\f488";
+}
 
 .kiko-university-building:before {
-  content: '\f489'; }
+  content: "\f489";
+}
 
 .kiko-blackboard:before {
-  content: '\f490'; }
+  content: "\f490";
+}
 
 .kiko-classroom:before {
-  content: '\f491'; }
+  content: "\f491";
+}
 
 .kiko-teacher:before {
-  content: '\f492'; }
+  content: "\f492";
+}
 
 .kiko-teacher-2:before {
-  content: '\f493'; }
+  content: "\f493";
+}
 
 .kiko-schoolchild:before {
-  content: '\f494'; }
+  content: "\f494";
+}
 
 .kiko-schoolchild-2:before {
-  content: '\f495'; }
+  content: "\f495";
+}
 
 .kiko-school-breakfast:before {
-  content: '\f496'; }
+  content: "\f496";
+}
 
 .kiko-bus-school:before {
-  content: '\f497'; }
+  content: "\f497";
+}
 
 .kiko-graduate:before {
-  content: '\f498'; }
+  content: "\f498";
+}
 
 .kiko-graduation-cap:before {
-  content: '\f499'; }
+  content: "\f499";
+}
 
 .kiko-globe-stand:before {
-  content: '\f500'; }
+  content: "\f500";
+}
 
 .kiko-diploma:before {
-  content: '\f501'; }
+  content: "\f501";
+}
 
 .kiko-school-microscope:before {
-  content: '\f502'; }
+  content: "\f502";
+}
 
 .kiko-award:before {
-  content: '\f503'; }
+  content: "\f503";
+}
 
 .kiko-chemistry:before {
-  content: '\f504'; }
+  content: "\f504";
+}
 
 .kiko-physics:before {
-  content: '\f505'; }
+  content: "\f505";
+}
 
 .kiko-mathematics:before {
-  content: '\f506'; }
+  content: "\f506";
+}
 
 .kiko-literature:before {
-  content: '\f507'; }
+  content: "\f507";
+}
 
 .kiko-native-language:before {
-  content: '\f508'; }
+  content: "\f508";
+}
 
 .kiko-foreign-language:before {
-  content: '\f509'; }
+  content: "\f509";
+}
 
 .kiko-physical-culture:before {
-  content: '\f510'; }
+  content: "\f510";
+}
 
 .kiko-calligraphy:before {
-  content: '\f511'; }
+  content: "\f511";
+}
 
 .kiko-reading:before {
-  content: '\f512'; }
+  content: "\f512";
+}
 
 .kiko-labour:before {
-  content: '\f513'; }
+  content: "\f513";
+}
 
 .kiko-natural-study:before {
-  content: '\f514'; }
+  content: "\f514";
+}
 
 .kiko-biology:before {
-  content: '\f515'; }
+  content: "\f515";
+}
 
 .kiko-music:before {
-  content: '\f516'; }
+  content: "\f516";
+}
 
 .kiko-fine-art:before {
-  content: '\f517'; }
+  content: "\f517";
+}
 
 .kiko-theology:before {
-  content: '\f518'; }
+  content: "\f518";
+}
 
 .kiko-history:before {
-  content: '\f519'; }
+  content: "\f519";
+}
 
 .kiko-local-lore:before {
-  content: '\f520'; }
+  content: "\f520";
+}

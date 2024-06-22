@@ -1,4 +1,5 @@
 # Análisis de equipos
+
 **Análisis → Equipo**
 
 La página de Análisis de equipo le permite ver mucha información relacionada con el equipo de forma centralizada :
@@ -10,7 +11,6 @@ La página de Análisis de equipo le permite ver mucha información relacionada 
 - Órdenes huérfanas
 
 ## Pestaña Baterías
-
 
 Puede ver en esta pestaña la lista de sus módulos de batería, su nivel restante (el color del mosaico depende de este nivel), el tipo y la cantidad de baterías que deben colocarse en el módulo, el tipo de módulo también que la fecha en que se actualizó la información del nivel de batería. También puede ver si se ha establecido un umbral específico para el módulo en particular (representado por una mano)
 
@@ -62,6 +62,7 @@ Esta pestaña le permite ver de un vistazo si ha utilizado comandos huérfanos a
 - Los que se utilizan para desencadenar un escenario.
 
 Y se usa en muchos otros lugares como (no exhaustivo) :
+
 - Interacciones.
 - Configuraciones de Jeedom.
 - En pre o post acción de un pedido.

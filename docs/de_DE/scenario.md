@@ -1,9 +1,10 @@
 # Szenarien
+
 **Werkzeuge → Szenarien**
 
 <small>[Raccourcis clavier/.souris](shortcuts.md)</.small>
 
-Die Szenarien sind ein echtes Gehirn der Hausautomation und ermöglichen es, auf eine Art und Weise mit der realen Welt zu interagieren *intelligent*.
+Die Szenarien sind ein echtes Gehirn der Hausautomation und ermöglichen es, auf eine Art und Weise mit der realen Welt zu interagieren _intelligent_.
 
 ## Gestion
 
@@ -20,11 +21,13 @@ Sie finden in diesem Teil **Liste der Szenarien** dass du erstellt hast. Sie wer
 > **Tipp**
 >
 > Sie können ein Szenario öffnen, indem Sie dies tun :
+>
 > - Klicken Sie auf eine davon.
 > - Strg Clic oder Clic Center, um es in einem neuen Browser-Tab zu öffnen.
 
 Sie haben eine Suchmaschine, um die Anzeige von Szenarien zu filtern. Die Escape-Taste bricht die Suche ab.
 Rechts neben dem Suchfeld befinden sich drei Schaltflächen, die an mehreren Stellen in Jeedom gefunden wurden :
+
 - Das Kreuz, um die Suche abzubrechen.
 - Der geöffnete Ordner zum Entfalten aller Bedienfelder und Anzeigen aller Szenarien.
 - Die geschlossene Rückenlehne zum Umklappen aller Paneele.
@@ -37,7 +40,7 @@ Nach dem Klicken auf **Hinzufügen**, Sie müssen den Namen Ihres Szenarios ausw
 Davor gibt es oben auf der Seite einige nützliche Funktionen zum Verwalten dieses Szenarios :
 
 - **ICH WÜRDE** : Neben dem Wort **General**, Dies ist die Szenariokennung.
-- **Status** : *Verhaftet* Wo *In Bearbeitung*, Es zeigt den aktuellen Status des Szenarios an.
+- **Status** : _Verhaftet_ Wo _In Bearbeitung_, Es zeigt den aktuellen Status des Szenarios an.
 - **Vorheriger / nächster Zustand** : Aktion abbrechen / wiederholen.
 - **Block hinzufügen** : Ermöglicht das Hinzufügen eines Blocks des gewünschten Typs zum Szenario (siehe unten)).
 - **Protokoll** : Zeigt die Szenarioprotokolle an.
@@ -54,8 +57,9 @@ Davor gibt es oben auf der Seite einige nützliche Funktionen zum Verwalten dies
 > **Tipps**
 >
 > Zwei Tools sind für Sie auch beim Einrichten von Szenarien von unschätzbarem Wert :
-    > - Die Variablen, sichtbar in **Werkzeuge → Variablen**
-    > - Der Ausdruckstester, auf den über zugegriffen werden kann **Werkzeuge → Ausdruckstester**
+>
+> - Die Variablen, sichtbar in **Werkzeuge → Variablen**
+> - Der Ausdruckstester, auf den über zugegriffen werden kann **Werkzeuge → Ausdruckstester**
 >
 > EIN **Strg Klicken Sie auf die Schaltfläche Ausführen** Mit dieser Option können Sie das Szenarioprotokoll direkt speichern, ausführen und anzeigen (wenn die Protokollebene nicht Keine ist).
 
@@ -71,9 +75,9 @@ In der Registerkarte **General**, Wir finden die Hauptparameter des Szenarios :
 - **übergeordnetes Objekt** : Zuordnung zu einem übergeordneten Objekt. Es wird dann entsprechend diesem Elternteil sichtbar sein oder nicht.
 - **Zeitüberschreitung in Sekunden (0 = unbegrenzt)** : Die maximal zulässige Ausführungszeit für dieses Szenario. Nach dieser Zeit wird die Ausführung des Szenarios unterbrochen.
 - **Multi-Launch** : Aktivieren Sie dieses Kontrollkästchen, wenn das Szenario mehrmals gleichzeitig gestartet werden soll.
->**WICHTIG**
->
->Der Mehrfachstart funktioniert pro Sekunde, dh wenn Sie zwei Starts in derselben Sekunde haben, ohne das Kontrollkästchen aktiviert zu haben, gibt es immer noch zwei Starts des Szenarios (obwohl dies nicht der Fall sein sollte)). Ebenso können bei mehreren Starts in derselben Sekunde einige Starts die Tags verlieren. Fazit Es ist ABSOLUT notwendig, mehrere Starts in derselben Sekunde zu vermeiden.
+  > **WICHTIG**
+  >
+  > Der Mehrfachstart funktioniert pro Sekunde, dh wenn Sie zwei Starts in derselben Sekunde haben, ohne das Kontrollkästchen aktiviert zu haben, gibt es immer noch zwei Starts des Szenarios (obwohl dies nicht der Fall sein sollte)). Ebenso können bei mehreren Starts in derselben Sekunde einige Starts die Tags verlieren. Fazit Es ist ABSOLUT notwendig, mehrere Starts in derselben Sekunde zu vermeiden.
 - **Synchroner Modus** : Starten Sie das Szenario im aktuellen Thread anstelle eines dedizierten Threads. Erhöht die Geschwindigkeit, mit der das Szenario gestartet wird, kann jedoch das System instabil machen. Achten Sie darauf, ein komplexes Szenario nicht mit Pausen (sleep) oder synchronem Warten zu versehen, dies erzeugt ein instabiles Verhalten von Jeedom und kann nicht vom Support abgedeckt werden.
 - **Protokoll** : Der für das Szenario gewünschte Protokolltyp. Sie können die Szenarioprotokolle ausschneiden oder im Gegenteil unter Analyse → Echtzeit anzeigen.
 - **Zeitleiste** : Behalten Sie das Szenario in der Zeitleiste im Auge (siehe Verlaufsdokument)).
@@ -83,19 +87,19 @@ In der Registerkarte **General**, Wir finden die Hauptparameter des Szenarios :
 
 > **Tipp**
 >
-> Bedingungen können jetzt im ausgelösten Modus eingegeben werden. Zum Beispiel : ``#[Garage][Open Garage][Ouverture]# == 1``
+> Bedingungen können jetzt im ausgelösten Modus eingegeben werden. Zum Beispiel : `#[Garage][Open Garage][Ouverture]# == 1`
 > Aufmerksamkeit : Sie können maximal 28 Trigger / Programmierungen für ein Szenario haben.
 
 > **Tippmodus programmiert**
 >
-> Der geplante Modus verwendet die Syntax **Cron**. Sie können beispielsweise alle 20 Minuten ein Szenario mit ausführen  ``*/.20 * * * *``, oder um 5 Uhr morgens, um eine Vielzahl von Dingen für den Tag mit zu erledigen ``0 5 * * *``. Das ? Rechts neben einem Programm können Sie es einstellen, ohne Spezialist für Cron-Syntax zu sein.
+> Der geplante Modus verwendet die Syntax **Cron**. Sie können beispielsweise alle 20 Minuten ein Szenario mit ausführen `*/.20 * * * *`, oder um 5 Uhr morgens, um eine Vielzahl von Dingen für den Tag mit zu erledigen `0 5 * * *`. Das ? Rechts neben einem Programm können Sie es einstellen, ohne Spezialist für Cron-Syntax zu sein.
 
 ## Registerkarte &quot;Szenario&quot;
 
 Hier erstellen Sie Ihr Szenario. Nach dem Erstellen des Szenarios ist sein Inhalt leer, sodass er ... nichts tut. Du musst mit anfangen **Block hinzufügen**, mit dem Knopf rechts. Sobald ein Block erstellt wurde, können Sie einen weiteren hinzufügen **Block** oder ein **Lager**.
 
 Um die Blöcke im Szenario einfacher zu gestalten und nicht ständig neu anordnen zu müssen, wird nach dem Feld, in dem sich der Mauszeiger befindet, ein Block hinzugefügt.
-*Wenn Sie beispielsweise zehn Blöcke haben und auf die IF-Bedingung des ersten Blocks klicken, wird der hinzugefügte Block nach diesem Block auf derselben Ebene hinzugefügt. Wenn kein Feld aktiv ist, wird es am Ende des Szenarios hinzugefügt.*
+_Wenn Sie beispielsweise zehn Blöcke haben und auf die IF-Bedingung des ersten Blocks klicken, wird der hinzugefügte Block nach diesem Block auf derselben Ebene hinzugefügt. Wenn kein Feld aktiv ist, wird es am Ende des Szenarios hinzugefügt._
 
 > **Tipp**
 >
@@ -120,18 +124,20 @@ Hier sind die verschiedenen Arten von Blöcken verfügbar :
 Jeder Block hat seine Optionen, um besser damit umzugehen :
 
 - Links :
-    - Mit dem bidirektionalen Pfeil können Sie einen Block oder eine Aktion verschieben, um sie im Szenario neu anzuordnen.
-    - Das Auge reduziert eine Blockade (*Zusammenbruch*) um seine visuelle Wirkung zu reduzieren. Strg Klick auf das Auge verkleinert sie oder zeigt sie alle an.
-    - Mit dem Kontrollkästchen können Sie den Block vollständig deaktivieren, ohne ihn zu löschen. Es wird daher nicht ausgeführt.
+
+  - Mit dem bidirektionalen Pfeil können Sie einen Block oder eine Aktion verschieben, um sie im Szenario neu anzuordnen.
+  - Das Auge reduziert eine Blockade (_Zusammenbruch_) um seine visuelle Wirkung zu reduzieren. Strg Klick auf das Auge verkleinert sie oder zeigt sie alle an.
+  - Mit dem Kontrollkästchen können Sie den Block vollständig deaktivieren, ohne ihn zu löschen. Es wird daher nicht ausgeführt.
 
 - Rechts :
-    - Mit dem Symbol Kopieren können Sie den Block kopieren, um eine Kopie an einer anderen Stelle zu erstellen. Strg Klicken Sie auf das Symbol, um den Block zu schneiden (kopieren und löschen).
-    - Mit dem Symbol Einfügen können Sie eine Kopie des Blocks einfügen, der zuvor nach dem Block kopiert wurde, für den Sie diese Funktion verwenden.  Strg Klicken Sie auf das Symbol, um den Block durch den kopierten Block zu ersetzen.
-    - Das Symbol - ermöglicht es Ihnen, den Block mit einer Bestätigungsanforderung zu löschen. Strg Klicken löscht den Block ohne Bestätigung.
+  - Mit dem Symbol Kopieren können Sie den Block kopieren, um eine Kopie an einer anderen Stelle zu erstellen. Strg Klicken Sie auf das Symbol, um den Block zu schneiden (kopieren und löschen).
+  - Mit dem Symbol Einfügen können Sie eine Kopie des Blocks einfügen, der zuvor nach dem Block kopiert wurde, für den Sie diese Funktion verwenden. Strg Klicken Sie auf das Symbol, um den Block durch den kopierten Block zu ersetzen.
+  - Das Symbol - ermöglicht es Ihnen, den Block mit einer Bestätigungsanforderung zu löschen. Strg Klicken löscht den Block ohne Bestätigung.
 
 ### Wenn / Dann / Sonst blockiert | Schleife | Im | A
 
 Für die Bedingungen versucht Jeedom, es möglich zu machen, sie so viel wie möglich in natürlicher Sprache zu schreiben und dabei flexibel zu bleiben.
+
 > Verwenden Sie [] NICHT in Bedingungstests, nur Klammern () sind möglich.
 
 Rechts neben diesem Blocktyp stehen drei Schaltflächen zur Auswahl eines zu testenden Elements zur Verfügung :
@@ -151,47 +157,46 @@ Rechts neben diesem Blocktyp stehen drei Schaltflächen zur Auswahl eines zu tes
 
 Sobald die Bedingung erfüllt ist, müssen Sie die Schaltfläche &quot;Hinzufügen&quot; auf der linken Seite verwenden, um eine neue hinzuzufügen **Block** oder ein **Lager** im aktuellen Block.
 
-
 ### Blockcode
 
 Mit dem Code-Block können Sie PHP-Code ausführen. Es ist daher sehr mächtig, erfordert aber gute Kenntnisse der PHP-Sprache.
 
 #### Zugang zu Steuerungen (Sensoren und Aktoren))
 
--  ``cmd::byString($string);`` : Gibt das entsprechende Befehlsobjekt zurück.
-    -   ``$string``: Link zur gewünschten Bestellung : ``#[objet][Ausrüstung][commande]#`` (Ex : ``#[Appartement][Alarme][Anlage]#``)
--  ``cmd::byId($id);`` : Gibt das entsprechende Befehlsobjekt zurück.
-    -  ``$id`` : Bestellnummer.
--  ``$cmd->execCmd($options = null);`` : Führen Sie den Befehl aus und geben Sie das Ergebnis zurück.
-    - ``$options`` : Optionen für die Ausführung des Befehls (können spezifisch für das Plugin sein). Grundlegende Optionen (Befehlssubtyp) :
-        -  ``message`` : ``$option = array('title' => 'titre du Botschaft , 'message' => 'Mon message');``
-        -  ``color`` : ``$option = array('color' => 'couleur en hexadécimal');``
-        -  ``slider`` : ``$option = array('slider' => 'valeur voulue de 0 à 100');``
+- `cmd::byString($string);` : Gibt das entsprechende Befehlsobjekt zurück.
+  - `$string`: Link zur gewünschten Bestellung : `#[objet][Ausrüstung][commande]#` (Ex : `#[Appartement][Alarme][Anlage]#`)
+- `cmd::byId($id);` : Gibt das entsprechende Befehlsobjekt zurück.
+  - `$id` : Bestellnummer.
+- `$cmd->execCmd($options = null);` : Führen Sie den Befehl aus und geben Sie das Ergebnis zurück.
+  - `$options` : Optionen für die Ausführung des Befehls (können spezifisch für das Plugin sein). Grundlegende Optionen (Befehlssubtyp) :
+    - `message` : `$option = array('title' => 'titre du Botschaft , 'message' => 'Mon message');`
+    - `color` : `$option = array('color' => 'couleur en hexadécimal');`
+    - `slider` : `$option = array('slider' => 'valeur voulue de 0 à 100');`
 
 #### Zugriff auf Protokolle
 
--  ``log::add('filename','level','message');``
-    - ``filename`` : Name der Protokolldatei.
-    - ``level`` : [Debug], [Info], [Fehler], [Ereignis].
-    - ``message`` : Nachricht zum Schreiben in die Protokolle.
+- `log::add('filename','level','message');`
+  - `filename` : Name der Protokolldatei.
+  - `level` : [Debug], [Info], [Fehler], [Ereignis].
+  - `message` : Nachricht zum Schreiben in die Protokolle.
 
 #### Zugriff auf Szenarien
 
-- ``$scenario->getName();`` : Gibt den Namen des aktuellen Szenarios zurück.
-- ``$scenario->getGroup();`` : Gibt die Szenariogruppe zurück.
-- ``$scenario->getIsActive();`` : Gibt den Status des Szenarios zurück.
-- ``$scenario->setIsActive($active);`` : Ermöglicht das Aktivieren oder Nicht-Aktivieren des Szenarios.
-    - ``$active`` : 1 aktiv, 0 nicht aktiv.
-- ``$scenario->running();`` : Wird verwendet, um herauszufinden, ob das Szenario ausgeführt wird oder nicht (true / false)).
-- ``$scenario->save();`` : Änderungen speichern.
-- ``$scenario->setData($key, $value);`` : Speichern Sie eine Daten (Variable).
-    - ``$key`` : Werteschlüssel (int oder string).
-    - ``$value`` : Wert zu speichern (``int``, ``string``, ``array`` Wo ``object``).
-- ``$scenario->getData($key);`` : Daten abrufen (variabel).
-    - ``$key => 1`` : Werteschlüssel (int oder string).
-- ``$scenario->removeData($key);`` : Daten löschen.
-- ``$scenario->setLog($message);`` : Schreiben Sie eine Nachricht in das Skriptprotokoll.
-- ``$scenario->persistLog();`` : Erzwingen Sie das Schreiben des Protokolls (andernfalls wird es nur am Ende des Szenarios geschrieben). Seien Sie vorsichtig, dies kann das Szenario etwas verlangsamen.
+- `$scenario->getName();` : Gibt den Namen des aktuellen Szenarios zurück.
+- `$scenario->getGroup();` : Gibt die Szenariogruppe zurück.
+- `$scenario->getIsActive();` : Gibt den Status des Szenarios zurück.
+- `$scenario->setIsActive($active);` : Ermöglicht das Aktivieren oder Nicht-Aktivieren des Szenarios.
+  - `$active` : 1 aktiv, 0 nicht aktiv.
+- `$scenario->running();` : Wird verwendet, um herauszufinden, ob das Szenario ausgeführt wird oder nicht (true / false)).
+- `$scenario->save();` : Änderungen speichern.
+- `$scenario->setData($key, $value);` : Speichern Sie eine Daten (Variable).
+  - `$key` : Werteschlüssel (int oder string).
+  - `$value` : Wert zu speichern (`int`, `string`, `array` Wo `object`).
+- `$scenario->getData($key);` : Daten abrufen (variabel).
+  - `$key => 1` : Werteschlüssel (int oder string).
+- `$scenario->removeData($key);` : Daten löschen.
+- `$scenario->setLog($message);` : Schreiben Sie eine Nachricht in das Skriptprotokoll.
+- `$scenario->persistLog();` : Erzwingen Sie das Schreiben des Protokolls (andernfalls wird es nur am Ende des Szenarios geschrieben). Seien Sie vorsichtig, dies kann das Szenario etwas verlangsamen.
 
 > **Tipp**
 >
@@ -225,16 +230,16 @@ Zu Blöcken hinzugefügte Aktionen haben mehrere Optionen :
 
 Es gibt bestimmte Auslöser (außer denen, die durch Befehle bereitgestellt werden)) :
 
-- ``#start#`` : Wird beim (erneuten) Start von Jeedom ausgelöst.
-- ``#begin_backup#`` : Ereignis, das zu Beginn einer Sicherung gesendet wurde.
-- ``#end_backup#`` : Ereignis, das am Ende einer Sicherung gesendet wird.
-- ``#begin_update#`` : Ereignis, das zu Beginn eines Updates gesendet wurde.
-- ``#end_update#`` : Ereignis, das am Ende eines Updates gesendet wird.
-- ``#begin_restore#`` : Ereignis zu Beginn einer Restaurierung gesendet.
-- ``#end_restore#`` : Ereignis gesendet am Ende einer Restaurierung.
-- ``#user_connect#`` : Benutzeranmeldung
-- ``#variable(nom_variable)#`` : Ändern des Wertes der Variablen name_name.
-- ``#GenericType (GENERIC, #[Object]#)#`` : Änderung eines Infobefehls vom Typ Generic GENERIC im Objektobjekt.
+- `#start#` : Wird beim (erneuten) Start von Jeedom ausgelöst.
+- `#begin_backup#` : Ereignis, das zu Beginn einer Sicherung gesendet wurde.
+- `#end_backup#` : Ereignis, das am Ende einer Sicherung gesendet wird.
+- `#begin_update#` : Ereignis, das zu Beginn eines Updates gesendet wurde.
+- `#end_update#` : Ereignis, das am Ende eines Updates gesendet wird.
+- `#begin_restore#` : Ereignis zu Beginn einer Restaurierung gesendet.
+- `#end_restore#` : Ereignis gesendet am Ende einer Restaurierung.
+- `#user_connect#` : Benutzeranmeldung
+- `#variable(nom_variable)#` : Ändern des Wertes der Variablen name_name.
+- `#GenericType (GENERIC, #[Object]#)#` : Änderung eines Infobefehls vom Typ Generic GENERIC im Objektobjekt.
 
 Sie können ein Szenario auch über die beschriebene HTTP-API auslösen [hier](https:/./.doc.jeedom.com/de_DE/core/.4.4/.api_http).
 
@@ -242,20 +247,20 @@ Sie können ein Szenario auch über die beschriebene HTTP-API auslösen [hier](h
 
 Sie können eines der folgenden Symbole für Vergleiche unter Bedingungen verwenden :
 
-- ``==`` : Gleich.
-- ``>`` : Streng größer als.
-- ``>=`` : Größer oder gleich.
-- ``<`` : Streng weniger als.
-- ``<=`` : Kleiner als oder gleich.
-- ``!=`` : Anders als, ist nicht gleich.
-- ``matches`` : Enthält. Ex : ``[Salle de bain][Hydrometrie][etat] matches "/.humide/."``.
-- ``not(…​ matches …​)`` : Enthält nicht. Ex :  ``not([Salle de bain][Hydrometrie][etat] matches "/.humide/.")``.
+- `==` : Gleich.
+- `>` : Streng größer als.
+- `>=` : Größer oder gleich.
+- `<` : Streng weniger als.
+- `<=` : Kleiner als oder gleich.
+- `!=` : Anders als, ist nicht gleich.
+- `matches` : Enthält. Ex : `[Salle de bain][Hydrometrie][etat] matches "/.humide/."`.
+- `not(…​ matches …​)` : Enthält nicht. Ex : `not([Salle de bain][Hydrometrie][etat] matches "/.humide/.")`.
 
 Sie können jeden Vergleich mit den folgenden Operatoren kombinieren :
 
-- ``&&`` : und. Es ist auch möglich zu verwenden : ``ET`` /. ``et`` /. ``AND`` /. ``and`` funktioniert aber möglicherweise nicht gut mit einigen PHP-Funktionen.
-- ``||`` : Wo. Es ist auch möglich zu verwenden : ``OU`` /. ``ou`` /. ``OR`` /. ``or`` funktioniert aber möglicherweise nicht gut mit einigen PHP-Funktionen.
-- ``xor``  : oder exklusiv. Es ist auch möglich zu verwenden : ``XOR`` /. ``^`` funktioniert aber möglicherweise nicht gut mit einigen PHP-Funktionen.
+- `&&` : und. Es ist auch möglich zu verwenden : `ET` /. `et` /. `AND` /. `and` funktioniert aber möglicherweise nicht gut mit einigen PHP-Funktionen.
+- `||` : Wo. Es ist auch möglich zu verwenden : `OU` /. `ou` /. `OR` /. `or` funktioniert aber möglicherweise nicht gut mit einigen PHP-Funktionen.
+- `xor` : oder exklusiv. Es ist auch möglich zu verwenden : `XOR` /. `^` funktioniert aber möglicherweise nicht gut mit einigen PHP-Funktionen.
 
 ### Tags
 
@@ -265,33 +270,32 @@ Ein Tag wird während der Ausführung des Szenarios durch seinen Wert ersetzt. S
 >
 > Verwenden Sie die Funktion Date (), um die führenden Nullen anzuzeigen. Siehe [hier](https:/./.www.php.net/.manual/.fr/.datetime.format.php).
 
-- ``#seconde#`` : Aktuelle Sekunde (ohne führende Nullen, z : 6 für 08:07:06).
-- ``#hour#`` : Aktuelle Zeit im 24h-Format (ohne führende Nullen). Ex : 8 für 08:07:06 oder 17 für 17:15.
-- ``#hour12#`` : Aktuelle Zeit im 12-Stunden-Format (ohne führende Nullen). Ex : 8 für 08:07:06.
-- ``#minute#`` : Aktuelle Minute (ohne führende Nullen). Ex : 7 für 08:07:06.
-- ``#day#`` : Aktueller Tag (ohne führende Nullen). Ex : 6 für 06/07/2017.
-- ``#month#`` : Aktueller Monat (ohne führende Nullen). Ex : 7 für 06/07/2017.
-- ``#year#`` : Laufendes Jahr.
-- ``#time#`` : Aktuelle Stunde und Minute. Ex : 1715 für 17.15 Uhr.
-- ``#timestamp#`` : Anzahl der Sekunden seit dem 1. Januar 1970.
-- ``#date#`` : Tag und Monat. Achtung, die erste Zahl ist der Monat. Ex : 1215 für den 15. Dezember.
-- ``#week#`` : Wochennummer.
-- ``#sday#`` : Name des Wochentags. Ex : Samstag.
-- ``#nday#`` : Tagesnummer von 0 (Sonntag) bis 6 (Samstag)).
-- ``#smonth#`` : Name des Monats. Ex : Januar.
-- ``#IP#`` : Jeedom&#39;s interne IP.
-- ``#hostname#`` : Name der Jeedom-Maschine.
-- ``#jeedomName#`` : Name von Jeedom.
-- ``#trigger#`` (veraltet, besser zu bedienen ``trigger()``) : Möglicherweise der Name des Befehls, der das Szenario gestartet hat :
-    - ``api`` wenn der Start von der API ausgelöst wurde,
-    - ``schedule`` wenn es durch Programmierung gestartet wurde,
-    - ``user`` wenn es manuell gestartet wurde,
-    - ``start`` für einen Start beim Start von Jeedom.
-- ``#triggerValue#`` (veraltet, besser TriggerValue zu verwenden()) : Für den Wert des Befehls, der das Szenario ausgelöst hat
-- ``#latitude#`` : Ermöglicht Ihnen, die in der Jeedom-Konfiguration eingegebenen Breitengradinformationen abzurufen
-- ``#longitude#`` : Ermöglicht Ihnen, die in der Jeedom-Konfiguration eingegebenen Längengradinformationen abzurufen
-- ``#altitude#`` : Ermöglicht Ihnen, die in der Jeedom-Konfiguration eingegebenen Höheninformationen abzurufen
-
+- `#seconde#` : Aktuelle Sekunde (ohne führende Nullen, z : 6 für 08:07:06).
+- `#hour#` : Aktuelle Zeit im 24h-Format (ohne führende Nullen). Ex : 8 für 08:07:06 oder 17 für 17:15.
+- `#hour12#` : Aktuelle Zeit im 12-Stunden-Format (ohne führende Nullen). Ex : 8 für 08:07:06.
+- `#minute#` : Aktuelle Minute (ohne führende Nullen). Ex : 7 für 08:07:06.
+- `#day#` : Aktueller Tag (ohne führende Nullen). Ex : 6 für 06/07/2017.
+- `#month#` : Aktueller Monat (ohne führende Nullen). Ex : 7 für 06/07/2017.
+- `#year#` : Laufendes Jahr.
+- `#time#` : Aktuelle Stunde und Minute. Ex : 1715 für 17.15 Uhr.
+- `#timestamp#` : Anzahl der Sekunden seit dem 1. Januar 1970.
+- `#date#` : Tag und Monat. Achtung, die erste Zahl ist der Monat. Ex : 1215 für den 15. Dezember.
+- `#week#` : Wochennummer.
+- `#sday#` : Name des Wochentags. Ex : Samstag.
+- `#nday#` : Tagesnummer von 0 (Sonntag) bis 6 (Samstag)).
+- `#smonth#` : Name des Monats. Ex : Januar.
+- `#IP#` : Jeedom&#39;s interne IP.
+- `#hostname#` : Name der Jeedom-Maschine.
+- `#jeedomName#` : Name von Jeedom.
+- `#trigger#` (veraltet, besser zu bedienen `trigger()`) : Möglicherweise der Name des Befehls, der das Szenario gestartet hat :
+  - `api` wenn der Start von der API ausgelöst wurde,
+  - `schedule` wenn es durch Programmierung gestartet wurde,
+  - `user` wenn es manuell gestartet wurde,
+  - `start` für einen Start beim Start von Jeedom.
+- `#triggerValue#` (veraltet, besser TriggerValue zu verwenden()) : Für den Wert des Befehls, der das Szenario ausgelöst hat
+- `#latitude#` : Ermöglicht Ihnen, die in der Jeedom-Konfiguration eingegebenen Breitengradinformationen abzurufen
+- `#longitude#` : Ermöglicht Ihnen, die in der Jeedom-Konfiguration eingegebenen Längengradinformationen abzurufen
+- `#altitude#` : Ermöglicht Ihnen, die in der Jeedom-Konfiguration eingegebenen Höheninformationen abzurufen
 
 Sie haben auch die folgenden zusätzlichen Tags, wenn Ihr Szenario durch eine Interaktion ausgelöst wurde :
 
@@ -306,164 +310,161 @@ Sie haben auch die folgenden zusätzlichen Tags, wenn Ihr Szenario durch eine In
 
 Für das Gerät stehen verschiedene Funktionen zur Verfügung :
 
-- ``average(commande,période)`` & ``averageBetween(commande,start,end)`` : Geben Sie den Durchschnitt der Bestellung über den Zeitraum an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `average(commande,période)` & `averageBetween(commande,start,end)` : Geben Sie den Durchschnitt der Bestellung über den Zeitraum an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``averageTemporal(commande,période)`` & ``averageTemporalBetween(commande,start,end)`` : Geben Sie den Durchschnitt der Werte der Bestellung gewichtet nach ihrer Existenzdauer über den Zeitraum (Periode=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `averageTemporal(commande,période)` & `averageTemporalBetween(commande,start,end)` : Geben Sie den Durchschnitt der Werte der Bestellung gewichtet nach ihrer Existenzdauer über den Zeitraum (Periode=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``min(commande,période)`` & ``minBetween(commande,start,end)`` : Geben Sie die Mindestbestellmenge über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `min(commande,période)` & `minBetween(commande,start,end)` : Geben Sie die Mindestbestellmenge über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``max(commande,période)`` & ``maxBetween(commande,start,end)`` : Geben Sie das Maximum der Bestellung über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `max(commande,période)` & `maxBetween(commande,start,end)` : Geben Sie das Maximum der Bestellung über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``duration(commande, valeur, période)`` & ``durationbetween(commande,valeur,start,end)`` : Geben Sie die Dauer in Minuten an, während der das Gerät über den Zeitraum (Zeitraum) den gewählten Wert hatte=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `duration(commande, valeur, période)` & `durationbetween(commande,valeur,start,end)` : Geben Sie die Dauer in Minuten an, während der das Gerät über den Zeitraum (Zeitraum) den gewählten Wert hatte=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``statistics(commande,calcul,période)`` & ``statisticsBetween(commande,calcul,start,end)`` : Geben Sie das Ergebnis verschiedener statistischer Berechnungen (Summe, Anzahl, Standard, Varianz, Durchschnitt, Min, Max) über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `statistics(commande,calcul,période)` & `statisticsBetween(commande,calcul,start,end)` : Geben Sie das Ergebnis verschiedener statistischer Berechnungen (Summe, Anzahl, Standard, Varianz, Durchschnitt, Min, Max) über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``tendance(commande,période,seuil)`` : Gibt den Trend der Bestellung über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `tendance(commande,période,seuil)` : Gibt den Trend der Bestellung über den Zeitraum (Zeitraum) an=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``stateDuration(commande)`` : Gibt die Dauer in Sekunden seit der letzten Wertänderung an.
-    -1 : Es gibt keine Geschichte oder keinen Wert in der Geschichte.
-    -2 : Die Bestellung wird nicht protokolliert.
+- `stateDuration(commande)` : Gibt die Dauer in Sekunden seit der letzten Wertänderung an.
+  -1 : Es gibt keine Geschichte oder keinen Wert in der Geschichte.
+  -2 : Die Bestellung wird nicht protokolliert.
 
-- ``lastChangeStateDuration(commande,valeur)`` : Gibt die Dauer in Sekunden seit der letzten Zustandsänderung auf den im Parameter übergebenen Wert an.
-    -1 : Es gibt keine Geschichte oder keinen Wert in der Geschichte.
-    -2 Die Bestellung wird nicht protokolliert
+- `lastChangeStateDuration(commande,valeur)` : Gibt die Dauer in Sekunden seit der letzten Zustandsänderung auf den im Parameter übergebenen Wert an.
+  -1 : Es gibt keine Geschichte oder keinen Wert in der Geschichte.
+  -2 Die Bestellung wird nicht protokolliert
 
-- ``lastStateDuration(commande,valeur)`` : Gibt die Dauer in Sekunden an, in der das Gerät zuletzt den gewählten Wert hatte.
-    -1 : Es gibt keine Geschichte oder keinen Wert in der Geschichte.
-    -2 : Die Bestellung wird nicht protokolliert.
+- `lastStateDuration(commande,valeur)` : Gibt die Dauer in Sekunden an, in der das Gerät zuletzt den gewählten Wert hatte.
+  -1 : Es gibt keine Geschichte oder keinen Wert in der Geschichte.
+  -2 : Die Bestellung wird nicht protokolliert.
 
-- ``age(commande)`` : Gibt das Alter des Befehlswerts in Sekunden an (``collecDate``)
-    -1 : Der Befehl existiert nicht oder ist nicht vom Typ info.
+- `age(commande)` : Gibt das Alter des Befehlswerts in Sekunden an (`collecDate`)
+  -1 : Der Befehl existiert nicht oder ist nicht vom Typ info.
 
-- ``stateChanges(commande,[valeur], période)`` & ``stateChangesBetween(commande, [valeur], start, end)`` : Gibt die Anzahl der Zustandsänderungen (in Richtung eines bestimmten Wertes, falls angegeben, oder, falls nicht angegeben, im Vergleich zum aktuellen Wert) über den Zeitraum (Periode=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `stateChanges(commande,[valeur], période)` & `stateChangesBetween(commande, [valeur], start, end)` : Gibt die Anzahl der Zustandsänderungen (in Richtung eines bestimmten Wertes, falls angegeben, oder, falls nicht angegeben, im Vergleich zum aktuellen Wert) über den Zeitraum (Periode=[Monat, Tag, Stunde, Minute] oder [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)) oder zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``lastBetween(commande,start,end)`` : Gibt den letzten für das Gerät aufgezeichneten Wert zwischen den 2 angeforderten Terminals (in der Form ``Y-m-d H:i:s`` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
+- `lastBetween(commande,start,end)` : Gibt den letzten für das Gerät aufgezeichneten Wert zwischen den 2 angeforderten Terminals (in der Form `Y-m-d H:i:s` Wo [PHP-Expression](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative)).
 
-- ``variable(mavariable,valeur par défaut)`` : Ruft standardmäßig den Wert einer Variablen oder den gewünschten Wert ab.
+- `variable(mavariable,valeur par défaut)` : Ruft standardmäßig den Wert einer Variablen oder den gewünschten Wert ab.
 
-- ``GenericType (GENERIC, #[Object]#)`` : Ruft die Summe der GENERIC Generic Type-Informationen im Object-Objekt ab.
+- `GenericType (GENERIC, #[Object]#)` : Ruft die Summe der GENERIC Generic Type-Informationen im Object-Objekt ab.
 
-- ``scenario(scenario)`` : Gibt den Status des Szenarios zurück.
-    1 : In Bearbeitung,
-    0 : Verhaftet,
-    -1 : Untauglich,
-    -2 : Das Szenario existiert nicht,
-    -3 : Zustand ist nicht konsistent.
-    Um den &quot;menschlichen&quot; Namen des Szenarios zu erhalten, können Sie die entsprechende Schaltfläche rechts neben der Szenariosuche verwenden.
+- `scenario(scenario)` : Gibt den Status des Szenarios zurück.
+  1 : In Bearbeitung,
+  0 : Verhaftet,
+  -1 : Untauglich,
+  -2 : Das Szenario existiert nicht,
+  -3 : Zustand ist nicht konsistent.
+  Um den &quot;menschlichen&quot; Namen des Szenarios zu erhalten, können Sie die entsprechende Schaltfläche rechts neben der Szenariosuche verwenden.
 
-- ``lastScenarioExecution(scenario)`` : Gibt die Dauer in Sekunden seit dem letzten Start des Szenarios an.
-    0 : Das Szenario existiert nicht
+- `lastScenarioExecution(scenario)` : Gibt die Dauer in Sekunden seit dem letzten Start des Szenarios an.
+  0 : Das Szenario existiert nicht
 
-- ``collectDate(cmd,[format])`` : Gibt das Datum der letzten Datenerfassung für den als Parameter platzierten Befehl zurück. Der zweite optionale Parameter wird verwendet, um das Rückgabeformat anzugeben (Details [hier](https:/./.www.php.net/.manual/.fr/.datetime.format.php)).
-    -1 : Der Befehl konnte nicht gefunden werden,
-    -2 : Der Befehl ist nicht vom Typ info.
+- `collectDate(cmd,[format])` : Gibt das Datum der letzten Datenerfassung für den als Parameter platzierten Befehl zurück. Der zweite optionale Parameter wird verwendet, um das Rückgabeformat anzugeben (Details [hier](https:/./.www.php.net/.manual/.fr/.datetime.format.php)).
+  -1 : Der Befehl konnte nicht gefunden werden,
+  -2 : Der Befehl ist nicht vom Typ info.
 
-- ``valueDate(cmd,[format])`` : Gibt das Datum des letzten bekannten Werts für den als Parameter platzierten Befehl zurück. Der zweite optionale Parameter wird verwendet, um das Rückgabeformat anzugeben (Details [hier](https:/./.www.php.net/.manual/.fr/.datetime.format.php)).
-    -1 : Der Befehl konnte nicht gefunden werden,
-    -2 : Der Befehl ist nicht vom Typ info.
+- `valueDate(cmd,[format])` : Gibt das Datum des letzten bekannten Werts für den als Parameter platzierten Befehl zurück. Der zweite optionale Parameter wird verwendet, um das Rückgabeformat anzugeben (Details [hier](https:/./.www.php.net/.manual/.fr/.datetime.format.php)).
+  -1 : Der Befehl konnte nicht gefunden werden,
+  -2 : Der Befehl ist nicht vom Typ info.
 
-- ``eqEnable(equipement)`` : Gibt den Status des Geräts zurück.
-    -2 : Das Gerät kann nicht gefunden werden,
-    1 : Ausrüstung ist aktiv,
-    0 : Das Gerät ist inaktiv.
+- `eqEnable(equipement)` : Gibt den Status des Geräts zurück.
+  -2 : Das Gerät kann nicht gefunden werden,
+  1 : Ausrüstung ist aktiv,
+  0 : Das Gerät ist inaktiv.
 
-- ``value(cmd)`` : Gibt den Wert einer Bestellung zurück, wenn er nicht automatisch von Jeedom angegeben wird (Groß- und Kleinschreibung, wenn der Name der Bestellung in einer Variablen gespeichert wird)
+- `value(cmd)` : Gibt den Wert einer Bestellung zurück, wenn er nicht automatisch von Jeedom angegeben wird (Groß- und Kleinschreibung, wenn der Name der Bestellung in einer Variablen gespeichert wird)
 
-- ``tag(montag,[defaut])`` : Wird verwendet, um den Wert eines Tags oder den Standardwert abzurufen, falls dieser nicht vorhanden ist.
+- `tag(montag,[defaut])` : Wird verwendet, um den Wert eines Tags oder den Standardwert abzurufen, falls dieser nicht vorhanden ist.
 
-- ``name(type,commande)`` : Wird verwendet, um den Namen der Bestellung, Ausrüstung oder des Objekts abzurufen. Nett : cmd, eqLogic oder Objekt.
+- `name(type,commande)` : Wird verwendet, um den Namen der Bestellung, Ausrüstung oder des Objekts abzurufen. Nett : cmd, eqLogic oder Objekt.
 
-- ``lastCommunication(equipment,[format])`` : Gibt das Datum der letzten Informationsrückmeldung für das im Parameter angegebene Gerät zurück, der 2. optionale Parameter dient zur Angabe des Rückgabeformats (details [hier](https:/./.www.php.net/.manual/.fr/.datetime.format.php)). Eine Rückgabe von -1 bedeutet, dass das Gerät nicht gefunden werden kann. Das Datum der letzten Auskunft errechnet sich aus der Auskunftsart Bestellung und deren Erhebungsdatum.
+- `lastCommunication(equipment,[format])` : Gibt das Datum der letzten Informationsrückmeldung für das im Parameter angegebene Gerät zurück, der 2. optionale Parameter dient zur Angabe des Rückgabeformats (details [hier](https:/./.www.php.net/.manual/.fr/.datetime.format.php)). Eine Rückgabe von -1 bedeutet, dass das Gerät nicht gefunden werden kann. Das Datum der letzten Auskunft errechnet sich aus der Auskunftsart Bestellung und deren Erhebungsdatum.
 
-- ``color_gradient(couleur_debut,couleur_fin,valuer_min,valeur_max,valeur)`` : Gibt eine relativ zu einem Wert im Intervall color_start / color_end berechnete Farbe zurück. Der Wert muss zwischen min_value und max_value liegen.
+- `color_gradient(couleur_debut,couleur_fin,valuer_min,valeur_max,valeur)` : Gibt eine relativ zu einem Wert im Intervall color_start / color_end berechnete Farbe zurück. Der Wert muss zwischen min_value und max_value liegen.
 
 Die Perioden und Intervalle dieser Funktionen können auch mit verwendet werden [PHP-Ausdrücke](https:/./.www.php.net/.manual/.fr/.datetime.formats.php#datetime.formats.relative) wie zum Beispiel :
 
-- ``Now`` : jetzt.
-- ``Today`` : 00:00 heute (ermöglicht zum Beispiel, Ergebnisse für den Tag zu erhalten, wenn zwischen ``Today`` und ``Now``).
-- ``Last Monday`` : letzten Montag um 00:00.
-- ``5 days ago`` : Vor 5 Tagen.
-- ``Yesterday noon`` : gestern mittag.
+- `Now` : jetzt.
+- `Today` : 00:00 heute (ermöglicht zum Beispiel, Ergebnisse für den Tag zu erhalten, wenn zwischen `Today` und `Now`).
+- `Last Monday` : letzten Montag um 00:00.
+- `5 days ago` : Vor 5 Tagen.
+- `Yesterday noon` : gestern mittag.
 - Etc.
 
 Hier finden Sie praktische Beispiele zum Verständnis der von diesen verschiedenen Funktionen zurückgegebenen Werte :
 
-| Sockel mit Werten :           | 000 (für 10 Minuten) 11 (für 1 Stunde) 000 (für 10 Minuten))    |
-|--------------------------------------|--------------------------------------|
-| ``average(prise,période)``             | Gibt den Durchschnitt von 0 und 1 zurück (can  |
-|                                      | durch Umfragen beeinflusst werden)      |
-| ``averageBetween(#[Salle de bain][Hydrometrie][Humidité]#,2015-01-01 00:00:00,2015-01-15 00:00:00)`` | Gibt die durchschnittliche Bestellung zwischen dem 1. Januar 2015 und dem 15. Januar 2015 zurück                       |
-| ``min(prise,période)``                 | Gibt 0 zurück : Der Stecker wurde während des Zeitraums gelöscht              |
-| ``minBetween(#[Salle de bain][Hydrometrie][Humidité]#,2015-01-01 00:00:00,2015-01-15 00:00:00)`` | Gibt die Mindestbestellmenge zwischen dem 1. Januar 2015 und dem 15. Januar 2015 zurück                       |
-| ``max(prise,période)``                 | Rückgabe 1 : Der Stecker war in der Zeit gut beleuchtet              |
-| ``maxBetween(#[Salle de bain][Hydrometrie][Humidité]#,2015-01-01 00:00:00,2015-01-15 00:00:00)`` | Gibt das Maximum der Bestellung zwischen dem 1. Januar 2015 und dem 15. Januar 2015 zurück                       |
-| ``duration(prise,1,période)``          | Gibt 60 zurück : Der Stecker war in diesem Zeitraum 60 Minuten lang eingeschaltet (bei 1)                              |
-| ``durationBetween(#[Salon][Prise][Etat]#,0,Last Monday,Now)``   | Gibt die Dauer in Minuten zurück, in der die Steckdose seit dem letzten Montag ausgeschaltet war.                |
-| ``statistics(prise,count,période)``    | Rückgabe 8 : In diesem Zeitraum gab es 8 Eskalationen               |
-| ``tendance(prise,période,0.1)``        | Gibt -1 zurück : Abwärtstrend    |
-| ``stateDuration(prise)``               | Gibt 600 zurück : Der Stecker befindet sich seit 600 Sekunden (10 Minuten) in seinem aktuellen Zustand)                             |
-| ``lastChangeStateDuration(prise,0)``   | Gibt 600 zurück : Die Steckdose ging vor 600 Sekunden (10 Minuten) zum letzten Mal aus (auf 0 ändern))     |
-| ``lastChangeStateDuration(prise,1)``   | Gibt 4200 zurück : Die Steckdose wurde vor 4200 Sekunden (1h10) zum letzten Mal eingeschaltet (auf 1 umgeschaltet))                               |
-| ``lastStateDuration(prise,0)``         | Gibt 600 zurück : Die Steckdose war 600 Sekunden (10 Minuten) ausgeschaltet)     |
-| ``lastStateDuration(prise,1)``         | Gibt 3600 zurück : Die Steckdose wurde zuletzt für 3600 Sekunden (1 Stunde) eingeschaltet)           |
-| ``stateChanges(prise,période)``        | Rückgabe 3 : Der Socket hat während des Zeitraums dreimal den Status geändert (wenn der Befehl info vom binären Typ ist)            |
-| ``stateChanges(prise,0,période)``      | Rückgabe 2 : Die Steckdose ist während des Zeitraums zweimal erloschen (auf 0)                              |
-| ``stateChanges(prise,1,période)``      | Rückgabe 1 : Der Stecker leuchtet während des Zeitraums einmal (auf 1 ändern)                              |
-| ``lastBetween(#[Salle de bain][Hydrometrie][Température]#,Yesterday,Today)`` | Gibt die zuletzt gestern aufgezeichnete Temperatur zurück.                    |
-| ``variable(plop,10)``                  | Gibt den Wert der Variablen plop oder 10 zurück, wenn sie leer ist oder nicht existiert                         |
-| ``scenario(#[Salle de bain][Lumière][Auto]#)`` | Gibt 1 in Bearbeitung zurück, 0, wenn gestoppt, und -1, wenn deaktiviert, -2, wenn das Szenario nicht existiert, und -3, wenn der Status nicht konsistent ist                         |
-| ``lastScenarioExecution(#[Salle de bain][Lumière][Auto]#)``   | Gibt 300 zurück, wenn das Szenario vor 5 Minuten zum letzten Mal gestartet wurde                                  |
-| ``collectDate(#[Salle de bain][Hydrometrie][Humidité]#)``     | Rückgabe 2021-02-14 17:50:12          |
-| ``valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`` | Rückgabe 2021-02-14 17:45:12          |
-| ``eqEnable(#[Aucun][Basilique]#)``       | Gibt -2 zurück, wenn das Gerät nicht gefunden wird, 1, wenn das Gerät aktiv ist, und 0, wenn es inaktiv ist          |
-| ``tag(montag,toto)``                   | Gibt den Wert von "montag" zurück, falls vorhanden, andernfalls wird der Wert "toto" zurückgegeben"                               |
-| ``name(eqLogic,#[Salle de bain][Hydrometrie][Humidité]#)``     | Gibt Hydrometrie zurück                  |
-
+| Sockel mit Werten :                                                                                | 000 (für 10 Minuten) 11 (für 1 Stunde) 000 (für 10 Minuten))                                                                                                  |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `average(prise,période)`                                                                           | Gibt den Durchschnitt von 0 und 1 zurück (can                                                                                                                 |
+|                                                                                                    | durch Umfragen beeinflusst werden)                                                                                                                            |
+| `averageBetween(#[Salle de bain][Hydrometrie][Humidité]#,2015-01-01 00:00:00,2015-01-15 00:00:00)` | Gibt die durchschnittliche Bestellung zwischen dem 1. Januar 2015 und dem 15. Januar 2015 zurück                                                              |
+| `min(prise,période)`                                                                               | Gibt 0 zurück : Der Stecker wurde während des Zeitraums gelöscht                                                                                              |
+| `minBetween(#[Salle de bain][Hydrometrie][Humidité]#,2015-01-01 00:00:00,2015-01-15 00:00:00)`     | Gibt die Mindestbestellmenge zwischen dem 1. Januar 2015 und dem 15. Januar 2015 zurück                                                                       |
+| `max(prise,période)`                                                                               | Rückgabe 1 : Der Stecker war in der Zeit gut beleuchtet                                                                                                       |
+| `maxBetween(#[Salle de bain][Hydrometrie][Humidité]#,2015-01-01 00:00:00,2015-01-15 00:00:00)`     | Gibt das Maximum der Bestellung zwischen dem 1. Januar 2015 und dem 15. Januar 2015 zurück                                                                    |
+| `duration(prise,1,période)`                                                                        | Gibt 60 zurück : Der Stecker war in diesem Zeitraum 60 Minuten lang eingeschaltet (bei 1)                                                                     |
+| `durationBetween(#[Salon][Prise][Etat]#,0,Last Monday,Now)`                                        | Gibt die Dauer in Minuten zurück, in der die Steckdose seit dem letzten Montag ausgeschaltet war.                                                             |
+| `statistics(prise,count,période)`                                                                  | Rückgabe 8 : In diesem Zeitraum gab es 8 Eskalationen                                                                                                         |
+| `tendance(prise,période,0.1)`                                                                      | Gibt -1 zurück : Abwärtstrend                                                                                                                                 |
+| `stateDuration(prise)`                                                                             | Gibt 600 zurück : Der Stecker befindet sich seit 600 Sekunden (10 Minuten) in seinem aktuellen Zustand)                                                       |
+| `lastChangeStateDuration(prise,0)`                                                                 | Gibt 600 zurück : Die Steckdose ging vor 600 Sekunden (10 Minuten) zum letzten Mal aus (auf 0 ändern))                                                        |
+| `lastChangeStateDuration(prise,1)`                                                                 | Gibt 4200 zurück : Die Steckdose wurde vor 4200 Sekunden (1h10) zum letzten Mal eingeschaltet (auf 1 umgeschaltet))                                           |
+| `lastStateDuration(prise,0)`                                                                       | Gibt 600 zurück : Die Steckdose war 600 Sekunden (10 Minuten) ausgeschaltet)                                                                                  |
+| `lastStateDuration(prise,1)`                                                                       | Gibt 3600 zurück : Die Steckdose wurde zuletzt für 3600 Sekunden (1 Stunde) eingeschaltet)                                                                    |
+| `stateChanges(prise,période)`                                                                      | Rückgabe 3 : Der Socket hat während des Zeitraums dreimal den Status geändert (wenn der Befehl info vom binären Typ ist)                                      |
+| `stateChanges(prise,0,période)`                                                                    | Rückgabe 2 : Die Steckdose ist während des Zeitraums zweimal erloschen (auf 0)                                                                                |
+| `stateChanges(prise,1,période)`                                                                    | Rückgabe 1 : Der Stecker leuchtet während des Zeitraums einmal (auf 1 ändern)                                                                                 |
+| `lastBetween(#[Salle de bain][Hydrometrie][Température]#,Yesterday,Today)`                         | Gibt die zuletzt gestern aufgezeichnete Temperatur zurück.                                                                                                    |
+| `variable(plop,10)`                                                                                | Gibt den Wert der Variablen plop oder 10 zurück, wenn sie leer ist oder nicht existiert                                                                       |
+| `scenario(#[Salle de bain][Lumière][Auto]#)`                                                       | Gibt 1 in Bearbeitung zurück, 0, wenn gestoppt, und -1, wenn deaktiviert, -2, wenn das Szenario nicht existiert, und -3, wenn der Status nicht konsistent ist |
+| `lastScenarioExecution(#[Salle de bain][Lumière][Auto]#)`                                          | Gibt 300 zurück, wenn das Szenario vor 5 Minuten zum letzten Mal gestartet wurde                                                                              |
+| `collectDate(#[Salle de bain][Hydrometrie][Humidité]#)`                                            | Rückgabe 2021-02-14 17:50:12                                                                                                                                  |
+| `valueDate(#[Salle de bain][Hydrometrie][Humidité]#)`                                              | Rückgabe 2021-02-14 17:45:12                                                                                                                                  |
+| `eqEnable(#[Aucun][Basilique]#)`                                                                   | Gibt -2 zurück, wenn das Gerät nicht gefunden wird, 1, wenn das Gerät aktiv ist, und 0, wenn es inaktiv ist                                                   |
+| `tag(montag,toto)`                                                                                 | Gibt den Wert von "montag" zurück, falls vorhanden, andernfalls wird der Wert "toto" zurückgegeben"                                                           |
+| `name(eqLogic,#[Salle de bain][Hydrometrie][Humidité]#)`                                           | Gibt Hydrometrie zurück                                                                                                                                       |
 
 ### Mathematische Funktionen
 
 Eine generische Funktions-Toolbox kann auch zum Durchführen von Konvertierungen oder Berechnungen verwendet werden :
 
-- ``rand(1,10)`` : Geben Sie eine Zufallszahl von 1 bis 10 an.
-- ``randText(texte1;texte2;texte…​..)`` : Ermöglicht es Ihnen, einen der Texte zufällig zurückzugeben (trennen Sie die Texte durch einen; ). Die Anzahl der Texte ist unbegrenzt.
-- ``randomColor(min,max)`` : Gibt eine zufällige Farbe zwischen 2 Grenzen (0 => Rot, 50 => Grün, 100 => Blau).
-- ``trigger(commande)`` : Ermöglicht es Ihnen, den Auslöser für das Szenario herauszufinden oder festzustellen, ob der als Parameter übergebene Befehl das Szenario ausgelöst hat.
-- ``triggerValue()`` : Wird verwendet, um den Wert des Szenario-Triggers herauszufinden.
-- ``round(valeur,[decimal])`` : Runden oben, [Dezimal] Anzahl der Dezimalstellen nach dem Dezimalpunkt.
-- ``odd(valeur)`` : Lässt Sie wissen, ob eine Zahl ungerade ist oder nicht. Gibt 1 zurück, wenn sonst ungerade 0.
-- ``median(commande1,commande2…​.commandeN)`` : Gibt den Median der Werte zurück.
-- ``avg(commande1,commande2…​.commandeN)`` : Gibt den Durchschnitt der Werte zurück.
-- ``time_op(time,value)`` : Ermöglicht die pünktliche Ausführung von Operationen mit time = time (z : 1530) und Wert = Wert zum Addieren oder Subtrahieren in Minuten.
-- ``time_between(time,start,end)`` : Wird verwendet, um zu testen, ob eine Zeit zwischen zwei Werten mit liegt ``time=temps`` (Ex : 1530), ``start=temps``, ``end=temps``. Start- und Endwerte können sich über Mitternacht erstrecken.
-- ``time_diff(date1,date2[,format, round])`` : Wird verwendet, um den Unterschied zwischen zwei Daten zu ermitteln (die Daten müssen das Format JJJJ / MM / TT HH haben:MM:SS). Standardmäßig gibt die Methode die Differenz in Tag (e) zurück). Sie können es in Sekunden (s), Minuten (m), Stunden (h) fragen). Beispiel in Sekunden ``time_diff(2019-02-02 14:55:00,2019-02-25 14:55:00,s)``. Die Differenz wird in absoluten Zahlen zurückgegeben, sofern Sie nichts anderes angeben ``f`` (``sf``, ``mf``, ``hf``, ``df``). Sie können auch verwenden ``dhms`` wer wird nicht Beispiel zurückgeben ``7j 2h 5min 46s``. Der optionale Parameter round rundet auf x Dezimalstellen (standardmäßig 2). Ex: ``time_diff(2020-02-21 20:55:28,2020-02-28 23:01:14,df, 4)``.
-- ``formatTime(time)`` : Formatiert die Rückgabe einer Kette ``#time#``.
-- ``floor(time/.60)`` : Konvertieren Sie Sekunden in Minuten oder Minuten in Stunden (``floor(time/.3600)`` für Sekunden bis Stunden).
-- ``convertDuration(secondes)`` : Konvertiert Sekunden in d / h / min / s.
+- `rand(1,10)` : Geben Sie eine Zufallszahl von 1 bis 10 an.
+- `randText(texte1;texte2;texte…​..)` : Ermöglicht es Ihnen, einen der Texte zufällig zurückzugeben (trennen Sie die Texte durch einen; ). Die Anzahl der Texte ist unbegrenzt.
+- `randomColor(min,max)` : Gibt eine zufällige Farbe zwischen 2 Grenzen (0 => Rot, 50 => Grün, 100 => Blau).
+- `trigger(commande)` : Ermöglicht es Ihnen, den Auslöser für das Szenario herauszufinden oder festzustellen, ob der als Parameter übergebene Befehl das Szenario ausgelöst hat.
+- `triggerValue()` : Wird verwendet, um den Wert des Szenario-Triggers herauszufinden.
+- `round(valeur,[decimal])` : Runden oben, [Dezimal] Anzahl der Dezimalstellen nach dem Dezimalpunkt.
+- `odd(valeur)` : Lässt Sie wissen, ob eine Zahl ungerade ist oder nicht. Gibt 1 zurück, wenn sonst ungerade 0.
+- `median(commande1,commande2…​.commandeN)` : Gibt den Median der Werte zurück.
+- `avg(commande1,commande2…​.commandeN)` : Gibt den Durchschnitt der Werte zurück.
+- `time_op(time,value)` : Ermöglicht die pünktliche Ausführung von Operationen mit time = time (z : 1530) und Wert = Wert zum Addieren oder Subtrahieren in Minuten.
+- `time_between(time,start,end)` : Wird verwendet, um zu testen, ob eine Zeit zwischen zwei Werten mit liegt `time=temps` (Ex : 1530), `start=temps`, `end=temps`. Start- und Endwerte können sich über Mitternacht erstrecken.
+- `time_diff(date1,date2[,format, round])` : Wird verwendet, um den Unterschied zwischen zwei Daten zu ermitteln (die Daten müssen das Format JJJJ / MM / TT HH haben:MM:SS). Standardmäßig gibt die Methode die Differenz in Tag (e) zurück). Sie können es in Sekunden (s), Minuten (m), Stunden (h) fragen). Beispiel in Sekunden `time_diff(2019-02-02 14:55:00,2019-02-25 14:55:00,s)`. Die Differenz wird in absoluten Zahlen zurückgegeben, sofern Sie nichts anderes angeben `f` (`sf`, `mf`, `hf`, `df`). Sie können auch verwenden `dhms` wer wird nicht Beispiel zurückgeben `7j 2h 5min 46s`. Der optionale Parameter round rundet auf x Dezimalstellen (standardmäßig 2). Ex: `time_diff(2020-02-21 20:55:28,2020-02-28 23:01:14,df, 4)`.
+- `formatTime(time)` : Formatiert die Rückgabe einer Kette `#time#`.
+- `floor(time/.60)` : Konvertieren Sie Sekunden in Minuten oder Minuten in Stunden (`floor(time/.3600)` für Sekunden bis Stunden).
+- `convertDuration(secondes)` : Konvertiert Sekunden in d / h / min / s.
 
 Und praktische Beispiele :
 
-
-| Funktionsbeispiel                  | Zurückgegebenes Ergebnis                    |
-|--------------------------------------|--------------------------------------|
-| ``randText(il fait #[salon][oeil][température]#;La température est de #[salon][oeil][température]#;Actuellement on a #[salon][oeil][température]#)`` | Die Funktion gibt bei jeder Ausführung zufällig einen dieser Texte zurück.                           |
-| ``randomColor(40,60)``                 | Gibt eine zufällige Farbe nahe Grün zurück.
-| ``trigger(#[Salle de bain][Hydrometrie][Humidité]#)``   | 1 wenn es gut ist ``#[Salle de bain][Hydrometrie][Humidité]#`` Wer hat das Szenario sonst gestartet? 0  |
-| ``triggerValue()`` | 80 wenn die Hydrometrie von ``#[Salle de bain][Hydrometrie][Humidité]#`` ist 80% und das ist ``#[Salle de bain][Hydrometrie][Humidité]#`` wer hat das szenario ausgelöst. Wenn das Szenario nicht durch einen Befehl ausgelöst wurde, wird `false` zurückgegeben.                         |
-| ``round(#[Salle de bain][Hydrometrie][Humidité]# /. 10)`` | Gibt 9 zurück, wenn der Feuchtigkeitsprozentsatz und 85                     |
-| ``odd(3)``                             | Rückgabe 1                            |
-| ``median(15,25,20)``                   | Rückgabe 20
-| ``avg(10,15,18)``                      | Rückgabe 14.3                     |
-| ``time_op(#time#, -90)``               | Wenn es 16:50 Uhr ist, kehren Sie zurück : 1 650-1 130 = 1520                          |
-| ``formatTime(1650)``                   | Rückgabe 16:50 Uhr                        |
-| ``floor(130/.60)``                     | Gibt 2 zurück (Minuten bei 130 s oder Stunden bei 130 m)                      |
-| ``convertDuration(3600)``             | Gibt 1h 0min 0s zurück                      |
-| ``convertDuration(duration(#[Chauffage][Module chaudière][Etat]#,1, first day of this month)*60)`` | Gibt die Zündzeit in Tagen / Stunden / Minuten der Übergangszeit auf Zustand 1 des Moduls seit dem 1. Tag des Monats zurück |
-
+| Funktionsbeispiel                                                                                                                                  | Zurückgegebenes Ergebnis                                                                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `randText(il fait #[salon][oeil][température]#;La température est de #[salon][oeil][température]#;Actuellement on a #[salon][oeil][température]#)` | Die Funktion gibt bei jeder Ausführung zufällig einen dieser Texte zurück.                                                                                                                                                                                    |
+| `randomColor(40,60)`                                                                                                                               | Gibt eine zufällige Farbe nahe Grün zurück.                                                                                                                                                                                                                   |
+| `trigger(#[Salle de bain][Hydrometrie][Humidité]#)`                                                                                                | 1 wenn es gut ist `#[Salle de bain][Hydrometrie][Humidité]#` Wer hat das Szenario sonst gestartet? 0                                                                                                                                                          |
+| `triggerValue()`                                                                                                                                   | 80 wenn die Hydrometrie von `#[Salle de bain][Hydrometrie][Humidité]#` ist 80% und das ist `#[Salle de bain][Hydrometrie][Humidité]#` wer hat das szenario ausgelöst. Wenn das Szenario nicht durch einen Befehl ausgelöst wurde, wird `false` zurückgegeben. |
+| `round(#[Salle de bain][Hydrometrie][Humidité]# /. 10)`                                                                                            | Gibt 9 zurück, wenn der Feuchtigkeitsprozentsatz und 85                                                                                                                                                                                                       |
+| `odd(3)`                                                                                                                                           | Rückgabe 1                                                                                                                                                                                                                                                    |
+| `median(15,25,20)`                                                                                                                                 | Rückgabe 20                                                                                                                                                                                                                                                   |
+| `avg(10,15,18)`                                                                                                                                    | Rückgabe 14.3                                                                                                                                                                                                                                                 |
+| `time_op(#time#, -90)`                                                                                                                             | Wenn es 16:50 Uhr ist, kehren Sie zurück : 1 650-1 130 = 1520                                                                                                                                                                                                 |
+| `formatTime(1650)`                                                                                                                                 | Rückgabe 16:50 Uhr                                                                                                                                                                                                                                            |
+| `floor(130/.60)`                                                                                                                                   | Gibt 2 zurück (Minuten bei 130 s oder Stunden bei 130 m)                                                                                                                                                                                                      |
+| `convertDuration(3600)`                                                                                                                            | Gibt 1h 0min 0s zurück                                                                                                                                                                                                                                        |
+| `convertDuration(duration(#[Chauffage][Module chaudière][Etat]#,1, first day of this month)*60)`                                                   | Gibt die Zündzeit in Tagen / Stunden / Minuten der Übergangszeit auf Zustand 1 des Moduls seit dem 1. Tag des Monats zurück                                                                                                                                   |
 
 ### Diverse Funktionen
 
-- ``sun(elevation)`` : Gibt in ° die Höhe der Sonne an (Achtung, Sie müssen Ihre geografischen Koordinaten in der Konfiguration von jeedom eingegeben haben)
-- ``sun(azimuth)`` : Gibt in ° den Azimut der Sonne an (Achtung, Sie müssen Ihre geografischen Koordinaten in der Konfiguration von jeedom eingegeben haben)
+- `sun(elevation)` : Gibt in ° die Höhe der Sonne an (Achtung, Sie müssen Ihre geografischen Koordinaten in der Konfiguration von jeedom eingegeben haben)
+- `sun(azimuth)` : Gibt in ° den Azimut der Sonne an (Achtung, Sie müssen Ihre geografischen Koordinaten in der Konfiguration von jeedom eingegeben haben)
 
 ### Spezifische Bestellungen
 
@@ -474,12 +475,12 @@ Zusätzlich zu den Befehlen für die Hausautomation haben Sie Zugriff auf die fo
 - **Variable entfernen** (delete_variable) : Ermöglicht das Löschen einer Variablen.
 - **GenericType (GENERIC, #[Object]#)** : Änderung eines Info- (Ereignis)- oder Aktions- (execCmd) Befehls nach generischem Typ in einem Objekt. Schalten Sie beispielsweise alle Lichter im Wohnzimmer aus.
 - **Szenario** (scenario) : Ermöglicht die Steuerung von Szenarien. Mit dem Tag-Teil können Sie Tags an das Szenario senden, z : montag = 2 (Vorsicht, verwenden Sie nur Buchstaben von a bis z. Keine Großbuchstaben, keine Akzente und keine Sonderzeichen). Wir stellen das Tag im Zielszenario mit der Tag-Funktion (montag) wieder her).
-    - Zum Starten : Starten Sie das Szenario in einem anderen Thread. Das gestartete Szenario läuft unabhängig vom aufrufenden Szenario.
-    - Starten (Synchronisieren)) : Startet das aufgerufene Szenario und pausiert das aufrufende Szenario, während die Ausführung des aufgerufenen Szenarios beendet ist.
-    - Halt : Stoppen Sie das Szenario.
-    - Ermöglichen : Aktivieren Sie ein deaktiviertes Szenario.
-    - Deaktivieren : Szenario deaktivieren. Es wird nicht mehr unabhängig von den Auslösern gestartet.
-    - Zurücksetzen der ISs : Wird verwendet, um den Status von . zurückzusetzen **WENN**. Dieser Status wird verwendet, um die Aktionen von a . nicht zu wiederholen **WENN**, wenn die Bewertung der Bedingung das gleiche Ergebnis wie die vorherige Bewertung ergibt.
+  - Zum Starten : Starten Sie das Szenario in einem anderen Thread. Das gestartete Szenario läuft unabhängig vom aufrufenden Szenario.
+  - Starten (Synchronisieren)) : Startet das aufgerufene Szenario und pausiert das aufrufende Szenario, während die Ausführung des aufgerufenen Szenarios beendet ist.
+  - Halt : Stoppen Sie das Szenario.
+  - Ermöglichen : Aktivieren Sie ein deaktiviertes Szenario.
+  - Deaktivieren : Szenario deaktivieren. Es wird nicht mehr unabhängig von den Auslösern gestartet.
+  - Zurücksetzen der ISs : Wird verwendet, um den Status von . zurückzusetzen **WENN**. Dieser Status wird verwendet, um die Aktionen von a . nicht zu wiederholen **WENN**, wenn die Bewertung der Bedingung das gleiche Ergebnis wie die vorherige Bewertung ergibt.
 - **Halt** (stop) : Stoppen Sie das Szenario.
 - **Erwarten von** (wait) : Warten Sie, bis die Bedingung gültig ist (maximal 2 Stunden). Die Zeitüberschreitung erfolgt in Sekunden (s)).
 - **Gehe zum Design** (gotodesign) : Ändern Sie das in allen Browsern angezeigte Design durch das angeforderte Design.
@@ -487,8 +488,8 @@ Zusätzlich zu den Befehlen für die Hausautomation haben Sie Zugriff auf die fo
 - **Nachricht erstellen** (message) : Fügen Sie dem Nachrichtencenter eine Nachricht hinzu.
 - **Geräte ausblenden / deaktivieren** (equipement) : Ermöglicht das Ändern der Eigenschaften von sichtbaren / unsichtbaren, aktiven / inaktiven Geräten.
 - **Stellen Sie eine Anfrage** (ask) : Wird verwendet, um Jeedom anzuzeigen, dass dem Benutzer eine Frage gestellt werden soll. Die Antwort wird in einer Variablen gespeichert, dann müssen Sie nur noch ihren Wert testen.
-    Momentan sind nur SMS-, Slack-, Telegramm- und Snips-Plugins sowie die mobile Anwendung kompatibel.
-    Achtung, diese Funktion blockiert. Solange keine Antwort erfolgt oder das Zeitlimit nicht erreicht wird, wartet das Szenario. Hinweis für eine freie Antwort * in die Liste der möglichen Antworten eintragen.
+  Momentan sind nur SMS-, Slack-, Telegramm- und Snips-Plugins sowie die mobile Anwendung kompatibel.
+  Achtung, diese Funktion blockiert. Solange keine Antwort erfolgt oder das Zeitlimit nicht erreicht wird, wartet das Szenario. Hinweis für eine freie Antwort \* in die Liste der möglichen Antworten eintragen.
 - **Stoppen Sie Jeedom** (jeedom_poweroff) : Bitten Sie Jeedom, herunterzufahren.
 - **Geben Sie einen Text / Daten zurück** (Szenario_return) : Gibt beispielsweise einen Text oder einen Wert für eine Interaktion zurück.
 - **Symbol** (icon) : Ermöglicht das Ändern des Darstellungssymbols des Szenarios.
@@ -545,8 +546,8 @@ Gehen Sie zur Jeedom-Konfiguration, dann zu OS / DB und starten Sie den Datei-Ed
 
 Gehen Sie in den Datenordner und dann in PHP und klicken Sie auf die Datei user.function.class.php.
 
-Es ist in diesem *Klasse* Damit Sie Ihre Funktionen hinzufügen können, finden Sie dort ein Beispiel für eine Grundfunktion.
+Es ist in diesem _Klasse_ Damit Sie Ihre Funktionen hinzufügen können, finden Sie dort ein Beispiel für eine Grundfunktion.
 
 > **WICHTIG**
 >
-> Wenn Sie Bedenken haben, können Sie jederzeit zur Originaldatei zurückkehren, indem Sie den Inhalt von kopieren ``user.function.class.sample.php`` Im ``user.function.class.php``
+> Wenn Sie Bedenken haben, können Sie jederzeit zur Originaldatei zurückkehren, indem Sie den Inhalt von kopieren `user.function.class.sample.php` Im `user.function.class.php`

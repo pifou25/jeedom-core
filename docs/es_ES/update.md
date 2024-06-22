@@ -1,10 +1,9 @@
 # Centro de actualizaciones
-**Configuración → Sistema → Centro de actualizaciones**
 
+**Configuración → Sistema → Centro de actualizaciones**
 
 La **Centro de actualizaciones** le permite actualizar toda la funcionalidad de Jeedom, incluido el software principal y sus complementos.
 Hay otras funciones de administración de extensiones disponibles (eliminar, reinstalar, verificar, etc.).
-
 
 ## Funciones de la página
 
@@ -22,6 +21,7 @@ El botón **Para salvaguardar** se utilizará cuando cambie las opciones en la t
 
 El botón **Poner al día** le permite actualizar el Core, los complementos o ambos.
 Una vez que haces clic en él, obtienes estas diferentes opciones :
+
 - **Pre-actualización** : Le permite actualizar el script de actualización antes de aplicar las nuevas actualizaciones. Generalmente se usa a pedido del soporte.
 - **Ahorre antes** : Haga una copia de seguridad de Jeedom antes de actualizar. La copia de seguridad se realiza solo localmente (ni Market ni Samba).
 - **Actualizar complementos** : Le permite incluir complementos en la actualización.
@@ -42,7 +42,7 @@ Una vez que haces clic en él, obtienes estas diferentes opciones :
 
 La tabla contiene las versiones de Core y los complementos instalados.
 
-Los complementos tienen una insignia al lado de su nombre, especificando su versión, de color verde *firme*, o naranja en *beta* u otro.
+Los complementos tienen una insignia al lado de su nombre, especificando su versión, de color verde _firme_, o naranja en _beta_ u otro.
 
 - **Estado** : OK o NOK.
 - **Apellido** : Nombre y origen del complemento
@@ -72,7 +72,7 @@ En cada línea, puede usar las siguientes funciones:
 >
 > Esta pestaña está reservada para usuarios avanzados y solo para usuarios avanzados, la más mínima mala acción aquí puede ROMPER su Jeedom (sin la posibilidad de recurrir al soporte)
 
-Esta pestaña le permite ver las actualizaciones disponibles para el paquete os (apt), python (pip2 y pip3), así como actualizar los paquetes que lo requieren. 
+Esta pestaña le permite ver las actualizaciones disponibles para el paquete os (apt), python (pip2 y pip3), así como actualizar los paquetes que lo requieren.
 
 ## Pestaña de información
 
@@ -80,7 +80,7 @@ Durante o después de una actualización, esta pestaña le permite leer el regis
 
 > **Nota**
 >
-> Este registro normalmente termina con *[FINALIZAR ÉXITO ACTUALIZADO]*. Puede haber algunas líneas de error en este tipo de registro, sin embargo, a menos que haya un problema real después de la actualización, no siempre es necesario contactar al soporte para esto.
+> Este registro normalmente termina con _[FINALIZAR ÉXITO ACTUALIZADO]_. Puede haber algunas líneas de error en este tipo de registro, sin embargo, a menos que haya un problema real después de la actualización, no siempre es necesario contactar al soporte para esto.
 
 ## Actualización de línea de comando
 
@@ -96,7 +96,7 @@ Los posibles parámetros son :
 
 Aquí hay un ejemplo de sintaxis para realizar una actualización forzada al volver a aplicar los cambios desde 4.0.04 :
 
-''''''sudo php  /var/www/html/install/update.php mode=force version=4.0.04''''''
+''''''sudo php /var/www/html/install/update.php mode=force version=4.0.04''''''
 
 Atención, después de una actualización en la línea de comando, es necesario volver a aplicar los derechos en la carpeta Jeedom :
 

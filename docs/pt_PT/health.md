@@ -1,4 +1,5 @@
 # Santé
+
 **Análise → Saúde**
 
 A página Jeedom Health permite que você tenha uma visão geral rápida do status de saúde de seu Jeedom.
@@ -16,11 +17,11 @@ Abaixo, você encontra a saúde de cada plug-in, um clique no nome do plug-in fo
 
 À direita, você encontra os ícones :
 
--   Porta de acesso para hardware de plug-in (tipo de chave Zwave).
--   Modo demônio.
--   Exibição da página de integridade do equipamento do plug-in.
--   Exibição da página de configuração do plug-in.
--   Estado geral do plug-in.
+- Porta de acesso para hardware de plug-in (tipo de chave Zwave).
+- Modo demônio.
+- Exibição da página de integridade do equipamento do plug-in.
+- Exibição da página de configuração do plug-in.
+- Estado geral do plug-in.
 
 > **Observação**
 >

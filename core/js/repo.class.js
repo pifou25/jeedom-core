@@ -14,112 +14,157 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-jeedom.repo = function() {};
+jeedom.repo = function () {};
 
-jeedom.repo.install = function(_params) {
-  var paramsRequired = ['id', 'repo'];
+jeedom.repo.install = function (_params) {
+  var paramsRequired = ["id", "repo"];
   var paramsSpecifics = {
     global: _params.global || true,
   };
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/repo.ajax.php';
+  paramsAJAX.url = "core/ajax/repo.ajax.php";
   paramsAJAX.data = {
-    action: 'install',
+    action: "install",
     repo: _params.repo,
     id: _params.id,
-    version: _params.version || 'stable'
+    version: _params.version || "stable",
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.repo.remove = function(_params) {
-  var paramsRequired = ['id', 'repo'];
+jeedom.repo.remove = function (_params) {
+  var paramsRequired = ["id", "repo"];
   var paramsSpecifics = {
     global: _params.global || true,
   };
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/repo.ajax.php';
+  paramsAJAX.url = "core/ajax/repo.ajax.php";
   paramsAJAX.data = {
-    action: 'remove',
+    action: "remove",
     repo: _params.repo,
     id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.repo.test = function(_params) {
-  var paramsRequired = ['repo'];
+jeedom.repo.test = function (_params) {
+  var paramsRequired = ["repo"];
   var paramsSpecifics = {
     global: _params.global || true,
   };
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/repo.ajax.php';
+  paramsAJAX.url = "core/ajax/repo.ajax.php";
   paramsAJAX.data = {
-    action: 'test',
+    action: "test",
     repo: _params.repo,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.repo.backupList = function(_params) {
-  var paramsRequired = ['repo'];
+jeedom.repo.backupList = function (_params) {
+  var paramsRequired = ["repo"];
   var paramsSpecifics = {
     global: _params.global || true,
   };
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/repo.ajax.php';
+  paramsAJAX.url = "core/ajax/repo.ajax.php";
   paramsAJAX.data = {
-    action: 'backupList',
+    action: "backupList",
     repo: _params.repo,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.repo.pullInstall = function(_params) {
-  var paramsRequired = ['repo'];
+jeedom.repo.pullInstall = function (_params) {
+  var paramsRequired = ["repo"];
   var paramsSpecifics = {
     global: _params.global || true,
   };
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/repo.ajax.php';
+  paramsAJAX.url = "core/ajax/repo.ajax.php";
   paramsAJAX.data = {
     repo: _params.repo,
-    action: 'pullInstall'
+    action: "pullInstall",
   };
   domUtils.ajax(paramsAJAX);
-}
+};

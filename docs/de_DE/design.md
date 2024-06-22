@@ -1,4 +1,5 @@
 # Design
+
 **Startseite → Design**
 
 Auf dieser Seite können Sie die Anzeige Ihrer gesamten Hausautomation auf sehr feine Weise konfigurieren.
@@ -21,21 +22,21 @@ Im Menü (Rechtsklick) finden wir folgende Aktionen :
 - **Fügen Sie Text / HTML hinzu** : Ermöglicht das Hinzufügen von Text oder HTML / JavaScript-Code.
 - **Szenario hinzufügen** : Fügen Sie ein Szenario hinzu.
 - **Link hinzufügen**
-    - **Auf dem Weg zu einer Aussicht** : Fügen Sie einer Ansicht einen Link hinzu.
-    - **Auf dem Weg zu einem Design** : Fügen Sie einen Link zu einem anderen Design hinzu.
+  - **Auf dem Weg zu einer Aussicht** : Fügen Sie einer Ansicht einen Link hinzu.
+  - **Auf dem Weg zu einem Design** : Fügen Sie einen Link zu einem anderen Design hinzu.
 - **Ausrüstung hinzufügen** : Fügt Ausrüstung hinzu.
 - **Bestellung hinzufügen** : Bestellung hinzufügen.
 - **Bild / Kamera hinzufügen** : Ermöglicht das Hinzufügen eines Bildes oder eines Streams von einer Kamera.
 - **Bereich hinzufügen** : Ermöglicht das Hinzufügen einer anklickbaren transparenten Zone, die während eines Klicks eine Reihe von Aktionen ausführen kann (abhängig vom Status eines anderen Befehls oder nicht).
 - **Zusammenfassung hinzufügen** : Fügt Informationen aus einem Objekt oder einer allgemeinen Zusammenfassung hinzu.
 - **Anzeige**
-    - **Keiner** : Zeigt kein Raster an.
-    - **10x10** : Zeigt ein 10 x 10-Raster an.
-    - **15x15** : Zeigt ein Raster von 15 mal 15 an.
-    - **20x20** : Zeigt ein 20 x 20-Raster an.
-    - **Magnetisieren Sie die Elemente** : Fügt eine Magnetisierung zwischen den Elementen hinzu, um das Aufkleben zu erleichtern.
-    - **Magnet auf dem Gitter** : Fügen Sie dem Raster eine Magnetisierung der Elemente hinzu (Aufmerksamkeit : Abhängig vom Zoom des Elements kann diese Funktionalität mehr oder weniger funktionieren).
-    - **Hervorheben von Elementen ausblenden** : Hervorheben von Elementen ausblenden.
+  - **Keiner** : Zeigt kein Raster an.
+  - **10x10** : Zeigt ein 10 x 10-Raster an.
+  - **15x15** : Zeigt ein Raster von 15 mal 15 an.
+  - **20x20** : Zeigt ein 20 x 20-Raster an.
+  - **Magnetisieren Sie die Elemente** : Fügt eine Magnetisierung zwischen den Elementen hinzu, um das Aufkleben zu erleichtern.
+  - **Magnet auf dem Gitter** : Fügen Sie dem Raster eine Magnetisierung der Elemente hinzu (Aufmerksamkeit : Abhängig vom Zoom des Elements kann diese Funktionalität mehr oder weniger funktionieren).
+  - **Hervorheben von Elementen ausblenden** : Hervorheben von Elementen ausblenden.
 - **Design löschen** : Design entfernen.
 - **Erstellen Sie ein Design** : Ermöglicht das Hinzufügen eines neuen Designs.
 - **Doppeltes Design** : Dupliziert das aktuelle Design.
@@ -51,17 +52,17 @@ Im Menü (Rechtsklick) finden wir folgende Aktionen :
 Hier gefunden :
 
 - **General**
-    - **Nachname** : Der Name Ihres Designs.
-    - **Position** : Die Position des Designs im Menü. Ermöglicht die Bestellung der Designs.
-    - **Transparenter Hintergrund** : Macht den Hintergrund transparent. Achtung Wenn das Kontrollkästchen aktiviert ist, wird die Hintergrundfarbe nicht verwendet.
-    - **Hintergrundfarbe** : Design Hintergrundfarbe.
-    - **Zugangscode** : Zugriffscode für Ihr Design (falls leer, ist kein Code erforderlich).
-    - **Symbol** : Ein Symbol dafür (erscheint im Designauswahlmenü).
-    - **Bild**
-        - **Senden** : Ermöglicht das Hinzufügen eines Hintergrundbilds zum Design.
-        - **Bild löschen** : Bild löschen.
+  - **Nachname** : Der Name Ihres Designs.
+  - **Position** : Die Position des Designs im Menü. Ermöglicht die Bestellung der Designs.
+  - **Transparenter Hintergrund** : Macht den Hintergrund transparent. Achtung Wenn das Kontrollkästchen aktiviert ist, wird die Hintergrundfarbe nicht verwendet.
+  - **Hintergrundfarbe** : Design Hintergrundfarbe.
+  - **Zugangscode** : Zugriffscode für Ihr Design (falls leer, ist kein Code erforderlich).
+  - **Symbol** : Ein Symbol dafür (erscheint im Designauswahlmenü).
+  - **Bild**
+    - **Senden** : Ermöglicht das Hinzufügen eines Hintergrundbilds zum Design.
+    - **Bild löschen** : Bild löschen.
 - **Größen**
-    - **Größe (BxH)** : Ermöglicht das Festlegen der Größe Ihres Designs in Pixel.
+  - **Größe (BxH)** : Ermöglicht das Festlegen der Größe Ihres Designs in Pixel.
 
 ## Allgemeine Konfiguration der Elemente
 
@@ -125,7 +126,7 @@ Hier können Sie die Befehle auswählen, die erfasst werden sollen.
 
 ## Szenario
 
-*Keine spezifischen Anzeigeeinstellungen*
+_Keine spezifischen Anzeigeeinstellungen_
 
 ## Lien
 
@@ -158,6 +159,7 @@ Hier können Sie die Befehle auswählen, die erfasst werden sollen.
 ### Commandes
 
 Die Liste der auf dem Gerät vorhandenen Befehle ermöglicht es Ihnen, für jeden Befehl Folgendes zu tun:
+
 - Befehlsname ausblenden.
 - Befehl ausblenden.
 - Zeigen Sie die Bestellung mit einem transparenten Hintergrund an.
@@ -168,7 +170,7 @@ Zeigt das Fenster zur erweiterten Gerätekonfiguration an (siehe Dokumentation *
 
 ## Commande
 
-*Keine spezifischen Anzeigeeinstellungen*
+_Keine spezifischen Anzeigeeinstellungen_
 
 ### Erweiterte Konfiguration
 
@@ -223,8 +225,8 @@ In diesem Modus wird beim Bewegen oder Klicken im Bereich Jeedom das betreffende
 
 ## FAQ
 
->**Ich kann mein Design nicht mehr bearbeiten**
->Wenn Sie ein Widget oder ein Bild eingefügt haben, das fast das gesamte Design einnimmt, müssen Sie außerhalb des Widgets oder Bildes klicken, um mit der rechten Maustaste auf das Menü zuzugreifen.
+> **Ich kann mein Design nicht mehr bearbeiten**
+> Wenn Sie ein Widget oder ein Bild eingefügt haben, das fast das gesamte Design einnimmt, müssen Sie außerhalb des Widgets oder Bildes klicken, um mit der rechten Maustaste auf das Menü zuzugreifen.
 
->**Löschen Sie ein Design, das nicht mehr funktioniert**
->Machen Sie im Administrationsteil und dann in OS / DB "select * from planHeader", stellen Sie die ID des betreffenden Designs wieder her und führen Sie "delete from planHeader where id" aus=#TODO#" und "aus plan löschen wo planHeader_id=#todo#" gut ersetzen #TODO# durch die zuvor gefundene Design-ID.
+> **Löschen Sie ein Design, das nicht mehr funktioniert**
+> Machen Sie im Administrationsteil und dann in OS / DB "select \* from planHeader", stellen Sie die ID des betreffenden Designs wieder her und führen Sie "delete from planHeader where id" aus=#TODO#" und "aus plan löschen wo planHeader_id=#todo#" gut ersetzen #TODO# durch die zuvor gefundene Design-ID.

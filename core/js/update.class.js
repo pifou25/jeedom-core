@@ -14,175 +14,255 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-jeedom.update = function() {};
+jeedom.update = function () {};
 
-jeedom.update.doAll = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'updateAll',
-        options: JSON.stringify(_params.options) || '',
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.doAll = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "updateAll",
+    options: JSON.stringify(_params.options) || "",
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.do = function(_params) {
-    var paramsRequired = ['id'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'update',
-        id: _params.id
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.do = function (_params) {
+  var paramsRequired = ["id"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "update",
+    id: _params.id,
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.remove = function(_params) {
-    var paramsRequired = ['id'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'remove',
-        id: _params.id
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.remove = function (_params) {
+  var paramsRequired = ["id"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "remove",
+    id: _params.id,
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.checkAll = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'checkAllUpdate'
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.checkAll = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "checkAllUpdate",
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.check = function(_params) {
-    var paramsRequired = ['id'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'checkUpdate',
-        id: _params.id
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.check = function (_params) {
+  var paramsRequired = ["id"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "checkUpdate",
+    id: _params.id,
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.get = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'all'
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.get = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "all",
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.save = function(_params) {
-    var paramsRequired = ['update'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'save',
-        update: JSON.stringify(_params.update)
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.save = function (_params) {
+  var paramsRequired = ["update"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "save",
+    update: JSON.stringify(_params.update),
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.saves = function(_params) {
-    var paramsRequired = ['updates'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'saves',
-        updates: JSON.stringify(_params.updates)
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.update.saves = function (_params) {
+  var paramsRequired = ["updates"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "saves",
+    updates: JSON.stringify(_params.updates),
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.update.number = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {
-        global: false,
-    };
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/update.ajax.php';
-    paramsAJAX.data = {
-        action: 'nbUpdate',
-    };
-    domUtils.ajax(paramsAJAX);
-}
-  
+jeedom.update.number = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {
+    global: false,
+  };
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/update.ajax.php";
+  paramsAJAX.data = {
+    action: "nbUpdate",
+  };
+  domUtils.ajax(paramsAJAX);
+};

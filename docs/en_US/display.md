@@ -1,4 +1,5 @@
 # Home Automation Summary
+
 **Analysis → Home automation summary**
 
 This page allows you to gather on a single page the different elements configured on your Jeedom. It also gives access to functions for organizing equipment and controls, to their advanced configuration and to display configuration possibilities.
@@ -8,6 +9,7 @@ This page allows you to gather on a single page the different elements configure
 ## Informations
 
 On the top of the page, we find :
+
 - **Number of objects** : Total number of objects configured in our Jeedom, including inactive elements.
 - **Number of equipments** : Same for the equipment.
 - **Number of commands** : Same for commands.
@@ -23,6 +25,7 @@ Below there is one frame per object. In each frame, we find the list of equipmen
 The first frame **None** represents devices that have no assigned parent.
 
 For each object, next to its label, two buttons are available.
+
 - The first is used to open the object configuration page in a new tab.
 - The second provides some information on the object,
 
@@ -38,7 +41,7 @@ For each object, next to its label, two buttons are available.
 
 On each equipment we find :
 
-- A **check box** to select the equipment (you can select several). If at least one device is selected, you have action buttons that appear in the upper left to **to delete**, to return **visible**/**invisible**,  **asset**/**Idle** selected equipment.
+- A **check box** to select the equipment (you can select several). If at least one device is selected, you have action buttons that appear in the upper left to **to delete**, to return **visible**/**invisible**, **asset**/**Idle** selected equipment.
 - L'**id** equipment.
 - The **kind** equipment : Identifier of the plugin to which it belongs.
 - The **name** equipment.
@@ -46,6 +49,7 @@ On each equipment we find :
 - **Invisible** (crossed eye) : Means that the equipment is invisible (if it is not there, the equipment is visible).
 
 If the equipment plugin is disabled, the two icons on the right do not appear:
+
 - **External link** (square with arrow) : Allows to open in a new tab the equipment configuration page.
 - **Advanced configuration** (toothed wheel) : opens the advanced equipment configuration window.
 
@@ -90,7 +94,7 @@ In the tab **Display**, you will be able to configure certain tile display behav
 
 #### Widget
 
--  **Visible** : Check the box to make the equipment visible.
+- **Visible** : Check the box to make the equipment visible.
 - **Show name** : Check the box to display the name of the equipment on the tile.
 - **Display object name** : Check the box to display the name of the parent object of the equipment, next to the tile.
 
@@ -107,6 +111,7 @@ new. For equipment, only the value **style** is currently used, it allows to ins
 
 This part allows you to choose between the standard layout of the commands (side by side in the widget), or in table mode. Nothing to set in default mode. Here are the options available in mode
 **Picture** :
+
 - **Number of lines**
 - **Number of columns**
 - **Center in boxes** : Check the box to center commands in cells.
@@ -115,6 +120,7 @@ This part allows you to choose between the standard layout of the commands (side
 
 Below for each box, the **detailed configuration** It allows you to
 this :
+
 - **Box text** : Add text in addition to the command (or all by itself, if there is no command in the box).
 - **Case style (CSS)** : Modify the specific CSS style of the box (note that it overwrites and replaces the general CSS of boxes).
 
@@ -150,7 +156,7 @@ First, at the top right, some buttons available :
 - **Connections** : Allows to display the links of the equipment with objects, commands, scenarios, variables, interactions…. in graphic form.
 - **Log** : Displays the events of the equipment in question.
 - **Information** : Displays the raw properties of the equipment.
--  **To apply to** : Allows the same configuration to be applied to several commands.
+- **To apply to** : Allows the same configuration to be applied to several commands.
 - **To safeguard** : Save the modifications made on the equipment.
 
 > **Tip**
@@ -195,28 +201,30 @@ Below, you will find the list of the different equipment, commands, scenarios or
 #### For an info type command :
 
 - **Calculation and rounding**
-    - **Algorithm (\#value\# for value)** : Allows you to make an operation on the value of the command before processing by Jeedom, example : ``#value# - 0.2` to subtract 0.2 (offset on a temperature sensor).
-    - **Rounded (number after decimal point)** : Used to round the value of the command (Example : put 2 to transform 16.643,345 in 16.64).
+  - **Algorithm (\#value\# for value)** : Allows you to make an operation on the value of the command before processing by Jeedom, example : ``#value# - 0.2` to subtract 0.2 (offset on a temperature sensor).
+  - **Rounded (number after decimal point)** : Used to round the value of the command (Example : put 2 to transform 16.643,345 in 16.64).
 - **Generic type** : Allows you to configure the generic type of the command (Jeedom tries to find it by itself in auto mode). This information is used by the mobile application.
 - **Action on value, if** : Lets do some sort of mini scenarios. You can, for example, say that if the value is worth more than 50 for 3 minutes, then you have to do such action. This allows, for example, to turn off a light X minutes after it has turned on.
 
 - **Historical**
-    - **Historize** : Check the box to have the values of this command logged. (See **Analysis → History**)
-    - **Smoothing mode** : Mode of **smoothing** or d'**archiving** allows you to choose how to archive the data. By default, this is a **mean**. It is also possible to choose the **maximum**, the **minimum**, Where **None**. **None** lets tell Jeedom that it should not perform archiving on this command (both during the first 5 mins period and with the archiving task). This option is dangerous because Jeedom keeps everything : so there will be a lot more data kept.
-    - **Purge history if older than** : Lets tell Jeedom to delete all data older than a certain period. May be practical not to keep data if it is not necessary and therefore limit the amount of information recorded by Jeedom. Please note that the purge is triggered at night, so you must wait for the night to pass before having the effective action of the purge.
+
+  - **Historize** : Check the box to have the values of this command logged. (See **Analysis → History**)
+  - **Smoothing mode** : Mode of **smoothing** or d'**archiving** allows you to choose how to archive the data. By default, this is a **mean**. It is also possible to choose the **maximum**, the **minimum**, Where **None**. **None** lets tell Jeedom that it should not perform archiving on this command (both during the first 5 mins period and with the archiving task). This option is dangerous because Jeedom keeps everything : so there will be a lot more data kept.
+  - **Purge history if older than** : Lets tell Jeedom to delete all data older than a certain period. May be practical not to keep data if it is not necessary and therefore limit the amount of information recorded by Jeedom. Please note that the purge is triggered at night, so you must wait for the night to pass before having the effective action of the purge.
 
 - **Values management**
-    - **Prohibited value** : If the command takes one of these values, Jeedom ignores it before applying it.
-    - **Status return value** : Returns the command to this value after a certain time.
-    - **Duration before return of status (min)** : Time before return to the above value.
+
+  - **Prohibited value** : If the command takes one of these values, Jeedom ignores it before applying it.
+  - **Status return value** : Returns the command to this value after a certain time.
+  - **Duration before return of status (min)** : Time before return to the above value.
 
 - **Others**
-    - **Management of the repetition of values** : In automatic if the command goes up 2 times the same value in a row, then Jeedom will not take into account the 2nd ascent (avoids triggering a scenario several times, unless the command is of binary type). You can force the repetition of the value or prohibit it completely.
-    - **Push url** : Allows to add a URL to call in case of update of the command. You can use the following tags : ``#value#`for the value of the command,`#cmd_name#`for the name of the command,`#cmd_id#`for the unique identifier of the command,`#humanname#`for the full name of the command (ex : ``#[Salthe de bain][Hydrometrie][Humidité]#`),`#eq_name#`for the name of the equipment.
+  - **Management of the repetition of values** : In automatic if the command goes up 2 times the same value in a row, then Jeedom will not take into account the 2nd ascent (avoids triggering a scenario several times, unless the command is of binary type). You can force the repetition of the value or prohibit it completely.
+  - **Push url** : Allows to add a URL to call in case of update of the command. You can use the following tags : ``#value#`for the value of the command,`#cmd_name#`for the name of the command,`#cmd_id#`for the unique identifier of the command,`#humanname#`for the full name of the command (ex : ``#[Salthe de bain][Hydrometrie][Humidité]#`),`#eq_name#`for the name of the equipment.
 
 #### For an action command :
 
--  **Generic type** : Allows you to configure the generic type of the command (Jeedom tries to find it by itself in auto mode). This information is used by the mobile application.
+- **Generic type** : Allows you to configure the generic type of the command (Jeedom tries to find it by itself in auto mode). This information is used by the mobile application.
 - **Confirm action** : Check this box to have Jeedom request confirmation when the action is launched from the interface of this command.
 - **Access code** : Allows to define a code that Jeedom will ask when the action is launched from the interface of this command.
 - **Action before execution of the command** : Add commands **before** each execution of the command.

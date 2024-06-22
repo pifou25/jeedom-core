@@ -1,4 +1,4 @@
- # Remplacer
+# Remplacer
 
 ## Pourquoi un tel outil ?
 
@@ -26,9 +26,9 @@ Et à partir du moment où cet équipement sera définitivement supprimé, il se
 ## Les opérations à effectuer au préalable avant d’utiliser cet outil
 
 Même si l’outil <kbd>Remplacer</kbd> va vous proposer d'effectuer une sauvegarde de précaution avant, il est fortement conseillé d’en faire une avant de commencer cette procédure de remplacement.<br>
-Gardez à l’esprit que cet outil est en effet vraiment puissant dans la mesure où il va aller effectuer les remplacements à tous les niveaux, y compris sur ceux auxquels vous n’aviez pas pensé ou tout simplement oublié. De plus, il n’existe pas de fonction *undo* pour annuler ou revenir en arrière.<br><br>
+Gardez à l’esprit que cet outil est en effet vraiment puissant dans la mesure où il va aller effectuer les remplacements à tous les niveaux, y compris sur ceux auxquels vous n’aviez pas pensé ou tout simplement oublié. De plus, il n’existe pas de fonction _undo_ pour annuler ou revenir en arrière.<br><br>
 
-La phase suivante va être le renommage de l’ancien équipement. Pour ce faire, il suffit de lui changer son nom, en ajoutant le suffixe '**_old**' par exemple.
+La phase suivante va être le renommage de l’ancien équipement. Pour ce faire, il suffit de lui changer son nom, en ajoutant le suffixe '**\_old**' par exemple.
 
 ![4](../images/replace4.png)
 <br>
@@ -37,13 +37,13 @@ N’oubliez pas de sauvegarder.
 <br>
 
 Il faut ensuite effectuer l’inclusion du nouvel équipement s’il s’agit d’un équipement physique, ou la création du nouvel équipement virtuel, suivant la procédure standard propre à chaque plugin.
-Cet équipement sera dénommé avec son nom définitif, puis l’objet parent et sa catégorie défini avant de l’activer. 
+Cet équipement sera dénommé avec son nom définitif, puis l’objet parent et sa catégorie défini avant de l’activer.
 <br>
 On obtient ainsi deux équipements :
 
 - L’ancien équipement, qui n’existe peut-être plus physiquement, mais qui reste néanmoins référencé dans toutes les structures de Jeedom avec ses historiques,
 - Et le nouvel équipement, sur lequel il s’agira de recopier les historiques et de le référencer à la place de l’ancien.
-<br>
+  <br>
 
 ![5](../images/replace5.png)
 <br><br>
@@ -55,16 +55,16 @@ Ouvrir l’outil <kbd>Remplacer</kbd>, dans le menu <kbd>Outils</kbd>.
 ![6](../images/replace6.png)
 <br>
 
-Dans le champ *Objet*, sélectionner le ou les objets parents.
+Dans le champ _Objet_, sélectionner le ou les objets parents.
 
 ![7](../images/replace7.png)
 <br>
 
-Dans les options, sélectionner le mode souhaité (*Remplacer* ou *Copier*) dans la liste déroulante, et suivant les besoins, les options suivantes (qui sont toutes décochées par défaut), soit au minimum :
+Dans les options, sélectionner le mode souhaité (_Remplacer_ ou _Copier_) dans la liste déroulante, et suivant les besoins, les options suivantes (qui sont toutes décochées par défaut), soit au minimum :
 
 - Copier la configuration de l’équipement source,
 - Copier la configuration de la commande source.
-<br>
+  <br>
 
 ![8](../images/replace8.png)
 <br>
@@ -74,19 +74,19 @@ Puis cliquer sur <kbd>Filtrer</kbd>
 ![9](../images/replace9.png)
 <br>
 
-Dans le champ *Remplacements*, toutes les entités relatives à l’objet parent apparaissent :
+Dans le champ _Remplacements_, toutes les entités relatives à l’objet parent apparaissent :
 
 ![10](../images/replace10.png)
 <br>
 
-Cocher l’équipement source (renommé en '**_old**'), c’est à dire celui à partir duquel on souhaite recopier les commandes, informations, historique…
+Cocher l’équipement source (renommé en '**\_old**'), c’est à dire celui à partir duquel on souhaite recopier les commandes, informations, historique…
 Ici, l’équipement source sera donc : [Chambre ami][T°Chambre_old] (767 | z2m).<br>
 Cliquer sur la ligne pour faire apparaître les différents champs rattachés.
 
 ![11](../images/replace11.png)
 <br>
 
-Dans la partie *Cible* à droite, dérouler la liste et sélectionner le nouvel équipement qui va le remplacer, c’est à dire [Chambre ami][T° chambre] dans notre exemple.
+Dans la partie _Cible_ à droite, dérouler la liste et sélectionner le nouvel équipement qui va le remplacer, c’est à dire [Chambre ami][T° chambre] dans notre exemple.
 
 ![12](../images/replace12.png)
 <br>
@@ -129,7 +129,7 @@ Assurez-vous que le nouvel équipement ait bien été pris en compte dans les de
 <br>
 
 Pour bien vérifier qu’aucun problème supplémentaire n’ait été généré suite à ce remplacement, il est possible d’utiliser la fonction de détection des commandes orphelines.
-Aller sur <kbd>Analyse</kbd>, <kbd>Equipements</kbd>, cliquer sur l’onglet *Commandes orphelines*.
+Aller sur <kbd>Analyse</kbd>, <kbd>Equipements</kbd>, cliquer sur l’onglet _Commandes orphelines_.
 
 ![19](../images/replace19.png)
 <br>
@@ -138,7 +138,7 @@ Aller sur <kbd>Analyse</kbd>, <kbd>Equipements</kbd>, cliquer sur l’onglet *Co
 <br>
 
 Si tout c’est bien passé, il ne doit y avoir aucune ligne présente dans ce compte rendu.
- 
+
 ![21](../images/replace21.png)
 <br>
 

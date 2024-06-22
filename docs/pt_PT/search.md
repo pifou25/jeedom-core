@@ -1,4 +1,5 @@
 # Recherche
+
 **Menu Análise → Pesquisar**
 
 Jeedom oferece um mecanismo de busca interno.
@@ -59,24 +60,24 @@ O mecanismo será exibido nas tabelas abaixo :
 
 ## Por palavra
 
-Digite uma sequência de caracteres no campo de pesquisa. Valide com *digitar* ou com o botão *Pesquisar*.
+Digite uma sequência de caracteres no campo de pesquisa. Valide com _digitar_ ou com o botão _Pesquisar_.
 
 O mecanismo será exibido nas tabelas abaixo :
 
 - O **Cenas** usando esta string.
-	Pesquise expressões, comentários, blocos de código.
+  Pesquise expressões, comentários, blocos de código.
 - O **interações** usando esta string.
-	Pesquisar nos campos *Solicitar*.
+  Pesquisar nos campos _Solicitar_.
 - O **equipamento** usando esta string.
-	Pesquisar nos campos *nome*, *logicId*, *eqType*, *Como? 'Ou' O que*, *Tag*.
+  Pesquisar nos campos _nome_, _logicId_, _eqType_, _Como? 'Ou' O que_, _Tag_.
 - O **ordens** usando esta string.
-	Pesquisar nos campos *nome*, *logicId*, *eqType*, *tipo_genérico*, .
+  Pesquisar nos campos _nome_, _logicId_, _eqType_, _tipo_genérico_, .
 - O **notas** usando esta string.
-	Pesquisa de texto do Notes.
+  Pesquisa de texto do Notes.
 
 ## Por ID
 
-Insira um número correspondente a um Id pesquisado no campo de pesquisa. Valide com *digitar* ou com o botão *Pesquisar*.
+Insira um número correspondente a um Id pesquisado no campo de pesquisa. Valide com _digitar_ ou com o botão _Pesquisar_.
 
 O mecanismo será exibido nas tabelas abaixo :
 
@@ -91,6 +92,7 @@ O mecanismo será exibido nas tabelas abaixo :
 ## Resultados
 
 Para cada tipo de resultado, permite ações:
+
 - **Cenas** : Abra o log do cenário ou acesse a página do cenário, com a pesquisa ativa no termo procurado.
 - **desenhos** : Mostrar design.
 - **Visualizações** : Mostrar visualização.
@@ -100,4 +102,3 @@ Para cada tipo de resultado, permite ações:
 - **notas** : Nota aberta.
 
 Cada uma dessas opções abre uma guia diferente no seu navegador para não perder a pesquisa atual.
-

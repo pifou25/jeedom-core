@@ -1,4 +1,5 @@
 # Objets
+
 **Ferramentas → Objetos**
 
 O **Objetos** permitem definir a estrutura em árvore da sua automação residencial.
@@ -12,6 +13,7 @@ Para dar livre escolha à personalização, você pode nomear esses objetos como
 ## Gestion
 
 Você tem duas opções :
+
 - **Adicionar** : Crie um novo objeto.
 - **Visão global** : Exibe a lista de objetos criados e suas configurações.
 
@@ -35,6 +37,7 @@ Depois de criar um objeto, ele aparecerá nesta parte.
 > **Dica**
 >
 > Você pode abrir um objeto fazendo :
+>
 > - Clique em um deles.
 > - Ctrl Clic ou Clic Center para abri-lo em uma nova guia do navegador.
 
@@ -60,7 +63,7 @@ Aqui estão as diferentes características para configurar um objeto :
 - **Visível** : Marque esta caixa para tornar este objeto visível.
 - **Esconder o painel de instrumentos** : Marque esta caixa para ocultar o objeto no painel. Ele ainda é mantido na lista, o que permite que seja exibido, mas apenas explicitamente.
 - **Ocultar no resumo** : Marque esta caixa para ocultar o objeto no resumo'. Ele ainda é mantido na lista, o que permite que seja exibido, mas apenas explicitamente.
-- **Ação de síntese** : Aqui você pode indicar uma vista ou desenho para ir ao clicar no objeto do Resumo. *Defeito : Painel*.
+- **Ação de síntese** : Aqui você pode indicar uma vista ou desenho para ir ao clicar no objeto do Resumo. _Defeito : Painel_.
 
 #### Exibição :
 
@@ -68,7 +71,7 @@ Aqui estão as diferentes características para configurar um objeto :
 - **Cores personalizadas** : Ativa a consideração dos dois parâmetros de cores personalizadas abaixo.
 - **Cor tag** : Permite escolher a cor do objeto e o equipamento a ele conectado.
 - **Texto tag Cor** : Permite escolher a cor do texto do objeto. Este texto estará sobre o **Cor tag**. Você escolhe uma cor para tornar o texto legível.
-- **Somente na síntese** : Permite que você coloque uma imagem para a Síntese sem que seja usada como imagem de fundo, especialmente na página *Painel* deste objeto.
+- **Somente na síntese** : Permite que você coloque uma imagem para a Síntese sem que seja usada como imagem de fundo, especialmente na página _Painel_ deste objeto.
 - **Imagem** : Você tem a opção de fazer upload de uma imagem ou excluí-la. No formato jpeg, essa imagem será a imagem de plano de fundo do objeto quando você a exibir no Painel. Também será usado para a miniatura da peça no Synthesis.
 
 > **Dica**
@@ -86,5 +89,3 @@ Aqui estão as diferentes características para configurar um objeto :
 ## Abas de resumo
 
 [Veja a documentação dos resumos.](/pt_PT/concept/summary)
-
-

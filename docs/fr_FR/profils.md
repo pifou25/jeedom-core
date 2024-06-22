@@ -1,4 +1,5 @@
 # Préférences
+
 **Réglages → Préférences**
 
 La page Préférences vous permet de configurer certains comportements de Jeedom spécifiques à l’utilisateur.
@@ -27,7 +28,7 @@ Définit certains comportements de l’interface
 
 ## Onglet Sécurité
 
-- **Authentification en 2 étapes** : permet de configurer l’authentification en 2 étapes (pour rappel, c’est un code changeant toutes les X secondes qui s’affiche sur une application mobile, type *google authentificator*). A noter que la double authentification ne sera demandée que pour les connexions externes Pour les connexions locales le code ne sera donc pas demandé.
+- **Authentification en 2 étapes** : permet de configurer l’authentification en 2 étapes (pour rappel, c’est un code changeant toutes les X secondes qui s’affiche sur une application mobile, type _google authentificator_). A noter que la double authentification ne sera demandée que pour les connexions externes Pour les connexions locales le code ne sera donc pas demandé.
 
   **Important** si lors de la configuration de la double authentification vous avez une erreur, il faut vérifier que Jeedom (voir sur la page santé) et votre téléphone sont bien à la même heure (1 min de différence suffit pour que ça ne marche pas).
 

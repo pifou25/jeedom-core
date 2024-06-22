@@ -3,7 +3,7 @@ Theme Core 2019 @Jeedom
 colors Dark Mobile
 */
 :root {
-  --lineheight : 1.42em;
+  --lineheight: 1.42em;
   /* keep it as rem even when zero!!*/
   --border-radius: 0rem;
   --opacity: 1;
@@ -41,7 +41,7 @@ colors Dark Mobile
   --cat-heating-color: 46, 98, 138;
   --cat-automatism-color: 100, 100, 100;
   --cat-light-color: 153, 100, 40;
-    --cat-opening-color: 58, 58, 58;
+  --cat-opening-color: 58, 58, 58;
   --cat-multimedia-color: 54, 73, 94;
   --cat-energy-color: 50, 120, 60;
   --cat-other-color: 58, 90, 85;
@@ -53,7 +53,7 @@ colors Dark Mobile
   --lb-info-color: rgb(80, 160, 180);
   --lb-yellow-color: rgb(210, 180, 0);
   --al-info-color: rgb(80, 120, 170);
-  --al-primary-color:  rgb(50, 110, 160);
+  --al-primary-color: rgb(50, 110, 160);
   --al-success-color: rgb(50, 130, 60);
   --al-warning-color: rgb(195, 125, 40);
   --al-danger-color: rgb(185, 58, 62);

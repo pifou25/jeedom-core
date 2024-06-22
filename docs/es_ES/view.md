@@ -1,4 +1,5 @@
 # Vues
+
 **Inicio → Ver**
 
 Las vistas le permiten crear vistas personalizadas.
@@ -18,7 +19,7 @@ En una vista, encontramos :
 
 - Un botón en la parte superior izquierda para mostrar u ocultar la lista de Vistas, así como el botón para agregar uno.
 - El lápiz a la derecha para editar el orden y el tamaño del equipo, de la misma manera que el Tablero.
-- Un botón *Edición completada* permitiendo editar las zonas y elementos de la Vista.
+- Un botón _Edición completada_ permitiendo editar las zonas y elementos de la Vista.
 
 > **Consejo**
 >
@@ -26,12 +27,12 @@ En una vista, encontramos :
 
 ## Agregar / Editar una vista
 
-El principio es bastante simple : una vista está compuesta de áreas. Cada zona es de tipo *cuadro*, *artilugio* Dónde *imagen*. Dependiendo de este tipo, puede agregarle gráficos, equipos o comandos.
+El principio es bastante simple : una vista está compuesta de áreas. Cada zona es de tipo _cuadro_, _artilugio_ Dónde _imagen_. Dependiendo de este tipo, puede agregarle gráficos, equipos o comandos.
 
 - A la izquierda de la página encontramos la lista de Vistas, así como un botón de creación.
 - Un botón en la parte superior derecha le permite editar la Vista actual (Configuración).
 - Un botón para agregar una zona. Luego se le preguntará el nombre y el tipo de zona.
-- Un botón *Ver el resultado*, para salir del modo de edición completo y mostrar esta Vista.
+- Un botón _Ver el resultado_, para salir del modo de edición completo y mostrar esta Vista.
 - Un botón que permite guardar esta Vista.
 - Un botón que permite eliminar esta Vista.
 
@@ -59,7 +60,6 @@ Una zona de tipo de equipo le permite agregar equipo :
 > **Consejo**
 >
 > Es posible cambiar el orden de los mosaicos en el área arrastrando y soltando.
-
 
 ### Área de tipo gráfico
 

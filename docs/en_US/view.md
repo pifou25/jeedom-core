@@ -1,4 +1,5 @@
 # Vues
+
 **Home → View**
 
 Views allow you to create custom views.
@@ -18,7 +19,7 @@ On a View, we find :
 
 - A button at the top left to show or hide the list of Views, as well as the button to add one.
 - The pencil on the right to edit the order and size of the equipment, in the same way as the Dashboard.
-- A button *Full Edition* allowing to edit the zones and elements of the View.
+- A button _Full Edition_ allowing to edit the zones and elements of the View.
 
 > **Tip**
 >
@@ -26,12 +27,12 @@ On a View, we find :
 
 ## Adding / Editing a view
 
-The principle is quite simple : a View is made up of areas. Each zone is of type *chart*, *widget* Where *picture*. Depending on this type, you can add graphics, equipment, or commands to it.
+The principle is quite simple : a View is made up of areas. Each zone is of type _chart_, _widget_ Where _picture_. Depending on this type, you can add graphics, equipment, or commands to it.
 
 - On the left of the page we find the list of Views as well as a creation button.
 - A button at the top right allows you to edit the Current View (Configuration).
 - A button to add a zone. You will then be asked for the name and type of zone.
-- A button *Display the result*, to exit the complete editing mode and display this View.
+- A button _Display the result_, to exit the complete editing mode and display this View.
 - A button allowing to save this View.
 - A button allowing to delete this View.
 
@@ -59,7 +60,6 @@ An equipment type zone allows you to add equipment :
 > **Tip**
 >
 > It is possible to change the order of the tiles in the area by dragging and dropping.
-
 
 ### Graphic type area
 

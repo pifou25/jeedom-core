@@ -1,4 +1,5 @@
 # Recherche
+
 **Menu Analyse → Recherche**
 
 Jeedom propose un moteur de recherche interne.
@@ -59,24 +60,24 @@ Le moteur affichera dans les tableaux en dessous :
 
 ## Par Mot
 
-Entrez une chaîne de caractères dans le champ de recherche. Valider avec *enter* ou avec le bouton *Rechercher*.
+Entrez une chaîne de caractères dans le champ de recherche. Valider avec _enter_ ou avec le bouton _Rechercher_.
 
 Le moteur affichera dans les tableaux en dessous :
 
 - Les **scénarios** utilisant cette chaîne.
-	Recherche dans les expressions, les commentaires, les blocs code.
+  Recherche dans les expressions, les commentaires, les blocs code.
 - Les **interactions** utilisant cette chaîne.
-	Recherche dans les champs *Demande*.
+  Recherche dans les champs _Demande_.
 - Les **équipement** utilisant cette chaîne.
-	Recherche dans les champs *name*, *logicalId*, *eqType*, *comment*, *tags*.
+  Recherche dans les champs _name_, _logicalId_, _eqType_, _comment_, _tags_.
 - Les **commandes** utilisant cette chaîne.
-	Recherche dans les champs *name*, *logicalId*, *eqType*, *generic_type*, .
+  Recherche dans les champs _name_, _logicalId_, _eqType_, _generic_type_, .
 - Les **notes** utilisant cette chaîne.
-	Recherche dans le texte des notes.
+  Recherche dans le texte des notes.
 
 ## Par ID
 
-Entrez un nombre correspondant à un Id recherché dans le champ de recherche. Valider avec *enter* ou avec le bouton *Rechercher*.
+Entrez un nombre correspondant à un Id recherché dans le champ de recherche. Valider avec _enter_ ou avec le bouton _Rechercher_.
 
 Le moteur affichera dans les tableaux en dessous :
 
@@ -91,6 +92,7 @@ Le moteur affichera dans les tableaux en dessous :
 ## Résultats
 
 Pour chacun des types de résultat, il permet des actions:
+
 - **scénarios** : Ouvrir le log du scénario, ou se rendre sur la page du scénario, avec la recherche active sur le terme recherché.
 - **designs** : Afficher le design.
 - **vues** : Afficher la vue.
@@ -100,4 +102,3 @@ Pour chacun des types de résultat, il permet des actions:
 - **notes** : Ouvrir la Note.
 
 Chacune de ces options ouvre un autre onglet de votre navigateur afin de ne pas perdre la recherche en cours.
-

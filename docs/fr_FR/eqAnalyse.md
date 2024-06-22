@@ -1,4 +1,5 @@
 # Analyse équipements
+
 **Analyse → Equipements**
 
 La page Analyse d’équipements vous permet de voir de nombreuses infos relatives aux équipements de manière centralisée :
@@ -10,7 +11,6 @@ La page Analyse d’équipements vous permet de voir de nombreuses infos relativ
 - Les commandes orphelines
 
 ## Onglet Batteries
-
 
 Vous pouvez voir sur cet onglet la liste de vos modules sur batterie, leur niveau restant (la couleur de la tuile dépend de ce niveau), le type et le nombre de piles qu’il faut mettre dans le module, le type du module ainsi que la date à laquelle l’information du niveau de batterie a été mise à jour. Vous pouvez aussi voir si un seuil spécifique a été établi pour le module en particulier (représenté par une main)
 
@@ -62,6 +62,7 @@ Cet onglet vous permet de voir en un coup d’œil si vous avez des commandes or
 - Celles utilisées en déclencheur d’un scénario.
 
 Et utilisées à plein d’autres endroits comme (non exhaustif) :
+
 - Les interactions.
 - Les configurations de Jeedom.
 - En pre ou post action d’une commande.

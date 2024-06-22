@@ -1,4 +1,5 @@
 # Utilisateurs
+
 **Settings → System → Users**
 
 This page allows you to define the list of users authorized to connect to Jeedom, as well as their administrator rights.
@@ -15,9 +16,9 @@ On the page you have three buttons :
 - **Asset** : Allows you to deactivate the account without deleting it.
 - **Local** : Allows the connection of the user only if he is on the local network of Jeedom.
 - **Profile** : Allows you to choose the user profile :
-    - **Administrator** : The user obtains all rights (editing / consultation) on Jeedom.
-    - **User** : User can see Dashboard, views, designs, etc. and act on equipment / controls. However, he will not have access to the configuration of the controls / equipment nor to the configuration of Jeedom.
-    - **Limited user** : The user only sees the authorized equipment (configurable with the "Rights" button").
+  - **Administrator** : The user obtains all rights (editing / consultation) on Jeedom.
+  - **User** : User can see Dashboard, views, designs, etc. and act on equipment / controls. However, he will not have access to the configuration of the controls / equipment nor to the configuration of Jeedom.
+  - **Limited user** : The user only sees the authorized equipment (configurable with the "Rights" button").
 - **API key** : Personal API key of the user.
 - **Double authentication** : Indicates whether double authentication is active (OK) or not (NOK).
 - **Date of last connection** : Date of last user login. Please note, this is the actual connection date, so if you save your computer, the connection date is not updated each time you return.
@@ -36,6 +37,7 @@ When clicking on &quot;Rights&quot; a window appears allowing you to manage user
 > The profile must be limited otherwise no restrictions put here will be taken into account.
 
 You get a table which allows, for each device and each scenario, to define the rights of the user :
+
 - **None** : the user does not see the equipment / scenario.
 - **Visualization** : the user sees the equipment / scenario but cannot act on it.
 - **Visualization and execution** : the user sees the equipment / scenario and can act on it (lighting a lamp, launching the scenario, etc).
@@ -52,10 +54,3 @@ You can see which user, their IP, when, and delete the registration for this dev
 > **Note**
 >
 > The same user may have registered different devices. For example, his desktop computer, laptop, mobile, etc.
-
-
-
-
-
-
-

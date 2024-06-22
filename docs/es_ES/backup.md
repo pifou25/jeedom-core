@@ -1,9 +1,9 @@
 # Sauvegardes
+
 **Configuración → Sistema → Copias de seguridad**
 
 Jeedom ofrece la posibilidad de ser guardado y restaurado desde o desde diferentes ubicaciones.
 Esta página permite la gestión de copias de seguridad, restaura.
-
 
 Encontrará, a la izquierda, los parámetros y botones de acción. A la derecha está el estado en tiempo real de la acción en curso (copia de seguridad o restauración), si ha lanzado una.
 
@@ -51,7 +51,6 @@ Encontrará, a la izquierda, los parámetros y botones de acción. A la derecha 
 >
 > Las copias de seguridad de Jeedom deben guardarse absolutamente en una carpeta solo para él ! Eliminará todo lo que no sea una copia de seguridad de la carpeta.
 
-
 # Lo que se guarda ?
 
 Durante una copia de seguridad, Jeedom realizará una copia de seguridad de todos sus archivos y la base de datos. Esto, por lo tanto, contiene toda su configuración (equipo, controles, historial, escenarios, diseño, etc.).
@@ -76,6 +75,6 @@ Jeedom realiza una copia de seguridad automática todos los días a la misma hor
 
 # FAQ
 
->**No puedo restaurar mi copia de seguridad que recuperé de Safari**
+> **No puedo restaurar mi copia de seguridad que recuperé de Safari**
 >
->Por defecto, Safari descomprime tars.gz (en tar), lo que significa que jeedom ya no puede utilizar la copia de seguridad, debe recomprimirse (gzip) en tar.gz
+> Por defecto, Safari descomprime tars.gz (en tar), lo que significa que jeedom ya no puede utilizar la copia de seguridad, debe recomprimirse (gzip) en tar.gz

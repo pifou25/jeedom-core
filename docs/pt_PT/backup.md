@@ -1,9 +1,9 @@
 # Sauvegardes
+
 **Configurações → Sistema → Backups**
 
 O Jeedom oferece a possibilidade de ser salvo e restaurado de ou de diferentes locais.
 Esta página permite o gerenciamento de backups, restaura.
-
 
 Você encontrará, à esquerda, os parâmetros e botões de ação. À direita está o status em tempo real da ação em andamento (backup ou restauração), se você tiver lançado um.
 
@@ -51,7 +51,6 @@ Você encontrará, à esquerda, os parâmetros e botões de ação. À direita e
 >
 > Os backups do Jeedom devem ser salvos absolutamente em uma pasta apenas para ele ! Ele excluirá tudo o que não for um backup jeedom da pasta.
 
-
 # O que é salvo ?
 
 Durante um backup, o Jeedom fará backup de todos os seus arquivos e do banco de dados. Portanto, contém toda a sua configuração (equipamentos, controles, histórico, cenários, design etc.).).
@@ -76,6 +75,6 @@ Jeedom executa um backup automático todos os dias no mesmo horário. É possív
 
 # FAQ
 
->**Não consigo restaurar meu backup que recuperei do Safari**
+> **Não consigo restaurar meu backup que recuperei do Safari**
 >
->Por padrão, o Safari descompacta tars.gz (em tar) o que significa que o backup não pode mais ser usado pelo jeedom, ele deve ser recompactado (gzip) em tar.gz
+> Por padrão, o Safari descompacta tars.gz (em tar) o que significa que o backup não pode mais ser usado pelo jeedom, ele deve ser recompactado (gzip) em tar.gz

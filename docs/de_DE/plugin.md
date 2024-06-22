@@ -1,12 +1,14 @@
 # Plugins-Verwaltung
+
 **Plugins → Plugins-Verwaltung**
 
 Diese Seite bietet Zugriff auf Plugin-Konfigurationen.
 Sie können nämlich auch die Plugins manipulieren : herunterladen, aktualisieren und aktivieren,…
 
 Es gibt daher eine Liste von Plugins in alphabetischer Reihenfolge und einen Link zum Markt.
+
 - Deaktivierte Plugins sind ausgegraut.
-- Plugins, die nicht in der Version sind *stetig* Wir haben einen orangefarbenen Punkt vor ihrem Namen.
+- Plugins, die nicht in der Version sind _stetig_ Wir haben einen orangefarbenen Punkt vor ihrem Namen.
 
 Durch Klicken auf ein Plugin greifen Sie auf dessen Konfiguration zu. Oben finden Sie den Namen des Plugins, dann in Klammern den Namen in Jeedom (ID) und schließlich den Typ der installierten Version (Stable, Beta)).
 
@@ -26,9 +28,9 @@ Hier haben Sie drei Tasten :
 
 Gehen Sie in einem Browser zu [Markt](https://market.jeedom.com).
 Melden Sie sich bei Ihrem Konto an.
-Klicken Sie auf ein Plugin und wählen Sie *Stabil installieren* Wo *Installieren Sie die Beta* (wenn Ihr Marktkonto dies zulässt).
+Klicken Sie auf ein Plugin und wählen Sie _Stabil installieren_ Wo _Installieren Sie die Beta_ (wenn Ihr Marktkonto dies zulässt).
 
-Wenn Ihr Marktkonto in Ihrem Jeedom korrekt konfiguriert ist (Konfiguration → Updates / Markt → Registerkarte Markt), können Sie auf klicken *Markt synchronisieren* oder warten Sie, bis es sich von selbst niedergelassen hat.
+Wenn Ihr Marktkonto in Ihrem Jeedom korrekt konfiguriert ist (Konfiguration → Updates / Markt → Registerkarte Markt), können Sie auf klicken _Markt synchronisieren_ oder warten Sie, bis es sich von selbst niedergelassen hat.
 
 ### Market
 
@@ -39,6 +41,7 @@ Um ein neues Plugin zu installieren, klicken Sie einfach auf die Schaltfläche "
 > Sie müssen Ihre Marktkontoinformationen in der Administration eingegeben haben (Konfiguration → Updates / Markt → Registerkarte Markt), um die Plugins zu finden, die Sie beispielsweise bereits gekauft haben.
 
 Oben im Fenster befinden sich Filter :
+
 - **Free / Pay** : zeigt nur kostenlos oder kostenpflichtig an.
 - **Amtlicher / Empfohlen** : Zeigt nur offizielle oder empfohlene Plugins an.
 - **Dropdown-Menü Kategorie** : zeigt nur bestimmte Kategorien von Plugins an.
@@ -53,10 +56,10 @@ Wenn Sie das gewünschte Plugin gefunden haben, klicken Sie einfach darauf, um d
 
 - Wenn es offiziell / empfohlen ist oder veraltet ist (Sie sollten auf jeden Fall vermeiden, veraltete Plugins zu installieren).
 - 4 Aktionen :
-    - **Stabil installieren** : ermöglicht die Installation des Plugins in seiner stabilen Version.
-    - **Installieren Sie die Beta** : ermöglicht die Installation des Plugins in seiner Beta-Version (nur für Betatester).
-    - **Installieren Sie pro** : ermöglicht die Installation der Pro-Version (sehr wenig verwendet).
-    - **Löschen** : Wenn das Plugin derzeit installiert ist, können Sie es mit dieser Schaltfläche entfernen.
+  - **Stabil installieren** : ermöglicht die Installation des Plugins in seiner stabilen Version.
+  - **Installieren Sie die Beta** : ermöglicht die Installation des Plugins in seiner Beta-Version (nur für Betatester).
+  - **Installieren Sie pro** : ermöglicht die Installation der Pro-Version (sehr wenig verwendet).
+  - **Löschen** : Wenn das Plugin derzeit installiert ist, können Sie es mit dieser Schaltfläche entfernen.
 
 Nachfolgend finden Sie die Beschreibung des Plugins, die Kompatibilität (wenn Jeedom eine Inkompatibilität feststellt, werden Sie benachrichtigt), die Meinungen zum Plugin (Sie können es hier notieren) und zusätzliche Informationen (der Autor, die Person, die es erstellt hat) das neueste Update, ein Link zum Dokument, die Anzahl der Downloads). Auf der rechten Seite finden Sie eine Schaltfläche &quot;Changelog&quot;, mit der Sie den gesamten Änderungsverlauf abrufen können. Eine Schaltfläche &quot;Dokumentation&quot;, die auf die Dokumentation des Plugins verweist. Dann haben Sie die verfügbare Sprache und die verschiedenen Informationen zum Datum der letzten stabilen Version.
 
@@ -72,7 +75,7 @@ Nachfolgend finden Sie die Beschreibung des Plugins, die Kompatibilität (wenn J
 
 Sie können Jeedom ein Plugin aus einer Datei oder einem Github-Repository hinzufügen. Dazu müssen Sie in der Jeedom-Konfiguration die entsprechende Funktion im Abschnitt "Updates / Market" aktivieren".
 
-Achtung, beim Hinzufügen durch eine Zip-Datei muss der Name der Zip mit der ID des Plugins übereinstimmen und beim Öffnen der ZIP muss ein Plugin\_info-Ordner vorhanden sein.
+Achtung, beim Hinzufügen durch eine Zip-Datei muss der Name der Zip mit der ID des Plugins übereinstimmen und beim Öffnen der ZIP muss ein Plugin_info-Ordner vorhanden sein.
 
 ## Meine Plugins
 
@@ -100,7 +103,6 @@ Durch Klicken auf das Symbol eines Plugins öffnen Sie dessen Konfigurationsseit
 - **Aktie** : Ermöglicht das Aktivieren oder Deaktivieren des Plugins. Die Taste **Offen** Ermöglicht den direkten Zugriff auf die Plugin-Seite.
 - **Ausführung** : Die Version des installierten Plugins.
 - **Voraussetzungen** : Gibt die für das Plugin erforderliche Jeedom-Mindestversion an.
-
 
 ### Rechts finden wir die Gegend **Protokoll und Überwachung** was erlaubt zu definieren :
 

@@ -1,10 +1,9 @@
 # Centre de Mise à jour
-**Réglages → Système → Centre de Mise à jour**
 
+**Réglages → Système → Centre de Mise à jour**
 
 Le **centre de mise à jour** permet de mettre à jour toutes les fonctionnalités de Jeedom, incluant le logiciel de base (core) et ses plugins.
 D’autres fonctions de gestion des extensions sont disponibles (supprimer, réinstaller, vérifier, etc.).
-
 
 ## Fonctions de la page
 
@@ -22,6 +21,7 @@ Le bouton **Sauvegarder** est à utiliser quand vous changez les options dans le
 
 Le bouton **Mettre à jour** permet de mettre à jour le Core, les plugins, ou les deux.
 Une fois que vous avez cliqué dessus, on obtient ces différentes options :
+
 - **Pré-update** : Permet de mettre à jour le script de mise à jour avant l'application des nouvelles mises à jour. Généralement utilisé sur demande du support.
 - **Sauvegarder avant** : Effectue une sauvegarde de Jeedom avant d’effectuer la mise à jour. La sauvegarde est effectuée localement uniquement (ni Market ni Samba).
 - **Mettre à jour les plugins** : Permet d’inclure les plugins dans la mise à jour.
@@ -42,7 +42,7 @@ Une fois que vous avez cliqué dessus, on obtient ces différentes options :
 
 Le tableau contient les versions du Core et des plugins installés.
 
-Les plugins disposent d'un badge à coté de leur nom, spécifiant leur version, de couleur verte en *stable*, ou orange en *beta* ou autre.
+Les plugins disposent d'un badge à coté de leur nom, spécifiant leur version, de couleur verte en _stable_, ou orange en _beta_ ou autre.
 
 - **Statut** : OK ou NOK.
 - **Nom** : Nom et provenance du plugin
@@ -72,7 +72,7 @@ Sur chaque ligne, vous pouvez utiliser les fonctions suivantes:
 >
 > Cet onglet est reservé aux utilisateurs avancés et uniquement aux utilisateurs avancé, la moindre mauvaise action ici peut CASSER votre Jeedom (sans possibilité de recourir au support)
 
-Cet onglet permet de voir les mises à jour disponible pour l'os (apt), package python (pip2 et pip3) ainsi que mettre à jour les packages qui le nécessite. 
+Cet onglet permet de voir les mises à jour disponible pour l'os (apt), package python (pip2 et pip3) ainsi que mettre à jour les packages qui le nécessite.
 
 ## Onglet Informations
 
@@ -80,14 +80,14 @@ En cours de mise à jour ou après celle-ci, cet onglet permet de lire en temps 
 
 > **Note**
 >
-> Ce log finit normalement par *[END UPDATE SUCCESS]*. Il peut y avoir certaines lignes d'erreur dans ce type de log, toutefois, sauf problème réel après mise à jour, il n'est pas toujours nécessaire de contacter le support pour cela.
+> Ce log finit normalement par _[END UPDATE SUCCESS]_. Il peut y avoir certaines lignes d'erreur dans ce type de log, toutefois, sauf problème réel après mise à jour, il n'est pas toujours nécessaire de contacter le support pour cela.
 
 ## Mise à jour en ligne de commande
 
 Il est possible de faire une mise à jour de Jeedom directement en SSH.
 Une fois connecté, voilà la commande à effectuer :
 
-```sudo php /var/www/html/install/update.php```
+`sudo php /var/www/html/install/update.php`
 
 Les paramètres possibles sont :
 
@@ -96,8 +96,8 @@ Les paramètres possibles sont :
 
 Voici un exemple de syntaxe pour faire une mise à jour forcée en ré-appliquant les changements depuis la 4.0.04 :
 
-```sudo php  /var/www/html/install/update.php mode=force version=4.0.04```
+`sudo php  /var/www/html/install/update.php mode=force version=4.0.04`
 
 Attention, après une mise à jour en ligne de commande, il faut ré-appliquer les droits sur le dossier Jeedom :
 
-```sudo chown -R www-data:www-data /var/www/html```
+`sudo chown -R www-data:www-data /var/www/html`

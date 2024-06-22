@@ -1,4 +1,5 @@
 # Logs
+
 **Analyse → Logs**
 
 Les logs sont des fichiers de journaux, permettant de suivre ce qui se passe sur sa domotique. Dans la plupart des cas les logs ne serviront qu’à effectuer du debuggage et à résoudre des problèmes par l’équipe de support.

@@ -1,4 +1,5 @@
 # Task engine
+
 **Settings → System → Task engine**
 
 This page informs about all Jeedom application tasks running on the server.
@@ -35,10 +36,9 @@ In this table, we find :
 - **Status** : Current status of the task (as a reminder, a daemon task is always "run"").
 
 - **Stock** :
-    - **Details** : See the cron in detail (as stored in base).
-    - **Start / Stop** : Start or stop the task (depending on its status).
-    - **Deletion** : Delete task.
-
+  - **Details** : See the cron in detail (as stored in base).
+  - **Start / Stop** : Start or stop the task (depending on its status).
+  - **Deletion** : Delete task.
 
 ## Listener tab
 
@@ -47,6 +47,7 @@ The listeners are just visible in reading and allow you to see the functions cal
 ## Demon tab
 
 Table of all the daemons with their state, the date of the last launch as well as the possibility of :
+
 - Start / Restart a daemon.
 - Stop a daemon if automatic management is deactivated.
 - Enable / disable automatic management of a daemon.

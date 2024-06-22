@@ -14,79 +14,115 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-jeedom.note = function() {};
+jeedom.note = function () {};
 
-jeedom.note.remove = function(_params) {
-    var paramsRequired = ['id'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/note.ajax.php';
-    paramsAJAX.data = {
-        action: "remove",
-        id: _params.id
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.note.remove = function (_params) {
+  var paramsRequired = ["id"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/note.ajax.php";
+  paramsAJAX.data = {
+    action: "remove",
+    id: _params.id,
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.note.byId = function(_params) {
-    var paramsRequired = ['id'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/note.ajax.php';
-    paramsAJAX.data = {
-        action: "byId",
-        id: _params.id
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.note.byId = function (_params) {
+  var paramsRequired = ["id"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/note.ajax.php";
+  paramsAJAX.data = {
+    action: "byId",
+    id: _params.id,
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.note.save = function(_params) {
-    var paramsRequired = ['note'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/note.ajax.php';
-    paramsAJAX.data = {
-        action: 'save',
-        note: JSON.stringify(_params.note),
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.note.save = function (_params) {
+  var paramsRequired = ["note"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/note.ajax.php";
+  paramsAJAX.data = {
+    action: "save",
+    note: JSON.stringify(_params.note),
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.note.all = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/note.ajax.php';
-    paramsAJAX.data = {
-        action: 'all'
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.note.all = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/note.ajax.php";
+  paramsAJAX.data = {
+    action: "all",
+  };
+  domUtils.ajax(paramsAJAX);
+};

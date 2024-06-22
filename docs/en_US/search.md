@@ -1,4 +1,5 @@
 # Recherche
+
 **Analysis menu → Search**
 
 Jeedom offers an internal search engine.
@@ -59,24 +60,24 @@ The engine will display in the tables below :
 
 ## By Word
 
-Enter a character string in the search field. Validate with *enter* or with the button *To research*.
+Enter a character string in the search field. Validate with _enter_ or with the button _To research_.
 
 The engine will display in the tables below :
 
 - The **Scenarios** using this string.
-	Search in expressions, comments, code blocks.
+  Search in expressions, comments, code blocks.
 - The **interactions** using this string.
-	Search in fields *Request*.
+  Search in fields _Request_.
 - The **equipment** using this string.
-	Search in fields *name*, *logicalId*, *eqType*, *How? 'Or' What*, *tags*.
+  Search in fields _name_, _logicalId_, _eqType_, _How? 'Or' What_, _tags_.
 - The **orders** using this string.
-	Search in fields *name*, *logicalId*, *eqType*, *generic_type*, .
+  Search in fields _name_, _logicalId_, _eqType_, _generic_type_, .
 - The **grades** using this string.
-	Notes text search.
+  Notes text search.
 
 ## By ID
 
-Enter a number corresponding to a searched Id in the search field. Validate with *enter* or with the button *To research*.
+Enter a number corresponding to a searched Id in the search field. Validate with _enter_ or with the button _To research_.
 
 The engine will display in the tables below :
 
@@ -91,6 +92,7 @@ The engine will display in the tables below :
 ## Results
 
 For each type of result, it allows actions:
+
 - **Scenarios** : Open the scenario log, or go to the scenario page, with the active search for the term sought.
 - **designs** : Show design.
 - **views** : Show view.
@@ -100,4 +102,3 @@ For each type of result, it allows actions:
 - **grades** : Open Note.
 
 Each of these options opens a different tab in your browser so as not to lose the current search.
-

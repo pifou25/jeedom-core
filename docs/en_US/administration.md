@@ -1,9 +1,9 @@
 # Configuration
+
 **Settings → System → Configuration**
 
 This is where most of the configuration parameters are found.
 Although many, a majority of parameters are configured by default.
-
 
 ## General tab
 
@@ -34,7 +34,7 @@ In this tab you will find the display customization parameters.
 - **Light and dark desktop** : Lets you choose a light and dark theme for the Desktop.
 - **Light and dark mobile** : same as above for the Mobile version.
 - **Clear theme from / to** : Allows you to define a time slot during which the light theme chosen previously will be used. However, check the option **Toggle theme based on time**.
-- **Brightness sensor**   : Mobile interface only, requires activating *generic extra sensor* in chrome, chrome page://flags.
+- **Brightness sensor** : Mobile interface only, requires activating _generic extra sensor_ in chrome, chrome page://flags.
 
 ### Tuiles
 
@@ -42,10 +42,9 @@ In this tab you will find the display customization parameters.
 - **Not vertical** : Constrains the height of the tiles every x pixels.
 - **Margin** : Vertical and horizontal space between tiles, in pixels.
 - **Vertical centering of tiles** : Vertically centers the content of the tiles.
-- **Colorful widget icons** : Coloring widget icons based on their state. Modifiable by scenario, *setColoredIcon* ('Icon coloring').
+- **Colorful widget icons** : Coloring widget icons based on their state. Modifiable by scenario, _setColoredIcon_ ('Icon coloring').
 - **Colored categories** : Colorization of the title of the tiles according to the category.
 - **Mobile : a default column** : Full-width display of tiles in mobile
-
 
 ### Background images
 
@@ -55,7 +54,7 @@ In this tab you will find the display customization parameters.
 - **Image Analysis** : Background image for the pages of the Analysis menu.
 - **Image Tools** : Background image for the pages of the Tools menu.
 - **Opacity Theme Light** : Opacity of background images in Light theme. Adjust according to the brightness of the background images for better readability.
-- **Dark theme opacity** : Opacity of background images in Dark theme.  Adjust according to the brightness of the background images for better readability.
+- **Dark theme opacity** : Opacity of background images in Dark theme. Adjust according to the brightness of the background images for better readability.
 
 ### Options
 
@@ -70,8 +69,6 @@ In this tab you will find the display customization parameters.
 - **Round** : Displays interface elements with rounded angles. 0 : no rounding, 1 : maximum rounding.
 - **Disable shadows** : Disables shadows from tiles on the dashboard, menus, and certain interface elements.
 
-
-
 ## Networks tab
 
 It is absolutely necessary to correctly configure this important part of Jeedom otherwise a lot of plugins may not work. There are two ways to access Jeedom : L'**Internal access** (from the same local network as Jeedom) and l'**External access** (from another network, especially from the Internet).
@@ -79,29 +76,31 @@ It is absolutely necessary to correctly configure this important part of Jeedom 
 > **Important**
 >
 > This part is just there to explain to Jeedom its environment :
-> changing the port or IP in this tab will not change Jeedom&#39;s port or IP actually. For that you have to connect in SSH and edit the file / etc / network / interfaces for IP and the files etc / apache2 / sites-available / default and etc / apache2 / sites-available / default\_ssl (for HTTPS).
+> changing the port or IP in this tab will not change Jeedom&#39;s port or IP actually. For that you have to connect in SSH and edit the file / etc / network / interfaces for IP and the files etc / apache2 / sites-available / default and etc / apache2 / sites-available / default_ssl (for HTTPS).
 > However, in the event of improper handling of your Jeedom, the Jeedom team cannot be held responsible and may refuse any request for support.
 
 - **Internal access** : information for joining Jeedom from equipment on the same network as Jeedom (LAN)
-    - **OK / NOK** : indicates if the internal network configuration is correct.
-    - **Protocol** : the protocol to use, often HTTP.
-    - **URL or IP address** : Jeedom IP to enter.
-    - **Port** : the port of the Jeedom web interface, generally 80.
-        Please note changing the port here does not change the actual Jeedom port which will remain the same.
-    - **Complement** : the fragment of additional URL (example : / jeedom) to access Jeedom.
+
+  - **OK / NOK** : indicates if the internal network configuration is correct.
+  - **Protocol** : the protocol to use, often HTTP.
+  - **URL or IP address** : Jeedom IP to enter.
+  - **Port** : the port of the Jeedom web interface, generally 80.
+    Please note changing the port here does not change the actual Jeedom port which will remain the same.
+  - **Complement** : the fragment of additional URL (example : / jeedom) to access Jeedom.
 
 - **External access** : information to reach Jeedom from outside the local network. To be completed only if you are not using Jeedom DNS.
-    - **OK / NOK** : indicates whether the external network configuration is correct.
-    - **Protocol** : protocol used for outdoor access.
-    - **URL or IP address** : External IP, if fixed. Otherwise, give the URL pointing to the external IP address of your network.
-    - **Complement** : the fragment of additional URL (example : / jeedom) to access Jeedom.
+
+  - **OK / NOK** : indicates whether the external network configuration is correct.
+  - **Protocol** : protocol used for outdoor access.
+  - **URL or IP address** : External IP, if fixed. Otherwise, give the URL pointing to the external IP address of your network.
+  - **Complement** : the fragment of additional URL (example : / jeedom) to access Jeedom.
 
 - **Proxy for market** : proxy activation.
-    - Check the enable proxy box.
-    - **Proxy address** : Enter the proxy address,
-    - **Proxy port** : Enter the proxy port,
-    - **Login** : Enter the proxy login,
-    - **Password** : Enter the password.
+  - Check the enable proxy box.
+  - **Proxy address** : Enter the proxy address,
+  - **Proxy port** : Enter the proxy port,
+  - **Login** : Enter the proxy login,
+  - **Password** : Enter the password.
 
 > **Tip**
 >
@@ -112,15 +111,16 @@ It is absolutely necessary to correctly configure this important part of Jeedom 
 > To find out if you need to set a value in the field **Complement**, look, when you log into Jeedom in your internet browser, if you need to add / Jeedom (or whatever) after the IP.
 
 - **Advanced management** : This part may not appear, depending on the compatibility with your hardware.
-    You will find there the list of your network interfaces. You can tell Jeedom not to monitor the network by clicking on **disable Jeedom network management** (check if Jeedom is not connected to any network). You can also specify the local ip range in the form 192.168.1.* (to be used only in docker type installations).
+  You will find there the list of your network interfaces. You can tell Jeedom not to monitor the network by clicking on **disable Jeedom network management** (check if Jeedom is not connected to any network). You can also specify the local ip range in the form 192.168.1.\* (to be used only in docker type installations).
 - **Proxy market** : allows remote access to your Jeedom without the need for a DNS, a fixed IP or to open the ports of your Internet box.
-    - **Using Jeedom DNS** : activates Jeedom DNS (note that this requires at least one service pack).
-    - **DNS status** : DNS HTTP status.
-    - **Management** : allows to stop and restart the Jeedom DNS service.
+  - **Using Jeedom DNS** : activates Jeedom DNS (note that this requires at least one service pack).
+  - **DNS status** : DNS HTTP status.
+  - **Management** : allows to stop and restart the Jeedom DNS service.
 
 > **Important**
 >
 > If you cannot get Jeedom DNS to work, look at the configuration of the firewall and parental filter of your Internet box (on livebox you need for example the firewall at medium level).
+
 - **Lifetime of sessions (hour)** : lifetime of PHP sessions, it is not recommended to touch this parameter.
 
 ## Logs tab
@@ -133,9 +133,7 @@ It is absolutely necessary to correctly configure this important part of Jeedom 
 ### Messages
 
 - **Add a message for each log error** : if a plugin or Jeedom writes an error message in a log, Jeedom automatically adds a message in the message center (at least you are sure not to miss it).
-- **Action on message** : Allows you to take an action when adding a message to the message center. You have 2 tags for these actions :
-        - #subject# : message in question.
-        - #plugin# : plugin that triggered the message.
+- **Action on message** : Allows you to take an action when adding a message to the message center. You have 2 tags for these actions : - #subject# : message in question. - #plugin# : plugin that triggered the message.
 
 ### Alertes
 
@@ -191,10 +189,10 @@ Many command can be logged. Thus, in Analysis → History, you get graphs repres
 ### Push
 
 - **Global push URL** : allows you to add a URL to call in the event of acommand update. You can use the following tags :
-**\#value\#** for the command value, **\#cmd\_name\#** for the name of the command,
-**\#cmd\_id\#** for the unique identifier of the command,
-**\#humanname\#** for the full name of the command (ex : \#\[Salle de bain\]\[Hydrometrie\]\[Humidité\]\#),
-**\#eq_name\#** for the name of the equipment
+  **\#value\#** for the command value, **\#cmd_name\#** for the name of the command,
+  **\#cmd_id\#** for the unique identifier of the command,
+  **\#humanname\#** for the full name of the command (ex : \#\[Salle de bain\]\[Hydrometrie\]\[Humidité\]\#),
+  **\#eq_name\#** for the name of the equipment
 
 ## Reports tab
 
@@ -228,29 +226,29 @@ This tab allows you to set global parameters concerning the interactions that yo
 Here you have three parameters :
 
 - **Sensitivity** : there are 4 levels of correspondence (The sensitivity goes from 1 (corresponds exactly) to 99) for
-    -   1 word : match level for single word interactions.
-    -   2 words : the match level for two-word interactions.
-    -   3 words : the match level for three-word interactions.
-    -   more than 3 words : match level for interactions longer than three words.
+  - 1 word : match level for single word interactions.
+  - 2 words : the match level for two-word interactions.
+  - 3 words : the match level for three-word interactions.
+  - more than 3 words : match level for interactions longer than three words.
 - **Do not answer if the interaction is not understood** : by default Jeedom responds &quot;I did not understand&quot; if no interaction corresponds. It is possible to deactivate this operation so that Jeedom does not respond. Check the box to disable the response.
 - **General exclusion regex for interactions** : allows to define a regexp which, if it corresponds to an interaction, will automatically delete this sentence from the generation (reserved for experts). For more information see explanations in chapter **Regexp exclusion** documentation on interactions.
 
 ### Automatic, contextual & warning interaction
 
--   The **automatic interactions** allow Jeedom to try to understand an interaction request even if none is defined. He will then look for an object name and / or equipment and / or command to try to respond as best as possible.
+- The **automatic interactions** allow Jeedom to try to understand an interaction request even if none is defined. He will then look for an object name and / or equipment and / or command to try to respond as best as possible.
 
--   The **contextual interactions** allow you to chain multiple requests without repeating everything, for example :
-    - *Jeedom keeping the context :*
-        - *You* : How much is he in the room ?
-        - *Jeedom* : Temperature 25.2 ° C
-        - *You* : and in the living room ?
-        - *Jeedom* : Temperature 27.2 ° C
-    - *Ask two questions in one :*
-        - *You* : What is it like in the bedroom and in the living room ?
-        - *Jeedom* : Temperature 23.6 ° C, Temperature 27.2 ° C
--   Type interactions **Warn me** allow to ask Jeedom to warn you if a command exceeds / falls or is worth a certain value.
-    - *You* : Notify me if the living room temperature exceeds 25 ° C ?
-    - *Jeedom* : OK (*As soon as the living room temperature exceeds 25 ° C, Jeedom will tell you, once*)
+- The **contextual interactions** allow you to chain multiple requests without repeating everything, for example :
+  - _Jeedom keeping the context :_
+    - _You_ : How much is he in the room ?
+    - _Jeedom_ : Temperature 25.2 ° C
+    - _You_ : and in the living room ?
+    - _Jeedom_ : Temperature 27.2 ° C
+  - _Ask two questions in one :_
+    - _You_ : What is it like in the bedroom and in the living room ?
+    - _Jeedom_ : Temperature 23.6 ° C, Temperature 27.2 ° C
+- Type interactions **Warn me** allow to ask Jeedom to warn you if a command exceeds / falls or is worth a certain value.
+  - _You_ : Notify me if the living room temperature exceeds 25 ° C ?
+  - _Jeedom_ : OK (_As soon as the living room temperature exceeds 25 ° C, Jeedom will tell you, once_)
 
 > **Note**
 >
@@ -286,7 +284,7 @@ Here are the different options available :
 - **Administrators filter (optional)** : administrators filter on AD (for group management for example)
 - **User filter (optional)** : user filter on the AD (for group management for example)
 - **Limited user filter (optional)** : filter limited users on the AD (for group management for example)
-- **Allow REMOTE\_USER** : Activate REMOTE\_USER (used in SSO for example).
+- **Allow REMOTE_USER** : Activate REMOTE_USER (used in SSO for example).
 
 ### Connexion
 
@@ -359,7 +357,7 @@ Deposit allowing to automatically send a backup of Jeedom on a Samba share (ex :
 
 > **Important**
 >
-> The Samba protocol has several versions, the v1 is compromised in terms of security and on some NAS you can force the client to use v2 or v3 to connect. So if you have an error *protocol negotiation failed: NT_STATUS_INVAID_NETWORK_RESPONSE* there is a good chance that on the NAS side the restriction is in place. You must then modify the / etc / samba / smb file on your Jeedom OS.conf and add these two lines to it :
+> The Samba protocol has several versions, the v1 is compromised in terms of security and on some NAS you can force the client to use v2 or v3 to connect. So if you have an error _protocol negotiation failed: NT_STATUS_INVAID_NETWORK_RESPONSE_ there is a good chance that on the NAS side the restriction is in place. You must then modify the / etc / samba / smb file on your Jeedom OS.conf and add these two lines to it :
 > client max protocol = SMB3
 > client min protocol = SMB2
 > The Jeedom side smbclient will then use v2 where v3 and by putting SMB3 to both only SMB3. So it&#39;s up to you to adapt according to restrictions on the NAS or other Samba server
@@ -380,7 +378,7 @@ Allows monitoring and acting on the Jeedom cache :
 - **Statistics** : Number of objects currently cached.
 - **Clean cache** : Force deletion of objects that are no longer useful. Jeedom does this automatically every night.
 - **Clear all cache data** : Empty the cover completely.
-    Please note that this may cause data loss !
+  Please note that this may cause data loss !
 - **Clear widget cache** : Clear the cache dedicated to widgets.
 - **Disable widget cache** : Check the box to disable the widget cache.
 - **Time of pause for long polling** : Frequency at which Jeedom checks if there are pending events for customers (web interface, mobile application, etc.)). The shorter this time, the faster the interface will update, in return it uses more resources and can therefore slow Jeedom.
@@ -416,7 +414,6 @@ For each plugin API key you can prohibit them from core methods (general) to lim
 - **Checking system packages** : Allows you to launch a verification of installed packages.
 - **Database verification** : Allows to launch a verification on the Jeedom database and to correct errors if necessary.
 - **Database cleanup** : Runs a database check and cleans up any unused entries.
-
 
 ### System Tools
 

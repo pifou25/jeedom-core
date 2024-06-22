@@ -1,4 +1,5 @@
 # Motor de tareas
+
 **Configuración → Sistema → Motor de tareas**
 
 Esta página informa sobre todas las tareas de la aplicación Jeedom que se ejecutan en el servidor.
@@ -35,10 +36,9 @@ En esta tabla, encontramos :
 - **Estado** : Estado actual de la tarea (como recordatorio, una tarea daemon siempre se "ejecuta"").
 
 - **Valores** :
-    - **Detalles** : Ver el cron en detalle (como se almacena en la base).
-    - **Comenzar / Parar** : Iniciar o detener la tarea (dependiendo de su estado).
-    - **Supresión** : Eliminar tarea.
-
+  - **Detalles** : Ver el cron en detalle (como se almacena en la base).
+  - **Comenzar / Parar** : Iniciar o detener la tarea (dependiendo de su estado).
+  - **Supresión** : Eliminar tarea.
 
 ## Pestaña Oyente
 
@@ -47,6 +47,7 @@ Los oyentes solo son visibles en la lectura y le permiten ver las funciones llam
 ## Pestaña demonio
 
 Tabla de todos los demonios con su estado, la fecha del último lanzamiento así como la posibilidad de :
+
 - Iniciar / reiniciar un demonio.
 - Detener un demonio si la gestión automática está desactivada.
 - Habilitar / deshabilitar la gestión automática de un demonio.

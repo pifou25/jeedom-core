@@ -1,10 +1,9 @@
 # Update Center
-**Einstellungen → System → Update Center**
 
+**Einstellungen → System → Update Center**
 
 Das **Update Center** Mit dieser Funktion können Sie alle Funktionen von Jeedom aktualisieren, einschließlich der Kernsoftware und ihrer Plugins.
 Andere Erweiterungsverwaltungsfunktionen sind verfügbar (Löschen, Neuinstallieren, Überprüfen usw.).).
-
 
 ## Funktionen der Seite
 
@@ -22,6 +21,7 @@ Die Taste **Zu schützen** wird verwendet, wenn Sie die Optionen in der folgende
 
 Die Taste **Update** Mit dieser Option können Sie den Core, die Plugins oder beides aktualisieren.
 Sobald Sie darauf klicken, erhalten Sie diese verschiedenen Optionen :
+
 - **Pre-Update** : Ermöglicht das Aktualisieren des Aktualisierungsskripts, bevor die neuen Aktualisierungen angewendet werden. Wird in der Regel auf Anfrage des Supports verwendet.
 - **Vorher speichern** : Sichern Sie Jeedom vor dem Update. Die Sicherung wird nur lokal durchgeführt (weder Market noch Samba).
 - **Plugins aktualisieren** : Ermöglicht das Einfügen von Plugins in das Update.
@@ -42,7 +42,7 @@ Sobald Sie darauf klicken, erhalten Sie diese verschiedenen Optionen :
 
 Die Tabelle enthält die Versionen des Core und der installierten Plugins.
 
-Die Plugins haben neben ihrem Namen ein Abzeichen, das ihre Version angibt und grün ist *stetig*, oder orange in *Beta* oder andere.
+Die Plugins haben neben ihrem Namen ein Abzeichen, das ihre Version angibt und grün ist _stetig_, oder orange in _Beta_ oder andere.
 
 - **Status** : OK oder NOK.
 - **Nachname** : Name und Herkunft des Plugins
@@ -72,7 +72,7 @@ In jeder Zeile können Sie die folgenden Funktionen verwenden:
 >
 > Diese Registerkarte ist fortgeschrittenen Benutzern vorbehalten und nur für fortgeschrittene Benutzer, die geringste schlechte Aktion hier kann Ihr Jeedom BRECHEN (ohne die Möglichkeit, auf den Support zurückzugreifen)
 
-Auf dieser Registerkarte können Sie die verfügbaren Updates für das Betriebssystem (apt), das Python-Paket (pip2 und pip3) anzeigen und die Pakete aktualisieren, die dies erfordern. 
+Auf dieser Registerkarte können Sie die verfügbaren Updates für das Betriebssystem (apt), das Python-Paket (pip2 und pip3) anzeigen und die Pakete aktualisieren, die dies erfordern.
 
 ## Registerkarte Informationen
 
@@ -80,14 +80,14 @@ Während oder nach einem Update können Sie auf dieser Registerkarte das Protoko
 
 > **Notiz**
 >
-> Dieses Protokoll endet normalerweise mit *[UPDATE ERFOLG BEENDEN]*. Es kann einige Fehlerzeilen in dieser Art von Protokoll geben. Sofern nach dem Update kein echtes Problem auftritt, ist es jedoch nicht immer erforderlich, den Support zu kontaktieren.
+> Dieses Protokoll endet normalerweise mit _[UPDATE ERFOLG BEENDEN]_. Es kann einige Fehlerzeilen in dieser Art von Protokoll geben. Sofern nach dem Update kein echtes Problem auftritt, ist es jedoch nicht immer erforderlich, den Support zu kontaktieren.
 
 ## Befehlszeilenaktualisierung
 
 Es ist möglich, Jeedom direkt in SSH zu aktualisieren.
 Sobald die Verbindung hergestellt ist, ist dies der auszuführende Befehl :
 
-``````sudo php /var/www/html/install/update.php``````
+`sudo php /var/www/html/install/update.php`
 
 Die möglichen Parameter sind :
 
@@ -96,8 +96,8 @@ Die möglichen Parameter sind :
 
 Hier ist ein Beispiel für die Syntax, um ein erzwungenes Update durchzuführen, indem die Änderungen seit 4.0 erneut angewendet werden.04 :
 
-``````sudo php  /var/www/html/install/update.php mode=force version=4.0.04``````
+`sudo php  /var/www/html/install/update.php mode=force version=4.0.04`
 
 Achtung, nach einem Update in der Befehlszeile müssen die Rechte für den Jeedom-Ordner erneut angewendet werden :
 
-``````sudo chown -R www-data:www-data /var/www/html``````
+`sudo chown -R www-data:www-data /var/www/html`

@@ -1,4 +1,5 @@
 # Historique
+
 **Analysis → History**
 
 Important part in software : the historization part, a true memory of it. It is possible in Jeedom to log any information type command (binary or digital). This will allow you, for example, to log a temperature curve, consumption, the openings of a door, etc.
@@ -37,9 +38,9 @@ From Core v4.2 it is also possible to display a curve at the bottom of the tile 
 
 If you display a graph via the history page, you have access to several display options, above the graph :
 
-- **Period** : The display period, including historical data between these two dates. By default, depending on the setting *Display period graphics by default* in *Settings → System → Configuration / Equipment*.
+- **Period** : The display period, including historical data between these two dates. By default, depending on the setting _Display period graphics by default_ in _Settings → System → Configuration / Equipment_.
 - **Group** : Offers several grouping options (Sum per hour, etc.).
-- **Display type** : Display in *Line*, *Area*, Where *Closed off*. Option saved on the order and used from the Dashboard.
+- **Display type** : Display in _Line_, _Area_, Where _Closed off_. Option saved on the order and used from the Dashboard.
 - **Variation** : Displays the difference in value from the previous point. Option saved on the order and used from the Dashboard.
 - **Stairs** : Displays the curve as a staircase or a continuous display. Option saved on the order and used from the Dashboard.
 - **Compare** : Compare the curve between different periods.
@@ -47,8 +48,8 @@ If you display a graph via the history page, you have access to several display 
 > **Tip**
 >
 > To avoid any handling error, these options saved in the commands are only active when a single curve is displayed.
-> 
-In the upper part where the curves are displayed, there are also several options :
+>
+> In the upper part where the curves are displayed, there are also several options :
 
 On the left:
 
@@ -68,6 +69,7 @@ Under the curves, you can also use the contextual menu on each legend to isolate
 You can also display the graphs on the views (we will see here the configuration options and not how to do it, for that you have to go to the documentation of the views or designs in function). Here are the options :
 
 Once a data is activated, you can choose :
+
 - **Color** : The color of the curve.
 - **Kind** : The type of graph (area, line or column).
 - **Ladder** : Since you can put several curves (data) on the same graph, it is possible to distinguish the scales (right or left).
@@ -83,7 +85,7 @@ The history page gives access to some additional options
 
 Allows to display a curve according to a calculation on several commands (you can pretty much do anything, + - / \* absolute value ... see PHP documentation for some functions). For example :
 
-``abs(*\ [Garden \] \ [Hygrometry \] \ [Temperature \]* - *\ [Living space \] \ [Hygrometry \] \ [Temperature \]*)``
+`abs(*\ [Garden \] \ [Hygrometry \] \ [Temperature \]* - *\ [Living space \] \ [Hygrometry \] \ [Temperature \]*)`
 
 You also have access to a management of calculation formulas which allows you to save them to re-display them more easily.
 
@@ -101,5 +103,3 @@ In front of each data that can be displayed, you will find two icons :
 ### Inconsistent value removal
 
 Sometimes you may have inconsistent values on the graphs. This is often due to a concern with interpreting the value. It is possible to delete or change the value of the point in question, by clicking on it directly on the graph; in addition, you can adjust the minimum and maximum allowed to avoid future problems.
-
-

@@ -1,6 +1,6 @@
 # Widgets
 
-A widget is the graphic representation of an order. Each widget is specific to the type and subtype of the command to which it must be applied as well as the version from which Jeedom is accessed *(desktop or mobile)*.
+A widget is the graphic representation of an order. Each widget is specific to the type and subtype of the command to which it must be applied as well as the version from which Jeedom is accessed _(desktop or mobile)_.
 
 ## Default widgets
 
@@ -22,12 +22,12 @@ This widget is a bit special because it is a multi-command widget, i.e. it assem
 
 ##### Optional parameter (s))
 
-- **scale** *(échelle)* : Allows you to change the size of the widget, by filling in the parameter **scale** to `0.5`, the widget will be 2 times smaller.
+- **scale** _(échelle)_ : Allows you to change the size of the widget, by filling in the parameter **scale** to `0.5`, the widget will be 2 times smaller.
 
->**IMPORTANT**      
->It is ABSOLUTELY necessary that the generic types are indicated; `Temperature` on the temperature control and` Humidity` on the humidity control (this is configured in the advanced configuration of the control, configuration tab).
+> **IMPORTANT**  
+> It is ABSOLUTELY necessary that the generic types are indicated; `Temperature` on the temperature control and` Humidity` on the humidity control (this is configured in the advanced configuration of the control, configuration tab).
 
->**NOTE**      
+> **NOTE**  
 > Attention on a design it is important not to put a command alone with this widget it will not work since it is a widget using the value of several commands, it is absolutely necessary to put the complete widget
 
 ### Multiline
@@ -36,7 +36,7 @@ This widget is used to display the content of an info / other command on several
 
 ##### Optional parameter (s))
 
-- **maxHeight** *(max height)* : Allows you to set the maximum height of the widget (an elevator *(scrollbar)* will appear on the side if the text exceeds).
+- **maxHeight** _(max height)_ : Allows you to set the maximum height of the widget (an elevator _(scrollbar)_ will appear on the side if the text exceeds).
 
 ### Slider Button
 
@@ -44,7 +44,7 @@ Widget for action / cursor control with button "**+**" and a button "**-**" allo
 
 ##### Optional parameter (s))
 
-- **steps** *(pas)* : Allows you to set the value change step *(0.5 by default)*.
+- **steps** _(pas)_ : Allows you to set the value change step _(0.5 by default)_.
 
 ### Rain
 
@@ -54,13 +54,13 @@ Widget for displaying water levels.
 
 ##### Optional parameter (s))
 
-- **scale** *(échelle)* : Allows you to change the size of the widget, by filling in the parameter **scale** to `0.5`, the widget will be 2 times smaller.
+- **scale** _(échelle)_ : Allows you to change the size of the widget, by filling in the parameter **scale** to `0.5`, the widget will be 2 times smaller.
 - **showRange** : Set to `1` to display the minimum and maximum values of the command.
 - **animate** : Disable the animation of the widget with a value of `0`.
 
 ### ON / OFF Icon Toggle
 
-Regarding widgets for switches *(on / off, turn on / off, open / close, etc...)*, it may be considered more visually pleasing to display only an icon reflecting the status of the device to be controlled.
+Regarding widgets for switches _(on / off, turn on / off, open / close, etc...)_, it may be considered more visually pleasing to display only an icon reflecting the status of the device to be controlled.
 
 This possibility can be used both with default widgets and with custom widgets.
 
@@ -68,14 +68,14 @@ To do so, it is necessary to take into account 2 prerequisites :
 
 - The **2 action / fault commands** must be linked to an order **info / binary** which will store the current state of the device.
 
->**Example**      
->![ToggleLink Widget](./images/widgets5.png)
+> **Example**  
+> ![ToggleLink Widget](./images/widgets5.png)
 
->**Advice**     
->Uncheck *"Afficher"* of the info / binary command which will not need to be displayed.
+> **Advice**  
+> Uncheck _"Afficher"_ of the info / binary command which will not need to be displayed.
 
 - In order for the Jeedom Core to be able to identify which command corresponds to which action, it is essential to respect the following naming for **2 action / fault commands** :
-`` ''
+  `''
     'on':'on',
     'off':'off',
     'monter':'on',
@@ -93,11 +93,10 @@ To do so, it is necessary to take into account 2 prerequisites :
     'arret':'off',
     'stop':'off',
     'stop':'off',
-    'go':'on'
-`` ''
+    'go':'on'` ''
 
->**Trick**      
->As long as the standardized name remains readable, it is possible to adapt the naming, for example *open_volet* Where *shutter_close*, *walk_2* and *stop_2*, etc.
+> **Trick**  
+> As long as the standardized name remains readable, it is possible to adapt the naming, for example _open_volet_ Where _shutter_close_, _walk_2_ and _stop_2_, etc.
 
 ## Custom widgets
 
@@ -105,17 +104,18 @@ The Widgets page, accessible from the menu **Tools → Widgets**, allows you to 
 
 There are two types of custom widgets :
 
-- Widgets *Core* template-based. These widgets are managed by the Jeedom Core and therefore monitored by the development team. Their compatibility is assured with future evolutions of Jeedom.
-- Widgets *Third* based on user code. Unlike Core widgets, the Jeedom development team does not have control over the code inserted into these widgets, their compatibility with future developments is not guaranteed. These widgets therefore need to be maintained by the user.
+- Widgets _Core_ template-based. These widgets are managed by the Jeedom Core and therefore monitored by the development team. Their compatibility is assured with future evolutions of Jeedom.
+- Widgets _Third_ based on user code. Unlike Core widgets, the Jeedom development team does not have control over the code inserted into these widgets, their compatibility with future developments is not guaranteed. These widgets therefore need to be maintained by the user.
 
 ### Gestion
 
 ![Widgets](./images/widgets.png)
 
 You have four options :
-- **To add** : Allows you to add a widget *Core*.
+
+- **To add** : Allows you to add a widget _Core_.
 - **Import** : Allows you to import a widget as a previously exported json file.
-- **Coded** : Access the widget editing page *Third*.
+- **Coded** : Access the widget editing page _Third_.
 - **Replacement** : Opens a window allowing you to replace a widget with another on all devices using it.
 
 ### My widgets
@@ -124,8 +124,9 @@ In this part you will find all the widgets that you have created classified by t
 
 ![Mes Widgets](./images/widgets1.png)
 
-> **Trick**      
+> **Trick**  
 > You can open a widget by doing :
+>
 > - `Click` on one of them.
 > - `Ctrl + Click` or` Click + Center` to open it in a new browser tab.
 
@@ -139,13 +140,14 @@ To the right of the search field, three buttons that can be found in several pla
 - **The open file** to unfold all panels and display widgets.
 - **The closed file** to collapse all panels and hide widgets.
 
-Once on the configuration page of a widget, a context menu is accessible by `` Right Click '' on the tabs of the widget. You can also use a `Ctrl + Click` or` Click + Center` to directly open another widget in a new browser tab.
+Once on the configuration page of a widget, a context menu is accessible by ``Right Click '' on the tabs of the widget. You can also use a`Ctrl + Click` or` Click + Center` to directly open another widget in a new browser tab.
 
 ### Creating a widget
 
 Once on the page **Tools → Widgets** you have to click on the button "**To add**" and give a name to your new widget.
 
 Next :
+
 - You choose whether it applies to an order of type **Stock** Where **Information**.
 - Depending on the previous choice, you will have to **choose the subtype** of the order.
 - Finally **the template** among those which will be available according to the previous choices.
@@ -166,36 +168,36 @@ There are two types of template :
 
 #### Remplacement
 
-This is called a simple template, here you just have to say that the "**We**" matches such icon / image *(using the choose button)*, the "**Off**" to such other icon / image, etc...      
+This is called a simple template, here you just have to say that the "**We**" matches such icon / image _(using the choose button)_, the "**Off**" to such other icon / image, etc...
 
 The box **Time-widget**, if available, displays the duration since the last change of state under the widget.
 
-For templates using images, you can configure the width of the widget in pixels depending on the support (**Desktop width** & **Movable width**). Different images can also be selected according to the active theme of Jeedom *(light or dark)*.
+For templates using images, you can configure the width of the widget in pixels depending on the support (**Desktop width** & **Movable width**). Different images can also be selected according to the active theme of Jeedom _(light or dark)_.
 
->**Trick**     
->For advanced users, it is possible to put tags in the replacement values and to specify their value in the advanced configuration of the command.    
->If, for example, in **Desktop width** you put as value `#largeur_desktop#`` (**be careful to put the** ``#`` **autour**) puis dans la configuratiwe avancée d'une commande, ongland affichage → "**Paramètres optionnels widget**" vous ajoutez the paramètre ``largeur_desktop`` (**sans les** ``#`) and give it the value "**90**", this custom widget on this command will be 90 pixels wide. This allows you to adapt the size of the widget to each order without having to make a specific widget each time.
+> **Trick**  
+> For advanced users, it is possible to put tags in the replacement values and to specify their value in the advanced configuration of the command.  
+> If, for example, in **Desktop width** you put as value `#largeur_desktop#`` (**be careful to put the** ``#`` **autour**) puis dans la configuratiwe avancée d'une commande, ongland affichage → "**Paramètres optionnels widget**" vous ajoutez the paramètre ``largeur_desktop`` (**sans les** ``#`) and give it the value "**90**", this custom widget on this command will be 90 pixels wide. This allows you to adapt the size of the widget to each order without having to make a specific widget each time.
 
 #### Test
 
-This is called multistate templates *(several states)*. Instead of putting an image for the "**We** and / or for the "**Off** as in the previous case, you will assign an icon according to the validation of a condition *(test)*. If this is true then the widget will display the icon / image in question.
+This is called multistate templates _(several states)_. Instead of putting an image for the "**We** and / or for the "**Off** as in the previous case, you will assign an icon according to the validation of a condition _(test)_. If this is true then the widget will display the icon / image in question.
 
 As before, different images can be selected depending on the theme active on Jeedom and the box **Time-widget** displays the duration since the last change of state.
 
 The tests are in the form : ``#value# == 1`, `#value#`will be automatically replaced by the current value of the command. You can also do for example :
 
 - ``#value# > 1`
-- ``#value# >= 1 && #value# <= 5``
-- ``#value# == 'toto'``
+- `#value# >= 1 && #value# <= 5`
+- `#value# == 'toto'`
 
->**NOTE**     
->It is essential to show the apostrophes (**'**) around the text to compare if the value is text *(info / other)*.
+> **NOTE**  
+> It is essential to show the apostrophes (**'**) around the text to compare if the value is text _(info / other)_.
 
->**NOTE**     
->For advanced users, it is also possible to use javascript functions such as `#value#.match ("^ plop") `, here we test if the text starts with` plop`.
+> **NOTE**  
+> For advanced users, it is also possible to use javascript functions such as `#value#.match ("^ plop") `, here we test if the text starts with` plop`.
 
->**NOTE**     
->It is possible to display the value of the command in the widget by specifying `#value#`in the HTML code of the test. To display the unit add `#unite#``.
+> **NOTE**  
+> It is possible to display the value of the command in the widget by specifying `#value#`in the HTML code of the test. To display the unit add `#unite#``.
 
 ## Code Widget
 
@@ -210,7 +212,7 @@ In code mode you have access to different tags for orders, here is a list (not n
 - **#hide_name#** : empty or hidden if the user asked to hide the name of the widget, to put it directly in a class tag
 - **#id#** : command id
 - **#state#** : value of the command, empty for an action type command if it is not linked to a status command
-- **#uid#** : unique identifier for this generation of the widget (if there is several times the same command, case of designs:  only this identifier is really unique)
+- **#uid#** : unique identifier for this generation of the widget (if there is several times the same command, case of designs: only this identifier is really unique)
 - **#valueDate#** : date of the command value
 - **#collectDate#** : date of the command collect
 - **#alertLevel#** : alert level (see [here](https://github.com/Jeedom/core/blob/alpha/core/config/Jeedom.config.php#L67) for the list)
@@ -224,13 +226,13 @@ In code mode you have access to different tags for orders, here is a list (not n
 
 When a new value Jeedom will search in the page if the command is there and in Jeedom.cmd.update if there is an update function. If yes it calls it with a single argument which is an object in the form :
 
-`` ''
-{display_value: '#state#', valueDate: '#valueDate#', collectDate: '#collectDate#', alertLevel: '#alertLevel#'}
-`` ''
+`''
+{display_value: '#state#', valueDate: '#valueDate#', collectDate: '#collectDate#', alertLevel: '#alertLevel#'}` ''
 
 Here is a simple example of javascript code to put in your widget :
 
 `` ''
+
 <script>
     jeedom.cmd.addUpdateFunction('#id#', function (_options) {
       if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#id#"]'))) {
@@ -241,26 +243,25 @@ Here is a simple example of javascript code to put in your widget :
     }
     jeedom.cmd.refreshValue([{ cmd_id: '#id#', value: '#value#', display_value: '#state#', valueDate: '#valueDate#', collectDate: '#collectDate#', alertLevel: '#alertLevel#', unit: '#unite#' }])
 </script>
+
 `` ''
 
 Here are two important things :
 
-`` ''
+`''
 jeedom.cmd.addUpdateFunction('#id#', function (_options) {
   if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#id#"]'))) {
     cmd.setAttribute('title', '{{Value date}}: ' + _options.valueDate + '<br>{{Collect date}}: ' + _options.collectDate)
     cmd.querySelector('.value').innerHTML = _options.display_value
     cmd.querySelector('.unit').innerHTML = _options.unit
   }
-}
-`` ''
+}` ''
 The function is called during an update of the widget. It then updates the html code of the widget_template.
 
-`` ''
-jeedom.cmd.refreshValue([{ cmd_id: '#id#', value: '#value#', display_value: '#state#', valueDate: '#valueDate#', collectDate: '#collectDate#', alertLevel: '#alertLevel#', unit: '#unite#' }])
-`` ''
- The call to this function for the initialization of the widget.
+`''
+jeedom.cmd.refreshValue([{ cmd_id: '#id#', value: '#value#', display_value: '#state#', valueDate: '#valueDate#', collectDate: '#collectDate#', alertLevel: '#alertLevel#', unit: '#unite#' }])` ''
+The call to this function for the initialization of the widget.
 
 ### Exemples
 
- You will find [here](https://github.com/Jeedom/core/tree/V4-stable/core/template) examples of widgets (in dashboard and mobile folders)
+You will find [here](https://github.com/Jeedom/core/tree/V4-stable/core/template) examples of widgets (in dashboard and mobile folders)

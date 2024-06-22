@@ -1,19 +1,20 @@
 # Timeline
+
 **Analyse → Timeline**
 
 ## Timeline
 
-La page Timeline permet d'afficher chronologiquement des évènements, comme des changements de commandes *info*, des déclenchements de commandes *action*, et des éxécutions de scénarios.
+La page Timeline permet d'afficher chronologiquement des évènements, comme des changements de commandes _info_, des déclenchements de commandes _action_, et des éxécutions de scénarios.
 
 Pour les voir, il vous faut d’abord activer le suivi sur la timeline des commandes ou scénarios voulus, puis que ces évènements se produisent.
 
-- **Scenario** : Soit directement sur la page d'un scénario, soit sur *Vue d'ensemble* des scénarios.
+- **Scenario** : Soit directement sur la page d'un scénario, soit sur _Vue d'ensemble_ des scénarios.
 - **Commande** : Soit dans la configuration avancée de la commande, soit dans la configuration de l’historique pour le faire en "masse".
 
 ![Timeline](images/timeline_intro.jpg)
 
-La timeline *Principal* contient toujours l'ensemble des évènements. Toutefois, vous pouvez filtrer la timeline par *dossier*. A chaque endroit où vous activerez la timeline, vous disposerez d'un champ pour entrer le nom d'un dossier, existant ou non.
-Vous pourrez alors filtrer la timeline par ce dossier en le sélectionnant à gauche du bouton *Rafraichir*.
+La timeline _Principal_ contient toujours l'ensemble des évènements. Toutefois, vous pouvez filtrer la timeline par _dossier_. A chaque endroit où vous activerez la timeline, vous disposerez d'un champ pour entrer le nom d'un dossier, existant ou non.
+Vous pourrez alors filtrer la timeline par ce dossier en le sélectionnant à gauche du bouton _Rafraichir_.
 
 > **Note**
 >

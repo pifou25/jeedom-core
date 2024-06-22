@@ -1,9 +1,9 @@
 # Sauvegardes
+
 **Einstellungen → System → Backups**
 
 Jeedom bietet die Möglichkeit, von oder von verschiedenen Orten aus gerettet und wiederhergestellt zu werden.
 Diese Seite ermöglicht die Verwaltung von Backups und Wiederherstellungen.
-
 
 Links finden Sie die Parameter und Aktionsschaltflächen. Auf der rechten Seite sehen Sie den Echtzeitstatus der laufenden Aktion (Sicherung oder Wiederherstellung), falls Sie eine gestartet haben.
 
@@ -51,7 +51,6 @@ Links finden Sie die Parameter und Aktionsschaltflächen. Auf der rechten Seite 
 >
 > Jeedom-Backups müssen unbedingt nur für ihn in einem Ordner gespeichert werden ! Es wird alles, was kein Jeedom-Backup ist, aus dem Ordner gelöscht.
 
-
 # Was ist gespeichert ?
 
 Während einer Sicherung sichert Jeedom alle seine Dateien und die Datenbank. Diese enthält daher Ihre gesamte Konfiguration (Ausrüstung, Steuerelemente, Verlauf, Szenarien, Design usw.).).
@@ -76,6 +75,6 @@ Jeedom führt jeden Tag zur gleichen Zeit eine automatische Sicherung durch. Es 
 
 # FAQ
 
->**Ich kann mein Backup, das ich von Safari abgerufen habe, nicht wiederherstellen**
+> **Ich kann mein Backup, das ich von Safari abgerufen habe, nicht wiederherstellen**
 >
->Standardmäßig dekomprimiert Safari tars.gz (in tar), was bedeutet, dass das Backup nicht mehr von jeedom verwendet werden kann, es muss in tar.gz neu komprimiert (gzip) werden
+> Standardmäßig dekomprimiert Safari tars.gz (in tar), was bedeutet, dass das Backup nicht mehr von jeedom verwendet werden kann, es muss in tar.gz neu komprimiert (gzip) werden

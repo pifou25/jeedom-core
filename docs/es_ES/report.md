@@ -1,4 +1,5 @@
 # Rapport
+
 **Análisis → Informe**
 
 Esta página le permite ver todos los informes generados por la acción del informe (consulte la documentación del escenario).
@@ -38,7 +39,7 @@ También puede eliminar todas las copias de seguridad de un informe determinado
 ## FAQ
 
 > Si tienes un error de Detalles :
-> *cutycapt: error al cargar bibliotecas compartidas: libEGL.so: no se puede abrir el archivo de objeto compartido: No existe tal archivo o directorio*
+> _cutycapt: error al cargar bibliotecas compartidas: libEGL.so: no se puede abrir el archivo de objeto compartido: No existe tal archivo o directorio_
 > En ssh o en Preferencias → Sistema → Configuración : OS / DB / Administración del sistema hacer :
 > ''''''sudo ln -s /usr/lib/aarch64-linux-gnu/libGLESv2.so.2 /usr/lib/aarch64-linux-gnu/libGLESv2.so''''''
 > ''''''sudo ln -s /usr/lib/aarch64-linux-gnu/libEGL.so.1 /usr/lib/aarch64-linux-gnu/libEGL.so''''''

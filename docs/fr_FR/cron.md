@@ -1,4 +1,5 @@
 # Moteur de tâches
+
 **Réglages → Système → Moteur de tâches**
 
 Cette page informe de toutes les tâches applicatives Jeedom qui tournent sur le serveur.
@@ -35,10 +36,9 @@ Dans ce tableau, on retrouve :
 - **Statut** : État actuel de la tâche (pour rappel, une tâche démon est toujours à "run").
 
 - **Action** :
-    - **Détails** : Voir le cron dans le détail (tel que stocké en base).
-    - **Démarrer / Arrêter** : Lancer ou arrêter la tâche (en fonction de son statut).
-    - **Suppression** : Permet de supprimer la tâche.
-
+  - **Détails** : Voir le cron dans le détail (tel que stocké en base).
+  - **Démarrer / Arrêter** : Lancer ou arrêter la tâche (en fonction de son statut).
+  - **Suppression** : Permet de supprimer la tâche.
 
 ## Onglet Listener
 
@@ -47,6 +47,7 @@ Les listeners sont juste visibles en lecture et permettent de voir les fonctions
 ## Onglet Démon
 
 Tableau de l'ensemble des démons avec leur état, la date de dernier lancement ainsi que la possibilité de :
+
 - Démarrer / Redémarrer un démon.
 - Arrêter un démon si la gestion automatique est désactiver.
 - Activer / désactiver la gestion automatique d'un démon.

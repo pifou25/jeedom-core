@@ -1,4 +1,5 @@
 # Personnalisation Avancée
+
 **Réglages → Système → Personnalisation avancée**
 
 Vous pouvez ici gérer des fonctions **javascript** et des règles **CSS** appliqués en desktop ou en mobile.
@@ -62,7 +63,7 @@ div.cmd-widget .content-xs {
 }
 ```
 
-### Ajout de marge entre le nom des objets et les équipements sur le dashboard 
+### Ajout de marge entre le nom des objets et les équipements sur le dashboard
 
 ```
 .div_object legend .objectDashLegend {

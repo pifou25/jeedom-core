@@ -24,7 +24,8 @@ ul.jeeComplete > li.jeeCompleteItem.active {
 }
 
 /* _________________jeeToast */
-#jeeToastContainer, div.jeeToastContainer {
+#jeeToastContainer,
+div.jeeToastContainer {
   position: absolute;
   width: 30%;
   min-width: 250px;
@@ -77,11 +78,11 @@ div.jeeToastContainer.toast-top-center {
 }
 div.jeeToastContainer.toast-top-left,
 div.jeeToastContainer.toast-bottom-left {
- left:12px
+  left: 12px;
 }
 div.jeeToastContainer.toast-top-right,
 div.jeeToastContainer.toast-bottom-right {
- right:12px;
+  right: 12px;
 }
 div.jeeToastContainer > div.jeeToast.toast-info {
   background-color: var(--al-info-color);
@@ -96,7 +97,6 @@ div.jeeToastContainer > div.jeeToast.toast-danger {
   background-color: var(--al-danger-color);
 }
 
-
 /* _________________jeeDialog */
 #jeeDialogBackdrop {
   position: absolute;
@@ -110,14 +110,14 @@ div.jeeToastContainer > div.jeeToast.toast-danger {
   backdrop-filter: blur(5px) !important;
   --backdrop-filter: blur(3px) brightness(80%) !important;
 }
- div.jeeDialog {
+div.jeeDialog {
   position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   padding: 3px;
-  transform: translate(0,0);
+  transform: translate(0, 0);
   z-index: 1500;
   background-color: rgb(var(--panel-bg-color));
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px 2px;
@@ -150,13 +150,16 @@ div.jeeDialog > div.jeeDialogTitle button {
   margin-left: 10px;
   background-size: 72px 18px;
   border: none;
-  opacity: 0.7
+  opacity: 0.7;
 }
-[data-theme*="Dark"] div.jeeDialog:not(.jeeDialogMain) > div.jeeDialogTitle > button {
+[data-theme*="Dark"]
+  div.jeeDialog:not(.jeeDialogMain)
+  > div.jeeDialogTitle
+  > button {
   filter: invert(1);
 }
 div.jeeDialog:not(.jeeDialogMain) > div.jeeDialogTitle > button.btClose {
-  background: url('../../core/img/win_icons.png') no-repeat scroll -55px 0px;
+  background: url("../../core/img/win_icons.png") no-repeat scroll -55px 0px;
   background-size: 72px 18px;
 }
 div.jeeDialogContent {
@@ -171,7 +174,8 @@ div.jeeDialogContent div[id^="md_"] {
 div.jeeDialogContent div[id^="md_"] > .input-group {
   max-width: calc(100% - 7px); /*Chrome fix*/
 }
-div.jeeDialogContent .form-group { /*Chrome fix*/
+div.jeeDialogContent .form-group {
+  /*Chrome fix*/
   margin-left: 0;
   margin-right: 0;
 }
@@ -187,7 +191,7 @@ div.jeeDialogContent .form-horizontal {
 }
 
 div.jeeDialogPrompt div.jeeDialogContent input,
-div.jeeDialogPrompt div.jeeDialogContent textarea{
+div.jeeDialogPrompt div.jeeDialogContent textarea {
   width: 100%;
   padding: 4px !important;
   margin-bottom: 5px !important;
@@ -199,11 +203,11 @@ div.jeeDialogFooter {
 }
 div.jeeDialog button:focus,
 div.jeeDialog button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 div.jeeDialog > div.jeeDialogTitle button:focus,
 div.jeeDialog > div.jeeDialogTitle button:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 div.jeeDialogFooter button {
   font-size: 12px;
@@ -220,16 +224,16 @@ div.jeeDialogFooter button > i {
   color: var(--linkHoverLight-color) !important;
 }
 div.jeeDialogFooter button.info {
-  background-color: var(--al-info-color)!important;
+  background-color: var(--al-info-color) !important;
 }
 div.jeeDialogFooter button.success {
-  background-color: var(--al-success-color)!important;
+  background-color: var(--al-success-color) !important;
 }
 div.jeeDialogFooter button.warning {
-  background-color: var(--al-warning-color)!important;
+  background-color: var(--al-warning-color) !important;
 }
 div.jeeDialogFooter button.danger {
-  background-color: var(--al-danger-color)!important;
+  background-color: var(--al-danger-color) !important;
 }
 
 div.jeeDialog.jeeDialogMain {
@@ -238,12 +242,12 @@ div.jeeDialog.jeeDialogMain {
   max-height: calc(100vh - 60px);
   max-width: calc(100vw - 10px);
 }
-div.jeeDialog[id^='mod_insert'] {
+div.jeeDialog[id^="mod_insert"] {
   z-index: 1030 !important;
 }
 
 div.jeeDialog.jeeDialogMain > div.jeeDialogTitle > span.title:before {
-  content: '\f105\00a0\00a0';
+  content: "\f105\00a0\00a0";
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
 }
@@ -271,32 +275,48 @@ div.jeeDialog.jeeDialogMain > div.jeeDialogTitle > div.titleButtons {
 }
 div.jeeDialog.jeeDialogMain > div.jeeDialogTitle > div.titleButtons button {
   background: transparent;
-  background-image: url('../../core/img/win_icons.png');
+  background-image: url("../../core/img/win_icons.png");
   background-size: 72px 18px;
   background-repeat: no-repeat;
   overflow: hidden;
   padding: 0;
 }
-[data-theme*="Light"] div.jeeDialog.jeeDialogMain > div.jeeDialogTitle > div.titleButtons button {
+[data-theme*="Light"]
+  div.jeeDialog.jeeDialogMain
+  > div.jeeDialogTitle
+  > div.titleButtons
+  button {
   filter: invert(1);
 }
-div.jeeDialog.jeeDialogMain > div.jeeDialogTitle > div.titleButtons button.btClose {
+div.jeeDialog.jeeDialogMain
+  > div.jeeDialogTitle
+  > div.titleButtons
+  button.btClose {
   background-position: -55px 0px;
 }
-div.jeeDialog.jeeDialogMain > div.jeeDialogTitle > div.titleButtons button.btToggleMaximize {
+div.jeeDialog.jeeDialogMain
+  > div.jeeDialogTitle
+  > div.titleButtons
+  button.btToggleMaximize {
   background-position: -36px 0px;
 }
-div.jeeDialog.jeeDialogMain[data-maximize="1"] > div.jeeDialogTitle > div.titleButtons button.btToggleMaximize {
+div.jeeDialog.jeeDialogMain[data-maximize="1"]
+  > div.jeeDialogTitle
+  > div.titleButtons
+  button.btToggleMaximize {
   background-position: -18px 0px;
 }
-div.jeeDialog.jeeDialogMain > div.jeeDialogTitle > div.titleButtons button.minimize {
+div.jeeDialog.jeeDialogMain
+  > div.jeeDialogTitle
+  > div.titleButtons
+  button.minimize {
   background-position: 0 0;
 }
 div.jeeDialog.jeeDialogMain[data-maximize="1"] {
   height: calc(100% - 50px) !important;
   width: 100% !important;
   top: 50px !important;
-  left:0 !important;
+  left: 0 !important;
   z-index: 1100 !important;
   max-height: unset;
   max-width: unset;
@@ -318,11 +338,11 @@ div.jeeDialog.jeeDialogMain.active {
 #jeeMinimizeTray > div.jeeDialog > div:not(.jeeDialogTitle) {
   display: none;
 }
-#jeeMinimizeTray > div.jeeDialog div.jeeDialogTitle  > span.title {
+#jeeMinimizeTray > div.jeeDialog div.jeeDialogTitle > span.title {
   max-width: calc(100% - 70px) !important;
 }
 #jeeMinimizeTray > div.jeeDialog {
-  overFlow: hidden;
+  overflow: hidden;
   position: relative !important;
   float: left;
   cursor: pointer;
@@ -347,7 +367,8 @@ div.jeeDialog.jeeDialogMain > div.jeeDialogContent .floatingbar {
   right: 40px;
   top: 10px;
 }
-div.jeeDialog.jeeDialogMain > div.jeeDialogContent .row.row-overflow { /* Compensate .row margins -15px */
+div.jeeDialog.jeeDialogMain > div.jeeDialogContent .row.row-overflow {
+  /* Compensate .row margins -15px */
   margin-left: 2px;
   margin-right: 2px;
 }
@@ -443,7 +464,7 @@ div.jeeresizer.top-left {
 div.jeeDialogMain table.dataTable {
   width: 100% !important;
   min-width: 100% !important;
-  max-width:100% !important;
+  max-width: 100% !important;
 }
 
 table.stickyHead > thead {
@@ -469,7 +490,7 @@ div.jeeCtxMenu div.ctxSubMenuContainer {
   overflow-y: auto;
 }
 div.jeeCtxMenu:hover {
- box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
 }
 div.jeeCtxMenu div.ctxItem {
   position: relative;
@@ -481,7 +502,7 @@ div.jeeCtxMenu div.ctxItem * {
   cursor: pointer !important;
 }
 div.jeeCtxMenu div.ctxItem:hover {
-  background: var(--btnEq-default-color)
+  background: var(--btnEq-default-color);
 }
 div.jeeCtxMenu div.ctxItem.disabled {
   color: var(--placeholder-color);
@@ -493,44 +514,44 @@ div.jeeCtxMenu div.ctxSubMenu::after {
   font-size: 22px !important;
   position: absolute;
   top: 50%;
-  right: .5em;
+  right: 0.5em;
   z-index: 1;
-  content: '';
+  content: "";
   border-color: transparent transparent transparent var(--linkHoverLight-color);
   border-style: solid;
-  border-width: .25em 0 .25em .25em;
+  border-width: 0.25em 0 0.25em 0.25em;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 div.jeeCtxMenu div.ctxSubMenu > div.ctxItem:hover {
-  background: var(--btnEq-default-color)
+  background: var(--btnEq-default-color);
 }
 div.jeeCtxMenu div.ctxSeparator {
-  padding:0;
-  margin:.35em 0;
+  padding: 0;
+  margin: 0.35em 0;
 }
 div.jeeCtxMenu div.ctxInput > label > * {
- vertical-align: top;
+  vertical-align: top;
   font-weight: 400;
 }
-div.jeeCtxMenu div.ctxInput > label > input[type=checkbox],
-div.jeeCtxMenu div.ctxInput > label > input[type=radio] {
- position: relative;
- top: .12em;
- margin-right: .4em;
+div.jeeCtxMenu div.ctxInput > label > input[type="checkbox"],
+div.jeeCtxMenu div.ctxInput > label > input[type="radio"] {
+  position: relative;
+  top: 0.12em;
+  margin-right: 0.4em;
 }
 div.jeeCtxMenu div.ctxInput > label {
- margin: 0;
+  margin: 0;
 }
 div.jeeCtxMenu div.ctxInput > label,
-div.jeeCtxMenu div.ctxInput > label > input[type=text],
+div.jeeCtxMenu div.ctxInput > label > input[type="text"],
 div.jeeCtxMenu div.ctxInput > label > select,
 div.jeeCtxMenu div.ctxInput > label > textarea {
- display: block;
- width: 100%;
- box-sizing: border-box;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 div.jeeCtxMenu div.ctxItem.inlineItem {
@@ -556,7 +577,6 @@ div.ispin-wrapper button.ispin-button::before {
   border-bottom-color: var(--txt-color) !important;
   border-top-color: var(--txt-color) !important;
 }
-
 
 /* _________________3rdparty tree.js */
 div.tj_container span.tj_description.selected {
@@ -584,15 +604,11 @@ div.tj_container li span.tj_description.tj_leaf {
   margin-left: 0;
 }
 
-
-
 /* ________________________________________MEDIA QUERIES */
 @media screen and (max-width: 768px) {
-
   div.jeeDialog.jeeDialogAlert,
   div.jeeDialog.jeeDialogConfirm,
   div.jeeDialog.jeeDialogPrompt {
     width: 90%;
   }
-
 }

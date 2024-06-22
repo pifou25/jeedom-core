@@ -1,19 +1,20 @@
 # Timeline
+
 **Analyse → Zeitleiste**
 
 ## Timeline
 
-Auf der Seite Zeitleiste können Sie Ereignisse wie Auftragsänderungen chronologisch anzeigen *Information*, Befehl wird ausgelöst *Lager*, und Szenarioausführungen.
+Auf der Seite Zeitleiste können Sie Ereignisse wie Auftragsänderungen chronologisch anzeigen _Information_, Befehl wird ausgelöst _Lager_, und Szenarioausführungen.
 
 Um sie anzuzeigen, müssen Sie zuerst die Verfolgung der gewünschten Befehle oder Szenarien auf der Zeitachse aktivieren. Anschließend treten diese Ereignisse auf.
 
-- **Skript** : Entweder direkt auf einer Szenarioseite oder auf *Überblick* Szenarien.
+- **Skript** : Entweder direkt auf einer Szenarioseite oder auf _Überblick_ Szenarien.
 - **Bestellt** : Entweder in der erweiterten Konfiguration des Befehls oder in der Konfiguration des Verlaufs, um dies in "Masse" zu tun".
 
 ![Zeitleiste](images/timeline_intro.jpg)
 
-Die Zeitleiste *Haupt* enthält immer alle Ereignisse. Sie können die Zeitleiste jedoch nach filtern *Fall*. An jeder Stelle, an der Sie die Zeitleiste aktivieren, haben Sie ein Feld, in das Sie den Namen eines Ordners eingeben können, ob vorhanden oder nicht.
-Sie können die Zeitleiste dann nach diesem Ordner filtern, indem Sie sie links neben der Schaltfläche auswählen *Aktualisierung*.
+Die Zeitleiste _Haupt_ enthält immer alle Ereignisse. Sie können die Zeitleiste jedoch nach filtern _Fall_. An jeder Stelle, an der Sie die Zeitleiste aktivieren, haben Sie ein Feld, in das Sie den Namen eines Ordners eingeben können, ob vorhanden oder nicht.
+Sie können die Zeitleiste dann nach diesem Ordner filtern, indem Sie sie links neben der Schaltfläche auswählen _Aktualisierung_.
 
 > **Notiz**
 >

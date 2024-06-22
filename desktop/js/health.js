@@ -14,58 +14,70 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-"use strict"
+"use strict";
 
 if (!jeeFrontEnd.health) {
   jeeFrontEnd.health = {
-    init: function() {
-      window.jeeP = this
-    }
-  }
+    init: function () {
+      window.jeeP = this;
+    },
+  };
 }
 
-jeeFrontEnd.health.init()
+jeeFrontEnd.health.init();
 
 /*Events delegations
-*/
-document.getElementById('accordionHealth').addEventListener('click', event => {
-  var _target = null
-  if (_target = event.target.closest('.bt_configurationPlugin')) {
-    jeeDialog.dialog({
-      id: 'jee_modal',
-      title: "{{Configuration du plugin}}",
-      contentUrl: 'index.php?v=d&p=plugin&ajax=1&id=' + _target.getAttribute('data-pluginid')
-    })
-    return
-  }
+ */
+document
+  .getElementById("accordionHealth")
+  .addEventListener("click", (event) => {
+    var _target = null;
+    if ((_target = event.target.closest(".bt_configurationPlugin"))) {
+      jeeDialog.dialog({
+        id: "jee_modal",
+        title: "{{Configuration du plugin}}",
+        contentUrl:
+          "index.php?v=d&p=plugin&ajax=1&id=" +
+          _target.getAttribute("data-pluginid"),
+      });
+      return;
+    }
 
-  if (_target = event.target.closest('.bt_healthSpecific')) {
-    jeeDialog.dialog({
-      id: 'jee_modal',
-      title: "{{Santé}} " + _target.getAttribute('data-pluginname'),
-      contentUrl: 'index.php?v=d&plugin=' + _target.getAttribute('data-pluginid') + '&modal=health'
-    })
-    return
-  }
+    if ((_target = event.target.closest(".bt_healthSpecific"))) {
+      jeeDialog.dialog({
+        id: "jee_modal",
+        title: "{{Santé}} " + _target.getAttribute("data-pluginname"),
+        contentUrl:
+          "index.php?v=d&plugin=" +
+          _target.getAttribute("data-pluginid") +
+          "&modal=health",
+      });
+      return;
+    }
 
-  if (_target = event.target.closest('#bt_benchmarkJeedom')) {
-    jeeDialog.dialog({
-      id: 'jee_modal',
-      title: "{{Jeedom benchmark}}",
-      contentUrl: 'index.php?v=d&modal=jeedom.benchmark'
-    })
-    return
-  }
+    if ((_target = event.target.closest("#bt_benchmarkJeedom"))) {
+      jeeDialog.dialog({
+        id: "jee_modal",
+        title: "{{Jeedom benchmark}}",
+        contentUrl: "index.php?v=d&modal=jeedom.benchmark",
+      });
+      return;
+    }
 
-  if (_target = event.target.closest('.panel-title')) {
-    _target.querySelector(':scope > a').click()
-    if (typeof(bootbox) === 'undefined') requestAnimationFrame(() => { document.getElementById('health_jeedom').addClass('in') })
-    return
-  }
+    if ((_target = event.target.closest(".panel-title"))) {
+      _target.querySelector(":scope > a").click();
+      if (typeof bootbox === "undefined")
+        requestAnimationFrame(() => {
+          document.getElementById("health_jeedom").addClass("in");
+        });
+      return;
+    }
 
-  if (_target = event.target.closest('.panel-title')) {
-    if (typeof(bootbox) === 'undefined') requestAnimationFrame(() => { document.getElementById('health_jeedom').addClass('in') })
-    return
-  }
-
-})
+    if ((_target = event.target.closest(".panel-title"))) {
+      if (typeof bootbox === "undefined")
+        requestAnimationFrame(() => {
+          document.getElementById("health_jeedom").addClass("in");
+        });
+      return;
+    }
+  });

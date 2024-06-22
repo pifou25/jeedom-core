@@ -4,7 +4,7 @@ Desktop
 */
 
 /* ____________________Global */
-[data-page=plan3d] .verticalAlign {
+[data-page="plan3d"] .verticalAlign {
   z-index: auto !important;
 }
 
@@ -65,19 +65,19 @@ div.cmd-widget .cmdName {
   font-weight: 400;
 }
 
-div.cmd-widget .cmdName>i,
-div.cmd-widget .iconCmdLine>i {
+div.cmd-widget .cmdName > i,
+div.cmd-widget .iconCmdLine > i {
   font-size: 15px;
   vertical-align: bottom;
 }
 
-div.cmd-widget .iconCmdLine>img {
+div.cmd-widget .iconCmdLine > img {
   max-width: 15px;
   max-height: 15px;
   vertical-align: bottom;
 }
 
-div.cmd-widget .value>.label {
+div.cmd-widget .value > .label {
   padding: 1px 3px;
 }
 
@@ -226,12 +226,12 @@ div.eqLogic_layout_table table.tableCmd td.tableCenter {
   z-index: 1;
 }
 
-.ui-slider-horizontal>.sliderValue {
+.ui-slider-horizontal > .sliderValue {
   top: -7px;
   right: -22px;
 }
 
-.ui-slider-vertical>.sliderValue {
+.ui-slider-vertical > .sliderValue {
   bottom: -14px;
   right: -15px;
   width: 25px;
@@ -272,15 +272,15 @@ div.cmd-widget .slider.noUi-vertical .noUi-connects {
   width: 5px;
 }
 
-div.cmd-widget .slider .noUi-connects>.noUi-connect {
+div.cmd-widget .slider .noUi-connects > .noUi-connect {
   background: var(--link-color);
 }
 
-div.cmd-widget .slider.noUi-horizontal .noUi-connects>.noUi-connect {
+div.cmd-widget .slider.noUi-horizontal .noUi-connects > .noUi-connect {
   height: 7px !important;
 }
 
-div.cmd-widget .slider.noUi-vertical .noUi-connects>.noUi-connect {
+div.cmd-widget .slider.noUi-vertical .noUi-connects > .noUi-connect {
   width: 8px !important;
 }
 
@@ -305,7 +305,7 @@ div.cmd-widget .slider .noUi-handle::after {
 
 div.cmd-widget .slider .noUi-tooltip {
   display: none;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 12px;
   border: none;
   background: var(--btnEq-default-color);
@@ -354,20 +354,24 @@ div.cmd-widget[data-type="action"][data-subtype="other"][data-template="default"
   padding: 0 2px;
 }
 
-div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="value"] input {
+div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="value"]
+  input {
   font-size: 12px;
   padding: 2px;
 }
 
-div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="value"] .ui-button-icon.ui-icon {
+div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="value"]
+  .ui-button-icon.ui-icon {
   margin-top: -8px;
 }
 
-div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="button"] .buttons {
+div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="button"]
+  .buttons {
   width: 130px;
 }
 
-div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="button"] .in_value {
+div.cmd-widget[data-type="action"][data-subtype="slider"][data-template="button"]
+  .in_value {
   width: 70px;
   text-align: center;
 }
@@ -376,16 +380,18 @@ div.cmd-widget[data-type="action"][data-subtype="message"][data-template="defaul
   overflow: hidden;
 }
 
-div.cmd-widget[data-type="action"][data-subtype="message"][data-template="default"] .message {
+div.cmd-widget[data-type="action"][data-subtype="message"][data-template="default"]
+  .message {
   margin: 5px 0 !important;
   resize: none !important;
 }
 
-div.cmd-widget[data-type="action"][data-subtype="select"] div[class^="content"] {
+div.cmd-widget[data-type="action"][data-subtype="select"]
+  div[class^="content"] {
   width: 85%;
 }
 
-div.cmd-widget div[class^="content"]>select {
+div.cmd-widget div[class^="content"] > select {
   font-size: 16px !important;
   height: 22px;
 }
@@ -395,11 +401,13 @@ div.cmd-widget[data-type="info"][data-template="tile"] .state {
   line-height: 24px;
 }
 
-div.cmd-widget[data-type="info"][data-subtype="numeric"][data-template="badge"] .state {
+div.cmd-widget[data-type="info"][data-subtype="numeric"][data-template="badge"]
+  .state {
   padding: 6px;
 }
 
-div.cmd-widget[data-type="info"][data-subtype="string"][data-template="color"] .color {
+div.cmd-widget[data-type="info"][data-subtype="string"][data-template="color"]
+  .color {
   border-radius: var(--border-radius);
 }
 
@@ -413,9 +421,9 @@ div.cmd-widget[data-type="info"][data-subtype="string"][data-template="multiline
   width: 5px;
 }
 
-
 /* ____________________binarySwitch */
-div.cmd-widget[data-type="action"][data-subtype="other"][data-template="binarySwitch"] .content-xs {
+div.cmd-widget[data-type="action"][data-subtype="other"][data-template="binarySwitch"]
+  .content-xs {
   width: 140px;
   max-width: 95%;
   display: flex;
@@ -446,35 +454,42 @@ span.binarySwitchHandle {
   left: 4px;
   bottom: 2px;
   background-color: var(--link-color);
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
-label.binarySwitch>input:checked+span.binarySwitch>span.binarySwitchHandle {
+label.binarySwitch
+  > input:checked
+  + span.binarySwitch
+  > span.binarySwitchHandle {
   left: unset;
   right: 4px !important;
 }
 
-label.binarySwitch>input+span.binarySwitch {
+label.binarySwitch > input + span.binarySwitch {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transition: .4s;
+  transition: 0.4s;
   background-color: var(--btnEq-default-color);
 }
 
-label.binarySwitch>input:checked+span.binarySwitch {
+label.binarySwitch > input:checked + span.binarySwitch {
   background-color: var(--el-defaultColor);
 }
 
-[data-coloredicons="1"] label.binarySwitch>input:checked+span.binarySwitch {
+[data-coloredicons="1"] label.binarySwitch > input:checked + span.binarySwitch {
   background-color: var(--bt-success-color);
 }
 
-[data-theme="core2019_Dark"][data-coloredicons="1"] label.binarySwitch>input:checked+span.binarySwitch>span.binarySwitchHandle {
+[data-theme="core2019_Dark"][data-coloredicons="1"]
+  label.binarySwitch
+  > input:checked
+  + span.binarySwitch
+  > span.binarySwitchHandle {
   background-color: var(--btnEq-default-color) !important;
 }
 
@@ -624,11 +639,11 @@ div.cmd-widget.widget-compass .widget-compass-needle {
 /* ____________________Rain */
 @keyframes jeedomWidgetRainWaterAnimation {
   from {
-    background-position: 0 0
+    background-position: 0 0;
   }
 
   to {
-    background-position: 100000% 0
+    background-position: 100000% 0;
   }
 }
 
@@ -642,7 +657,8 @@ div.cmd-widget.widget-rain .widget-rain-water {
 }
 
 div.cmd-widget.widget-rain .widget-rain-container {
-  background: url(../../core/template/mobile/cmd.info.numeric.rain/marker.svg) no-repeat;
+  background: url(../../core/template/mobile/cmd.info.numeric.rain/marker.svg)
+    no-repeat;
   background-size: cover;
   position: relative;
   height: 60px;

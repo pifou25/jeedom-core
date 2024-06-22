@@ -14,97 +14,121 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-"use strict"
+"use strict";
 
 if (!jeeFrontEnd.dashboardit) {
   jeeFrontEnd.dashboardit = {
-    init: function() {
-      window.jeeP = this
+    init: function () {
+      window.jeeP = this;
 
-      TreeConfig.leaf_icon = '<i class="far fa-folder cursor"></i>'
-      TreeConfig.parent_icon = '<i class="far fa-folder-tree cursor"></i>'
-      TreeConfig.open_icon = '<i class="far fa-folder-open cursor"></i>'
-      TreeConfig.close_icon = '<i class="far fa-folder cursor"></i>'
-      this.setObjectTree()
+      TreeConfig.leaf_icon = '<i class="far fa-folder cursor"></i>';
+      TreeConfig.parent_icon = '<i class="far fa-folder-tree cursor"></i>';
+      TreeConfig.open_icon = '<i class="far fa-folder-open cursor"></i>';
+      TreeConfig.close_icon = '<i class="far fa-folder cursor"></i>';
+      this.setObjectTree();
     },
-    getObjectHtml: function(_object_id) {
+    getObjectHtml: function (_object_id) {
       jeedom.object.toHtml({
         id: _object_id,
-        version: 'dashboard',
-        error: function(error) {
+        version: "dashboard",
+        error: function (error) {
           jeedomUtils.showAlert({
             message: error.message,
-            level: 'danger'
-          })
+            level: "danger",
+          });
         },
-        success: function(html) {
+        success: function (html) {
           try {
-            document.querySelector('div.div_displayEquipement').html(html, false, function() {
-              this.addClass('posEqWidthRef')
-              this.style.userSelect = 'none'
-              jeedomUtils.positionEqLogic()
-              new Packery(this, {isLayoutInstant: true, transitionDuration: 0})
-            })
+            document
+              .querySelector("div.div_displayEquipement")
+              .html(html, false, function () {
+                this.addClass("posEqWidthRef");
+                this.style.userSelect = "none";
+                jeedomUtils.positionEqLogic();
+                new Packery(this, {
+                  isLayoutInstant: true,
+                  transitionDuration: 0,
+                });
+              });
           } catch (err) {
-            console.warn(err)
+            console.warn(err);
           }
-        }
-      })
+        },
+      });
     },
     //Tree functions:
-    setObjectTree: function() {
-      this.object_root = new TreeNode('object_root', { expanded: true })
-      this.object_tree = new TreeView(this.object_root, document.getElementById('div_treeObject'), { show_root: false })
-      this.object_tree.setContainer(document.getElementById('div_treeObject'))
+    setObjectTree: function () {
+      this.object_root = new TreeNode("object_root", { expanded: true });
+      this.object_tree = new TreeView(
+        this.object_root,
+        document.getElementById("div_treeObject"),
+        { show_root: false },
+      );
+      this.object_tree.setContainer(document.getElementById("div_treeObject"));
 
-      var newNode
-      buildTree()
+      var newNode;
+      buildTree();
       function buildTree(_childs, _parentNode) {
-        if (!isset(_childs)) _childs = jeephp2js.object_Struct
-        if (!isset(_parentNode)) _parentNode = jeeFrontEnd.dashboardit.object_root
-        _childs.forEach(_obj => {
-          newNode = new TreeNode('<span class="leafRef cursor" data-object_id="' + _obj.id + '">' + _obj.name + '</span>', {
-            options: {
-              object_id: _obj.id,
-              name: _obj.name,
-            }
-          })
-          newNode.setOptions('object_id', _obj.id)
-          newNode.on('click', (event, node) => {
-            if (!event.target.matches('i')) node.toggleExpanded() //Default behavior allways toggle
-            var objectId = node.getOptions().options.object_id
-            var name = node.getOptions().options.name
-            jeeP.objectTreeClick(objectId, name)
-          })
-          _parentNode.addChild(newNode)
+        if (!isset(_childs)) _childs = jeephp2js.object_Struct;
+        if (!isset(_parentNode))
+          _parentNode = jeeFrontEnd.dashboardit.object_root;
+        _childs.forEach((_obj) => {
+          newNode = new TreeNode(
+            '<span class="leafRef cursor" data-object_id="' +
+              _obj.id +
+              '">' +
+              _obj.name +
+              "</span>",
+            {
+              options: {
+                object_id: _obj.id,
+                name: _obj.name,
+              },
+            },
+          );
+          newNode.setOptions("object_id", _obj.id);
+          newNode.on("click", (event, node) => {
+            if (!event.target.matches("i")) node.toggleExpanded(); //Default behavior allways toggle
+            var objectId = node.getOptions().options.object_id;
+            var name = node.getOptions().options.name;
+            jeeP.objectTreeClick(objectId, name);
+          });
+          _parentNode.addChild(newNode);
 
-          if (_obj.childs) buildTree(_obj.childs, newNode)
-        })
+          if (_obj.childs) buildTree(_obj.childs, newNode);
+        });
       }
-      this.object_tree.reload()
-      this.object_tree.expandAllNodes()
-      document.querySelector('#div_treeObject .tj_description').click()
+      this.object_tree.reload();
+      this.object_tree.expandAllNodes();
+      document.querySelector("#div_treeObject .tj_description").click();
     },
-    objectTreeClick: function(_objectId, _name) {
-      let parent = document.querySelector('div.div_displayEquipement').parentNode
-      parent.empty()
-      parent.insertAdjacentHTML('afterbegin', '<legend>' + _name + '</legend><div class="div_displayEquipement"></div>')
-      jeeP.getObjectHtml(_objectId)
-    }
-  }
+    objectTreeClick: function (_objectId, _name) {
+      let parent = document.querySelector(
+        "div.div_displayEquipement",
+      ).parentNode;
+      parent.empty();
+      parent.insertAdjacentHTML(
+        "afterbegin",
+        "<legend>" +
+          _name +
+          '</legend><div class="div_displayEquipement"></div>',
+      );
+      jeeP.getObjectHtml(_objectId);
+    },
+  };
 }
 
 jeedom.object.getImgPath({
   id: jeephp2js.object_Struct[0].id,
-  success: function(_path) {
-    jeedomUtils.setBackgroundImage(_path)
-  }
-})
+  success: function (_path) {
+    jeedomUtils.setBackgroundImage(_path);
+  },
+});
 
-jeeFrontEnd.dashboardit.init()
+jeeFrontEnd.dashboardit.init();
 
 //Resize responsive tiles:
-window.registerEvent('resize', function dashboard(event) {
-  if (event.isTrigger) return
-  jeedomUtils.positionEqLogic()
-})
+window.registerEvent("resize", function dashboard(event) {
+  if (event.isTrigger) return;
+  jeedomUtils.positionEqLogic();
+});

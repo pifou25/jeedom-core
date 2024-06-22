@@ -1,4 +1,5 @@
 # Rapport
+
 **Analyse → Rapport**
 
 Cette page permet de voir tous les rapports qui ont été générés par l'action report (voir documentation des scénarios).
@@ -38,7 +39,6 @@ Vous pouvez aussi supprimer toutes les sauvegardes d'un rapport donné
 ## FAQ
 
 > Si vous avez une erreur du type Détails :
-> *cutycapt: error while loading shared libraries: libEGL.so: cannot open shared object file: No such file or directory*
+> _cutycapt: error while loading shared libraries: libEGL.so: cannot open shared object file: No such file or directory_
 > Il faut en ssh ou dans Réglages → Système → Configuration : OS/DB / Système administration faire :
-> ```sudo ln -s /usr/lib/aarch64-linux-gnu/libGLESv2.so.2 /usr/lib/aarch64-linux-gnu/libGLESv2.so```
-> ```sudo ln -s /usr/lib/aarch64-linux-gnu/libEGL.so.1 /usr/lib/aarch64-linux-gnu/libEGL.so```
+> `sudo ln -s /usr/lib/aarch64-linux-gnu/libGLESv2.so.2 /usr/lib/aarch64-linux-gnu/libGLESv2.so` > `sudo ln -s /usr/lib/aarch64-linux-gnu/libEGL.so.1 /usr/lib/aarch64-linux-gnu/libEGL.so`

@@ -3,7 +3,7 @@ Theme Core 2019 @Jeedom
 colors Light Mobile
 */
 :root {
-  --lineheight : 1.42em;
+  --lineheight: 1.42em;
   /* keep it as rem even when zero!!*/
   --border-radius: 0rem;
   --opacity: 1;
@@ -41,7 +41,7 @@ colors Light Mobile
   --cat-heating-color: 60, 115, 165;
   --cat-automatism-color: 135, 135, 135;
   --cat-light-color: 220, 135, 25;
-    --cat-opening-color: 90, 90, 90;
+  --cat-opening-color: 90, 90, 90;
   --cat-multimedia-color: 65, 90, 125;
   --cat-energy-color: 58, 165, 72;
   --cat-other-color: 58, 120, 85;
@@ -54,7 +54,7 @@ colors Light Mobile
   --lb-yellow-color: rgb(240, 215, 0);
   --lb-yellow-color: rgb(240, 215, 0);
   --al-info-color: rgb(100, 160, 230);
-  --al-primary-color:  rgb(60, 120, 180);
+  --al-primary-color: rgb(60, 120, 180);
   --al-success-color: rgb(80, 170, 80);
   --al-warning-color: rgb(240, 160, 40);
   --al-danger-color: rgb(190, 0, 0);

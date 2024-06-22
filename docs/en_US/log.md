@@ -1,4 +1,5 @@
 # Logs
+
 **Analysis → Logs**
 
 Logs are log files, allowing you to follow what is happening on your home automation. In most cases the logs will only be used for debugging and solving problems by the support team.

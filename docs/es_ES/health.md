@@ -1,4 +1,5 @@
 # Santé
+
 **Análisis → Salud**
 
 La página de Jeedom Health le permite tener una visión general rápida del estado de salud de su Jeedom.
@@ -16,11 +17,11 @@ A continuación encontrará el estado de cada complemento, un clic en el nombre 
 
 A la derecha encontrarás los íconos :
 
--   Puerto de acceso para hardware de complemento (tipo de clave Zwave).
--   Modo demonio.
--   Visualización de la página de estado del equipo del complemento.
--   Visualización de la página de configuración del complemento.
--   Estado general del complemento.
+- Puerto de acceso para hardware de complemento (tipo de clave Zwave).
+- Modo demonio.
+- Visualización de la página de estado del equipo del complemento.
+- Visualización de la página de configuración del complemento.
+- Estado general del complemento.
 
 > **Nota**
 >

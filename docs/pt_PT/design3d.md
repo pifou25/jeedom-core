@@ -1,8 +1,8 @@
 # Projeto 3D
+
 **Página inicial → Design3D**
 
 Esta página permite criar uma visualização em 3D da sua casa que pode reagir dependendo do estado das várias informações na sua automação residencial.
-
 
 > **Dica**
 >
@@ -49,7 +49,6 @@ Clique no botão "enviar" no nível "Modelo 3D" e selecione seu arquivo zip
 >
 > Depois que o arquivo for importado (pode ser bastante longo, dependendo do tamanho do arquivo), você precisará atualizar a página para ver o resultado (F5).
 
-
 ## Configuração de elementos
 
 > **IMPORTANTE**
@@ -85,25 +84,25 @@ Para configurar um elemento no design 3D, clique duas vezes no elemento que voc�
 
 - Estado : Status da porta / janela, 1 fechado e 0 aberto
 - Rotation
-	- Permitir : ativa a rotação da porta / janela ao abrir
-	- Abertura : o melhor é testar para que ele corresponda à sua porta / janela
+  - Permitir : ativa a rotação da porta / janela ao abrir
+  - Abertura : o melhor é testar para que ele corresponda à sua porta / janela
 - Translation
-	- Permitir : ativa a tradução ao abrir (porta deslizante / janela))
-	- Significado : direção na qual a porta / janela deve se mover (você tem para cima / baixo / direita / esquerda)
-	- Repetir : por padrão, a porta / janela se move uma vez sua dimensão na direção especificada, mas você pode aumentar esse valor
+  - Permitir : ativa a tradução ao abrir (porta deslizante / janela))
+  - Significado : direção na qual a porta / janela deve se mover (você tem para cima / baixo / direita / esquerda)
+  - Repetir : por padrão, a porta / janela se move uma vez sua dimensão na direção especificada, mas você pode aumentar esse valor
 - Ocultar quando a porta / janela está aberta
-	- Permitir : Oculta o elemento se a Porta / Janela estiver aberta
+  - Permitir : Oculta o elemento se a Porta / Janela estiver aberta
 - Couleur
-	- Cor aberta : se assinalar, o elemento assumirá esta cor se a porta / janela estiver aberta
-	- Cor fechada : se marque o elemento terá esta cor se a porta / janela estiver fechada
+  - Cor aberta : se assinalar, o elemento assumirá esta cor se a porta / janela estiver aberta
+  - Cor fechada : se marque o elemento terá esta cor se a porta / janela estiver fechada
 
 #### Volet
 
 - Estado : status do obturador, 0 aberto outro valor fechado
 - Ocultar quando o obturador estiver aberto
-	- Permitir : ocultar o elemento se o obturador estiver aberto
+  - Permitir : ocultar o elemento se o obturador estiver aberto
 - Couleur
-	- Cor fechada : se marque o elemento terá esta cor se o obturador estiver fechado
+  - Cor fechada : se marque o elemento terá esta cor se o obturador estiver fechado
 
 ### Cor condicional
 

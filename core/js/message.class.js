@@ -14,84 +14,119 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-jeedom.message = function() {};
+jeedom.message = function () {};
 jeedom.message.cache = Array();
 
-jeedom.message.all = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/message.ajax.php';
-    paramsAJAX.data = {
-        action: "all",
-        plugin: _params.plugin || ''
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.message.all = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/message.ajax.php";
+  paramsAJAX.data = {
+    action: "all",
+    plugin: _params.plugin || "",
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.message.remove = function(_params) {
-    var paramsRequired = ['id'];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/message.ajax.php';
-    paramsAJAX.data = {
-        action: 'removeMessage',
-        id: _params.id,
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.message.remove = function (_params) {
+  var paramsRequired = ["id"];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/message.ajax.php";
+  paramsAJAX.data = {
+    action: "removeMessage",
+    id: _params.id,
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.message.clear = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {};
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/message.ajax.php';
-    paramsAJAX.data = {
-        action: 'clearMessage',
-        plugin: _params.plugin || ''
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.message.clear = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/message.ajax.php";
+  paramsAJAX.data = {
+    action: "clearMessage",
+    plugin: _params.plugin || "",
+  };
+  domUtils.ajax(paramsAJAX);
+};
 
-jeedom.message.number = function(_params) {
-    var paramsRequired = [];
-    var paramsSpecifics = {
-        global: false,
-        noDisplayError: true,
-    };
-    try {
-        jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-    } catch (e) {
-        (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-        return;
-    }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-    var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/message.ajax.php';
-    paramsAJAX.data = {
-        action: 'nbMessage',
-    };
-    domUtils.ajax(paramsAJAX);
-}
+jeedom.message.number = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {
+    global: false,
+    noDisplayError: true,
+  };
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/message.ajax.php";
+  paramsAJAX.data = {
+    action: "nbMessage",
+  };
+  domUtils.ajax(paramsAJAX);
+};

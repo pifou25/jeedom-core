@@ -1,4 +1,5 @@
 # Centro de mensajes
+
 **Barra de menú**
 
 El centro de mensajes reúne todos los mensajes importantes que debe consultar. Está a la izquierda del tiempo, a la derecha de la barra de menú de Jeedom.

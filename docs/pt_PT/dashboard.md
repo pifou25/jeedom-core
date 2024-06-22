@@ -1,4 +1,5 @@
 # Dashboard
+
 **Página inicial → Painel**
 
 <small>[Raccourcis clavier/souris](shortcuts.md)</small>
@@ -24,6 +25,7 @@ Este relatório (diferente das visualizações e designs) é gerado automaticame
 > A ordem de exibição dos objetos no Painel é visível em **Análise → Resumo da automação residencial**. Você pode modificar esta ordem nesta página arrastando e soltando.
 
 Para que o equipamento apareça no painel, ele deve :
+
 - Seja ativo.
 - Seja visível.
 - Ter como objeto pai um objeto visível no Painel.
@@ -32,6 +34,7 @@ Na primeira aparição do equipamento no painel, o Jeedom tenta dimensionar corr
 Para manter um painel equilibrado, você pode alternar para o modo Editar com o lápis no canto superior direito da barra de pesquisa, para redimensionar e / ou reordenar os ladrilhos do equipamento.
 
 Movendo o mouse sobre um pedido, um marcador colorido aparece na parte inferior esquerda do bloco:
+
 - Azul para um pedido info. Se estiver logado, um clique nele abre a janela de log.
 - Laranja para um comando de ação. Um clique acionará a ação.
 
@@ -51,12 +54,11 @@ Além disso, você pode clicar no título do ladrilho (o nome do equipamento) pa
 
 - Um clique em um pedido de tipo de informação exibe o histórico do pedido (se for histórico).
 - Um Ctrl + Clique em um comando de tipo de informação exibe o histórico de todos os comandos (históricos) desse bloco.
-- Um clique na informação *Tempo* de um comando de ação exibe o histórico do comando (se for historizado).
-
+- Um clique na informação _Tempo_ de um comando de ação exibe o histórico do comando (se for historizado).
 
 ## Modo de edição
 
-No modo de edição (*o lápis no canto superior direito*), você pode alterar o tamanho dos ladrilhos e sua organização no painel.
+No modo de edição (_o lápis no canto superior direito_), você pode alterar o tamanho dos ladrilhos e sua organização no painel.
 
 os ícones de atualização do equipamento são substituídos por um ícone que permite acessar suas configurações. Este ícone abre uma janela de edição com os parâmetros de exibição do equipamento e seus controles.
 

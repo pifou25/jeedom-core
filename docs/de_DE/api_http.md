@@ -8,11 +8,11 @@ Diese API ist sehr einfach durch einfache HTTP-Anfragen über URL zu verwenden.
 
 > **Notiz**
 >
-> Für die gesamte Dokumentation gilt \#IP\_JEEDOM\# entspricht Ihrer Jeedom-Zugriffs-URL. Dies ist (sofern Sie nicht mit Ihrem lokalen Netzwerk verbunden sind) die Internetadresse, mit der Sie von außen auf Jeedom zugreifen.
+> Für die gesamte Dokumentation gilt \#IP_JEEDOM\# entspricht Ihrer Jeedom-Zugriffs-URL. Dies ist (sofern Sie nicht mit Ihrem lokalen Netzwerk verbunden sind) die Internetadresse, mit der Sie von außen auf Jeedom zugreifen.
 
 > **Notiz**
 >
-> Für die gesamte Dokumentation gilt \#API\_KEY\# entspricht Ihrem API-Schlüssel, der für Ihre Installation spezifisch ist. Um es zu finden, gehen Sie zum Menü "Allgemein" → "Konfiguration" → Registerkarte "Allgemein"".
+> Für die gesamte Dokumentation gilt \#API_KEY\# entspricht Ihrem API-Schlüssel, der für Ihre Installation spezifisch ist. Um es zu finden, gehen Sie zum Menü "Allgemein" → "Konfiguration" → Registerkarte "Allgemein"".
 
 > **Notiz**
 >
@@ -31,7 +31,7 @@ Vohier l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& typ
 >
 > Versuchen Sie nicht, „php“ zu verwenden://input‘, um Daten an Ihr Szenario zu übergeben, dafür sind Tags vorhanden.
 
-##  Info / Aktionsbefehl
+## Info / Aktionsbefehl
 
 Vohier l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = cmd & id = \#ID\#](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = cmd & id=#ID#)
 
@@ -55,7 +55,7 @@ Vohier l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& typ
 - **utf8** \ [Optional \] : teilt Jeedom mit, ob die Abfrage in utf8 codiert werden soll, bevor versucht wird zu antworten.
 - **leereAntwort** \ [Optional \] : 0 für Jeedom, um zu antworten, auch wenn er es nicht verstanden hat, 1 sonst.
 - **Profil** \ [Optional \] : Benutzername der Person, die die Interaktion initiiert.
-- **antworten\_cmd** \ [Optional \] : Bestellnummer zur Beantwortung der Anfrage.
+- **antworten_cmd** \ [Optional \] : Bestellnummer zur Beantwortung der Anfrage.
 
 ## Message
 
@@ -74,13 +74,13 @@ Gibt in json die Liste aller Jeedom-Objekte zurück.
 
 Vohier l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = eqLogic & object\_id = \#OBJECT\_ID\#](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = eqLogic & object_id=#OBJECT_ID#)
 
-- **Objekt\_id** : ID des Objekts, dessen Ausrüstung wir wiederherstellen möchten.
+- **Objekt_id** : ID des Objekts, dessen Ausrüstung wir wiederherstellen möchten.
 
 ## Commande
 
 Vohier l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = command & eqLogic\_id = \#EQLOGIC\_ID\#](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = command & eqLogic_id=#EQLOGIC_ID#)
 
-- **eqLogic\_id** : ID der Ausrüstung, von der Bestellungen abgerufen werden sollen.
+- **eqLogic_id** : ID der Ausrüstung, von der Bestellungen abgerufen werden sollen.
 
 ## Vollständige Daten
 
@@ -90,7 +90,7 @@ Gibt alle Objekte, Geräte, Befehle (und deren Wert, wenn es sich um Information
 
 ## Variable
 
-Vohier l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = variable & name = \#NAME\#&value=](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = Variable & Name=#NAME#&value=)*WERT*
+Vohier l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = variable & name = \#NAME\#&value=](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = Variable & Name=#NAME#&value=)_WERT_
 
 - **Name** : Name der Variablen, deren Wert gewünscht wird (Lesen des Werts).
 - **WERT** \ [Optional \] : Wenn "Wert" angegeben ist, nimmt die Variable diesen Wert an (Schreiben eines Werts)).

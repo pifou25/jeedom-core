@@ -1,4 +1,5 @@
 # Santé
+
 **Analyse → Gesundheit**
 
 Auf der Seite Jeedom Health erhalten Sie einen schnellen Überblick über den Gesundheitszustand Ihres Jeedom.
@@ -16,11 +17,11 @@ Unten finden Sie den Zustand für jedes Plugin. Ein Klick auf den Namen des Plug
 
 Rechts finden Sie die Symbole :
 
--   Zugriffsport für Plugin-Hardware (Zwave-Schlüsseltyp).
--   Dämonenmodus.
--   Anzeige der Gerätegesundheitsseite des Plugins.
--   Anzeige der Plugin-Konfigurationsseite.
--   Gesamtzustand des Plugins.
+- Zugriffsport für Plugin-Hardware (Zwave-Schlüsseltyp).
+- Dämonenmodus.
+- Anzeige der Gerätegesundheitsseite des Plugins.
+- Anzeige der Plugin-Konfigurationsseite.
+- Gesamtzustand des Plugins.
 
 > **Notiz**
 >

@@ -10,11 +10,11 @@ i.cursor {
   color: var(--link-color) !important;
 }
 
-input[type=checkbox]:not(checked),
-input[type=radio]:not(checked) {
+input[type="checkbox"]:not(checked),
+input[type="radio"]:not(checked) {
   background: var(--el-defaultColor) !important;
 }
-input[type=checkbox]:checked {
+input[type="checkbox"]:checked {
   background: var(--form-bg-color) !important;
 }
 
@@ -25,7 +25,7 @@ input[type=checkbox]:checked {
 /* ___________________________________________________________VIEW */
 
 div.div_viewZone {
-  background-color: rgba(255, 255, 255, 0.2)
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ___________________________________________________________DASHBOARD CATEGORIES title coloring */
@@ -37,7 +37,6 @@ div.div_viewZone {
 .scenario-widget {
   background-color: rgba(var(--eq-bg-color), var(--opacity)) !important;
 }
-
 
 #div_displayObject > a {
   background-color: var(--btnEq-default-color) !important;
@@ -58,34 +57,35 @@ div.div_viewZone {
   background-color: rgba(var(--cat-scenario-color), var(--opacity)) !important;
 }
 
-[data-category=security]>.widget-name {
+[data-category="security"] > .widget-name {
   background-color: rgba(var(--cat-security-color), var(--opacity));
 }
-[data-category=heating]>.widget-name {
+[data-category="heating"] > .widget-name {
   background-color: rgba(var(--cat-heating-color), var(--opacity));
 }
-[data-category=automatism]>.widget-name {
+[data-category="automatism"] > .widget-name {
   background-color: rgba(var(--cat-automatism-color), var(--opacity));
 }
-[data-category=light]>.widget-name {
+[data-category="light"] > .widget-name {
   background-color: rgba(var(--cat-light-color), var(--opacity));
 }
-[data-category=opening]>.widget-name {
+[data-category="opening"] > .widget-name {
   background-color: rgba(var(--cat-opening-color), var(--opacity));
 }
-[data-category=multimedia]>.widget-name {
+[data-category="multimedia"] > .widget-name {
   background-color: rgba(var(--cat-multimedia-color), var(--opacity));
 }
-[data-category=energy]>.widget-name {
+[data-category="energy"] > .widget-name {
   background-color: rgba(var(--cat-energy-color), var(--opacity));
 }
-[data-category='']>.widget-name {
+[data-category=""] > .widget-name {
   background-color: rgba(var(--cat-other-color), var(--opacity));
 }
-:not(.batteryListContainer) > .eqLogic-widget:not([data-category]) > .widget-name {
+:not(.batteryListContainer)
+  > .eqLogic-widget:not([data-category])
+  > .widget-name {
   background-color: rgba(var(--cat-other-color), var(--opacity));
 }
-
 
 .eqLogic-widget .btn-default,
 .input-group-addon,
@@ -111,4 +111,3 @@ div.div_viewZone {
 #div_displayObject .btn:hover {
   color: var(--txt-color) !important;
 }
-

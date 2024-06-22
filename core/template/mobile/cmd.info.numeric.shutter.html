@@ -1,4 +1,13 @@
-<div class="cmd cmd-widget shuttergauge" data-type="info" data-subtype="numeric" data-template="shutter" data-version="#version#" data-eqLogic_id="#eqLogic_id#" data-cmd_id="#id#" data-cmd_uid="#uid#">
+<div
+  class="cmd cmd-widget shuttergauge"
+  data-type="info"
+  data-subtype="numeric"
+  data-template="shutter"
+  data-version="#version#"
+  data-eqLogic_id="#eqLogic_id#"
+  data-cmd_id="#id#"
+  data-cmd_uid="#uid#"
+>
   <div class="cmdName #hide_name#">#name_display#</div>
   <div class="shuttergauge-chart">
     <div class="shuttergauge-bckg">
@@ -7,7 +16,13 @@
     <div class="shuttergauge-state state"><strong>#state# #unite#</strong></div>
   </div>
   <div class="cmdStats #hide_history#">
-      <span title='{{Min}}' class='tooltips'>#minHistoryValue#</span>|<span title='{{Moyenne}}' class='tooltips'>#averageHistoryValue#</span>|<span title='{{Max}}' class='tooltips'>#maxHistoryValue# <i class="#tendance#"></i></span>
+    <span title="{{Min}}" class="tooltips">#minHistoryValue#</span>|<span
+      title="{{Moyenne}}"
+      class="tooltips"
+      >#averageHistoryValue#</span
+    >|<span title="{{Max}}" class="tooltips"
+      >#maxHistoryValue# <i class="#tendance#"></i
+    ></span>
   </div>
   <script>
      jeedom.cmd.addUpdateFunction('#id#',function(_options) {

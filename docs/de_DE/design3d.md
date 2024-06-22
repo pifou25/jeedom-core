@@ -1,8 +1,8 @@
 # 3D-Design
+
 **Startseite → Design3D**
 
 Auf dieser Seite können Sie eine 3D-Ansicht Ihres Hauses erstellen, die abhängig vom Status der verschiedenen Informationen in Ihrer Hausautomation reagieren kann.
-
 
 > **Tipp**
 >
@@ -49,7 +49,6 @@ Klicken Sie auf der Ebene &quot;3D-Modell&quot; auf die Schaltfläche &quot;Send
 >
 > Nachdem die Datei importiert wurde (sie kann je nach Größe der Datei sehr lang sein), müssen Sie die Seite aktualisieren, um das Ergebnis anzuzeigen (F5).
 
-
 ## Konfiguration von Elementen
 
 > **WICHTIG**
@@ -85,25 +84,25 @@ Doppelklicken Sie auf das Element, das Sie konfigurieren möchten, um ein Elemen
 
 - Bundesland : Tür- / Fensterstatus, 1 geschlossen und 0 offen
 - Rotation
-	- Ermöglichen : Aktiviert die Drehung der Tür / des Fensters beim Öffnen
-	- Öffnung : Am besten testen Sie, ob es zu Ihrer Tür / Ihrem Fenster passt
+  - Ermöglichen : Aktiviert die Drehung der Tür / des Fensters beim Öffnen
+  - Öffnung : Am besten testen Sie, ob es zu Ihrer Tür / Ihrem Fenster passt
 - Translation
-	- Ermöglichen : aktiviert die Übersetzung beim Öffnen (Schiebetür- / Fenstertyp))
-	- Bedeutung : Richtung, in die sich die Tür / das Fenster bewegen soll (Sie haben oben / unten / rechts / links)
-	- Wiederholung : Standardmäßig bewegt sich die Tür / das Fenster einmal in der angegebenen Richtung, aber Sie können diesen Wert erhöhen
+  - Ermöglichen : aktiviert die Übersetzung beim Öffnen (Schiebetür- / Fenstertyp))
+  - Bedeutung : Richtung, in die sich die Tür / das Fenster bewegen soll (Sie haben oben / unten / rechts / links)
+  - Wiederholung : Standardmäßig bewegt sich die Tür / das Fenster einmal in der angegebenen Richtung, aber Sie können diesen Wert erhöhen
 - Verstecken, wenn die Tür / das Fenster geöffnet ist
-	- Ermöglichen : Blendet das Element aus, wenn die Tür / das Fenster geöffnet ist
+  - Ermöglichen : Blendet das Element aus, wenn die Tür / das Fenster geöffnet ist
 - Couleur
-	- Farbe öffnen : Wenn Sie das Kontrollkästchen aktivieren, nimmt das Element diese Farbe an, wenn die Tür / das Fenster geöffnet ist
-	- Farbe geschlossen : Wenn Sie das Kontrollkästchen aktivieren, nimmt das Element diese Farbe an, wenn die Tür / das Fenster geschlossen ist
+  - Farbe öffnen : Wenn Sie das Kontrollkästchen aktivieren, nimmt das Element diese Farbe an, wenn die Tür / das Fenster geöffnet ist
+  - Farbe geschlossen : Wenn Sie das Kontrollkästchen aktivieren, nimmt das Element diese Farbe an, wenn die Tür / das Fenster geschlossen ist
 
 #### Volet
 
 - Bundesland : Verschlussstatus, 0 offen anderer Wert geschlossen
 - Ausblenden, wenn der Verschluss geöffnet ist
-	- Ermöglichen : Blenden Sie das Element aus, wenn der Verschluss geöffnet ist
+  - Ermöglichen : Blenden Sie das Element aus, wenn der Verschluss geöffnet ist
 - Couleur
-	- Farbe geschlossen : Wenn diese Option aktiviert ist, nimmt das Element diese Farbe an, wenn der Verschluss geschlossen ist
+  - Farbe geschlossen : Wenn diese Option aktiviert ist, nimmt das Element diese Farbe an, wenn der Verschluss geschlossen ist
 
 ### Bedingte Farbe
 

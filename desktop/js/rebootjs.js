@@ -1,1 +1,1 @@
-var rebooti = '1';
+var rebooti = "1";

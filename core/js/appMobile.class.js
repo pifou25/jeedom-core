@@ -16,49 +16,49 @@
 
 jeedom.appMobile = function () {};
 
-jeedom.appMobile.detected = function() {
+jeedom.appMobile.detected = function () {
   if (window.ReactNativeWebView != undefined) {
-    return true; 
+    return true;
   }
   return false;
-}
+};
 
 jeedom.appMobile.postToApp = function (_action, _options = {}) {
-  let message = {}
+  let message = {};
   if (window.ReactNativeWebView != undefined) {
-    message.action = _action
-    message.options = _options
-    window.ReactNativeWebView.postMessage(JSON.stringify(message))
+    message.action = _action;
+    message.options = _options;
+    window.ReactNativeWebView.postMessage(JSON.stringify(message));
   }
-}
+};
 
 jeedom.appMobile.vibration = function (type = "impactMedium") {
   /* vibration > impactLight, impactMedium, impactHeavy, rigid, soft, notificationSuccess, notificationWarning, notificationError */
-  jeedom.appMobile.postToApp('vibration', {type: type})
-}
+  jeedom.appMobile.postToApp("vibration", { type: type });
+};
 
 jeedom.appMobile.syncBoxs = function () {
-  jeedom.appMobile.postToApp('syncBoxs')
-}
+  jeedom.appMobile.postToApp("syncBoxs");
+};
 
 jeedom.appMobile.addBoxQrCode = function () {
   /* open windows for add box QrCode on App */
-  jeedom.appMobile.postToApp('addBoxQrCode')
-}
+  jeedom.appMobile.postToApp("addBoxQrCode");
+};
 
 jeedom.appMobile.notifee = function (title, body, time = 5000, display = "") {
-   /**
-   * time (Number) : display time for inapp notification, in ms 
+  /**
+   * time (Number) : display time for inapp notification, in ms
    * display (string) : display notiication : error(red), success(green), warn(orange) and info(blue). if "" : classic notification in App
-   * 
- */
-  jeedom.appMobile.postToApp('notifee', {
+   *
+   */
+  jeedom.appMobile.postToApp("notifee", {
     body: body,
     time: time,
     title: title,
-    display : display
+    display: display,
   });
-}
+};
 
 jeedom.appMobile.modal = function (_options) {
   /**
@@ -70,16 +70,16 @@ jeedom.appMobile.modal = function (_options) {
    * @example  _options = { 'type' : 'barreCode', 'optionText':'ExampleTextOnModal', 'method':'qrcodemethod','plugin':'mobile'}
    *   type : 'WebviewApp' for internalLink or 'urlwww' for externalLink
    * @example  _options = { 'type' : 'WebviewApp', 'uri' : '/plugins/mobile/core/php/menuForPanel.php' , 'sizeModal' : 50 }
-   * 
- */
-  jeedom.appMobile.postToApp('modal', _options);
-}
+   *
+   */
+  jeedom.appMobile.postToApp("modal", _options);
+};
 
 jeedom.appMobile.modalClose = function () {
-  jeedom.appMobile.postToApp('modal:close');
-}
+  jeedom.appMobile.postToApp("modal:close");
+};
 
 jeedom.appMobile.reloadView = function () {
   // Reload actual tab webview
-  jeedom.appMobile.postToApp('reload');
-}
+  jeedom.appMobile.postToApp("reload");
+};

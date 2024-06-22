@@ -8,11 +8,11 @@ This API is very easy to use by simple HTTP requests via URL.
 
 > **Note**
 >
-> For all of this documentation, \#IP\_JEEDOM\# corresponds to your Jeedom access url. This is (unless you are connected to your local network) the internet address that you use to access Jeedom from outside.
+> For all of this documentation, \#IP_JEEDOM\# corresponds to your Jeedom access url. This is (unless you are connected to your local network) the internet address that you use to access Jeedom from outside.
 
 > **Note**
 >
-> For all of this documentation, \#API\_KEY\# corresponds to your API key, specific to your installation. To find it, go to the "General" menu → "Configuration" → "General" tab".
+> For all of this documentation, \#API_KEY\# corresponds to your API key, specific to your installation. To find it, go to the "General" menu → "Configuration" → "General" tab".
 
 > **Note**
 >
@@ -31,7 +31,7 @@ Vohere l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& typ
 >
 > Don't try to use 'php://input' to pass data to your scenario, tags are there for that.
 
-##  Info / Action command
+## Info / Action command
 
 Vohere l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = cmd & id = \#ID\#](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = cmd & id=#ID#)
 
@@ -55,7 +55,7 @@ Vohere l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& typ
 - **utf8** \[optional\] : tells Jeedom whether to encode query in utf8 before trying to answer.
 - **emptyReply** \[optional\] : 0 for Jeedom to respond even if he did not understand, 1 otherwise.
 - **profile** \[optional\] : username of the person initiating the interaction.
-- **reply\_cmd** \[optional\] : Command ID to use to respond to the request.
+- **reply_cmd** \[optional\] : Command ID to use to respond to the request.
 
 ## Message
 
@@ -74,13 +74,13 @@ Returns in json the list of all Jeedom objects.
 
 Vohere l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = eqLogic & object\_id = \#OBJECT\_ID\#](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = eqLogic & object_id=#OBJECT_ID#)
 
-- **object\_id** : ID of the object whose equipment we want to recover.
+- **object_id** : ID of the object whose equipment we want to recover.
 
 ## Commande
 
 Vohere l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = command & eqLogic\_id = \#EQLOGIC\_ID\#](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = command & eqLogic_id=#EQLOGIC_ID#)
 
-- **eqLogic\_id** : ID of the equipment from which command are to be retrieved.
+- **eqLogic_id** : ID of the equipment from which command are to be retrieved.
 
 ## Full Data
 
@@ -90,7 +90,7 @@ Returns all objects, equipment, commands (and their value if they are info) in j
 
 ## Variable
 
-Vohere l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = variable & name = \#NAME\#&value=](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = variable & name=#NAME#&value=)*VALUE*
+Vohere l'URL = [http://\#IP\_JEEDOM\#/core/api/jeeApi.php?apikey=\#APIKEY\#& type = variable & name = \#NAME\#&value=](http://#IP_JEEDOM#/core/api/jeeApi.php?apikey=#APIKEY#& type = variable & name=#NAME#&value=)_VALUE_
 
 - **name** : name of the variable whose value is desired (reading the value).
 - **VALUE** \[optional\] : if "value" is specified then the variable will take this value (writing a value).

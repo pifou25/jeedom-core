@@ -4,7 +4,8 @@ Page réservé aux utilisateurs avancés, permet de lancer des commandes SSH dir
 
 ## Ajout de commande
 
-Il est possible d'ajouter des commandes personnalisée pour cela depuis l'éditeur Jeedom (Configuration -> OS/DB -> Editeur de fichier) il faut creer un fichier `systemCustomCmd.json` dans `data`. Le fichier doit avoir la forme suivante : 
+Il est possible d'ajouter des commandes personnalisée pour cela depuis l'éditeur Jeedom (Configuration -> OS/DB -> Editeur de fichier) il faut creer un fichier `systemCustomCmd.json` dans `data`. Le fichier doit avoir la forme suivante :
+
 ```
 [
    {

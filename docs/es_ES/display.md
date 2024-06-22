@@ -1,4 +1,5 @@
 # Resumen de automatización del hogar
+
 **Análisis → Resumen de domótica**
 
 Esta página le permite reunir en una sola página los diferentes elementos configurados en su Jeedom. También da acceso a funciones para organizar equipos y controles, a su configuración avanzada y para mostrar las posibilidades de configuración.
@@ -8,6 +9,7 @@ Esta página le permite reunir en una sola página los diferentes elementos conf
 ## Informations
 
 En la parte superior de la página, encontramos :
+
 - **Numero de objetos** : Número total de objetos configurados en nuestro Jeedom, incluidos elementos inactivos.
 - **Numero de equipos** : Lo mismo para el equipo.
 - **Numero de ordenes** : Lo mismo para pedidos.
@@ -23,6 +25,7 @@ Debajo hay un cuadro por objeto. En cada cuadro, encontramos la lista de equipos
 El primer cuadro **Ninguna** representa dispositivos que no tienen padre asignado.
 
 Para cada objeto, junto a su etiqueta, hay dos botones disponibles.
+
 - El primero se usa para abrir la página de configuración de objetos en una pestaña nueva.
 - El segundo proporciona información sobre el objeto,
 
@@ -38,7 +41,7 @@ Para cada objeto, junto a su etiqueta, hay dos botones disponibles.
 
 En cada equipo encontramos :
 
-- A **casilla de verificación** para seleccionar el equipo (puede seleccionar varios). Si se selecciona al menos un dispositivo, tiene botones de acción que aparecen en la esquina superior izquierda para **borrar**, regresar **visible**/ /**invisible**,  **activo**/ /**Inactivo** equipo seleccionado.
+- A **casilla de verificación** para seleccionar el equipo (puede seleccionar varios). Si se selecciona al menos un dispositivo, tiene botones de acción que aparecen en la esquina superior izquierda para **borrar**, regresar **visible**/ /**invisible**, **activo**/ /**Inactivo** equipo seleccionado.
 - L'**identificación** equipo.
 - La **tipo** equipo : Identificador del complemento al que pertenece.
 - La **apellido** equipo.
@@ -46,6 +49,7 @@ En cada equipo encontramos :
 - **Invisible** (ojo cruzado) : Significa que el equipo es invisible (si no está allí, el equipo es visible).
 
 Si el complemento del equipo está desactivado, los dos íconos a la derecha no aparecen:
+
 - **Enlace externo** (cuadrado con flecha) : Permite abrir en una nueva pestaña la página de configuración del equipo.
 - **Configuración avanzada** (rueda dentada) : abre la ventana de configuración avanzada del equipo.
 
@@ -90,7 +94,7 @@ En la pestaña **Monitor**, podrá configurar ciertos comportamientos de visuali
 
 #### Widget
 
--  **Visible** : Marque la casilla para hacer visible el equipo.
+- **Visible** : Marque la casilla para hacer visible el equipo.
 - **Mostrar nombre** : Marque la casilla para mostrar el nombre del equipo en el mosaico.
 - **Mostrar nombre de objeto** : Marque la casilla para mostrar el nombre del objeto principal del equipo, junto al mosaico.
 
@@ -107,6 +111,7 @@ de nuevo. Para equipos, solo el valor **estilo** actualmente se usa, permite ins
 
 Esta parte le permite elegir entre el diseño estándar de los comandos (uno al lado del otro en el widget) o en modo de tabla. Nada que configurar en modo predeterminado. Aquí están las opciones disponibles en modo
 **Imagen** :
+
 - **Numero de lineas**
 - **Numero de columnas**
 - **Centro en cajas** : Marque la casilla para centrar los pedidos en las casillas.
@@ -115,6 +120,7 @@ Esta parte le permite elegir entre el diseño estándar de los comandos (uno al 
 
 A continuación para cada cuadro, el **configuración detallada** te permite
 este :
+
 - **Cuadro de texto** : Agregue texto además del comando (o todo solo, si no hay un comando en el cuadro).
 - **Estilo de caso (CSS)** : Modifique el estilo CSS específico del cuadro (tenga en cuenta que sobrescribe y reemplaza el CSS general de los cuadros).
 
@@ -150,7 +156,7 @@ Primero, en la parte superior derecha, algunos botones disponibles :
 - **Vínculos** : Permite visualizar los enlaces del equipo con objetos, comandos, escenarios, variables, interacciones. en forma gráfica.
 - **Tronco** : Muestra los eventos del equipo en cuestión.
 - **Información** : Muestra las propiedades en bruto del equipo.
--  **Aplicar a** : Permite que la misma configuración se aplique a varios comandos.
+- **Aplicar a** : Permite que la misma configuración se aplique a varios comandos.
 - **Para salvaguardar** : Guarde las modificaciones realizadas en el equipo.
 
 > **Consejo**
@@ -195,28 +201,30 @@ A continuación, encontrará la lista de los diferentes equipos, comandos, escen
 #### Para una orden de tipo de información :
 
 - **Cálculo y redondeo**
-    - **Fórmula de cálculo (\#value\# por valor)** : Le permite realizar una operación sobre el valor del pedido antes de procesarlo por Jeedom, ejemplo : ''#value# - 0.2` para restar 0.2 (desplazamiento en un sensor de temperatura).
-    - **Redondeado (número después del punto decimal)** : Se usa para redondear el valor del comando (Ejemplo : pon 2 para transformar 16.643,345 en 16.64).
+  - **Fórmula de cálculo (\#value\# por valor)** : Le permite realizar una operación sobre el valor del pedido antes de procesarlo por Jeedom, ejemplo : ''#value# - 0.2` para restar 0.2 (desplazamiento en un sensor de temperatura).
+  - **Redondeado (número después del punto decimal)** : Se usa para redondear el valor del comando (Ejemplo : pon 2 para transformar 16.643,345 en 16.64).
 - **Tipo genérico** : Le permite configurar el tipo genérico del comando (Jeedom intenta encontrarlo solo en modo automático). Esta información es utilizada por la aplicación móvil.
 - **Acción sobre el valor, si** : Hagamos algún tipo de mini escenarios. Puede, por ejemplo, decir que si el valor vale más de 50 por 3 minutos, entonces tiene que hacer tal acción. Esto permite, por ejemplo, apagar una luz X minutos después de encenderse.
 
 - **Histórico**
-    - **Historizar** : Marque la casilla para registrar los valores de este comando. (Ver **Análisis → Historia**)
-    - **Modo de suavizado** : Modo de **alisado** o d'**archivando** le permite elegir cómo archivar los datos. Por defecto, este es un **significar**. También es posible elegir el **máximo**, la **mínimo**, Dónde **Ninguna**. **Ninguna** digamos a Jeedom que no debe realizar el archivado con este comando (tanto durante los primeros 5 minutos como con la tarea de archivado)). Esta opción es peligrosa porque Jeedom guarda todo : entonces habrá muchos más datos guardados.
-    - **Purgue el historial si es anterior a** : Vamos a decirle a Jeedom que elimine todos los datos anteriores a un período determinado. Puede ser práctico no guardar datos si no es necesario y, por lo tanto, limitar la cantidad de información registrada por Jeedom. Tenga en cuenta que la purga se activa durante la noche, por lo que debe esperar a que pase la noche antes de tener la acción efectiva de la purga.
+
+  - **Historizar** : Marque la casilla para registrar los valores de este comando. (Ver **Análisis → Historia**)
+  - **Modo de suavizado** : Modo de **alisado** o d'**archivando** le permite elegir cómo archivar los datos. Por defecto, este es un **significar**. También es posible elegir el **máximo**, la **mínimo**, Dónde **Ninguna**. **Ninguna** digamos a Jeedom que no debe realizar el archivado con este comando (tanto durante los primeros 5 minutos como con la tarea de archivado)). Esta opción es peligrosa porque Jeedom guarda todo : entonces habrá muchos más datos guardados.
+  - **Purgue el historial si es anterior a** : Vamos a decirle a Jeedom que elimine todos los datos anteriores a un período determinado. Puede ser práctico no guardar datos si no es necesario y, por lo tanto, limitar la cantidad de información registrada por Jeedom. Tenga en cuenta que la purga se activa durante la noche, por lo que debe esperar a que pase la noche antes de tener la acción efectiva de la purga.
 
 - **Gestión de valores**
-    - **Valor prohibido** : Si el comando toma uno de estos valores, Jeedom lo ignora antes de aplicarlo.
-    - **Valor de retorno de estado** : Devuelve el comando a este valor después de cierto tiempo.
-    - **Duración antes del retorno del estado (min)** : Tiempo antes de volver al valor anterior.
+
+  - **Valor prohibido** : Si el comando toma uno de estos valores, Jeedom lo ignora antes de aplicarlo.
+  - **Valor de retorno de estado** : Devuelve el comando a este valor después de cierto tiempo.
+  - **Duración antes del retorno del estado (min)** : Tiempo antes de volver al valor anterior.
 
 - **Otros**
-    - **Gestión de la repetición de valores** : En automático, si el comando sube 2 veces el mismo valor en una fila, Jeedom no tendrá en cuenta el segundo ascenso (evita activar un escenario varias veces, a menos que el comando sea de tipo binario)). Puede forzar la repetición del valor o prohibirlo por completo.
-    - **URL de inserción** : Permite agregar una URL para llamar en caso de actualización del pedido. Puedes usar las siguientes etiquetas : ''#value#`por el valor de la orden,`#cmd_name#`para el nombre del comando,`#cmd_id#`para el identificador único de la orden,`#humanname#`para el nombre completo del comando (ex : ''#[Salla de bain][Hydrometrie][Humidité]#`),`#eq_name#`para el nombre del equipo.
+  - **Gestión de la repetición de valores** : En automático, si el comando sube 2 veces el mismo valor en una fila, Jeedom no tendrá en cuenta el segundo ascenso (evita activar un escenario varias veces, a menos que el comando sea de tipo binario)). Puede forzar la repetición del valor o prohibirlo por completo.
+  - **URL de inserción** : Permite agregar una URL para llamar en caso de actualización del pedido. Puedes usar las siguientes etiquetas : ''#value#`por el valor de la orden,`#cmd_name#`para el nombre del comando,`#cmd_id#`para el identificador único de la orden,`#humanname#`para el nombre completo del comando (ex : ''#[Salla de bain][Hydrometrie][Humidité]#`),`#eq_name#`para el nombre del equipo.
 
 #### Para un comando de acción :
 
--  **Tipo genérico** : Le permite configurar el tipo genérico del comando (Jeedom intenta encontrarlo solo en modo automático). Esta información es utilizada por la aplicación móvil.
+- **Tipo genérico** : Le permite configurar el tipo genérico del comando (Jeedom intenta encontrarlo solo en modo automático). Esta información es utilizada por la aplicación móvil.
 - **Confirmar acción** : Marque esta casilla para que Jeedom solicite confirmación cuando la acción se inicie desde la interfaz de este comando.
 - **Código de acceso** : Permite definir un código que Jeedom preguntará cuando la acción se inicie desde la interfaz de este comando.
 - **Acción antes de la ejecución del comando** : Agregar comandos **antes de** cada ejecución de la orden.

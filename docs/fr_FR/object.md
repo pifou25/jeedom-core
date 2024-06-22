@@ -1,4 +1,5 @@
 # Objets
+
 **Outils → Objets**
 
 Les **objets** permettent de définir l’arborescence de votre domotique.
@@ -12,6 +13,7 @@ Pour laisser libre choix à la personnalisation, vous pouvez nommer ces objets c
 ## Gestion
 
 Deux options s’offrent à vous :
+
 - **Ajouter** : Permet de créer un nouvel objet.
 - **Vue d’ensemble** : Permet d’afficher la liste des objets créés ainsi que leur configuration.
 
@@ -35,6 +37,7 @@ Une fois que vous avez créé un objet, il apparaîtra dans cette partie.
 > **Tip**
 >
 > Vous pouvez ouvrir un objet en faisant :
+>
 > - Clic sur l'un d'entre eux.
 > - Ctrl Clic ou Clic Centre pour l'ouvrir dans un nouvel onglet du navigateur.
 
@@ -60,7 +63,7 @@ Voici donc les différentes caractéristiques pour configurer un objet :
 - **Visible** : Cochez cette case pour rendre visible cet objet.
 - **Masquer sur le Dashboard** : Cochez cette case pour masquer l’objet sur le Dashboard. Il est tout de même conservé dans la liste, ce qui permet de l’afficher, mais uniquement de manière explicite.
 - **Masquer sur la synthèse** : Cochez cette case pour masquer l’objet sur la synthèse'. Il est tout de même conservé dans la liste, ce qui permet de l’afficher, mais uniquement de manière explicite.
-- **Action depuis la synthèse** : Vous pouvez ici indiquer une vue ou un design sur lequel aller quand vous cliquez sur l'objet depuis la Synthèse. *Defaut : Dashboard*.
+- **Action depuis la synthèse** : Vous pouvez ici indiquer une vue ou un design sur lequel aller quand vous cliquez sur l'objet depuis la Synthèse. _Defaut : Dashboard_.
 
 #### Affichage :
 
@@ -68,7 +71,7 @@ Voici donc les différentes caractéristiques pour configurer un objet :
 - **Couleurs personnalisées** : Active la prise en compte des deux paramètres de couleurs personnalisées en dessous.
 - **Couleur du tag** : Permet de choisir la couleur de l’objet et des équipements qui lui sont rattachés.
 - **Couleur du texte du tag** : Permet de choisir la couleur du texte de l’objet. Ce texte sera par dessus la **couleur du tag**. A vous de choisir une couleur pour rendre le texte lisible.
-- **Seulement sur la synthèse** : Permet de mettre une image pour la Synthèse sans qu'elle soit utilisée comme image de fond, notamment sur la page *Dashboard* de cet objet.
+- **Seulement sur la synthèse** : Permet de mettre une image pour la Synthèse sans qu'elle soit utilisée comme image de fond, notamment sur la page _Dashboard_ de cet objet.
 - **Image** : Vous avez la possibilité de télécharger une image ou la supprimer. Au format jpeg cette image sera l'image de fond de l'objet quand vous l'afficherez sur le Dashboard. Elle sera aussi utilisée pour la vignette de la pièce sur la Synthèse.
 
 > **Tip**
@@ -86,5 +89,3 @@ Voici donc les différentes caractéristiques pour configurer un objet :
 ## Onglets Résumés
 
 [Voir documentation sur les résumés.](/fr_FR/concept/summary)
-
-

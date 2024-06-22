@@ -1,178 +1,180 @@
 @font-face {
-  font-family: 'jeedom';
-  src: url('fonts/jeedom.woff2') format('woff2'),
-       url('fonts/jeedom.woff') format('woff'),
-       url('fonts/jeedom.ttf') format('ttf'),
-       url('fonts/jeedom.eot') format('eot'),
-       url('fonts/jeedom.svg') format('svg');
+  font-family: "jeedom";
+  src:
+    url("fonts/jeedom.woff2") format("woff2"),
+    url("fonts/jeedom.woff") format("woff"),
+    url("fonts/jeedom.ttf") format("ttf"),
+    url("fonts/jeedom.eot") format("eot"),
+    url("fonts/jeedom.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="jeedom-"], [class*=" jeedom-"] {
-	font-family: 'jeedom';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+[class^="jeedom-"],
+[class*=" jeedom-"] {
+  font-family: "jeedom";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .jeedom-alors:before {
-	content: "\e628";
+  content: "\e628";
 }
 .jeedom-si:before {
-	content: "\e629";
+  content: "\e629";
 }
 .jeedom-cafetiere_off:before {
-	content: "\e62a";
+  content: "\e62a";
 }
 .jeedom-cafetiere_on:before {
-	content: "\e62b";
+  content: "\e62b";
 }
 .jeedom-clap_cinema:before {
-	content: "\e62c";
+  content: "\e62c";
 }
 .jeedom-portail_coulissant_demi_d:before {
-	content: "\e62d";
+  content: "\e62d";
 }
 .jeedom-portail_coulissant_demi_g:before {
-	content: "\e62e";
+  content: "\e62e";
 }
 .jeedom-portail_coulissant_ferme:before {
-	content: "\e62f";
+  content: "\e62f";
 }
 .jeedom-portail_coulissant_ouvert_d:before {
-	content: "\e630";
+  content: "\e630";
 }
 .jeedom-portail_coulissant_ouvert_g:before {
-	content: "\e631";
+  content: "\e631";
 }
 .jeedom-ventilo:before {
-	content: "\e632";
+  content: "\e632";
 }
 .jeedom-alerte:before {
-	content: "\e600";
+  content: "\e600";
 }
 .jeedom-alerte2:before {
-	content: "\e601";
+  content: "\e601";
 }
 .jeedom-batterie0:before {
-	content: "\e602";
+  content: "\e602";
 }
 .jeedom-batterie1:before {
-	content: "\e603";
+  content: "\e603";
 }
 .jeedom-batterie2:before {
-	content: "\e604";
+  content: "\e604";
 }
 .jeedom-batterie3:before {
-	content: "\e605";
+  content: "\e605";
 }
 .jeedom-bell:before {
-	content: "\e606";
+  content: "\e606";
 }
 .jeedom-choc:before {
-	content: "\e607";
+  content: "\e607";
 }
 .jeedom-eau:before {
-	content: "\e608";
+  content: "\e608";
 }
 .jeedom-fenetre-ferme:before {
-	content: "\e609";
+  content: "\e609";
 }
 .jeedom-fenetre-ouverte:before {
-	content: "\e60a";
+  content: "\e60a";
 }
 .jeedom-feu:before {
-	content: "\e60b";
+  content: "\e60b";
 }
 .jeedom-garage-ferme:before {
-	content: "\e60c";
+  content: "\e60c";
 }
 .jeedom-garage-ouvert:before {
-	content: "\e60d";
+  content: "\e60d";
 }
 .jeedom-lock-ferme:before {
-	content: "\e60e";
+  content: "\e60e";
 }
 .jeedom-lock-ouvert:before {
-	content: "\e60f";
+  content: "\e60f";
 }
 .jeedom-lumiere-off:before {
-	content: "\e610";
+  content: "\e610";
 }
 .jeedom-lumiere-on:before {
-	content: "\e611";
+  content: "\e611";
 }
 .jeedom-mouvement:before {
-	content: "\e612";
+  content: "\e612";
 }
 .jeedom-no-bell:before {
-	content: "\e613";
+  content: "\e613";
 }
 .jeedom-off:before {
-	content: "\e614";
+  content: "\e614";
 }
 .jeedom-on:before {
-	content: "\e615";
+  content: "\e615";
 }
 .jeedom-pilote-conf:before {
-	content: "\e616";
+  content: "\e616";
 }
 .jeedom-pilote-eco:before {
-	content: "\e617";
+  content: "\e617";
 }
 .jeedom-pilote-hg:before {
-	content: "\e618";
+  content: "\e618";
 }
 .jeedom-pilote-off:before {
-	content: "\e619";
+  content: "\e619";
 }
 .jeedom-portail_ferme:before {
-	content: "\e61a";
+  content: "\e61a";
 }
 .jeedom-portail_ouvert:before {
-	content: "\e61b";
+  content: "\e61b";
 }
 .jeedom-porte-ferme:before {
-	content: "\e61c";
+  content: "\e61c";
 }
 .jeedom-porte-ouverte:before {
-	content: "\e61d";
+  content: "\e61d";
 }
 .jeedom-prise:before {
-	content: "\e61e";
+  content: "\e61e";
 }
 .jeedom-sirene:before {
-	content: "\e61f";
+  content: "\e61f";
 }
 .jeedom-surveillance1:before {
-	content: "\e620";
+  content: "\e620";
 }
 .jeedom-thermo-chaud:before {
-	content: "\e621";
+  content: "\e621";
 }
 .jeedom-thermo-froid:before {
-	content: "\e622";
+  content: "\e622";
 }
 .jeedom-thermo-moyen:before {
-	content: "\e623";
+  content: "\e623";
 }
 .jeedom-thermometre-celcius:before {
-	content: "\e624";
+  content: "\e624";
 }
 .jeedom-thermometre:before {
-	content: "\e625";
+  content: "\e625";
 }
 .jeedom-volet-ferme:before {
-	content: "\e626";
+  content: "\e626";
 }
 .jeedom-volet-ouvert:before {
-	content: "\e627";
+  content: "\e627";
 }

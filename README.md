@@ -1,4 +1,3 @@
-
 <img align="right" src="https://www.jeedom.com/site/logo.png" width="100">
 
 [![GitHub license](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/jeedom/core/blob/master/LICENSE)
@@ -7,7 +6,8 @@
 [![Website www.jeedom.com](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://www.jeedom.com/)
 [![Try it now!](https://img.shields.io/badge/PWD-Try%20it%20now-blue?logo=docker)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/pifou25/jeedom-core/alpha/docker-compose.yml)
 
-# Jeedom - La domotique innovante | *Innovative Home Automation*
+# Jeedom - La domotique innovante | _Innovative Home Automation_
+
 <p align="center">
 <a href="https://www.jeedom.com/">Site</a>  -
 <a href="https://blog.jeedom.com/">Blog</a>  -
@@ -23,31 +23,34 @@
 # Introduction
 
 Jeedom est un logiciel Open-Source gratuit qui peut s’installer sur n’importe quel système Linux.
+
 - [Presentation](https://doc.jeedom.com/fr_FR/presentation/index)
 - [Concepts](https://doc.jeedom.com/fr_FR/concept/)
 
-*Jeedom is free open-source software that can be installed on any Linux system.*
-- *[Presentation](https://doc.jeedom.com/en_US/presentation/index)*
-- *[Concepts](https://doc.jeedom.com/en_US/concept/)*
+_Jeedom is free open-source software that can be installed on any Linux system._
 
+- _[Presentation](https://doc.jeedom.com/en_US/presentation/index)_
+- _[Concepts](https://doc.jeedom.com/en_US/concept/)_
 
 # Installation
 
 Vous retrouverez [ici](https://doc.jeedom.com/fr_FR/installation/) toute les possibilités d'installation de Jeedom.
+
 <p align="center">
 <a href="https://www.jeedom.com/site/fr/box.html">Les solutions domotiques plug & play Jeedom</a>
 </p>
 
-*You will find [here](https://doc.jeedom.com/en_US/installation/) all the possibilities to install Jeedom.*
+_You will find [here](https://doc.jeedom.com/en_US/installation/) all the possibilities to install Jeedom._
+
 <p align="center">
   <a href="https://www.jeedom.com/site/en/box.html"><i>Jeedom Plug&Play home automation solutions</i></a>
 </p>
 
 # Changelog
 
-Vous trouverez un *changelog* complet, par version ici : [changelog](https://doc.jeedom.com/fr_FR/core/4.4/changelog).
+Vous trouverez un _changelog_ complet, par version ici : [changelog](https://doc.jeedom.com/fr_FR/core/4.4/changelog).
 
-*You will find changelog per version here: [changelog](https://doc.jeedom.com/en_US/core/4.4/changelog).*
+_You will find changelog per version here: [changelog](https://doc.jeedom.com/en_US/core/4.4/changelog)._
 
 # Développeurs
 
@@ -55,10 +58,10 @@ Vous trouverez un *changelog* complet, par version ici : [changelog](https://doc
 
 [Développement de plugin](https://doc.jeedom.com/fr_FR/dev/)
 
-*[Contribute to the development of Jeedom](https://doc.jeedom.com/en_US/contribute/)*
+_[Contribute to the development of Jeedom](https://doc.jeedom.com/en_US/contribute/)_
 
-*[Plugin development](https://doc.jeedom.com/en_US/dev/)*
+_[Plugin development](https://doc.jeedom.com/en_US/dev/)_
 
 <br/>
 
-##### *Jeedom: Free, Opened, Cloudless, Multiprotocol solution since 2014.*
+##### _Jeedom: Free, Opened, Cloudless, Multiprotocol solution since 2014._

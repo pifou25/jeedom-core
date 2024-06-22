@@ -1,4 +1,5 @@
 # Historique
+
 **Análisis → Historia**
 
 Parte importante en el software : la parte de la historización, un verdadero recuerdo de ella. En Jeedom es posible registrar cualquier comando de tipo de información (binario o digital). Esto te permitirá, por ejemplo, registrar una curva de temperatura, consumos, aperturas de una puerta, etc.
@@ -37,9 +38,9 @@ Desde Core v4.2 también es posible mostrar una curva en la parte inferior del m
 
 Si muestra un gráfico a través de la página del historial, tiene acceso a varias opciones de visualización, arriba del gráfico :
 
-- **Período** : El período de visualización, incluidos los datos históricos entre estas dos fechas. Por defecto, dependiendo de la configuración *Período de visualización de los gráficos por defecto* dentro *Configuración → Sistema → Configuración / Equipo*.
+- **Período** : El período de visualización, incluidos los datos históricos entre estas dos fechas. Por defecto, dependiendo de la configuración _Período de visualización de los gráficos por defecto_ dentro _Configuración → Sistema → Configuración / Equipo_.
 - **Grupo** : Ofrece varias opciones de agrupación (Suma por hora, etc.).
-- **Tipo de visualización** : Mostrar en *Línea*, *Área*, Dónde *Cerrada*. Opción guardada en el pedido y utilizada desde el Tablero.
+- **Tipo de visualización** : Mostrar en _Línea_, _Área_, Dónde _Cerrada_. Opción guardada en el pedido y utilizada desde el Tablero.
 - **Variación** : Muestra la diferencia de valor del punto anterior. Opción guardada en el pedido y utilizada desde el Tablero.
 - **Escalera** : Muestra la curva como una escalera o una pantalla continua. Opción guardada en el pedido y utilizada desde el Tablero.
 - **Comparar** : Compara la curva entre diferentes períodos.
@@ -47,8 +48,8 @@ Si muestra un gráfico a través de la página del historial, tiene acceso a var
 > **Consejo**
 >
 > Para evitar cualquier error de manejo, estas opciones guardadas en los comandos solo están activas cuando se muestra una sola curva.
-> 
-En la parte superior donde se muestran las curvas, también hay varias opciones :
+>
+> En la parte superior donde se muestran las curvas, también hay varias opciones :
 
 A la izquierda:
 
@@ -68,6 +69,7 @@ Debajo de las curvas, también puede usar el menú contextual en cada leyenda pa
 También puede mostrar los gráficos en las vistas (veremos aquí las opciones de configuración y no cómo hacerlo, para eso debe ir a la documentación de las vistas o diseños en función). Estas son las opciones :
 
 Una vez que se activan los datos, puede elegir :
+
 - **Color** : El color de la curva.
 - **Tipo** : El tipo de gráfico (área, línea o columna).
 - **Escalera** : Como puede colocar varias curvas (datos) en el mismo gráfico, es posible distinguir las escalas (derecha o izquierda).
@@ -83,7 +85,7 @@ La página del historial da acceso a algunas opciones adicionales
 
 Permite mostrar una curva de acuerdo con un cálculo en varios comandos (puede hacer prácticamente cualquier cosa, + - / \* valor absoluto ... consulte la documentación de PHP para conocer algunas funciones). Por ejemplo :
 
-''abs(*\ [Jardín \] \ [Higrometría \] \ [Temperatura \]* - *\ [Espacio vital \] \ [Higrometría \] \ [Temperatura \]*)''
+''abs(_\ [Jardín \] \ [Higrometría \] \ [Temperatura \]_ - _\ [Espacio vital \] \ [Higrometría \] \ [Temperatura \]_)''
 
 También tiene acceso a una gestión de fórmulas de cálculo que le permite guardarlas para volver a mostrarlas más fácilmente.
 
@@ -101,5 +103,3 @@ Frente a cada dato que se puede mostrar, encontrará dos íconos :
 ### Eliminación de valor inconsistente
 
 A veces puede tener valores inconsistentes en los gráficos. Esto a menudo se debe a una preocupación por interpretar el valor. Es posible eliminar o cambiar el valor del punto en cuestión, haciendo clic directamente en el gráfico; Además, puede ajustar el mínimo y el máximo permitido para evitar problemas futuros.
-
-

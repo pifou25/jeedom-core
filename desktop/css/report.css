@@ -8,7 +8,7 @@ Report version
 .nav.nav-tabs,
 #in_search,
 #in_search + .input-group-btn {
-  display : none;
+  display: none;
 }
 .reportModeVisible {
   display: initial !important;

@@ -4,7 +4,8 @@ Página reservada para usuários avançados, permite iniciar comandos SSH direta
 
 ## Adicionando comando
 
-É possível adicionar comandos personalizados para isso a partir do editor Jeedom (Configuração -> OS/DB -> Editor de arquivos). Você deve criar um arquivo `systemCustomCmd.json` em `dados`. O arquivo deve ter o seguinte formato : 
+É possível adicionar comandos personalizados para isso a partir do editor Jeedom (Configuração -> OS/DB -> Editor de arquivos). Você deve criar um arquivo `systemCustomCmd.json` em `dados`. O arquivo deve ter o seguinte formato :
+
 ```
 [
    {

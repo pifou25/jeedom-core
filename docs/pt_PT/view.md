@@ -1,4 +1,5 @@
 # Vues
+
 **Página inicial → Visualizar**
 
 As visualizações permitem criar visualizações personalizadas.
@@ -18,7 +19,7 @@ Em uma visualização, encontramos :
 
 - Um botão no canto superior esquerdo para mostrar ou ocultar a lista de Visualizações, bem como o botão para adicionar um.
 - O lápis à direita para editar a ordem e o tamanho do equipamento, da mesma maneira que o Dashboard.
-- Um botão *Edição completa* permitindo editar as zonas e elementos da Visualização.
+- Um botão _Edição completa_ permitindo editar as zonas e elementos da Visualização.
 
 > **Dica**
 >
@@ -26,12 +27,12 @@ Em uma visualização, encontramos :
 
 ## Adicionando / Editando uma visualização
 
-O princípio é bastante simples : uma vista é composta de áreas. Cada zona é do tipo *gráfico*, *ferramenta* Onde *foto*. Dependendo desse tipo, você pode adicionar gráficos, equipamentos ou comandos a ele.
+O princípio é bastante simples : uma vista é composta de áreas. Cada zona é do tipo _gráfico_, _ferramenta_ Onde _foto_. Dependendo desse tipo, você pode adicionar gráficos, equipamentos ou comandos a ele.
 
 - À esquerda da página, encontramos a lista de visualizações e um botão de criação.
 - Um botão no canto superior direito permite editar a Visualização Atual (Configuração).
 - Um botão para adicionar uma zona. Ser-lhe-á pedido o nome e o tipo de zona.
-- Um botão *Visualização de resultados*, para sair do modo de edição completo e exibir esta tela.
+- Um botão _Visualização de resultados_, para sair do modo de edição completo e exibir esta tela.
 - Um botão que permite salvar esta visualização.
 - Um botão que permite excluir esta visualização.
 
@@ -59,7 +60,6 @@ Uma zona de tipo de equipamento permite que você adicione equipamentos :
 > **Dica**
 >
 > É possível alterar a ordem das peças na área arrastando e soltando.
-
 
 ### Área do tipo gráfico
 

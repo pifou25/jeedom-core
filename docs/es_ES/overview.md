@@ -1,7 +1,8 @@
 # Síntesis
+
 **Inicio → Resumen**
 
-La página *Síntesis* le ofrece una síntesis visual centralizada de sus objetos y sus resúmenes.
+La página _Síntesis_ le ofrece una síntesis visual centralizada de sus objetos y sus resúmenes.
 
 ![Síntesis](./images/synthesis_intro.gif)
 
@@ -14,21 +15,23 @@ Puede configurarlo como la página predeterminada en **Configuración → Prefer
 En cada objeto, se muestran su imagen de fondo y sus resúmenes :
 
 Dependiendo del tipo de resumen (clave), visible en **Preferencias → Sistema → Configuración / Resúmenes** :
+
 - Arriba a la izquierda : El nombre del objeto.
-- Arriba a la derecha : La temperatura (*la temperatura*) y humedad (*humedad*).
-- Bajo el título : Alerta (*seguridad*) y movimiento (*movimiento*), de color verde o rojo dependiendo de si hay alertas / movimientos en progreso.
+- Arriba a la derecha : La temperatura (_la temperatura_) y humedad (_humedad_).
+- Bajo el título : Alerta (_seguridad_) y movimiento (_movimiento_), de color verde o rojo dependiendo de si hay alertas / movimientos en progreso.
 - Abajo : Todos los otros resúmenes de materias.
 
 La configuración de la visualización del objeto se realiza en **Herramientas → Objetos** :
+
 - Su nombre.
-- Si es visible. Sin embargo, puede mantener un Objeto visible incluso en el Tablero, pero marque *Ocultar en resumen*.
+- Si es visible. Sin embargo, puede mantener un Objeto visible incluso en el Tablero, pero marque _Ocultar en resumen_.
 - Su imagen de fondo.
 - Si la imagen de fondo solo debe usarse en la página Resumen o también en el fondo una vez en el objeto.
-- Los elementos de sus resúmenes, en la pestaña *Resumen*.
+- Los elementos de sus resúmenes, en la pestaña _Resumen_.
 
 > **Consejo**
 >
-> El orden de visualización de los objetos es el de *Resumen de domótica*, que puede reordenar (Análisis → Resumen de automatización del hogar).
+> El orden de visualización de los objetos es el de _Resumen de domótica_, que puede reordenar (Análisis → Resumen de automatización del hogar).
 
 > **Nota**
 >
@@ -37,14 +40,13 @@ La configuración de la visualización del objeto se realiza en **Herramientas �
 ## Fonctions
 
 Para cada objeto, puede hacer clic :
-- En el título del objeto para mostrar el Panel de este objeto con sus objetos secundarios (también accesible desde el menú *Inicio → Panel de control → Objeto*).
+
+- En el título del objeto para mostrar el Panel de este objeto con sus objetos secundarios (también accesible desde el menú _Inicio → Panel de control → Objeto_).
 - En la imagen, para abrir la página del equipo de este objeto solamente.
 - En un elemento de resumen para mostrar los elementos de este objeto, de este tipo. Estos se muestran en modo modal, sin cambiar la página, y le permite cerrar rápidamente un obturador, encender una luz, etc. El tamaño del modal se adapta al equipo que debe mostrar, pero puede moverlo. Incluso con el modal de resúmenes abierto, puede hacer clic en otros resúmenes.
-
 
 > **Consejo**
 >
 > Ctrl Click o Center Click en el objeto o un elemento de resumen abre otra pestaña de su navegador.
 
 Al hacer clic en un objeto de la síntesis, el botón a la izquierda de la barra de búsqueda se reemplaza por un botón que permite mostrar una vista previa de las partes para llegar más rápidamente.
-

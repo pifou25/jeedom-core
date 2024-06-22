@@ -1,9 +1,9 @@
 # Configuration
+
 **Preferencias → Sistema → Configuración**
 
 Aquí es donde se encuentran la mayoría de los parámetros de configuración.
 Aunque muchos, la mayoría de los parámetros están configurados por defecto.
-
 
 ## Pestaña General
 
@@ -34,7 +34,7 @@ En esta pestaña encontrará los parámetros de personalización de la pantalla.
 - **Escritorio claro y oscuro** : Le permite elegir un tema claro y oscuro para el escritorio.
 - **Móvil claro y oscuro** : igual que el anterior para la versión móvil.
 - **Borrar tema de / a** : Le permite definir un intervalo de tiempo durante el cual se utilizará el tema de luz elegido previamente. Sin embargo, marque la opción **Cambiar el tema según el tiempo**.
-- **Sensor de brillo**   : Interfaz móvil solamente, requiere activación *sensor adicional genérico* en cromo, página de cromo://flags.
+- **Sensor de brillo** : Interfaz móvil solamente, requiere activación _sensor adicional genérico_ en cromo, página de cromo://flags.
 
 ### Tuiles
 
@@ -42,10 +42,9 @@ En esta pestaña encontrará los parámetros de personalización de la pantalla.
 - **No vertical** : Restringe la altura de los mosaicos cada x píxeles.
 - **Margen** : Espacio vertical y horizontal entre mosaicos, en píxeles.
 - **Centrado vertical de baldosas** : Centra verticalmente el contenido de los mosaicos.
-- **Iconos coloridos de widgets** : Colorear iconos de widgets según su estado. Modificable por escenario, *conjuntoColoredIcon* ('Colorear icono').
+- **Iconos coloridos de widgets** : Colorear iconos de widgets según su estado. Modificable por escenario, _conjuntoColoredIcon_ ('Colorear icono').
 - **Categorías coloreadas** : Coloración del título de los mosaicos según la categoría.
 - **Móvil : una columna predeterminada** : Visualización de ancho completo de mosaicos en dispositivos móviles
-
 
 ### Imágenes de fondo
 
@@ -55,7 +54,7 @@ En esta pestaña encontrará los parámetros de personalización de la pantalla.
 - **Análisis de imagen** : Imagen de fondo para las páginas del menú Análisis.
 - **Herramientas de imagen** : Imagen de fondo para las páginas del menú Herramientas.
 - **Luz de tema de opacidad** : Opacidad de las imágenes de fondo en el tema claro. Ajuste de acuerdo con el brillo de las imágenes de fondo para una mejor legibilidad.
-- **Opacidad del tema oscuro** : Opacidad de las imágenes de fondo en el tema oscuro.  Ajuste de acuerdo con el brillo de las imágenes de fondo para una mejor legibilidad.
+- **Opacidad del tema oscuro** : Opacidad de las imágenes de fondo en el tema oscuro. Ajuste de acuerdo con el brillo de las imágenes de fondo para una mejor legibilidad.
 
 ### Options
 
@@ -70,8 +69,6 @@ En esta pestaña encontrará los parámetros de personalización de la pantalla.
 - **Redondo** : Muestra elementos de la interfaz con ángulos redondeados. 0 : sin redondeo, 1 : redondeo máximo.
 - **Deshabilitar sombras** : Deshabilita las sombras de los mosaicos en el tablero, los menús y ciertos elementos de la interfaz.
 
-
-
 ## Pestaña Redes
 
 Es absolutamente necesario configurar correctamente esta parte importante de Jeedom, de lo contrario, muchos complementos pueden no funcionar. Hay dos formas de acceder a Jeedom : L'**Acceso interno** (de la misma red local que Jeedom) y l'**Acceso externo** (de otra red, especialmente de Internet).
@@ -79,29 +76,31 @@ Es absolutamente necesario configurar correctamente esta parte importante de Jee
 > **Importante**
 >
 > Esta parte está ahí para explicarle a Jeedom su entorno :
-> cambiar el puerto o IP en esta pestaña no cambiará el puerto o IP de Jeedom en realidad. Para eso tiene que conectarse en SSH y editar el archivo / etc / network / interfaces para IP y los archivos etc / apache2 / sites-available / default y etc / apache2 / sites-available / default\_ssl (para HTTPS).
+> cambiar el puerto o IP en esta pestaña no cambiará el puerto o IP de Jeedom en realidad. Para eso tiene que conectarse en SSH y editar el archivo / etc / network / interfaces para IP y los archivos etc / apache2 / sites-available / default y etc / apache2 / sites-available / default_ssl (para HTTPS).
 > Sin embargo, en caso de manejo inadecuado de su Jeedom, el equipo de Jeedom no se hace responsable y puede rechazar cualquier solicitud de soporte.
 
 - **Acceso interno** : información para unirse a Jeedom desde equipos en la misma red que Jeedom (LAN)
-    - **OK / NOK** : indica si la configuración de la red interna es correcta.
-    - **Protocolo** : el protocolo a usar, a menudo HTTP.
-    - **URL o dirección IP** : Jeedom IP para entrar.
-    - **Puerto** : el puerto de la interfaz web de Jeedom, generalmente 80.
-        Tenga en cuenta que cambiar el puerto aquí no cambia el puerto real de Jeedom, que seguirá siendo el mismo.
-    - **Complementar** : el fragmento de URL adicional (ejemplo : / jeedom) para acceder a Jeedom.
+
+  - **OK / NOK** : indica si la configuración de la red interna es correcta.
+  - **Protocolo** : el protocolo a usar, a menudo HTTP.
+  - **URL o dirección IP** : Jeedom IP para entrar.
+  - **Puerto** : el puerto de la interfaz web de Jeedom, generalmente 80.
+    Tenga en cuenta que cambiar el puerto aquí no cambia el puerto real de Jeedom, que seguirá siendo el mismo.
+  - **Complementar** : el fragmento de URL adicional (ejemplo : / jeedom) para acceder a Jeedom.
 
 - **Acceso externo** : información para llegar a Jeedom desde fuera de la red local. Para completar solo si no está utilizando Jeedom DNS.
-    - **OK / NOK** : indica si la configuración de red externa es correcta.
-    - **Protocolo** : protocolo utilizado para acceso al exterior.
-    - **URL o dirección IP** : IP externa, si está fija. De lo contrario, proporcione la URL que apunta a la dirección IP externa de su red.
-    - **Complementar** : el fragmento de URL adicional (ejemplo : / jeedom) para acceder a Jeedom.
+
+  - **OK / NOK** : indica si la configuración de red externa es correcta.
+  - **Protocolo** : protocolo utilizado para acceso al exterior.
+  - **URL o dirección IP** : IP externa, si está fija. De lo contrario, proporcione la URL que apunta a la dirección IP externa de su red.
+  - **Complementar** : el fragmento de URL adicional (ejemplo : / jeedom) para acceder a Jeedom.
 
 - **Proxy para el mercado** : activación proxy.
-    - Marque la casilla habilitar proxy.
-    - **Dirección proxy** : Ingrese la dirección del proxy,
-    - **Puerto proxy** : Ingrese el puerto proxy,
-    - **Acceso** : Ingrese el inicio de sesión proxy,
-    - **Contraseña** : Ingrese la contraseña.
+  - Marque la casilla habilitar proxy.
+  - **Dirección proxy** : Ingrese la dirección del proxy,
+  - **Puerto proxy** : Ingrese el puerto proxy,
+  - **Acceso** : Ingrese el inicio de sesión proxy,
+  - **Contraseña** : Ingrese la contraseña.
 
 > **Consejo**
 >
@@ -112,15 +111,16 @@ Es absolutamente necesario configurar correctamente esta parte importante de Jee
 > Para saber si necesita establecer un valor en el campo **Complementar**, mire, cuando inicie sesión en Jeedom en su navegador de Internet, si necesita agregar / Jeedom (o lo que sea) después de la IP.
 
 - **Gestión Avanzada** : Esta parte puede no aparecer, dependiendo de la compatibilidad con su hardware.
-    Allí encontrará la lista de sus interfaces de red. Puede decirle a Jeedom que no monitoree la red haciendo clic en **deshabilitar la administración de la red Jeedom** (comprobar si Jeedom no está conectado a ninguna red). También puede especificar el rango de ip local en la forma 192.168.1.* (para ser utilizado solo en instalaciones de tipo acoplable).
+  Allí encontrará la lista de sus interfaces de red. Puede decirle a Jeedom que no monitoree la red haciendo clic en **deshabilitar la administración de la red Jeedom** (comprobar si Jeedom no está conectado a ninguna red). También puede especificar el rango de ip local en la forma 192.168.1.\* (para ser utilizado solo en instalaciones de tipo acoplable).
 - **Mercado proxy** : permite el acceso remoto a su Jeedom sin la necesidad de un DNS, una IP fija o abrir los puertos de su caja de Internet.
-    - **Usando Jeedom DNS** : activa Jeedom DNS (tenga en cuenta que esto requiere al menos un paquete de servicio)).
-    - **Estado de DNS** : Estado HTTP HTTP.
-    - **Administración** : permite detener y reiniciar el servicio DNS de Jeedom.
+  - **Usando Jeedom DNS** : activa Jeedom DNS (tenga en cuenta que esto requiere al menos un paquete de servicio)).
+  - **Estado de DNS** : Estado HTTP HTTP.
+  - **Administración** : permite detener y reiniciar el servicio DNS de Jeedom.
 
 > **Importante**
 >
 > Si no puede hacer que funcione Jeedom DNS, mire la configuración del firewall y el filtro parental de su caja de Internet (en livebox necesita, por ejemplo, el firewall a nivel medio).
+
 - **Duración de las sesiones (hora)** : duración de las sesiones PHP, no se recomienda tocar este parámetro.
 
 ## Pestaña Registros
@@ -133,9 +133,7 @@ Es absolutamente necesario configurar correctamente esta parte importante de Jee
 ### Messages
 
 - **Añadir un mensaje a cada error en los registros** : si un complemento o Jeedom escribe un mensaje de error en un registro, Jeedom agrega automáticamente un mensaje en el centro de mensajes (al menos está seguro de que no se lo perderá)).
-- **Acción sobre mensaje** : Le permite realizar una acción al agregar un mensaje al centro de mensajes. Tienes 2 etiquetas para estas acciones :
-        - #subject# : mensaje en cuestión.
-        - #plugin# : complemento que activó el mensaje.
+- **Acción sobre mensaje** : Le permite realizar una acción al agregar un mensaje al centro de mensajes. Tienes 2 etiquetas para estas acciones : - #subject# : mensaje en cuestión. - #plugin# : complemento que activó el mensaje.
 
 ### Alertes
 
@@ -191,10 +189,10 @@ Se pueden registrar muchos pedidos. Por lo tanto, en Análisis → Historia, obt
 ### Push
 
 - **Url de push global** : le permite agregar una URL para llamar en caso de una actualización del pedido. Puedes usar las siguientes etiquetas :
-**\#value\#** por el valor del pedido, **\#cmd\_name\#** para el nombre del comando,
-**\#cmd\_id\#** para el identificador único del pedido,
-**\#humanname\#** para el nombre completo de la orden (ej : \#\[Salle de bain\]\[Hydrometrie\]\[Humidité\]\#),
-**\#eq_name\#** para el nombre del equipo
+  **\#value\#** por el valor del pedido, **\#cmd_name\#** para el nombre del comando,
+  **\#cmd_id\#** para el identificador único del pedido,
+  **\#humanname\#** para el nombre completo de la orden (ej : \#\[Salle de bain\]\[Hydrometrie\]\[Humidité\]\#),
+  **\#eq_name\#** para el nombre del equipo
 
 ## Pestaña Informes
 
@@ -228,29 +226,29 @@ Esta pestaña le permite establecer parámetros globales relacionados con las in
 Aquí tienes tres parámetros :
 
 - **Sensibilidad** : Hay 4 niveles de correspondencia (la sensibilidad va de 1 (corresponde exactamente) a 99) para
-    -   1 mes : nivel de coincidencia para interacciones de una sola palabra.
-    -   2 meses : el nivel de coincidencia para interacciones de dos palabras.
-    -   3 meses : el nivel de coincidencia para interacciones de tres palabras.
-    -   más de 3 palabras : nivel de coincidencia para interacciones de más de tres palabras.
+  - 1 mes : nivel de coincidencia para interacciones de una sola palabra.
+  - 2 meses : el nivel de coincidencia para interacciones de dos palabras.
+  - 3 meses : el nivel de coincidencia para interacciones de tres palabras.
+  - más de 3 palabras : nivel de coincidencia para interacciones de más de tres palabras.
 - **No responder si la interacción no es entendida** : de manera predeterminada, Jeedom responde &quot;No entendí&quot; si no hay interacción. Es posible desactivar esta operación para que Jeedom no responda. Marque la casilla para deshabilitar la respuesta.
 - **Regex de exclusión general para interacciones** : permite definir una expresión regular que, si corresponde a una interacción, eliminará automáticamente esta oración de la generación (reservada para expertos). Para más información ver explicaciones en el capítulo **Expresión regular de exclusión** documentación sobre interacciones.
 
 ### Interacción automática, contextuales y de alerta
 
--   Los **interacciones automáticas** permitir que Jeedom intente comprender una solicitud de interacción incluso si no hay ninguna definida. Luego buscará un nombre de objeto y / o equipo y / o orden para tratar de responder lo mejor posible.
+- Los **interacciones automáticas** permitir que Jeedom intente comprender una solicitud de interacción incluso si no hay ninguna definida. Luego buscará un nombre de objeto y / o equipo y / o orden para tratar de responder lo mejor posible.
 
--   Los **interacciones contextuales** le permite encadenar múltiples solicitudes sin repetir todo, por ejemplo :
-    - *Jeedom manteniendo el contexto :*
-        - *Vosotras* : Cuanto esta el en el cuarto ?
-        - *Jeedom* : Temperatura 25.2 ° C
-        - *Vosotras* : y en la sala de estar ?
-        - *Jeedom* : Temperatura 27.2 ° C
-    - *Haz dos preguntas en una :*
-        - *Vosotras* : ¿Cómo es en el dormitorio y en la sala de estar? ?
-        - *Jeedom* : Temperatura 23.6 ° C, temperatura 27.2 ° C
--   Interacciones de tipo **Avísame** permita pedirle a Jeedom que le avise si un pedido excede / cae o vale un cierto valor.
-    - *Vosotras* : Notificarme si la temperatura de la sala supera los 25 ° C ?
-    - *Jeedom* : OK (*Tan pronto como la temperatura de la sala supere los 25 ° C, Jeedom le dirá, una vez*)
+- Los **interacciones contextuales** le permite encadenar múltiples solicitudes sin repetir todo, por ejemplo :
+  - _Jeedom manteniendo el contexto :_
+    - _Vosotras_ : Cuanto esta el en el cuarto ?
+    - _Jeedom_ : Temperatura 25.2 ° C
+    - _Vosotras_ : y en la sala de estar ?
+    - _Jeedom_ : Temperatura 27.2 ° C
+  - _Haz dos preguntas en una :_
+    - _Vosotras_ : ¿Cómo es en el dormitorio y en la sala de estar? ?
+    - _Jeedom_ : Temperatura 23.6 ° C, temperatura 27.2 ° C
+- Interacciones de tipo **Avísame** permita pedirle a Jeedom que le avise si un pedido excede / cae o vale un cierto valor.
+  - _Vosotras_ : Notificarme si la temperatura de la sala supera los 25 ° C ?
+  - _Jeedom_ : OK (_Tan pronto como la temperatura de la sala supere los 25 ° C, Jeedom le dirá, una vez_)
 
 > **Nota**
 >
@@ -286,7 +284,7 @@ Aquí están las diferentes opciones disponibles :
 - **Filtro de administradores (opcional)** : los administradores filtran en AD (para la gestión de grupos, por ejemplo)
 - **Filtro de usuario (opcional)** : filtro de usuario en el AD (para gestión de grupos, por ejemplo)
 - **Filtro de usuario limitado (opcional)** : filtrar usuarios limitados en el AD (por ejemplo, para la administración de grupos)
-- **Permitir REMOTO\_USER** : Active REMOTE\_USER (usado en SSO por ejemplo).
+- **Permitir REMOTO_USER** : Active REMOTE_USER (usado en SSO por ejemplo).
 
 ### Connexion
 
@@ -359,7 +357,7 @@ Depósito que permite enviar automáticamente una copia de seguridad de Jeedom e
 
 > **Importante**
 >
-> El protocolo Samba tiene varias versiones, el v1 tiene un nivel de seguridad comprometido y en algunos NAS puede obligar al cliente a usar v2 o v3 para conectarse. Entonces si tienes un error *negociación de protocolo fallida: NT_STATUS_INVAID_NETWORK_RESPONSE* hay una buena posibilidad de que en el lado del NAS la restricción esté en su lugar. Luego debe modificar el archivo / etc / samba / smb en su sistema operativo Jeedom.conf y agregue estas dos líneas :
+> El protocolo Samba tiene varias versiones, el v1 tiene un nivel de seguridad comprometido y en algunos NAS puede obligar al cliente a usar v2 o v3 para conectarse. Entonces si tienes un error _negociación de protocolo fallida: NT_STATUS_INVAID_NETWORK_RESPONSE_ hay una buena posibilidad de que en el lado del NAS la restricción esté en su lugar. Luego debe modificar el archivo / etc / samba / smb en su sistema operativo Jeedom.conf y agregue estas dos líneas :
 > protocolo max del cliente = SMB3
 > protocolo min del cliente = SMB2
 > El smbclient del lado de Jeedom usará v2 donde v3 y al poner SMB3 en ambos solo SMB3. Entonces, depende de usted adaptarse según las restricciones en el NAS u otro servidor Samba
@@ -380,7 +378,7 @@ Permite monitorear y actuar en el caché Jeedom :
 - **Estadísticas** : Número de objetos actualmente en caché.
 - **Limpiar la caché** : Forzar la eliminación de objetos que ya no son útiles. Jeedom hace esto automáticamente todas las noches.
 - **Vaciar todos los datos de la caché** : Vacíe la tapa completamente.
-    Tenga en cuenta que esto puede causar pérdida de datos !
+  Tenga en cuenta que esto puede causar pérdida de datos !
 - **Borrar el caché del widget** : Borrar el caché dedicado a los widgets.
 - **Deshabilitar caché de widgets** : Marque la casilla para deshabilitar la caché del widget.
 - **Tiempo de pausa para polling largo** : Frecuencia con la que Jeedom comprueba si hay eventos pendientes para los clientes (interfaz web, aplicación móvil, etc.)). Cuanto más corto sea este tiempo, más rápido se actualizará la interfaz, a cambio utiliza más recursos y, por lo tanto, puede ralentizar Jeedom.
@@ -416,7 +414,6 @@ Para cada clave de API de complemento, puede prohibirlos de los métodos princip
 - **Comprobación de paquetes del sistema** : Le permite iniciar una verificación de los paquetes instalados.
 - **Verificación de la base de datos** : Permite iniciar una verificación en la base de datos Jeedom y corregir errores si es necesario.
 - **Limpieza de la base de datos** : Ejecuta una comprobación de la base de datos y limpia las entradas no utilizadas.
-
 
 ### Herramientas del sistema
 

@@ -1,8 +1,8 @@
 # Design 3D
+
 **Accueil → Design3D**
 
 Cette page permet de créer une vue 3D de votre habitation qui pourra réagir en fonction de l'état des différentes informations de votre domotique.
-
 
 > **Tip**
 >
@@ -49,7 +49,6 @@ Cliquez sur le bouton "envoyer" au niveau de "Modèle 3D" et sélectionner votre
 >
 > Une fois l'import du fichier effectué (cela peut être assez long en fonction de la taille de celui-ci), il vous faut rafraichir la page pour voir le résultat (F5).
 
-
 ## Configuration des éléments
 
 > **IMPORTANT**
@@ -85,25 +84,25 @@ Pour configurer un élément sur le design 3D il vous faire un double clic sur l
 
 - Etat : état de la Porte/Fenêtre, 1 fermé et 0 ouvert
 - Rotation
-	- Activer : active la rotation de la Porte/Fenêtre lors de l'ouverture
-	- Ouverture : le mieux est de tester pour que cela corresponde à votre Porte/Fenêtre
+  - Activer : active la rotation de la Porte/Fenêtre lors de l'ouverture
+  - Ouverture : le mieux est de tester pour que cela corresponde à votre Porte/Fenêtre
 - Translation
-	- Activer : active la translation lors de l'ouverture (type Porte/Fenêtre coulissante)
-	- Sens : sens dans lequel la Porte/Fenêtre doit bouger (vous avez haut/bas/droite/gauche)
-	- Répéter : par défaut la Porte/Fenêtre bouge d'une fois sa dimension dans le sens donné mais vous pouvez augmenter cette valeur
+  - Activer : active la translation lors de l'ouverture (type Porte/Fenêtre coulissante)
+  - Sens : sens dans lequel la Porte/Fenêtre doit bouger (vous avez haut/bas/droite/gauche)
+  - Répéter : par défaut la Porte/Fenêtre bouge d'une fois sa dimension dans le sens donné mais vous pouvez augmenter cette valeur
 - Masquer quand la Porte/Fenêtre est ouverte
-	- Activer : Masque l'élément si la Porte/Fenêtre est ouverte
+  - Activer : Masque l'élément si la Porte/Fenêtre est ouverte
 - Couleur
-	- Couleur ouverte : si cocher l'élément prendra cette couleur si la Porte/Fenêtre est ouverte
-	- Couleur fermée : si cocher l'élément prendra cette couleur si la Porte/Fenêtre est fermée
+  - Couleur ouverte : si cocher l'élément prendra cette couleur si la Porte/Fenêtre est ouverte
+  - Couleur fermée : si cocher l'élément prendra cette couleur si la Porte/Fenêtre est fermée
 
 #### Volet
 
 - Etat : état du volet, 0 ouvert autre valeur fermé
 - Masquer quand le volet est ouvert
-	- Activer : masque l'élément si le volet est ouvert
+  - Activer : masque l'élément si le volet est ouvert
 - Couleur
-	- Couleur fermé : si cocher l'élément prendra cette couleur si le volet est fermé
+  - Couleur fermé : si cocher l'élément prendra cette couleur si le volet est fermé
 
 ### Couleur conditionnelle
 

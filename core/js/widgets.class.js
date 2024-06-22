@@ -14,151 +14,215 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-jeedom.widgets = function() {};
+jeedom.widgets = function () {};
 
-jeedom.widgets.remove = function(_params) {
-  var paramsRequired = ['id'];
+jeedom.widgets.remove = function (_params) {
+  var paramsRequired = ["id"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/widgets.ajax.php';
+  paramsAJAX.url = "core/ajax/widgets.ajax.php";
   paramsAJAX.data = {
     action: "remove",
-    id: _params.id
+    id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.widgets.byId = function(_params) {
-  var paramsRequired = ['id'];
+jeedom.widgets.byId = function (_params) {
+  var paramsRequired = ["id"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/widgets.ajax.php';
+  paramsAJAX.url = "core/ajax/widgets.ajax.php";
   paramsAJAX.data = {
     action: "byId",
-    id: _params.id
+    id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.widgets.save = function(_params) {
-  var paramsRequired = ['widgets'];
+jeedom.widgets.save = function (_params) {
+  var paramsRequired = ["widgets"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/widgets.ajax.php';
+  paramsAJAX.url = "core/ajax/widgets.ajax.php";
   paramsAJAX.data = {
-    action: 'save',
+    action: "save",
     widgets: JSON.stringify(_params.widgets),
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.widgets.all = function(_params) {
+jeedom.widgets.all = function (_params) {
   var paramsRequired = [];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/widgets.ajax.php';
+  paramsAJAX.url = "core/ajax/widgets.ajax.php";
   paramsAJAX.data = {
-    action: 'all'
+    action: "all",
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.widgets.getTemplateConfiguration = function(_params) {
-  var paramsRequired = ['template'];
+jeedom.widgets.getTemplateConfiguration = function (_params) {
+  var paramsRequired = ["template"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/widgets.ajax.php';
+  paramsAJAX.url = "core/ajax/widgets.ajax.php";
   paramsAJAX.data = {
-    action: 'getTemplateConfiguration',
-    template: _params.template
+    action: "getTemplateConfiguration",
+    template: _params.template,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.widgets.getPreview = function(_params) {
-  var paramsRequired = ['id'];
+jeedom.widgets.getPreview = function (_params) {
+  var paramsRequired = ["id"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/widgets.ajax.php';
+  paramsAJAX.url = "core/ajax/widgets.ajax.php";
   paramsAJAX.data = {
     action: "getPreview",
-    id: _params.id
+    id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.widgets.replacement = function(_params) {
-  var paramsRequired = ['version', 'replace', 'by'];
+jeedom.widgets.replacement = function (_params) {
+  var paramsRequired = ["version", "replace", "by"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/widgets.ajax.php';
+  paramsAJAX.url = "core/ajax/widgets.ajax.php";
   paramsAJAX.data = {
     action: "replacement",
     version: _params.version,
     replace: _params.replace,
-    by: _params.by
+    by: _params.by,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.widgets.getThemeImg = function(_light, _dark) {
-  if (_light != '' && _dark == '') {
-    return _light
+jeedom.widgets.getThemeImg = function (_light, _dark) {
+  if (_light != "" && _dark == "") {
+    return _light;
   }
-  if (_light == '' && _dark != '') {
-    return _dark
+  if (_light == "" && _dark != "") {
+    return _dark;
   }
-  if (document.body.hasAttribute('data-theme')) {
-    if (document.body.getAttribute('data-theme').endsWith('Light')) return _light
+  if (document.body.hasAttribute("data-theme")) {
+    if (document.body.getAttribute("data-theme").endsWith("Light"))
+      return _light;
   }
-  return _dark
-}
+  return _dark;
+};

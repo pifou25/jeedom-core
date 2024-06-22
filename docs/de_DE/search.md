@@ -1,4 +1,5 @@
 # Recherche
+
 **Analysemenü → Suchen**
 
 Jeedom bietet eine interne Suchmaschine.
@@ -59,24 +60,24 @@ Der Motor wird in den folgenden Tabellen angezeigt :
 
 ## Durch Wort
 
-Geben Sie eine Zeichenfolge in das Suchfeld ein. Validieren mit *Eintreten* oder mit der Taste *Forschen*.
+Geben Sie eine Zeichenfolge in das Suchfeld ein. Validieren mit _Eintreten_ oder mit der Taste _Forschen_.
 
 Der Motor wird in den folgenden Tabellen angezeigt :
 
 - Das **Szenarien** mit dieser Zeichenfolge.
-	Suchen Sie in Ausdrücken, Kommentaren und Codeblöcken.
+  Suchen Sie in Ausdrücken, Kommentaren und Codeblöcken.
 - Das **Interaktionen** mit dieser Zeichenfolge.
-	Suche in Feldern *Anfrage*.
+  Suche in Feldern _Anfrage_.
 - Das **Ausrüstung** mit dieser Zeichenfolge.
-	Suche in Feldern *Name*, *logische ID*, *eqType*, *Wie? 'Oder' Was*, *Stichworte*.
+  Suche in Feldern _Name_, _logische ID_, _eqType_, _Wie? 'Oder' Was_, _Stichworte_.
 - Das **Aufträge** mit dieser Zeichenfolge.
-	Suche in Feldern *Name*, *logische ID*, *eqType*, *generischer_typ*, .
+  Suche in Feldern _Name_, _logische ID_, _eqType_, _generischer_typ_, .
 - Das **Noten** mit dieser Zeichenfolge.
-	Notizen Textsuche.
+  Notizen Textsuche.
 
 ## Nach ID
 
-Geben Sie im Suchfeld eine Nummer ein, die einer gesuchten ID entspricht. Validieren mit *Eintreten* oder mit der Taste *Forschen*.
+Geben Sie im Suchfeld eine Nummer ein, die einer gesuchten ID entspricht. Validieren mit _Eintreten_ oder mit der Taste _Forschen_.
 
 Der Motor wird in den folgenden Tabellen angezeigt :
 
@@ -91,6 +92,7 @@ Der Motor wird in den folgenden Tabellen angezeigt :
 ## Ergebnisse
 
 Für jede Art von Ergebnis sind Aktionen zulässig:
+
 - **Szenarien** : Öffnen Sie das Szenarioprotokoll oder rufen Sie die Szenarioseite mit der aktiven Suche nach dem gesuchten Begriff auf.
 - **Entwürfe** : Showdesign.
 - **Ansichten** : Ansicht anzeigen.
@@ -100,4 +102,3 @@ Für jede Art von Ergebnis sind Aktionen zulässig:
 - **Noten** : Hinweis öffnen.
 
 Jede dieser Optionen öffnet eine andere Registerkarte in Ihrem Browser, um die aktuelle Suche nicht zu verlieren.
-

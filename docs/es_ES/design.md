@@ -1,4 +1,5 @@
 # Design
+
 **Inicio → Diseño**
 
 Esta página le permite configurar la visualización de toda su domótica de una manera muy fina.
@@ -21,21 +22,21 @@ En el menú (clic derecho), encontramos las siguientes acciones :
 - **Añadir texto / html** : Le permite agregar texto o código html / JavaScript.
 - **Agregar escenario** : Agregar un escenario.
 - **Agregar enlace**
-    - **Hacia una vista** : Agregar un enlace a una vista.
-    - **Hacia un diseño** : Agregar un enlace a otro diseño.
+  - **Hacia una vista** : Agregar un enlace a una vista.
+  - **Hacia un diseño** : Agregar un enlace a otro diseño.
 - **Agregar equipo** : Agrega equipo.
 - **Añadir pedido** : Agregar un pedido.
 - **Añadir imagen / cámara** : Le permite agregar una imagen o una transmisión desde una cámara.
 - **Agregar área** : Permite agregar una zona transparente en la que se puede hacer clic que podrá ejecutar una serie de acciones durante un clic (dependiendo o no del estado de otro comando)).
 - **Agregar resumen** : Agrega información de un objeto o resumen general.
 - **Monitor**
-    - **Ninguna** : No muestra ninguna cuadrícula.
-    - **10x10** : Muestra una cuadrícula de 10 por 10.
-    - **15x15** : Muestra una cuadrícula de 15 por 15.
-    - **20x20** : Muestra una cuadrícula de 20 por 20.
-    - **Magnetizar los elementos** : Agrega magnetización entre los elementos para que sea más fácil pegarlos.
-    - **Imán en la rejilla** : Agregue una magnetización de los elementos a la cuadrícula (atención : dependiendo del zoom del elemento, esta funcionalidad puede funcionar más o menos).
-    - **Ocultar elemento resaltado** : Ocultar resaltado alrededor de elementos.
+  - **Ninguna** : No muestra ninguna cuadrícula.
+  - **10x10** : Muestra una cuadrícula de 10 por 10.
+  - **15x15** : Muestra una cuadrícula de 15 por 15.
+  - **20x20** : Muestra una cuadrícula de 20 por 20.
+  - **Magnetizar los elementos** : Agrega magnetización entre los elementos para que sea más fácil pegarlos.
+  - **Imán en la rejilla** : Agregue una magnetización de los elementos a la cuadrícula (atención : dependiendo del zoom del elemento, esta funcionalidad puede funcionar más o menos).
+  - **Ocultar elemento resaltado** : Ocultar resaltado alrededor de elementos.
 - **Eliminar diseño** : Eliminar diseño.
 - **Crea un diseño** : Le permite agregar un nuevo diseño.
 - **Diseño duplicado** : Duplica el diseño actual.
@@ -51,17 +52,17 @@ En el menú (clic derecho), encontramos las siguientes acciones :
 Encontrado aquí :
 
 - **General**
-    - **Apellido** : El nombre de su diseño.
-    - **Posición** : La posición del diseño en el menú. Le permite ordenar los diseños.
-    - **Fondo transparente** : Hace el fondo transparente. Atención si la casilla está marcada, no se usa el color de fondo.
-    - **Color de fondo** : Diseño de color de fondo.
-    - **Código de acceso** : Código de acceso a su diseño (si está vacío, no se requiere código).
-    - **Icono** : Un icono para ello (aparece en el menú de opciones de diseño).
-    - **Imagen**
-        - **Enviar a** : Le permite agregar una imagen de fondo al diseño.
-        - **Eliminar imagen** : Eliminar imagen.
+  - **Apellido** : El nombre de su diseño.
+  - **Posición** : La posición del diseño en el menú. Le permite ordenar los diseños.
+  - **Fondo transparente** : Hace el fondo transparente. Atención si la casilla está marcada, no se usa el color de fondo.
+  - **Color de fondo** : Diseño de color de fondo.
+  - **Código de acceso** : Código de acceso a su diseño (si está vacío, no se requiere código).
+  - **Icono** : Un icono para ello (aparece en el menú de opciones de diseño).
+  - **Imagen**
+    - **Enviar a** : Le permite agregar una imagen de fondo al diseño.
+    - **Eliminar imagen** : Eliminar imagen.
 - **Tallas**
-    - **Tamaño (WxH)** : Le permite establecer el tamaño en píxeles de su diseño.
+  - **Tamaño (WxH)** : Le permite establecer el tamaño en píxeles de su diseño.
 
 ## Configuración general de elementos
 
@@ -125,7 +126,7 @@ Le permite elegir los comandos para graficar.
 
 ## Guión
 
-*No hay configuraciones de visualización específicas*
+_No hay configuraciones de visualización específicas_
 
 ## Lien
 
@@ -158,6 +159,7 @@ Le permite elegir los comandos para graficar.
 ### Commandes
 
 La lista de comandos presentes en el equipo le permite, para cada comando,:
+
 - Ocultar nombre del comando.
 - Comando Ocultar.
 - Mostrar el pedido con un fondo transparente.
@@ -168,7 +170,7 @@ Muestra la ventana de configuración avanzada del equipo (ver documentación **R
 
 ## Commande
 
-*No hay configuraciones de visualización específicas*
+_No hay configuraciones de visualización específicas_
 
 ### Configuración avanzada
 
@@ -223,8 +225,8 @@ En este modo, al pasar el mouse por encima o al hacer clic en el área Jeedom, s
 
 ## FAQ
 
->**Ya no puedo editar mi diseño**
->Si ha colocado un widget o una imagen que toma casi todo el diseño, debe hacer clic fuera del widget o imagen para acceder al menú haciendo clic con el botón derecho.
+> **Ya no puedo editar mi diseño**
+> Si ha colocado un widget o una imagen que toma casi todo el diseño, debe hacer clic fuera del widget o imagen para acceder al menú haciendo clic con el botón derecho.
 
->**Eliminar un diseño que ya no funciona**
->En la parte de administración, luego OS / DB, haga "select * from planHeader", recupere la identificación del diseño en cuestión y haga una "eliminación de planHeader donde id=#TODO#" y "eliminar del plan donde planHeader_id=#todo#" reemplazando bien #TODO# por la identificación de diseño encontrada previamente.
+> **Eliminar un diseño que ya no funciona**
+> En la parte de administración, luego OS / DB, haga "select \* from planHeader", recupere la identificación del diseño en cuestión y haga una "eliminación de planHeader donde id=#TODO#" y "eliminar del plan donde planHeader_id=#todo#" reemplazando bien #TODO# por la identificación de diseño encontrada previamente.

@@ -1,10 +1,9 @@
 # Update Center
-**Configurações → Sistema → Centro de Atualização**
 
+**Configurações → Sistema → Centro de Atualização**
 
 A **Update Center** permite atualizar todas as funcionalidades do Jeedom, incluindo o software principal e seus plugins.
 Outras funções de gerenciamento de extensão estão disponíveis (excluir, reinstalar, verificar etc.).).
-
 
 ## Funções da página
 
@@ -22,6 +21,7 @@ O botão **Para salvaguardar** deve ser usado quando você alterar as opções n
 
 O botão **Atualizar** permite atualizar o Core, plugins ou ambos.
 Depois de clicar nele, você obtém essas opções diferentes :
+
 - **Pré-atualização** : Permite atualizar o script de atualização antes de aplicar as novas atualizações. Geralmente usado a pedido do suporte.
 - **Salvar antes** : Faça backup do Jeedom antes de atualizar. O backup é executado apenas localmente (nem Market nem Samba).
 - **Plugins de atualização** : Permite incluir plugins na atualização.
@@ -42,7 +42,7 @@ Depois de clicar nele, você obtém essas opções diferentes :
 
 A tabela contém as versões dos núcleos e plug-ins instalados.
 
-Os plug-ins têm um crachá ao lado do nome, especificando sua versão, de cor verde *estável*, ou laranja em *beta* ou outro.
+Os plug-ins têm um crachá ao lado do nome, especificando sua versão, de cor verde _estável_, ou laranja em _beta_ ou outro.
 
 - **Status** : OK ou NÃO.
 - **Sobrenome** : Nome e origem do plug-in
@@ -72,7 +72,7 @@ Em cada linha, você pode usar as seguintes funções:
 >
 > Esta guia é reservada para usuários avançados e apenas para usuários avançados, a menor ação ruim aqui pode QUEBRAR seu Jeedom (sem a possibilidade de recorrer ao suporte)
 
-Esta aba permite que você veja as atualizações disponíveis para os (apt), pacote python (pip2 e pip3) assim como atualizar os pacotes que o requerem. 
+Esta aba permite que você veja as atualizações disponíveis para os (apt), pacote python (pip2 e pip3) assim como atualizar os pacotes que o requerem.
 
 ## Guia Informações
 
@@ -80,14 +80,14 @@ Durante ou após uma atualização, essa guia permite que você leia o log dessa
 
 > **Observação**
 >
-> Esse log normalmente termina com *[FINALIZAR SUCESSO DE ATUALIZAÇÃO]*. Pode haver algumas linhas de erro nesse tipo de log, no entanto, a menos que haja um problema real após a atualização, nem sempre é necessário entrar em contato com o suporte para isso.
+> Esse log normalmente termina com _[FINALIZAR SUCESSO DE ATUALIZAÇÃO]_. Pode haver algumas linhas de erro nesse tipo de log, no entanto, a menos que haja um problema real após a atualização, nem sempre é necessário entrar em contato com o suporte para isso.
 
 ## Atualização da linha de comando
 
 É possível atualizar o Jeedom diretamente no SSH.
 Uma vez conectado, este é o comando para executar :
 
-``````sudo php /var/www/html/install/update.php``````
+`sudo php /var/www/html/install/update.php`
 
 Os possíveis parâmetros são :
 
@@ -96,8 +96,8 @@ Os possíveis parâmetros são :
 
 Aqui está um exemplo de sintaxe para fazer uma atualização forçada reaplicando as alterações desde o 4.0.04 :
 
-``````sudo php  /var/www/html/install/update.php mode=force version=4.0.04``````
+`sudo php  /var/www/html/install/update.php mode=force version=4.0.04`
 
 Atenção, após uma atualização na linha de comando, é necessário reaplicar os direitos na pasta Jeedom :
 
-``````sudo chown -R www-data:www-data /var/www/html``````
+`sudo chown -R www-data:www-data /var/www/html`

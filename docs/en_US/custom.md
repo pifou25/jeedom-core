@@ -1,4 +1,5 @@
 # Advanced customization
+
 **Settings → System → Advanced customization**
 
 Here you can manage functions **javascript** and rules **CSS** applied on desktop or mobile.
@@ -34,4 +35,3 @@ In this case, two solutions:
 
 - Open a browser in rescue mode : `IP / index.php?rescue=1`
 - Connect in SSH and delete the customization files : `desktop / custom` and` mobile / custom`
-

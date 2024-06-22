@@ -1,19 +1,20 @@
 # Timeline
+
 **Analysis → Timeline**
 
 ## Timeline
 
-The Timeline page allows you to chronologically display events, such as order changes *information*, command triggers *stock*, and scenario executions.
+The Timeline page allows you to chronologically display events, such as order changes _information_, command triggers _stock_, and scenario executions.
 
 To see them, you must first activate the tracking on the timeline of the desired commands or scenarios, then these events occur.
 
-- **Script** : Either directly on a scenario page, or on *Overview* scenarios.
+- **Script** : Either directly on a scenario page, or on _Overview_ scenarios.
 - **Ordered** : Either in the advanced configuration of the command, or in the configuration of the history to do it in "mass".
 
 ![Timeline](images/timeline_intro.jpg)
 
-The timeline *Major* always contains all the events. However, you can filter the timeline by *case*. At each place where you activate the timeline, you will have a field to enter the name of a folder, existing or not.
-You can then filter the timeline by this folder by selecting it to the left of the button *Refresh*.
+The timeline _Major_ always contains all the events. However, you can filter the timeline by _case_. At each place where you activate the timeline, you will have a field to enter the name of a folder, existing or not.
+You can then filter the timeline by this folder by selecting it to the left of the button _Refresh_.
 
 > **Note**
 >

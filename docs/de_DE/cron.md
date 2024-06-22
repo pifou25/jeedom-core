@@ -1,4 +1,5 @@
 # Task-Engine
+
 **Einstellungen → System → Task Engine**
 
 Diese Seite informiert über alle Jeedom-Anwendungsaufgaben, die auf dem Server ausgeführt werden.
@@ -35,10 +36,9 @@ In dieser Tabelle finden wir :
 - **Status** : Aktueller Status der Aufgabe (zur Erinnerung: Eine Daemon-Aufgabe wird immer "ausgeführt"").
 
 - **Aktie** :
-    - **Details** : Sehen Sie sich den Cron im Detail an (wie in der Basis gespeichert)).
-    - **Start / Stopp** : Starten oder stoppen Sie die Aufgabe (abhängig von ihrem Status).
-    - **Streichung** : Aufgabe löschen.
-
+  - **Details** : Sehen Sie sich den Cron im Detail an (wie in der Basis gespeichert)).
+  - **Start / Stopp** : Starten oder stoppen Sie die Aufgabe (abhängig von ihrem Status).
+  - **Streichung** : Aufgabe löschen.
 
 ## Registerkarte &quot;Listener&quot;
 
@@ -47,6 +47,7 @@ Die Listener sind nur beim Lesen sichtbar und ermöglichen es Ihnen, die bei ein
 ## Registerkarte Dämon
 
 Tabelle aller Daemons mit ihrem Status, dem Datum des letzten Starts sowie der Möglichkeit, :
+
 - Starten / Starten Sie einen Daemon neu.
 - Stoppen Sie einen Daemon, wenn die automatische Verwaltung deaktiviert ist.
 - Aktivieren / Deaktivieren der automatischen Verwaltung eines Daemons.

@@ -1,8 +1,8 @@
 # 3D design
+
 **Home → Design3D**
 
 This page allows you to create a 3D view of your home that can react depending on the state of the various information in your home automation.
-
 
 > **Tip**
 >
@@ -49,7 +49,6 @@ Click on the &quot;send&quot; button at the &quot;3D Model&quot; level and selec
 >
 > Once the file has been imported (it can be quite long depending on the size of the file), you need to refresh the page to see the result (F5).
 
-
 ## Configuration of elements
 
 > **IMPORTANT**
@@ -85,25 +84,25 @@ To configure an element on the 3D design, double click on the element you want t
 
 - State : Door / Window status, 1 closed and 0 open
 - Rotation
-	- Enable : activates the rotation of the Door / Window when opening
-	- Opening : the best is to test so that it matches your Door / Window
+  - Enable : activates the rotation of the Door / Window when opening
+  - Opening : the best is to test so that it matches your Door / Window
 - Translation
-	- Enable : activates translation when opening (sliding door / window type))
-	- Meaning : direction in which the Door / Window should move (you have up / down / right / left)
-	- Repeat : by default the Door / Window moves once its dimension in the given direction but you can increase this value
+  - Enable : activates translation when opening (sliding door / window type))
+  - Meaning : direction in which the Door / Window should move (you have up / down / right / left)
+  - Repeat : by default the Door / Window moves once its dimension in the given direction but you can increase this value
 - Hide when the Door / Window is open
-	- Enable : Hides the element if the Door / Window is open
+  - Enable : Hides the element if the Door / Window is open
 - Couleur
-	- Open color : if tick the element will take this color if the Door / Window is open
-	- Color closed : if tick the element will take this color if the Door / Window is closed
+  - Open color : if tick the element will take this color if the Door / Window is open
+  - Color closed : if tick the element will take this color if the Door / Window is closed
 
 #### Volet
 
 - State : shutter status, 0 open other value closed
 - Hide when the shutter is open
-	- Enable : hide the element if the shutter is open
+  - Enable : hide the element if the shutter is open
 - Couleur
-	- Color closed : if tick the element will take this color if the shutter is closed
+  - Color closed : if tick the element will take this color if the shutter is closed
 
 ### Conditional color
 

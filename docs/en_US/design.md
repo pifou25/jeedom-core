@@ -1,4 +1,5 @@
 # Design
+
 **Home → Design**
 
 This page allows you to configure the display of all your home automation in a very fine way.
@@ -21,21 +22,21 @@ In the menu (right click), we find the following actions :
 - **Add text / html** : Allows you to add text or html / JavaScript code.
 - **Add scenario** : Add a scenario.
 - **Add link**
-    - **Towards a view** : Add a link to a view.
-    - **Towards a design** : Add a link to another design.
+  - **Towards a view** : Add a link to a view.
+  - **Towards a design** : Add a link to another design.
 - **Add equipment** : Adds equipment.
 - **Add command** : Add a command.
 - **Add image / camera** : Allows you to add a picture or a stream from a camera.
 - **Add area** : Allows to add a clickable transparent zone which will be able to execute a series of actions during a click (depending or not on the status of another command).
 - **Add summary** : Adds information from an object or general summary.
 - **Display**
-    - **None** : Does not display any grid.
-    - **10x10** : Displays a 10 by 10 grid.
-    - **15x15** : Displays a grid of 15 by 15.
-    - **20x20** : Displays a 20 by 20 grid.
-    - **Magnetize the elements** : Adds magnetization between the elements to make it easier to stick them.
-    - **Magnet on the grid** : Add a magnetization of the elements to the grid (attention : depending on the zoom of the element this functionality can more or less work).
-    - **Hide item highlighting** : Hide highlighting around items.
+  - **None** : Does not display any grid.
+  - **10x10** : Displays a 10 by 10 grid.
+  - **15x15** : Displays a grid of 15 by 15.
+  - **20x20** : Displays a 20 by 20 grid.
+  - **Magnetize the elements** : Adds magnetization between the elements to make it easier to stick them.
+  - **Magnet on the grid** : Add a magnetization of the elements to the grid (attention : depending on the zoom of the element this functionality can more or less work).
+  - **Hide item highlighting** : Hide highlighting around items.
 - **Delete design** : Remove design.
 - **Create a design** : Allows you to add a new design.
 - **Duplicate design** : Duplicates current design.
@@ -51,17 +52,17 @@ In the menu (right click), we find the following actions :
 Found here :
 
 - **General**
-    - **Last name** : The name of your design.
-    - **Position** : The position of the design in the menu. Allows you to order the designs.
-    - **Transparent background** : Makes the background transparent. Attention if the box is checked, the background color is not used.
-    - **Background color** : Design background color.
-    - **Access code** : Access code to your design (if empty, no code is required).
-    - **Icon** : An icon for it (appears in the design choice menu).
-    - **Image**
-        - **Send** : Allows you to add a background image to the design.
-        - **Delete image** : Delete image.
+  - **Last name** : The name of your design.
+  - **Position** : The position of the design in the menu. Allows you to order the designs.
+  - **Transparent background** : Makes the background transparent. Attention if the box is checked, the background color is not used.
+  - **Background color** : Design background color.
+  - **Access code** : Access code to your design (if empty, no code is required).
+  - **Icon** : An icon for it (appears in the design choice menu).
+  - **Image**
+    - **Send** : Allows you to add a background image to the design.
+    - **Delete image** : Delete image.
 - **Sizes**
-    - **Size (WxH)** : Allows you to set the size in pixels of your design.
+  - **Size (WxH)** : Allows you to set the size in pixels of your design.
 
 ## General configuration of elements
 
@@ -125,7 +126,7 @@ Allows you to choose the commands to grapher.
 
 ## Scenario
 
-*No specific display settings*
+_No specific display settings_
 
 ## Lien
 
@@ -158,6 +159,7 @@ Allows you to choose the commands to grapher.
 ### Commandes
 
 The list of commands present on the equipment allows you, for each command, to:
+
 - Hide command name.
 - Hide command.
 - Display the order with a transparent background.
@@ -168,7 +170,7 @@ Displays the advanced equipment configuration window (see documentation **Home a
 
 ## Commande
 
-*No specific display settings*
+_No specific display settings_
 
 ### Advanced configuration
 
@@ -223,8 +225,8 @@ In this mode, when hovering or clicking in the Jeedom area, you will display the
 
 ## FAQ
 
->**I can no longer edit my design**
->If you have put a widget or an image that takes almost the entire design, you must click outside the widget or image to access the menu by right-clicking.
+> **I can no longer edit my design**
+> If you have put a widget or an image that takes almost the entire design, you must click outside the widget or image to access the menu by right-clicking.
 
->**Delete a design that no longer works**
->In the administration part then OS / DB, make "select * from planHeader", recover the id of the design in question and make a "delete from planHeader where id=#TODO#" and "delete from plan where planHeader_id=#todo#" replacing well #TODO# by the design id previously found.
+> **Delete a design that no longer works**
+> In the administration part then OS / DB, make "select \* from planHeader", recover the id of the design in question and make a "delete from planHeader where id=#TODO#" and "delete from plan where planHeader_id=#todo#" replacing well #TODO# by the design id previously found.

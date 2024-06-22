@@ -1,4 +1,5 @@
 # Interactions
+
 **Outils → Interactions**
 
 Le système d’interactions dans Jeedom permet de réaliser des actions à partir de commandes textes ou vocales.
@@ -15,11 +16,13 @@ L’intérêt des interactions réside dans l’intégration simplifiée dans d�
 > **Tip**
 >
 > Vous pouvez ouvrir une interaction en faisant :
+>
 > - Clic sur l'une d'entre elle.
 > - Ctrl Clic ou Clic Centre pour l'ouvrir dans un nouvel onglet du navigateur.
 
 Vous disposez d'un moteur de recherche permettant de filtrer l'affichage des interactions. La touche Echap annule la recherche.
 A droite du champ de recherche, trois boutons que l'on retrouve à plusieurs endroits de Jeedom:
+
 - La croix pour annuler la recherche.
 - Le dossier ouvert pour déplier tout les panneaux et afficher toutes les interactions.
 - Le dossier fermé pour replier tout les panneaux.
@@ -127,7 +130,7 @@ Dans les synonymes, on va donc indiquer le nom de la commande et le(s) synonyme(
 
 ![interact008](../images/interact008.png)
 
-On peut voir ici une syntaxe un peu nouvelle pour les synonymes. Un nom de commande peut avoir plusieurs synonymes, ici "on" a comme synonyme "allume" et "allumer". La syntaxe est donc "*nom de la commande*" ***=*** "*synonyme 1*"***,*** "*synonyme 2*" (on peut mettre autant de synonyme que l’on veut). Puis, pour ajouter des synonymes pour un autre nom de commande, il suffit d’ajouter après le dernier synonyme une barre verticale "*\|*" à la suite de laquel vous pouvez à nouveau nommer la commande qui va avoir des synonymes comme pour la première partie, etc.
+On peut voir ici une syntaxe un peu nouvelle pour les synonymes. Un nom de commande peut avoir plusieurs synonymes, ici "on" a comme synonyme "allume" et "allumer". La syntaxe est donc "_nom de la commande_" **_=_** "_synonyme 1_"**_,_** "_synonyme 2_" (on peut mettre autant de synonyme que l’on veut). Puis, pour ajouter des synonymes pour un autre nom de commande, il suffit d’ajouter après le dernier synonyme une barre verticale "_\|_" à la suite de laquel vous pouvez à nouveau nommer la commande qui va avoir des synonymes comme pour la première partie, etc.
 
 C’est déjà mieux, mais il manque encore pour la commande "on" "entrée" le "l' " et pour d’autres le "la" ou "le" ou "un", etc. On pourrait modifier le nom de l’équipement pour l’ajouter, ce serait une solution, sinon on peut utiliser les variations dans la demande. Cela consiste à lister une série de mots possibles à un emplacement de la phrase, Jeedom va donc générer des phrases avec ces variations.
 
@@ -180,6 +183,7 @@ On peut imaginer qu’une alarme peut être activée ou désactivée par un enfa
 Il est possible de créer des [Regexp](https://fr.wikipedia.org/wiki/Expression_rationnelle) d’exclusion, si une phrase générée correspond à cette Regexp elle sera supprimée. L’intérêt c’est de pouvoir supprimer des faux positifs, c’est à dire une phrase générée par Jeedom qui active quelque chose qui ne correspond pas à ce que l’on veut ou qui viendrait parasiter une autre interaction qui aurait une phrase similaire.
 
 On a 2 endroits pour appliquer une Regexp :
+
 - Dans l’interaction même dans le champ "Regexp d’exclusion".
 - Dans le menu Administration→Configuration→Interactions→champ "Regexp général d’exclusion pour les interactions".
 
@@ -242,7 +246,7 @@ Dans cet exemple on voit une phrase simple qui va nous retourner une réponse av
 
 ![interact017](../images/interact017.png)
 
-Cette exemple cible précisément un équipement spécifique ce qui permet d’avoir une réponse personnalisée. On pourrait donc imaginer remplacer la réponse de l’exemple par "non il n’y a personne dans la chambre de *julie*\|oui il y a quelqu’un dans la chambre de *julie*"
+Cette exemple cible précisément un équipement spécifique ce qui permet d’avoir une réponse personnalisée. On pourrait donc imaginer remplacer la réponse de l’exemple par "non il n’y a personne dans la chambre de _julie_\|oui il y a quelqu’un dans la chambre de _julie_"
 
 #### Evolution
 
@@ -297,7 +301,7 @@ Il est possible de piloter une lampe en pourcentage (variateur) ou un thermostat
 
 ![interact022](../images/interact022.png)
 
-Comme on le voit, il y a ici dans la demande le tag **\#consigne\#** (on peut mettre ce que l’on veut) qui est repris dans la commande du variateur pour appliquer la valeur voulue. Pour ce faire, on a 3 parties : \* Demande : dans laquelle on crée un tag qui va représenter la valeur qui sera envoyée à l’interaction. \* Réponse : on réutilise le tag pour la réponse afin d’être sûr que Jeedom a correctement compris la demande. \* Action : on met une action sur la lampe que l’on veut piloter et dans la valeur on lui passe notre tag *consigne*.
+Comme on le voit, il y a ici dans la demande le tag **\#consigne\#** (on peut mettre ce que l’on veut) qui est repris dans la commande du variateur pour appliquer la valeur voulue. Pour ce faire, on a 3 parties : \* Demande : dans laquelle on crée un tag qui va représenter la valeur qui sera envoyée à l’interaction. \* Réponse : on réutilise le tag pour la réponse afin d’être sûr que Jeedom a correctement compris la demande. \* Action : on met une action sur la lampe que l’on veut piloter et dans la valeur on lui passe notre tag _consigne_.
 
 > **Note**
 >
@@ -334,6 +338,7 @@ Comme on peut le voir sur la capture, il n’y a pas de couleur configurée, il 
 On peut en ajouter autant que bon nous semble, on peut mettre comme nom n’importe lequel, ainsi on pourrait imaginer attribuer une couleur pour le nom de chaque membre de la famille.
 
 Une fois configuré, vous dites "Allume le sapin en vert", Jeedom va rechercher dans la demande une couleur et l’appliquer à la commande.
+
 ### Utilisation couplée à un scénario
 
 #### Version basique

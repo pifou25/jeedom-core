@@ -1,4 +1,5 @@
 # Erweiterte Anpassung
+
 **Einstellungen → System → Erweiterte Anpassung**
 
 Hier können Sie Funktionen verwalten **Javascript** und Regeln **CSS** auf Desktop oder Handy angewendet.
@@ -34,4 +35,3 @@ In diesem Fall zwei Lösungen:
 
 - Öffnen Sie einen Browser im Rettungsmodus : `IP / index.php?rescue=1`
 - Stellen Sie eine Verbindung in SSH her und löschen Sie die Anpassungsdateien : `Desktop/Benutzerdefiniert` und`Mobil/Benutzerdefiniert`
-

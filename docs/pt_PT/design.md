@@ -1,4 +1,5 @@
 # Design
+
 **Página inicial → Design**
 
 Esta página permite configurar a exibição de toda a sua automação residencial de uma maneira muito fina.
@@ -21,21 +22,21 @@ No menu (clique direito), encontramos as seguintes ações :
 - **Adicionar text / html** : Permite adicionar texto ou código html / JavaScript.
 - **Ajouter Scénario** : Adicionar um cenário.
 - **Adicionar link**
-    - **Rumo a vista** : Adicionar um link a uma visualização.
-    - **Para projetar** : Adicionar um link a outro design.
+  - **Rumo a vista** : Adicionar um link a uma visualização.
+  - **Para projetar** : Adicionar um link a outro design.
 - **Adicionar equipamento** : Adiciona equipamento.
 - **Adicionar comando** : Adicionar um pedido.
 - **Adicionar imagem / câmera** : Permite adicionar uma imagem ou um fluxo de uma câmera.
 - **Adicionar área** : Permite adicionar uma zona transparente clicável que poderá executar uma série de ações durante um clique (dependendo ou não do status de outro comando).
 - **Adicionar resumo** : Adiciona informações de um objeto ou resumo geral.
 - **Exibição**
-    - **Nenhum** : Não exibe nenhuma grade.
-    - **10x10** : Exibe uma grade 10 por 10.
-    - **15x15** : Exibe uma grade de 15 por 15.
-    - **20x20** : Exibe uma grade de 20 por 20.
-    - **Magnetizar os elementos** : Adiciona magnetização entre os elementos para facilitar a aderência deles.
-    - **Alinhar à grade** : Adicione uma magnetização dos elementos à grade (atenção : dependendo do zoom do elemento, essa funcionalidade pode mais ou menos funcionar).
-    - **Ocultar destaque do item** : Ocultar realce em torno dos itens.
+  - **Nenhum** : Não exibe nenhuma grade.
+  - **10x10** : Exibe uma grade 10 por 10.
+  - **15x15** : Exibe uma grade de 15 por 15.
+  - **20x20** : Exibe uma grade de 20 por 20.
+  - **Magnetizar os elementos** : Adiciona magnetização entre os elementos para facilitar a aderência deles.
+  - **Alinhar à grade** : Adicione uma magnetização dos elementos à grade (atenção : dependendo do zoom do elemento, essa funcionalidade pode mais ou menos funcionar).
+  - **Ocultar destaque do item** : Ocultar realce em torno dos itens.
 - **Limpar projeto** : Remover desenho.
 - **Criar um design** : Permite adicionar um novo design.
 - **Projeto duplicado** : Duplica o design atual.
@@ -51,17 +52,17 @@ No menu (clique direito), encontramos as seguintes ações :
 Encontrado aqui :
 
 - **Geral**
-    - **Sobrenome** : O nome do seu design.
-    - **Posição** : A posição do design no menu. Permite que você encomende os desenhos.
-    - **Fundo transparente** : Torna o plano de fundo transparente. Atenção, se a caixa estiver marcada, a cor do plano de fundo não será usada.
-    - **Cor de fundo** : Cor do plano de fundo do design.
-    - **Código de acesso** : Código de acesso ao seu design (se vazio, nenhum código é necessário).
-    - **Ícone** : Um ícone para ele (aparece no menu de opções de design).
-    - **Imagem**
-        - **Mandar** : Permite adicionar uma imagem de plano de fundo ao design.
-        - **Excluir imagem** : Excluir imagem.
+  - **Sobrenome** : O nome do seu design.
+  - **Posição** : A posição do design no menu. Permite que você encomende os desenhos.
+  - **Fundo transparente** : Torna o plano de fundo transparente. Atenção, se a caixa estiver marcada, a cor do plano de fundo não será usada.
+  - **Cor de fundo** : Cor do plano de fundo do design.
+  - **Código de acesso** : Código de acesso ao seu design (se vazio, nenhum código é necessário).
+  - **Ícone** : Um ícone para ele (aparece no menu de opções de design).
+  - **Imagem**
+    - **Mandar** : Permite adicionar uma imagem de plano de fundo ao design.
+    - **Excluir imagem** : Excluir imagem.
 - **Tamanhos**
-    - **Tamanho (LxA))** : Permite definir o tamanho em pixels do seu design.
+  - **Tamanho (LxA))** : Permite definir o tamanho em pixels do seu design.
 
 ## Configuração geral de elementos
 
@@ -125,7 +126,7 @@ Permite escolher os comandos para grapher.
 
 ## Cenas
 
-*Nenhuma configuração de exibição específica*
+_Nenhuma configuração de exibição específica_
 
 ## Lien
 
@@ -158,6 +159,7 @@ Permite escolher os comandos para grapher.
 ### Commandes
 
 A lista de comandos presentes no equipamento permite que, para cada comando, você:
+
 - Ocultar nome do comando.
 - Ocultar comando.
 - Exibir o pedido com um plano de fundo transparente.
@@ -168,7 +170,7 @@ Exibe a janela de configuração avançada do equipamento (consulte a documenta�
 
 ## Commande
 
-*Nenhuma configuração de exibição específica*
+_Nenhuma configuração de exibição específica_
 
 ### Configuração avançada
 
@@ -223,8 +225,8 @@ Nesse modo, ao passar o mouse ou clicar na área Jeedom, você exibirá o widget
 
 ## FAQ
 
->**Não consigo mais editar meu design**
->Se você colocou um widget ou uma imagem que ocupa quase todo o design, clique fora do widget ou imagem para acessar o menu clicando com o botão direito do mouse.
+> **Não consigo mais editar meu design**
+> Se você colocou um widget ou uma imagem que ocupa quase todo o design, clique fora do widget ou imagem para acessar o menu clicando com o botão direito do mouse.
 
->**Excluir um design que não funciona mais**
->Na parte da administração e no OS / DB, faça "select * from planHeader", recupere o ID do design em questão e faça "delete from planHeader where id=#TODO#" e "excluir do plano em que planHeader_id=#todo#" substituindo bem #TODO# pelo ID do design encontrado anteriormente.
+> **Excluir um design que não funciona mais**
+> Na parte da administração e no OS / DB, faça "select \* from planHeader", recupere o ID do design em questão e faça "delete from planHeader where id=#TODO#" e "excluir do plano em que planHeader_id=#todo#" substituindo bem #TODO# pelo ID do design encontrado anteriormente.

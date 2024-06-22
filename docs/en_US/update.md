@@ -1,10 +1,9 @@
 # Update Center
-**Settings → System → Update Center**
 
+**Settings → System → Update Center**
 
 The **Update Center** allows you to update all of Jeedom&#39;s functionality, including the core software and its plugins.
 Other extension management functions are available (delete, reinstall, check, etc.).
-
 
 ## Functions of the page
 
@@ -22,6 +21,7 @@ The button **To safeguard** is to be used when you change the options in the tab
 
 The button **Update** allows you to update the Core, plugins, or both.
 Once you click on it, you get these different options :
+
 - **Pre-update** : Allows you to update the update script before applying the new updates. Generally used at the request of the support.
 - **Save before** : Back up Jeedom before updating. The backup is performed locally only (neither Market nor Samba).
 - **Update plugins** : Allows you to include plugins in the update.
@@ -42,7 +42,7 @@ Once you click on it, you get these different options :
 
 The table contains the versions of the Core and installed plugins.
 
-The plugins have a badge next to their name, specifying their version, green in color *steady*, or orange in *beta* Or other.
+The plugins have a badge next to their name, specifying their version, green in color _steady_, or orange in _beta_ Or other.
 
 - **Status** : OK or NOK.
 - **Last name** : Name and origin of the plugin
@@ -72,7 +72,7 @@ On each line, you can use the following functions:
 >
 > This tab is reserved for advanced users and only for advanced users, the slightest bad action here can BREAK your Jeedom (without the possibility of resorting to support)
 
-This tab allows you to see the updates available for the os (apt), python package (pip2 and pip3) as well as update the packages that require it. 
+This tab allows you to see the updates available for the os (apt), python package (pip2 and pip3) as well as update the packages that require it.
 
 ## Information tab
 
@@ -80,14 +80,14 @@ During or after an update, this tab allows you to read the log of this update in
 
 > **Note**
 >
-> This log normally ends with *[END UPDATE SUCCESS]*. There may be some error lines in this type of log, however, unless there is a real problem after update, it is not always necessary to contact support for this.
+> This log normally ends with _[END UPDATE SUCCESS]_. There may be some error lines in this type of log, however, unless there is a real problem after update, it is not always necessary to contact support for this.
 
 ## Command line update
 
 It is possible to update Jeedom directly in SSH.
 Once connected, this is the command to perform :
 
-``````sudo php /var/www/html/install/update.php``````
+`sudo php /var/www/html/install/update.php`
 
 The possible parameters are :
 
@@ -96,8 +96,8 @@ The possible parameters are :
 
 Here is an example of syntax to make a forced update by reapplying the changes since 4.0.04 :
 
-``````sudo php  /var/www/html/install/update.php mode=force version=4.0.04``````
+`sudo php  /var/www/html/install/update.php mode=force version=4.0.04`
 
 Attention, after an update on command line, it is necessary to re-apply the rights on the Jeedom folder :
 
-``````sudo chown -R www-data:www-data /var/www/html``````
+`sudo chown -R www-data:www-data /var/www/html`

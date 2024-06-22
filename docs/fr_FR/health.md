@@ -1,4 +1,5 @@
 # Santé
+
 **Analyse → Santé**
 
 La page Santé de Jeedom vous permet d’avoir un aperçu rapide de l’état de santé de votre Jeedom.
@@ -16,11 +17,11 @@ En dessous vous retrouvez la santé pour chaque plugin, un clic sur le nom du pl
 
 A droite vous retrouvez les icônes :
 
--   Port d’accès au matériel du plugin (type clef Zwave).
--   Mode du démon.
--   Affichage de la page de santé des équipements du plugin.
--   Affichage de la page de configuration du plugin.
--   Etat global du plugin.
+- Port d’accès au matériel du plugin (type clef Zwave).
+- Mode du démon.
+- Affichage de la page de santé des équipements du plugin.
+- Affichage de la page de configuration du plugin.
+- Etat global du plugin.
 
 > **Note**
 >

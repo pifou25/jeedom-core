@@ -1,26 +1,43 @@
 <!--template/scenario/gotodesign.default-->
 <div class="input-group input-group-sm" style="width: 100%">
-  <span class="input-group-addon roundedLeft" style="width: 100px">{{Design}}</span>
-  <select class="expressionAttr form-control input-sm roundedRight" data-l1key="options" data-l2key="plan_id" data-cmd_id="#id#" data-uid="#uid#"></select>
+  <span class="input-group-addon roundedLeft" style="width: 100px"
+    >{{Design}}</span
+  >
+  <select
+    class="expressionAttr form-control input-sm roundedRight"
+    data-l1key="options"
+    data-l2key="plan_id"
+    data-cmd_id="#id#"
+    data-uid="#uid#"
+  ></select>
 </div>
 <script>
   jeedom.plan.allHeader({
     error: function (error) {
-      jeedomUtils.showAlert({message: error.message, level: 'danger'});
+      jeedomUtils.showAlert({ message: error.message, level: "danger" });
     },
     success: function (plans) {
-      var select = document.querySelector('.expressionAttr[data-uid="#uid#"][data-l1key="options"][data-l2key="plan_id"]')
-      var newOption
+      var select = document.querySelector(
+        '.expressionAttr[data-uid="#uid#"][data-l1key="options"][data-l2key="plan_id"]',
+      );
+      var newOption;
       for (var i in plans) {
-        newOption = document.createElement('option')
-        newOption.text = plans[i].name
-        newOption.value = plans[i].id
-        select.appendChild(newOption)
+        newOption = document.createElement("option");
+        newOption.text = plans[i].name;
+        newOption.value = plans[i].id;
+        select.appendChild(newOption);
       }
 
-      if ('#plan_id#' != '' && document.querySelector('.expressionAttr[data-uid="#uid#"][data-l1key="options"][data-l2key="plan_id"] option[value="#plan_id#"]')?.innerHTML != '') {
-        document.querySelector('.expressionAttr[data-uid="#uid#"][data-l1key="options"][data-l2key="plan_id"]').value = '#plan_id#'
+      if (
+        "#plan_id#" != "" &&
+        document.querySelector(
+          '.expressionAttr[data-uid="#uid#"][data-l1key="options"][data-l2key="plan_id"] option[value="#plan_id#"]',
+        )?.innerHTML != ""
+      ) {
+        document.querySelector(
+          '.expressionAttr[data-uid="#uid#"][data-l1key="options"][data-l2key="plan_id"]',
+        ).value = "#plan_id#";
       }
-    }
-  })
+    },
+  });
 </script>

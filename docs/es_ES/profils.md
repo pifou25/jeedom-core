@@ -1,4 +1,5 @@
 # Preferencias
+
 **Configuración → Preferencias**
 
 La página de Preferencias le permite configurar ciertos comportamientos de Jeedom específicos del usuario.
@@ -27,7 +28,7 @@ Define ciertos comportamientos de interfaz
 
 ## Pestaña de seguridad
 
-- **Autenticación de 2 pasos** : permite configurar la autenticación en 2 pasos (como recordatorio, es un código que cambia cada X segundos que se muestra en una aplicación móvil, escriba *autenticador de google*). Tenga en cuenta que solo se solicitará la doble autenticación para conexiones externas. Por lo tanto, para conexiones locales, no se solicitará el código.
+- **Autenticación de 2 pasos** : permite configurar la autenticación en 2 pasos (como recordatorio, es un código que cambia cada X segundos que se muestra en una aplicación móvil, escriba _autenticador de google_). Tenga en cuenta que solo se solicitará la doble autenticación para conexiones externas. Por lo tanto, para conexiones locales, no se solicitará el código.
 
   **Importante** si durante la configuración de la doble autenticación tienes un error, es necesario comprobar que Jeedom (ver en la página de salud) y tu teléfono están bien al mismo tiempo (1 min de diferencia es suficiente para que no funcione).
 

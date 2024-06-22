@@ -1,4 +1,5 @@
 # Historique
+
 **Analyse → Geschichte**
 
 Wichtiger Teil in der Software : der Historisierungsteil, eine wahre Erinnerung daran. In Jeedom ist es möglich, jeden Informationstypbefehl (binär oder digital) zu protokollieren). So können Sie beispielsweise einen Temperaturverlauf, Verbräuche, Türöffnungen etc. protokollieren.
@@ -37,9 +38,9 @@ Ab Core v4.2 ist es auch möglich, eine Kurve am unteren Rand der Kachel eines G
 
 Wenn Sie ein Diagramm über die Verlaufsseite anzeigen, haben Sie über dem Diagramm Zugriff auf mehrere Anzeigeoptionen :
 
-- **Zeit** : Der Anzeigezeitraum einschließlich historischer Daten zwischen diesen beiden Daten. Standardmäßig abhängig von der Einstellung *Standard Anzeigezeitraum der Grafiken* in *Einstellungen → System → Konfiguration / Ausstattung*.
+- **Zeit** : Der Anzeigezeitraum einschließlich historischer Daten zwischen diesen beiden Daten. Standardmäßig abhängig von der Einstellung _Standard Anzeigezeitraum der Grafiken_ in _Einstellungen → System → Konfiguration / Ausstattung_.
 - **Gruppe** : Bietet verschiedene Gruppierungsoptionen (Summe pro Stunde usw.).).
-- **Anzeigetyp** : Anzeige in *Linie*, *Bereich*, Wo *Abgesperrt*. Option in der Bestellung gespeichert und über das Dashboard verwendet.
+- **Anzeigetyp** : Anzeige in _Linie_, _Bereich_, Wo _Abgesperrt_. Option in der Bestellung gespeichert und über das Dashboard verwendet.
 - **Variation** : Zeigt die Wertdifferenz zum vorherigen Punkt an. Option in der Bestellung gespeichert und über das Dashboard verwendet.
 - **Treppe** : Zeigt die Kurve als Treppe oder kontinuierliche Anzeige an. Option in der Bestellung gespeichert und über das Dashboard verwendet.
 - **Vergleichen** : Vergleichen Sie die Kurve zwischen verschiedenen Perioden.
@@ -47,8 +48,8 @@ Wenn Sie ein Diagramm über die Verlaufsseite anzeigen, haben Sie über dem Diag
 > **Tipp**
 >
 > Um Handhabungsfehler zu vermeiden, sind diese in den Befehlen gespeicherten Optionen nur aktiv, wenn eine einzelne Kurve angezeigt wird.
-> 
-Im oberen Teil, wo die Kurven angezeigt werden, gibt es auch mehrere Optionen :
+>
+> Im oberen Teil, wo die Kurven angezeigt werden, gibt es auch mehrere Optionen :
 
 Auf der Linken:
 
@@ -68,6 +69,7 @@ Unter den Kurven können Sie auch das Kontextmenü jeder Legende verwenden, um e
 Sie können die Diagramme auch in den Ansichten anzeigen (wir sehen hier die Konfigurationsoptionen und nicht, wie es geht, dafür müssen Sie zur Dokumentation der Ansichten oder Entwürfe in Funktion gehen). Hier sind die Optionen :
 
 Sobald eine Daten aktiviert sind, können Sie auswählen :
+
 - **Farbe** : Die Farbe der Kurve.
 - **Nett** : Der Diagrammtyp (Bereich, Linie oder Spalte)).
 - **Leiter** : Da Sie mehrere Kurven (Daten) in ein Diagramm einfügen können, können Sie die Skalen (rechts oder links) unterscheiden).
@@ -83,7 +85,7 @@ Auf der Verlaufsseite können Sie auf einige zusätzliche Optionen zugreifen
 
 Ermöglicht die Anzeige einer Kurve gemäß einer Berechnung mit mehreren Befehlen (Sie können so ziemlich alles tun, + - / \* absoluter Wert ... siehe PHP-Dokumentation für einige Funktionen). Beispielsweise :
 
-``abs(*\ [Garten \] \ [Hygrometrie \] \ [Temperatur \]* - *\ [Wohnraum \] \ [Hygrometrie \] \ [Temperatur \]*)``
+`abs(*\ [Garten \] \ [Hygrometrie \] \ [Temperatur \]* - *\ [Wohnraum \] \ [Hygrometrie \] \ [Temperatur \]*)`
 
 Sie haben auch Zugriff auf eine Verwaltung von Berechnungsformeln, die es Ihnen ermöglicht, diese zu speichern, um sie einfacher wieder anzuzeigen.
 
@@ -101,5 +103,3 @@ Vor allen Daten, die angezeigt werden können, finden Sie zwei Symbole :
 ### Inkonsistente Wertentfernung
 
 Manchmal haben Sie inkonsistente Werte in den Diagrammen. Dies ist häufig auf Bedenken hinsichtlich der Interpretation des Werts zurückzuführen. Sie können den Wert des betreffenden Punkts löschen oder ändern, indem Sie direkt in der Grafik darauf klicken. Darüber hinaus können Sie das zulässige Minimum und Maximum anpassen, um zukünftige Probleme zu vermeiden.
-
-

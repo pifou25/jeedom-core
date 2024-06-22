@@ -1,4 +1,5 @@
 # Análise de equipamentos
+
 **Análise → Equipamento**
 
 A página Análise de equipamento permite visualizar muitas informações relacionadas ao equipamento de forma centralizada :
@@ -10,7 +11,6 @@ A página Análise de equipamento permite visualizar muitas informações relaci
 - Ordens órfãs
 
 ## Guia Pilhas
-
 
 Você pode ver nesta guia a lista dos módulos de bateria, o nível restante (a cor do ladrilho depende desse nível), o tipo e o número de baterias que devem ser colocadas no módulo, o tipo de módulo também que a data em que as informações sobre o nível da bateria foram atualizadas. Você também pode ver se um limite específico foi definido para o módulo específico (representado por uma mão)
 
@@ -62,6 +62,7 @@ Essa guia permite ver rapidamente se você possui comandos órfãos usados pelo 
 - Aqueles usados para desencadear um cenário.
 
 E usado em muitos outros lugares como (não exaustivo) :
+
 - Interações.
 - Configurações do Jeedom.
 - Na ação anterior ou posterior a um pedido.

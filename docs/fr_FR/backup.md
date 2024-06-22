@@ -1,9 +1,9 @@
 # Sauvegardes
+
 **Réglages → Système → Sauvegardes**
 
 Jeedom offre la possibilité d’être sauvegardé et restauré depuis ou à partir de différents emplacements.
 Cette page permet la gestion des sauvegardes, restaurations.
-
 
 Vous y trouvez, à gauche, les paramètres et les boutons d’action. Sur la droite, c’est le statut en temps réel de l’action en cours (sauvegarde ou restauration), si vous en avez lancé une.
 
@@ -51,7 +51,6 @@ Vous y trouvez, à gauche, les paramètres et les boutons d’action. Sur la dro
 >
 > Les backups de jeedom doivent être enregistrés absolument dans un dossier que pour lui ! Il supprimera tous ce qui n’est pas un backup jeedom du dossier.
 
-
 # Qu’est-ce qui est sauvegardé ?
 
 Lors d’une sauvegarde, Jeedom va sauvegarder tous ses fichiers et la base de données. Cela contient donc toute votre configuration (équipements, commandes, historiques, scénarios, design, etc.).
@@ -76,6 +75,6 @@ Jeedom effectue une sauvegarde automatique tous les jours à la même heure. Il 
 
 # FAQ
 
->**Je n'arrive pas a restorer ma sauvegarde que j'ai récuperée depuis Safari**
+> **Je n'arrive pas a restorer ma sauvegarde que j'ai récuperée depuis Safari**
 >
->Par defaut Safari décompresse les tar.gz (en tar) ce qui fait que la sauvegarde n'est plus exploitable par jeedom, il faut la recompresser (gzip) en tar.gz
+> Par defaut Safari décompresse les tar.gz (en tar) ce qui fait que la sauvegarde n'est plus exploitable par jeedom, il faut la recompresser (gzip) en tar.gz

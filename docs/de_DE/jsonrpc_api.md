@@ -3,10 +3,10 @@ Hier finden Sie eine Dokumentation zu API-Methoden.
 Hier sind zunächst die Spezifikationen (JSON RPC 2.0) :
 <http://www.jsonrpc.org/specification>
 
-Der Zugriff auf die API erfolgt über die URL : *URL\_JEEDOM*/core/api/jeeApi.php
+Der Zugriff auf die API erfolgt über die URL : _URL_JEEDOM_/core/api/jeeApi.php
 
 Hier ist ein Beispiel für die Konfiguration eines Json-Objekts, das im Hauptteil einer Anfrage eines HTTP-Agenten verwendet werden kann:
-`` json
+`json
 {
     "jsonrpc": "2.0",
     "id": "007",
@@ -15,208 +15,179 @@ Hier ist ein Beispiel für die Konfiguration eines Json-Objekts, das im Haupttei
         "apikey": "{{apikey}}",
         "datetime": "0"
     }
-}
-`` ''
+}` ''
 
-Divers
-======
+# Divers
 
-ping
-----
+## ping
 
 Pong zurückgeben, Kommunikation mit Jeedom testen
 
-version
--------
+## version
 
 Gibt die Version von Jeedom zurück
 
-datetime
---------
+## datetime
 
 Gibt die Jeedom-Datumszeit in Mikrosekunden zurück
 
-Konfigurations-API
-==========
+# Konfigurations-API
 
-config::byKey
--------------
+## config::byKey
 
 Gibt einen Konfigurationswert zurück.
 
 Json-Einstellungen :
 
--   String-Schlüssel : Konfigurationswertschlüssel, der zurückgegeben werden soll
+- String-Schlüssel : Konfigurationswertschlüssel, der zurückgegeben werden soll
 
--   String Plugin : (optional), Konfigurationswert-Plugin
+- String Plugin : (optional), Konfigurationswert-Plugin
 
--   Zeichenfolge Standard : (optional), Wert, der zurückgegeben werden soll, wenn der Schlüssel nicht vorhanden ist
+- Zeichenfolge Standard : (optional), Wert, der zurückgegeben werden soll, wenn der Schlüssel nicht vorhanden ist
 
-config::save
-------------
+## config::save
 
 Speichert einen Konfigurationswert
 
 Json-Einstellungen :
 
--   Zeichenfolgenwert : Wert aufzuzeichnen
+- Zeichenfolgenwert : Wert aufzuzeichnen
 
--   String-Schlüssel : Konfigurationswertschlüssel zum Speichern
+- String-Schlüssel : Konfigurationswertschlüssel zum Speichern
 
--   String Plugin : (optional), Plugin des zu speichernden Konfigurationswerts
+- String Plugin : (optional), Plugin des zu speichernden Konfigurationswerts
 
-JSON-Ereignis-API
-==============
+# JSON-Ereignis-API
 
-event::changes
---------------
+## event::changes
 
 Gibt die Liste der Änderungen seit dem im Parameter übergebenen Datum / Uhrzeit zurück (muss in Mikrosekunden angegeben werden)). Sie haben in der Antwort auch die aktuelle Datumszeit von Jeedom (die für die folgende Abfrage wiederverwendet werden soll)
 
 Json-Einstellungen :
 
--   int datetime
+- int datetime
 
-JSON Plugin API
-===============
+# JSON Plugin API
 
-plugin::listPlugin
-------------------
+## plugin::listPlugin
 
 Gibt die Liste aller Plugins zurück
 
 Json-Einstellungen :
 
--   int activOnly = 0 (gibt nur die Liste der aktivierten Plugins zurück)
+- int activOnly = 0 (gibt nur die Liste der aktivierten Plugins zurück)
 
--   int orderByCaterogy = 0 (gibt die Liste der Plugins nach Kategorie sortiert zurück)
+- int orderByCaterogy = 0 (gibt die Liste der Plugins nach Kategorie sortiert zurück)
 
-Objekt-JSON-API
-==============
+# Objekt-JSON-API
 
-jeeObject::all
------------
+## jeeObject::all
 
 Gibt die Liste aller Objekte zurück
 
-jeeObject::full
-------------
+## jeeObject::full
 
 Gibt die Liste aller Objekte zurück, mit für jedes Objekt alle seine Geräte und für jedes Gerät alle seine Befehle sowie deren Status (für Befehle vom Typ info)
 
-jeeObject::fullById
-----------------
+## jeeObject::fullById
 
 Gibt ein Objekt mit all seinen Geräten und für jedes Gerät alle seine Befehle sowie deren Status zurück (für Befehle vom Typ info)
 
 Json-Einstellungen :
 
--   int-ID
+- int-ID
 
-jeeObject::byId
-------------
+## jeeObject::byId
 
 Gibt das angegebene Objekt zurück
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
-jeeObject::fullById
-----------------
+## jeeObject::fullById
 
 Gibt ein Objekt, seine Ausrüstung und für jede Ausrüstung alle seine Befehle sowie die Zellenzustände zurück (für Befehle vom Typ Info)
 
-jeeObject::save
-------------
+## jeeObject::save
 
 Gibt das angegebene Objekt zurück
 
 Die Einstellungen:
 
--   int id (leer, wenn es sich um eine Kreation handelt)
+- int id (leer, wenn es sich um eine Kreation handelt)
 
--   Zeichenfolgenname
+- Zeichenfolgenname
 
--   int Vater\_id = null
+- int Vater_id = null
 
--   int isVisible = 0
+- int isVisible = 0
 
--   int position
+- int position
 
--   Array-Konfiguration
+- Array-Konfiguration
 
--   Array-Anzeige
+- Array-Anzeige
 
-JSON-Zusammenfassungs-API
-================
+# JSON-Zusammenfassungs-API
 
-summary::global
----------------
+## summary::global
 
 Gibt die globale Zusammenfassung für den im Parameter übergebenen Schlüssel zurück
 
 Die Einstellungen:
 
--   String-Schlüssel : (optional), Schlüssel der gewünschten Zusammenfassung. Wenn leer, gibt Jeedom die Zusammenfassung für alle Schlüssel zurück
+- String-Schlüssel : (optional), Schlüssel der gewünschten Zusammenfassung. Wenn leer, gibt Jeedom die Zusammenfassung für alle Schlüssel zurück
 
-summary::byId
--------------
+## summary::byId
 
 Gibt die Zusammenfassung für die Objekt-ID zurück
 
 Die Einstellungen:
 
--   int-ID : Objekt-ID
+- int-ID : Objekt-ID
 
--   String-Schlüssel : (optional), Schlüssel der gewünschten Zusammenfassung. Wenn leer, gibt Jeedom die Zusammenfassung für alle Schlüssel zurück
+- String-Schlüssel : (optional), Schlüssel der gewünschten Zusammenfassung. Wenn leer, gibt Jeedom die Zusammenfassung für alle Schlüssel zurück
 
-JSON EqLogic API
-================
+# JSON EqLogic API
 
-eqLogic::all
-------------
+## eqLogic::all
 
 Gibt die Liste aller Geräte zurück
 
-eqLogic::fullById
------------------
+## eqLogic::fullById
 
 Gibt ein Gerät und seine Befehle sowie deren Status zurück (für Befehle vom Typ "Info")
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
-eqLogic::byId
--------------
+## eqLogic::byId
 
 Gibt das angegebene Gerät zurück
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
-eqLogic::byType
----------------
+## eqLogic::byType
 
 Gibt alle Geräte zurück, die zum angegebenen Typ gehören (Plugin)
 
 Die Einstellungen:
 
--   Zeichenfolgentyp
+- Zeichenfolgentyp
 
-eqLogic::byObjectId
--------------------
+## eqLogic::byObjectId
 
 Gibt alle Geräte zurück, die zum angegebenen Objekt gehören
 
 Die Einstellungen:
 
--   int Objekt\_id
+- int Objekt_id
 
-eqLogic::byTypeAndId
---------------------
+## eqLogic::byTypeAndId
 
 Gibt eine Gerätetabelle gemäß den Parametern zurück.
 
@@ -227,566 +198,498 @@ array(…​.))..)
 
 Die Einstellungen:
 
--   string \ [\] eqType = Tabelle der erforderlichen Gerätetypen
+- string \ [\] eqType = Tabelle der erforderlichen Gerätetypen
 
--   int \ [\] id = Tabelle der gewünschten benutzerdefinierten Geräte-IDs
+- int \ [\] id = Tabelle der gewünschten benutzerdefinierten Geräte-IDs
 
-eqLogic::save
--------------
+## eqLogic::save
 
 Gibt das registrierte / erstellte Gerät zurück
 
 Die Einstellungen:
 
--   int id (leer, wenn es sich um eine Kreation handelt)
+- int id (leer, wenn es sich um eine Kreation handelt)
 
--   Zeichenfolge eqType\_name (Skripttyp, virtuelle Ausrüstung…)
+- Zeichenfolge eqType_name (Skripttyp, virtuelle Ausrüstung…)
 
--   Zeichenfolgenname
+- Zeichenfolgenname
 
--   Zeichenfolge logische ID = ''
+- Zeichenfolge logische ID = ''
 
--   int object\_id = null
+- int object_id = null
 
--   int eqReal\_id = null
+- int eqReal_id = null
 
--   int isVisible = 0
+- int isVisible = 0
 
--   int isEnable = 0
+- int isEnable = 0
 
--   Array-Konfiguration
+- Array-Konfiguration
 
--   int timeout
+- int timeout
 
--   Array-Kategorie
+- Array-Kategorie
 
-JSON Cmd API
-============
+# JSON Cmd API
 
-cmd::all
---------
+## cmd::all
 
 Gibt die Liste aller Befehle zurück
 
-cmd::byId
----------
+## cmd::byId
 
 Gibt den angegebenen Befehl zurück
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
-cmd::byEqLogicId
-----------------
+## cmd::byEqLogicId
 
 Gibt alle Bestellungen zurück, die zum angegebenen Gerät gehören
 
 Die Einstellungen:
 
--   int eqLogic\_id
+- int eqLogic_id
 
-cmd::execCmd
-------------
+## cmd::execCmd
 
 Führen Sie den angegebenen Befehl aus
 
 Die Einstellungen:
 
--   int-ID : Befehls-ID oder ID-Array, wenn Sie mehrere Befehle gleichzeitig ausführen möchten
+- int-ID : Befehls-ID oder ID-Array, wenn Sie mehrere Befehle gleichzeitig ausführen möchten
 
--   \ [Optionen \] Liste der Befehlsoptionen (abhängig von Typ und Untertyp des Befehls)
+- \ [Optionen \] Liste der Befehlsoptionen (abhängig von Typ und Untertyp des Befehls)
 
-cmd::getStatistique
--------------------
+## cmd::getStatistique
 
 Gibt die Statistiken zur Bestellung zurück (funktioniert nur bei Informationen und historischen Bestellungen)
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
--   Zeichenfolge startTime : Startdatum der Statistikberechnung
+- Zeichenfolge startTime : Startdatum der Statistikberechnung
 
--   Zeichenfolge endTime : Enddatum der Statistikberechnung
+- Zeichenfolge endTime : Enddatum der Statistikberechnung
 
-cmd::getTendance
-----------------
+## cmd::getTendance
 
 Gibt den Trend der Bestellung zurück (funktioniert nur bei Informationen und historischen Bestellungen)
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
--   Zeichenfolge startTime : Startdatum der Trendberechnung
+- Zeichenfolge startTime : Startdatum der Trendberechnung
 
--   Zeichenfolge endTime : Enddatum der Trendberechnung
+- Zeichenfolge endTime : Enddatum der Trendberechnung
 
-cmd::getHistory
----------------
+## cmd::getHistory
 
 Gibt den Bestellverlauf zurück (funktioniert nur bei Informationen und historischen Aufträgen)
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
--   Zeichenfolge startTime : Startdatum der Geschichte
+- Zeichenfolge startTime : Startdatum der Geschichte
 
--   Zeichenfolge endTime : Enddatum der Geschichte
+- Zeichenfolge endTime : Enddatum der Geschichte
 
-cmd::save
----------
+## cmd::save
 
 Gibt das angegebene Objekt zurück
 
 Die Einstellungen:
 
--   int id (leer, wenn es sich um eine Kreation handelt)
+- int id (leer, wenn es sich um eine Kreation handelt)
 
--   Zeichenfolgenname
+- Zeichenfolgenname
 
--   Zeichenfolge logische ID
+- Zeichenfolge logische ID
 
--   Zeichenfolge eqType
+- Zeichenfolge eqType
 
--   Zeichenfolgenreihenfolge
+- Zeichenfolgenreihenfolge
 
--   Zeichenfolgentyp
+- Zeichenfolgentyp
 
--   String-Subtyp
+- String-Subtyp
 
--   int eqLogic\_id
+- int eqLogic_id
 
--   int isHistorized = 0
+- int isHistorized = 0
 
--   String-Einheit = ''
+- String-Einheit = ''
 
--   Array-Konfiguration
+- Array-Konfiguration
 
--   Array-Vorlage
+- Array-Vorlage
 
--   Array-Anzeige
+- Array-Anzeige
 
--   Array HTML
+- Array HTML
 
--   intvalue=null
+- intvalue=null
 
--   int isVisible = 1
+- int isVisible = 1
 
--   Array-Alarm
+- Array-Alarm
 
-cmd::event
--------------------
+## cmd::event
 
 Ermöglicht das Senden eines Werts an eine Bestellung
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
--   Zeichenfolgenwert : valeur
+- Zeichenfolgenwert : valeur
 
--   Zeichenfolge datetime : (optional) Datum / Uhrzeit-Wert
+- Zeichenfolge datetime : (optional) Datum / Uhrzeit-Wert
 
-JSON-Szenario-API
-=================
+# JSON-Szenario-API
 
-scenario::all
--------------
+## scenario::all
 
 Gibt die Liste aller Szenarien zurück
 
-scenario::byId
---------------
+## scenario::byId
 
 Gibt das angegebene Szenario zurück
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
-scenario::export
-----------------
+## scenario::export
 
-Gibt den Export des Szenarios sowie das zurück *menschlicher Name* aus dem Skript
+Gibt den Export des Szenarios sowie das zurück _menschlicher Name_ aus dem Skript
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
-scenario::import
-----------------
+## scenario::import
 
 Ermöglicht das Importieren eines Szenarios.
 
 Die Einstellungen:
 
--   int-ID : ID des zu importierenden Szenarios (leer bei Erstellung)
+- int-ID : ID des zu importierenden Szenarios (leer bei Erstellung)
 
--   Zeichenfolge humanName : *menschlicher Name* des Szenarios (leer bei Erstellung)
+- Zeichenfolge humanName : _menschlicher Name_ des Szenarios (leer bei Erstellung)
 
--   Array-Import : Szenario (aus dem Feld Exportszenario::export)
+- Array-Import : Szenario (aus dem Feld Exportszenario::export)
 
-scenario::changeState
----------------------
+## scenario::changeState
 
 Ändert den Status des angegebenen Szenarios.
 
 Die Einstellungen:
 
--   int-ID
+- int-ID
 
--   Zeichenfolgenstatus: \ [Run, Stop, aktivieren, deaktivieren \]
+- Zeichenfolgenstatus: \ [Run, Stop, aktivieren, deaktivieren \]
 
-JSON-Protokoll-API
-============
+# JSON-Protokoll-API
 
-log::get
---------
+## log::get
 
 Ermöglicht das Abrufen eines Protokolls
 
 Die Einstellungen:
 
--   Zeichenfolgenprotokoll : Name des abzurufenden Protokolls
+- Zeichenfolgenprotokoll : Name des abzurufenden Protokolls
 
--   String-Start : Zeilennummer, auf der mit dem Lesen begonnen werden soll
+- String-Start : Zeilennummer, auf der mit dem Lesen begonnen werden soll
 
--   Zeichenfolge nbLine : Anzahl der wiederherzustellenden Zeilen
+- Zeichenfolge nbLine : Anzahl der wiederherzustellenden Zeilen
 
-log::add
---------
+## log::add
 
 Ermöglicht das Schreiben in ein Protokoll
 
 Die Einstellungen:
 
--   Zeichenfolgenprotokoll : Name des abzurufenden Protokolls
+- Zeichenfolgenprotokoll : Name des abzurufenden Protokolls
 
--   Zeichenfolgentyp : Protokolltyp (Debug, Info, Warnung, Fehler)
+- Zeichenfolgentyp : Protokolltyp (Debug, Info, Warnung, Fehler)
 
--   Zeichenfolge Nachricht : SMS zu schreiben
+- Zeichenfolge Nachricht : SMS zu schreiben
 
--   Zeichenfolge logische ID : logische ID der generierten Nachricht
+- Zeichenfolge logische ID : logische ID der generierten Nachricht
 
-
-log::list
----------
+## log::list
 
 Holen Sie sich die Jeedom-Protokollliste
 
 Die Einstellungen:
 
--   String-Filter : (optional) Filtern Sie nach dem Namen der abzurufenden Protokolle
+- String-Filter : (optional) Filtern Sie nach dem Namen der abzurufenden Protokolle
 
-log::empty
-----------
+## log::empty
 
 Leeren Sie ein Protokoll
 
 Die Einstellungen:
 
--   Zeichenfolgenprotokoll : Name des zu leeren Protokolls
+- Zeichenfolgenprotokoll : Name des zu leeren Protokolls
 
-log::remove
------------
+## log::remove
 
 Ermöglicht das Löschen eines Protokolls
 
 Die Einstellungen:
 
--   Zeichenfolgenprotokoll : Protokollname zum Löschen
+- Zeichenfolgenprotokoll : Protokollname zum Löschen
 
-JSON-Datenspeicher-API (Variable)
-=============================
+# JSON-Datenspeicher-API (Variable)
 
-datastore::byTypeLinkIdKey
---------------------------
+## datastore::byTypeLinkIdKey
 
 Ruft den Wert einer im Datenspeicher gespeicherten Variablen ab
 
 Die Einstellungen:
 
--   Zeichenfolgentyp : Art des gespeicherten Werts (für Szenarien ist es Szenario)
+- Zeichenfolgentyp : Art des gespeicherten Werts (für Szenarien ist es Szenario)
 
--   id linkId : -1 für das globale (Wert für die Standardszenarien oder die Szenario-ID)
+- id linkId : -1 für das globale (Wert für die Standardszenarien oder die Szenario-ID)
 
--   String-Schlüssel : Wertname
+- String-Schlüssel : Wertname
 
-datastore::save
----------------
+## datastore::save
 
 Speichert den Wert einer Variablen im Datenspeicher
 
 Die Einstellungen:
 
--   Zeichenfolgentyp : Art des gespeicherten Werts (für Szenarien
-    Es ist ein Szenario)
+- Zeichenfolgentyp : Art des gespeicherten Werts (für Szenarien
+  Es ist ein Szenario)
 
--   id linkId : -1 für global (Wert für Standardszenarien,
-    oder die Szenario-ID)
+- id linkId : -1 für global (Wert für Standardszenarien,
+  oder die Szenario-ID)
 
--   String-Schlüssel : Wertname
+- String-Schlüssel : Wertname
 
--   gemischter Wert : Wert aufzuzeichnen
+- gemischter Wert : Wert aufzuzeichnen
 
-JSON-Nachrichten-API
-================
+# JSON-Nachrichten-API
 
-message::all
-------------
+## message::all
 
 Gibt die Liste aller Nachrichten zurück
 
-message::add
---------
+## message::add
 
 Ermöglicht das Schreiben in ein Protokoll
 
 Die Einstellungen:
 
--   Zeichenfolgentyp : Protokolltyp (Debug, Info, Warnung, Fehler)
+- Zeichenfolgentyp : Protokolltyp (Debug, Info, Warnung, Fehler)
 
--   Zeichenfolge Nachricht : message
+- Zeichenfolge Nachricht : message
 
--   String-Aktion : action
+- String-Aktion : action
 
--   Zeichenfolge logische ID : logicalId
+- Zeichenfolge logische ID : logicalId
 
-message::removeAll
-------------------
+## message::removeAll
 
 Löschen Sie alle Nachrichten
 
-JSON-Interaktions-API
-====================
+# JSON-Interaktions-API
 
-interact::tryToReply
---------------------
+## interact::tryToReply
 
 Versuchen Sie, eine Anfrage mit einer Interaktion abzugleichen, führen Sie die Aktion aus und antworten Sie entsprechend
 
 Die Einstellungen:
 
--   Abfrage (Anforderungsphrase)
+- Abfrage (Anforderungsphrase)
 
--   int Antwort\_cmd = NULL : Befehls-ID, die zum Antworten verwendet werden soll,
-    Wenn nicht angegeben, gibt Jeedom die Antwort an Sie im JSON zurück
+- int Antwort_cmd = NULL : Befehls-ID, die zum Antworten verwendet werden soll,
+  Wenn nicht angegeben, gibt Jeedom die Antwort an Sie im JSON zurück
 
-interactQuery::all
-------------------
+## interactQuery::all
 
 Gibt die vollständige Liste aller Interaktionen zurück
 
-JSON-System-API
-===============
+# JSON-System-API
 
-jeedom::halt
-------------
+## jeedom::halt
 
 Stoppen Sie Jeedom
 
-jeedom::reboot
---------------
+## jeedom::reboot
 
 Starten Sie Jeedom neu
 
-jeedom::isOk
-------------
+## jeedom::isOk
 
 Lässt Sie wissen, ob der globale Zustand von Jeedom in Ordnung ist
 
-jeedom::update
---------------
+## jeedom::update
 
 Starten wir ein Jeedom-Update
 
-jeedom::backup
---------------
+## jeedom::backup
 
 Ermöglicht das Starten eines Backups von Jeedom
 
-jeedom::getUsbMapping
----------------------
+## jeedom::getUsbMapping
 
 Liste der USB-Anschlüsse und Namen der daran angeschlossenen USB-Sticks
 
-JSON Plugin API
-===============
+# JSON Plugin API
 
-plugin::install
----------------
+## plugin::install
 
 Installation / Update eines bestimmten Plugins
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-plugin::remove
---------------
+## plugin::remove
 
 Löschen eines bestimmten Plugins
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-plugin::dependancyInfo
-----------------------
+## plugin::dependancyInfo
 
 Gibt Informationen zum Plugin-Abhängigkeitsstatus zurück
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-plugin::dependancyInstall
--------------------------
+## plugin::dependancyInstall
 
 Erzwingen Sie die Installation von Plugin-Abhängigkeiten
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-plugin::deamonInfo
-------------------
+## plugin::deamonInfo
 
 Gibt Informationen zum Status des Plugin-Daemons zurück
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-plugin::deamonStart
--------------------
+## plugin::deamonStart
 
 Zwinge den Dämon zu starten
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-plugin::deamonStop
-------------------
+## plugin::deamonStop
 
 Dämonenstopp erzwingen
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-plugin::deamonChangeAutoMode
-----------------------------
+## plugin::deamonChangeAutoMode
 
 Ändern Sie den Verwaltungsmodus des Dämons
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
--   int-Modus : 1 für automatisch, 0 für manuell
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int-Modus : 1 für automatisch, 0 für manuell
 
-JSON-Update-API
-===============
+# JSON-Update-API
 
-update::all
------------
+## update::all
 
 Gibt eine Liste aller installierten Komponenten, ihrer Versionen und der zugehörigen Informationen zurück
 
-update::checkUpdate
--------------------
+## update::checkUpdate
 
 Ermöglicht die Suche nach Updates
 
-update::update
---------------
+## update::update
 
 Ermöglicht das Aktualisieren von Jeedom und allen Plugins
 
-update::doUpdate
---------------
+## update::doUpdate
 
 Die Einstellungen:
 
--   int plugin\_id (optional) : Plugin ID
--   Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
+- int plugin_id (optional) : Plugin ID
+- Zeichenfolge logische ID (optional) : Plugin-Name (logischer Name)
 
-JSON-Netzwerk-API
-================
+# JSON-Netzwerk-API
 
-network::restartDns
--------------------
+## network::restartDns
 
 Erzwingen Sie den (Neustart) des Jeedom DNS
 
-network::stopDns
-----------------
+## network::stopDns
 
 Erzwingt das Anhalten des DNS Jeedom
 
-network::dnsRun
----------------
+## network::dnsRun
 
-JSON-Timeline-API
-===============
+# JSON-Timeline-API
 
-timeline::all
------------
+## timeline::all
 
 Gibt alle Elemente der Timeline zurück
 
-timeline::listFolder
------------
+## timeline::listFolder
 
 Gibt alle Ordner (Kategorie) der Timeline zurück
 
-timeline::byFolder
------------
+## timeline::byFolder
 
 Gibt alle Elemente des angeforderten Ordners zurück
 
 Die Einstellungen:
 
--   String-Ordner : Ordnernamen
+- String-Ordner : Ordnernamen
 
-JSON-Benutzer-API
-=================
+# JSON-Benutzer-API
 
-user::all
--------------
+## user::all
 
 Gibt die Liste aller Benutzer zurück
 
-user::save
----------------------
+## user::save
 
 Erstellen oder bearbeiten Sie einen Benutzer
 
 Die Einstellungen:
 
--   int id (wenn edition)
+- int id (wenn edition)
 
--   String-Anmeldung
+- String-Anmeldung
 
--   String-Passwort
+- String-Passwort
 
--   Saitenprofil: \[admin,benutzer,einschränken\]
+- Saitenprofil: \[admin,benutzer,einschränken\]
 
-
-JSON-API-Beispiele
-=================
+# JSON-API-Beispiele
 
 Hier ist ein Beispiel für die Verwendung der API. Für das folgende Beispiel
 ich benutze [diese PHP-Klasse](https://github.com/jeedom/core/blob/release/core/class/jsonrpcClient.class.php)
@@ -800,8 +703,7 @@ if ($ jsonrpc-&gt; sendrequest ( ‚jeeObject::all ', Array())){
     print_r ($ jsonrpc-&gt; getResult ());
 }else{
     echo $ jsonrpc-&gt; getError ();
-}
-`` ''
+} `` ''
 
 Ausführung eines Auftrags (mit der Option eines Titels und einer Nachricht)
 
@@ -811,7 +713,6 @@ if ($ jsonrpc-&gt; sendrequest ( ‚cmd::execCmd ', array (' id' => #cmd_id#, 'o
     Echo &#39;OK&#39;;
 }else{
     echo $ jsonrpc-&gt; getError ();
-}
-`` ''
+} `` ''
 
 Die API kann natürlich auch mit anderen Sprachen verwendet werden (nur ein Beitrag auf einer Seite)

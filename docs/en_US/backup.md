@@ -1,9 +1,9 @@
 # Sauvegardes
+
 **Settings → System → Backups**
 
 Jeedom offers the possibility of being saved and restored from or from different locations.
 This page allows the management of backups, restores.
-
 
 You will find, on the left, the parameters and action buttons. On the right is the real-time status of the action in progress (backup or restore), if you have launched one.
 
@@ -51,7 +51,6 @@ You will find, on the left, the parameters and action buttons. On the right is t
 >
 > Jeedom backups must be saved absolutely in a folder only for him ! It will delete everything that is not a jeedom backup from the folder.
 
-
 # What is saved ?
 
 During a backup, Jeedom will backup all of its files and the database. This therefore contains all of your configuration (equipment, controls, history, scenarios, design, etc.).
@@ -76,6 +75,6 @@ Jeedom performs an automatic backup every day at the same time. It is possible t
 
 # FAQ
 
->**I can't restore my backup that I retrieved from Safari**
+> **I can't restore my backup that I retrieved from Safari**
 >
->By default Safari decompresses tars.gz (in tar) which means that the backup can no longer be used by jeedom, it must be recompressed (gzip) in tar.gz
+> By default Safari decompresses tars.gz (in tar) which means that the backup can no longer be used by jeedom, it must be recompressed (gzip) in tar.gz

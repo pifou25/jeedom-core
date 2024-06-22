@@ -14,336 +14,481 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-jeedom.user = function() {};
+jeedom.user = function () {};
 jeedom.user.connectCheck = 0;
 
-jeedom.user.all = function(_params) {
+jeedom.user.all = function (_params) {
   var paramsRequired = [];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'all',
+    action: "all",
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.remove = function(_params) {
-  var paramsRequired = ['id'];
+jeedom.user.remove = function (_params) {
+  var paramsRequired = ["id"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'remove',
-    id: _params.id
+    action: "remove",
+    id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.save = function(_params) {
-  var paramsRequired = ['users'];
+jeedom.user.save = function (_params) {
+  var paramsRequired = ["users"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'save',
-    users: JSON.stringify(_params.users)
+    action: "save",
+    users: JSON.stringify(_params.users),
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.saveProfils = function(_params) {
-  var paramsRequired = ['profils'];
+jeedom.user.saveProfils = function (_params) {
+  var paramsRequired = ["profils"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'saveProfils',
-    profils: JSON.stringify(_params.profils)
-  };
-  domUtils.ajax(paramsAJAX);
-}
-
-jeedom.user.get = function(_params) {
-  var paramsRequired = [];
-  var paramsSpecifics = {};
-  try {
-    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
-  } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
-    return;
-  }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
-  var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
-  paramsAJAX.data = {
-    action: 'get',
+    action: "saveProfils",
     profils: JSON.stringify(_params.profils),
-    id: _params.id || -1
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.isConnect = function(_params) {
-  if (Math.round(+new Date() / 1000) > (jeedom.user.connectCheck + 300)) {
+jeedom.user.get = function (_params) {
+  var paramsRequired = [];
+  var paramsSpecifics = {};
+  try {
+    jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
+  } catch (e) {
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
+    return;
+  }
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
+  var paramsAJAX = jeedom.private.getParamsAJAX(params);
+  paramsAJAX.url = "core/ajax/user.ajax.php";
+  paramsAJAX.data = {
+    action: "get",
+    profils: JSON.stringify(_params.profils),
+    id: _params.id || -1,
+  };
+  domUtils.ajax(paramsAJAX);
+};
+
+jeedom.user.isConnect = function (_params) {
+  if (Math.round(+new Date() / 1000) > jeedom.user.connectCheck + 300) {
     var paramsRequired = [];
     var paramsSpecifics = {
-      pre_success: function(data) {
-        if (data.state != 'ok') {
+      pre_success: function (data) {
+        if (data.state != "ok") {
           return {
-            state: 'ok',
-            result: false
+            state: "ok",
+            result: false,
           };
         } else {
           jeedom.user.connectCheck = Math.round(+new Date() / 1000);
           return {
-            state: 'ok',
-            result: true
+            state: "ok",
+            result: true,
           };
         }
-      }
+      },
     };
     try {
       jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
     } catch (e) {
-      (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+      (
+        _params.error ||
+        paramsSpecifics.error ||
+        jeedom.private.default_params.error
+      )(e);
       return;
     }
-    var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+    var params = domUtils.extend(
+      {},
+      jeedom.private.default_params,
+      paramsSpecifics,
+      _params || {},
+    );
     var paramsAJAX = jeedom.private.getParamsAJAX(params);
-    paramsAJAX.url = 'core/ajax/user.ajax.php';
+    paramsAJAX.url = "core/ajax/user.ajax.php";
     paramsAJAX.global = false;
     paramsAJAX.data = {
-      action: 'isConnect',
+      action: "isConnect",
     };
     domUtils.ajax(paramsAJAX);
   } else {
-    if ('function' == typeof(_params.success)) {
+    if ("function" == typeof _params.success) {
       _params.success(true);
     }
   }
-}
+};
 
-jeedom.user.validateTwoFactorCode = function(_params) {
-  var paramsRequired = ['code'];
+jeedom.user.validateTwoFactorCode = function (_params) {
+  var paramsRequired = ["code"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'validateTwoFactorCode',
+    action: "validateTwoFactorCode",
     code: _params.code,
-    enableTwoFactorAuthentification: _params.enableTwoFactorAuthentification || 0
+    enableTwoFactorAuthentification:
+      _params.enableTwoFactorAuthentification || 0,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.removeTwoFactorCode = function(_params) {
-  var paramsRequired = ['id'];
+jeedom.user.removeTwoFactorCode = function (_params) {
+  var paramsRequired = ["id"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'removeTwoFactorCode',
+    action: "removeTwoFactorCode",
     id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.useTwoFactorAuthentification = function(_params) {
-  var paramsRequired = ['login'];
+jeedom.user.useTwoFactorAuthentification = function (_params) {
+  var paramsRequired = ["login"];
   var paramsSpecifics = {
     global: false,
-  }
+  };
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'useTwoFactorAuthentification',
-    login: _params.login
+    action: "useTwoFactorAuthentification",
+    login: _params.login,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.login = function(_params) {
-  var paramsRequired = ['username', 'password'];
+jeedom.user.login = function (_params) {
+  var paramsRequired = ["username", "password"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'login',
+    action: "login",
     username: _params.username,
     password: _params.password,
-    twoFactorCode: _params.twoFactorCode || '',
+    twoFactorCode: _params.twoFactorCode || "",
     storeConnection: _params.storeConnection || 0,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.refresh = function(_params) {
+jeedom.user.refresh = function (_params) {
   var paramsRequired = [];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'refresh',
+    action: "refresh",
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.removeBanIp = function(_params) {
+jeedom.user.removeBanIp = function (_params) {
   var paramsRequired = [];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'removeBanIp',
+    action: "removeBanIp",
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.removeRegisterDevice = function(_params) {
+jeedom.user.removeRegisterDevice = function (_params) {
   var paramsRequired = [];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'removeRegisterDevice',
-    key: _params.key || '',
-    user_id: _params.user_id || ''
+    action: "removeRegisterDevice",
+    key: _params.key || "",
+    user_id: _params.user_id || "",
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.deleteSession = function(_params) {
-  var paramsRequired = ['id'];
+jeedom.user.deleteSession = function (_params) {
+  var paramsRequired = ["id"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'deleteSession',
-    id: _params.id
+    action: "deleteSession",
+    id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.supportAccess = function(_params) {
-  var paramsRequired = ['enable'];
+jeedom.user.supportAccess = function (_params) {
+  var paramsRequired = ["enable"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'supportAccess',
-    enable: _params.enable
+    action: "supportAccess",
+    enable: _params.enable,
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.user.copyRights = function(_params) {
-  var paramsRequired = ['from','to'];
+jeedom.user.copyRights = function (_params) {
+  var paramsRequired = ["from", "to"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/user.ajax.php';
+  paramsAJAX.url = "core/ajax/user.ajax.php";
   paramsAJAX.data = {
-    action: 'copyRights',
+    action: "copyRights",
     from: _params.from,
-    to: _params.to
+    to: _params.to,
   };
   domUtils.ajax(paramsAJAX);
-}
+};

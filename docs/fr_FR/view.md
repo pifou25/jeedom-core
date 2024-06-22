@@ -1,4 +1,5 @@
 # Vues
+
 **Accueil → Vue**
 
 Les Vues permettent de créer des affichages personnalisés.
@@ -18,7 +19,7 @@ Sur une Vue, on retrouve :
 
 - Un bouton en haut à gauche pour montrer ou masquer la liste des Vues, ainsi que le bouton pour en ajouter une.
 - Le crayon sur la droite pour éditer l'ordre et la taille des équipements, de la même manière que le Dashboard.
-- Un bouton *Edition complète* permettant d'éditer les zones et éléments de la Vue.
+- Un bouton _Edition complète_ permettant d'éditer les zones et éléments de la Vue.
 
 > **Tip**
 >
@@ -26,12 +27,12 @@ Sur une Vue, on retrouve :
 
 ## Ajout/Edition d’une Vue
 
-Le principe est assez simple : une Vue est composée de zones. Chaque zone est de type *graphique*, *widget* ou *tableau*. En fonction de ce type, vous pourrez ajouter des graphiques, des équipements, ou des commandes celle-ci.
+Le principe est assez simple : une Vue est composée de zones. Chaque zone est de type _graphique_, _widget_ ou _tableau_. En fonction de ce type, vous pourrez ajouter des graphiques, des équipements, ou des commandes celle-ci.
 
 - Sur la gauche de la page on retrouve la liste des Vues ainsi qu’un bouton de création.
 - Un bouton en haut à droite vous permet d’éditer la Vue courante (Configuration).
 - Un bouton permettant d'ajouter une zone. Les nom et type de zone vous seront alors demandés.
-- Un bouton *Voir le résultat*, permettant de sortir du mode d'édition complète et d'afficher cette Vue.
+- Un bouton _Voir le résultat_, permettant de sortir du mode d'édition complète et d'afficher cette Vue.
 - Un bouton permettant de sauvegarder cette Vue.
 - Un bouton permettant de supprimer cette Vue.
 
@@ -59,7 +60,6 @@ Une zone de type equipement permet d’ajouter des équipements :
 > **Tip**
 >
 > Il est possible de modifier l’ordre des tuiles dans la zone par glisser/déposer.
-
 
 ### Zone de type graphique
 

@@ -1,4 +1,5 @@
 # Vues
+
 **Home → Anzeigen**
 
 Mit Ansichten können Sie benutzerdefinierte Ansichten erstellen.
@@ -18,7 +19,7 @@ Auf einer Ansicht finden wir :
 
 - Eine Schaltfläche oben links zum Ein- oder Ausblenden der Liste der Ansichten sowie die Schaltfläche zum Hinzufügen einer.
 - Der Bleistift auf der rechten Seite zum Bearbeiten der Reihenfolge und Größe des Geräts auf die gleiche Weise wie das Dashboard.
-- Ein Knopf *Komplette Ausgabe* So können Sie die Zonen und Elemente der Ansicht bearbeiten.
+- Ein Knopf _Komplette Ausgabe_ So können Sie die Zonen und Elemente der Ansicht bearbeiten.
 
 > **Tipp**
 >
@@ -26,12 +27,12 @@ Auf einer Ansicht finden wir :
 
 ## Hinzufügen / Bearbeiten einer Ansicht
 
-Das Prinzip ist ganz einfach : Eine Ansicht besteht aus Bereichen. Jede Zone ist vom Typ *Diagramm*, *Widget* Wo *Bild*. Abhängig von diesem Typ können Sie Grafiken, Geräte oder Befehle hinzufügen.
+Das Prinzip ist ganz einfach : Eine Ansicht besteht aus Bereichen. Jede Zone ist vom Typ _Diagramm_, _Widget_ Wo _Bild_. Abhängig von diesem Typ können Sie Grafiken, Geräte oder Befehle hinzufügen.
 
 - Auf der linken Seite finden Sie die Liste der Ansichten sowie eine Schaltfläche zum Erstellen.
 - Über eine Schaltfläche oben rechts können Sie die aktuelle Ansicht (Konfiguration) bearbeiten).
 - Eine Schaltfläche zum Hinzufügen einer Zone. Sie werden dann nach dem Namen und dem Typ der Zone gefragt.
-- Ein Knopf *Siehe das Ergebnis*, um den vollständigen Bearbeitungsmodus zu verlassen und diese Ansicht anzuzeigen.
+- Ein Knopf _Siehe das Ergebnis_, um den vollständigen Bearbeitungsmodus zu verlassen und diese Ansicht anzuzeigen.
 - Eine Schaltfläche zum Speichern dieser Ansicht.
 - Eine Schaltfläche zum Löschen dieser Ansicht.
 
@@ -59,7 +60,6 @@ In einer Zone für Gerätetypen können Sie Geräte hinzufügen :
 > **Tipp**
 >
 > Es ist möglich, die Reihenfolge der Kacheln im Bereich durch Ziehen und Ablegen zu ändern.
-
 
 ### Grafiktypbereich
 

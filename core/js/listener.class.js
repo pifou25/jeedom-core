@@ -14,60 +14,87 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-jeedom.listener = function() {};
+jeedom.listener = function () {};
 
-jeedom.listener.all = function(_params) {
+jeedom.listener.all = function (_params) {
   var paramsRequired = [];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/listener.ajax.php';
+  paramsAJAX.url = "core/ajax/listener.ajax.php";
   paramsAJAX.data = {
-    action: 'all'
+    action: "all",
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.listener.save = function(_params) {
-  var paramsRequired = ['listeners'];
+jeedom.listener.save = function (_params) {
+  var paramsRequired = ["listeners"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/listener.ajax.php';
+  paramsAJAX.url = "core/ajax/listener.ajax.php";
   paramsAJAX.data = {
-    action: 'save',
+    action: "save",
     listeners: JSON.stringify(_params.listeners),
   };
   domUtils.ajax(paramsAJAX);
-}
+};
 
-jeedom.listener.remove = function(_params) {
-  var paramsRequired = ['id'];
+jeedom.listener.remove = function (_params) {
+  var paramsRequired = ["id"];
   var paramsSpecifics = {};
   try {
     jeedom.private.checkParamsRequired(_params || {}, paramsRequired);
   } catch (e) {
-    (_params.error || paramsSpecifics.error || jeedom.private.default_params.error)(e);
+    (
+      _params.error ||
+      paramsSpecifics.error ||
+      jeedom.private.default_params.error
+    )(e);
     return;
   }
-  var params = domUtils.extend({}, jeedom.private.default_params, paramsSpecifics, _params || {});
+  var params = domUtils.extend(
+    {},
+    jeedom.private.default_params,
+    paramsSpecifics,
+    _params || {},
+  );
   var paramsAJAX = jeedom.private.getParamsAJAX(params);
-  paramsAJAX.url = 'core/ajax/listener.ajax.php';
+  paramsAJAX.url = "core/ajax/listener.ajax.php";
   paramsAJAX.data = {
-    action: 'remove',
+    action: "remove",
     id: _params.id,
   };
   domUtils.ajax(paramsAJAX);
-}
+};

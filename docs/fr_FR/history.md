@@ -1,4 +1,5 @@
 # Historique
+
 **Analyse → Historique**
 
 Partie importante dans un logiciel : la partie historisation, véritable mémoire de celui-ci. Il est possible dans Jeedom d’historiser n’importe quelle commande de type information (binaire ou numérique). Cela vous permettra donc par exemple d’historiser une courbe de température, de consommation, les ouvertures d’une porte, etc.
@@ -37,9 +38,9 @@ Depuis le Core v4.2 il est aussi possible d'afficher une courbe en fond de tuile
 
 Si vous affichez un graphique par la page historique, vous avez accès à plusieurs options d’affichage, au dessus du graphique :
 
-- **Période** : La période d’affichage, comprenant les données historisées entre ces deux dates. Par défaut, en fonction du paramètre *Période d'affichage des graphiques par défaut* dans *Réglages → Système → Configuration / Equipements*.
+- **Période** : La période d’affichage, comprenant les données historisées entre ces deux dates. Par défaut, en fonction du paramètre _Période d'affichage des graphiques par défaut_ dans _Réglages → Système → Configuration / Equipements_.
 - **Groupement** : Propose plusieurs options de groupement (Somme par heure, etc.).
-- **Type d'affichage** : Affichage en *Ligne*, *Aire*, ou *Barre*. Option sauvegardée sur la commande et utilisée depuis le Dashboard.
+- **Type d'affichage** : Affichage en _Ligne_, _Aire_, ou _Barre_. Option sauvegardée sur la commande et utilisée depuis le Dashboard.
 - **Variation** : Affiche la différence de valeur par rapport au point précédent. Option sauvegardée sur la commande et utilisée depuis le Dashboard.
 - **Escalier** : Permet d’afficher la courbe sous la forme d’un escalier ou d’un affichage continu. Option sauvegardée sur la commande et utilisée depuis le Dashboard.
 - **Comparer** : Permet de comparer la courbe entre différentes périodes.
@@ -47,8 +48,8 @@ Si vous affichez un graphique par la page historique, vous avez accès à plusie
 > **Tip**
 >
 > Pour éviter toutes erreur de manipulation, ces options sauvegardées dans les commandes sont active seulement quand une seule courbe est affichée.
-> 
-Dans la partie haute où s'affichent les courbes, il y également plusieurs options :
+>
+> Dans la partie haute où s'affichent les courbes, il y également plusieurs options :
 
 Sur la gauche:
 
@@ -68,6 +69,7 @@ Sous les courbes, vous pouvez aussi utiliser le menu contextuel sur chaque lége
 Vous pouvez aussi afficher les graphiques sur les vues (nous verrons ici les options de configuration et non comment faire, pour cela il faut se rendre sur la documentation des vues ou des designs en fonction). Voici les options :
 
 Une fois une donnée activée, vous pouvez choisir :
+
 - **Couleur** : La couleur de la courbe.
 - **Type** : Le type de graphique (aire, ligne ou colonne).
 - **Echelle** : Vu que vous pouvez mettre plusieurs courbes (données) sur le même graphique, il est possible de distinguer les échelles (droite ou gauche).
@@ -101,5 +103,3 @@ Devant chaque donnée pouvant être affichée, vous retrouvez deux icônes :
 ### Suppression de valeur incohérente
 
 Parfois, il se peut que vous ayez des valeurs incohérentes sur les graphiques. Cela est souvent dû à un souci d’interprétation de la valeur. Il est possible de supprimer ou changer la valeur du point en question, en cliquant sur celui-ci directement sur le graphique ; de plus, vous pouvez régler le minimum et le maximum autorisés afin d’éviter des problèmes futurs.
-
-

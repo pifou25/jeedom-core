@@ -1,19 +1,20 @@
 # Timeline
+
 **Análise → Linha do tempo**
 
 ## Timeline
 
-A página Timeline permite que você exiba eventos cronologicamente, como mudanças de pedidos *em formação*, gatilhos de comando *estoque*, e execuções de cenários.
+A página Timeline permite que você exiba eventos cronologicamente, como mudanças de pedidos _em formação_, gatilhos de comando _estoque_, e execuções de cenários.
 
 Para vê-los, você deve primeiro ativar o rastreamento na linha do tempo dos comandos ou cenários desejados, para que esses eventos ocorram.
 
-- **Roteiro** : Tanto diretamente em uma página de cenário, ou em *Visão geral* cenários.
+- **Roteiro** : Tanto diretamente em uma página de cenário, ou em _Visão geral_ cenários.
 - **Encomendado** : Na configuração avançada do comando ou na configuração do histórico para fazê-lo em "massa".
 
 ![Linha do tempo](images/timeline_intro.jpg)
 
-A linha do tempo *Formar-se* sempre contém todos os eventos. No entanto, você pode filtrar a linha do tempo *caso*. Em cada local em que você ativa a linha do tempo, você terá um campo para inserir o nome de uma pasta, existente ou não.
-Você pode filtrar a linha do tempo por esta pasta selecionando-a à esquerda do botão *Atualizar*.
+A linha do tempo _Formar-se_ sempre contém todos os eventos. No entanto, você pode filtrar a linha do tempo _caso_. Em cada local em que você ativa a linha do tempo, você terá um campo para inserir o nome de uma pasta, existente ou não.
+Você pode filtrar a linha do tempo por esta pasta selecionando-a à esquerda do botão _Atualizar_.
 
 > **Observação**
 >
