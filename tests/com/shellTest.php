@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 
 class shellTest extends TestCase {
 	/******************* Base ********************/
-	public function getBackgrounds() {
+	public static function getBackgrounds() {
 		return array(
 			array(true),
 			array(false),
