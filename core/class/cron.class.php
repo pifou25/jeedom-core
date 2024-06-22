@@ -551,7 +551,7 @@ class cron {
 	}
 
 	public function getOption() {
-		return json_decode($this->option, true);
+		return json_decode($this->option ?? '', true);
 	}
 
 	public function getOnce($_default = 0) {
