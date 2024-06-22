@@ -252,7 +252,13 @@ function mySqlIsHere() {
 	return is_object(DB::getConnection());
 }
 
+/**
+ * @deprecated use errorHandler::displayHtmlException instead
+ *
+ * @return string HTML formatted exception
+ */
 function displayException($e) {
+	trigger_error('Method ' . __METHOD__ . ' is deprecated. Use errorHandler::displayHtmlException instead.', E_USER_DEPRECATED);
 	$message = '<span id="span_errorMessage">' . $e->getMessage() . '</span>';
 	if (DEBUG !== 0) {
 		$message .= "<a class=\"pull-right bt_errorShowTrace cursor\" onclick=\"event.stopPropagation(); document.getElementById('pre_errorTrace').toggle()\">Show traces</a>";

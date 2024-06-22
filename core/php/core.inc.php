@@ -15,6 +15,7 @@
 * You should have received a copy of the GNU General Public License
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 */
+
 date_default_timezone_set('Europe/Brussels');
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../config/common.config.php';
@@ -29,22 +30,6 @@ include_file('core', 'compatibility', 'config');
 include_file('core', 'utils', 'class');
 include_file('core', 'log', 'class');
 
-try {
-	$configs = config::byKeys(array('timezone', 'log::level'));
-	if (isset($configs['timezone'])) {
-		date_default_timezone_set($configs['timezone']);
-	}
-} catch (Exception $e) {
-} catch (Error $e) {
-}
-
-try {
-	if (isset($configs['log::level'])) {
-		log::define_error_reporting($configs['log::level']);
-	}
-} catch (Exception $e) {
-} catch (Error $e) {
-}
 
 function jeedomAutoload($_classname) {
 	/* core class always in /core/class : */
@@ -78,3 +63,23 @@ function jeedomAutoload($_classname) {
 }
 
 spl_autoload_register('jeedomAutoload', true, true);
+
+// initialize error handler
+errorHandler::init();
+
+try {
+	$configs = config::byKeys(array('timezone', 'log::level'));
+	if (isset($configs['timezone'])) {
+		date_default_timezone_set($configs['timezone']);
+	}
+} catch (Exception $e) {
+} catch (Error $e) {
+}
+
+try {
+	if (isset($configs['log::level'])) {
+		log::define_error_reporting($configs['log::level']);
+	}
+} catch (Exception $e) {
+} catch (Error $e) {
+}

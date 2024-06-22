@@ -1011,3 +1011,25 @@ function count(a, b) {
     a.hasOwnProperty(d) && (c++, 1 != b || (!a[d] || a[d].constructor !== Array && a[d].constructor !== Object) || (c += this.count(a[d], 1)))
   return c
 }
+
+/**
+ * Copy to clipboard the content of element by id
+ * @param {string} id 
+ */
+function copyToClipboard( id){
+  // Get the text field
+  var copyText = document.getElementById( id);
+  if ( copyText == undefined || copyText == "undefined"){
+    alert( id + ' not found!');
+  }else {
+    var txt = copyText.textContent;
+    if( txt == undefined || txt == "undefined"){
+      alert( 'empty txt for id: ' + id);
+    } else {
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(txt);
+      // Alert the copied text
+      alert("Copied the text: " + txt);
+    }
+  }
+}

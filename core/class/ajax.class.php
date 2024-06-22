@@ -47,14 +47,26 @@ class ajax {
 		die();
 	}
 	
-	public static function getResponse($_data = '', $_errorCode = null) {
-		$isError = !(null === $_errorCode);
+	private static function getResponse($_data = '', $_errorCode = null) {
+		$errors = errorHandler::flush( 'array');
+		$isError = !(null === $_errorCode && empty($errors));
 		$return = array(
 			'state' => $isError ? 'error' : 'ok',
 			'result' => $_data,
 		);
 		if ($isError) {
-			$return['code'] = $_errorCode;
+			$return['code'] = $_errorCode === null ? -1 : $_errorCode;
+		}
+		// only the 1rst error may be displayed in JS toaster
+		if(!empty($errors)){
+			$nb = count( $errors) - 1;
+			$result = ( $nb > 0 ? "($nb errors)" : '');
+			if( !empty($errors['errors'])) {
+				$err = $errors['errors'][0];
+				$return['result'] = $result . errorHandler::displayHtmlException( $err);
+			} else if( !empty( $errors['exceptions'])){
+				$return['result'] = $result . $errors['exceptions'][0]->getTraceAsString();
+			}
 		}
 		return json_encode($return, JSON_UNESCAPED_UNICODE);
 	}
