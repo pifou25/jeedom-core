@@ -21,6 +21,8 @@ require_once __DIR__ . '/../../core/php/core.inc.php';
 
 /**
  * Jeedom command management class
+ * Translate system scan core/template/dashboard files and set them in i18n all under "core\/template\/widgets.html" path
+ * -> translate::exec($string, 'core/template/widgets.html');
  * @see eqLogic
  * @see jeeObject
  */

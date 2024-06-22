@@ -81,18 +81,16 @@ if [ -f ${WEBSERVER_HOME}/core/config/common.config.php ]; then
 else
 	echo 'Start jeedom installation'
 	JEEDOM_INSTALL=0
-	if [ -f ${WEBSERVER_HOME}/initialisation ]; then
-		echo 'Jeedom code already present from image build, skipping download'
-		INSTALL_SCRIPT=${WEBSERVER_HOME}/install/install.sh
-		chmod +x ${INSTALL_SCRIPT}
-		rm -f ${WEBSERVER_HOME}/initialisation
-	else
-		rm -rf /root/install.sh
-		wget https://raw.githubusercontent.com/jeedom/core/${VERSION}/install/install.sh -O /root/install.sh
-		INSTALL_SCRIPT=/root/install.sh
-		chmod +x ${INSTALL_SCRIPT}
-		${INSTALL_SCRIPT} -s 6 -v ${VERSION} -w ${WEBSERVER_HOME}
-	fi
+
+  # do not re-install jeedom
+  if [ ! -f ${WEBSERVER_HOME}/core/config/common.config.sample.php ]; then
+    echo 'download again Jeedom'
+    rm -rf /root/install.sh
+    wget https://raw.githubusercontent.com/jeedom/core/${VERSION}/install/install.sh -O /root/install.sh
+    chmod +x /root/install.sh
+    /root/install.sh -s 6 -v ${VERSION} -w ${WEBSERVER_HOME}
+  fi
+
 	if [ $(which mysqld | wc -l) -ne 0 ]; then
 		chown -R mysql:mysql /var/lib/mysql
 		mysql_install_db --user=mysql --basedir=/usr/ --ldata=/var/lib/mysql/
@@ -109,8 +107,10 @@ else
 		sed -i "s/#USERNAME#/jeedom/g" ${WEBSERVER_HOME}/core/config/common.config.php
 		sed -i "s/#PORT#/3306/g" ${WEBSERVER_HOME}/core/config/common.config.php
 		sed -i "s/#HOST#/localhost/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		${INSTALL_SCRIPT} -s 10 -v ${VERSION} -w ${WEBSERVER_HOME}
-		${INSTALL_SCRIPT} -s 11 -v ${VERSION} -w ${WEBSERVER_HOME}
+    # jeedom installation : install composer, init databse
+		/root/install.sh -s 10 -v ${VERSION} -w ${WEBSERVER_HOME}
+    # jeedom post-install
+		/root/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME}
 	fi
 fi
 
@@ -154,6 +154,7 @@ echo 'Start apache2'
 service apache2 start
 
 echo "Add trap docker_stop"
+# catch SIGTERM signal then call docker_stop
 trap "docker_stop $$ ;" 15
 
 cron -f
