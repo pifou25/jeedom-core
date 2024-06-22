@@ -1,0 +1,34 @@
+name: PHPUnit
+
+on:
+  push:
+    # only trigger CI when push on following branches
+    branches:
+    - fix/phpunit
+    - alpha
+  pull_request:
+    branches:
+    - alpha
+    
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # checkout repo
+    # https://github.com/marketplace/actions/checkout
+    - uses: actions/checkout@v4
+    # build docker image for local test only
+    # https://github.com/marketplace/actions/build-and-push-docker-images
+    -
+        name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: jeedom
+    # composer installation
+    # https://github.com/marketplace/actions/composer-php-actions
+    - uses: php-actions/composer@v6
+    # trigger phpunit using default xml configuration
+    # https://github.com/marketplace/actions/phpunit-php-actions
+    - uses: php-actions/phpunit@v3
