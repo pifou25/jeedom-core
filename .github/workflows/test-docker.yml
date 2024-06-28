@@ -1,0 +1,43 @@
+name: Docker Build and Test Image
+
+on:
+  # only trigger CI when pull request on following branches
+  pull_request:
+    branches:
+      - 'feat/dockerfile2'
+      - 'alpha'
+  # this is to manually trigger the worklow
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Reason'     
+        default: 'Manual launch'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Check Out Repo
+        # Check out the repo, using current branch
+        # https://github.com/marketplace/actions/checkout
+        uses: actions/checkout@v3
+
+      - name: Build jeedom:bullseye
+        # build current image for bullseye
+        run: |
+          docker build -t jeedom:bullseye --args DEBIAN=bullseye .
+
+      - name: run jeedom:bullseye and check
+        # build current image for bullseye and check it
+        run: |
+          docker run -p 80:80 -d --rm --name jeedom_bullseye jeedom:bullseye
+          sleep(60)
+          docker exec jeedom_bullseye php sick.php
+          docker container stop jeedom_bullseye
+  
+      - name: Clean docker image
+        run: |
+          docker stop $(docker ps -aq) 2>&1
+          docker rm $(docker ps -aq) 2>&1
+          docker rmi $(docker image ls -aq) 2>&1
