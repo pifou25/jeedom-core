@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 
 class ajaxTest extends TestCase
 {
-	public function getSuccessResponses()
+	public static function getSuccessResponses()
 	{
 		return array(
 			array(
@@ -29,7 +29,7 @@ class ajaxTest extends TestCase
 		);
 	}
 	
-	public function getErrorResponses()
+	public static function getErrorResponses()
 	{
 		return array(
 			array(
