@@ -34,6 +34,9 @@ jobs:
         # build current image for bullseye and check it
         run: |
           docker run -p 80:80 -d --rm --name jeedom_bullseye jeedom:bullseye
+          until [ "`docker inspect -f {{.State.Health.Status}} jeedom_bullseye`"=="healthy" ]; do
+              sleep 1;
+          done;
           sleep 30
           docker exec jeedom_bullseye php sick.php
           docker exec jeedom_bullseye ./resources/install_composer.sh
@@ -49,7 +52,9 @@ jobs:
         # build current image for bookworm and check it
         run: |
           docker run -p 81:80 -d --rm --name jeedom_bookworm jeedom:bookworm
-          sleep 30
+          until [ "`docker inspect -f {{.State.Health.Status}} jeedom_bullseye`"=="healthy" ]; do
+              sleep 1;
+          done;
           docker exec jeedom_bookworm php sick.php
           docker exec jeedom_bullseye ./resources/install_composer.sh
           docker exec jeedom_bookworm /bin/bash -c "COMPOSER_NO_DEV=0 && composer install"

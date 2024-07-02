@@ -56,6 +56,10 @@ RUN apt-get clean && \
 # this file is a flag to trigger init.sh initialisation
 RUN touch initialisation
 
+# check apache is running
+HEALTHCHECK --interval=1m --timeout=3s --retries=5 --start-period=10s --start-interval=5s \
+  CMD curl -f http://localhost/ || exit 1
+
 EXPOSE 80
 COPY install/OS_specific/Docker/init.sh /root/
 CMD ["bash", "/root/init.sh"]
