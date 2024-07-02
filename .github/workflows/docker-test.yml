@@ -37,7 +37,7 @@ jobs:
           sleep 30
           docker exec jeedom_bullseye php sick.php
           docker exec jeedom_bullseye ./resources/install_composer.sh
-          docker exec jeedom_bullseye COMPOSER_NO_DEV=0 composer install
+          docker exec jeedom_bullseye /bin/bash -c "COMPOSER_NO_DEV=0 && composer install"
           docker exec jeedom_bullseye ./vendor/bin/phpunit tests
 
       - name: Build jeedom:bookworm
@@ -51,7 +51,8 @@ jobs:
           docker run -p 81:80 -d --rm --name jeedom_bookworm jeedom:bookworm
           sleep 30
           docker exec jeedom_bookworm php sick.php
-          docker exec jeedom_bookworm COMPOSER_NO_DEV=0 composer install
+          docker exec jeedom_bullseye ./resources/install_composer.sh
+          docker exec jeedom_bookworm /bin/bash -c "COMPOSER_NO_DEV=0 && composer install"
           docker exec jeedom_bookworm ./vendor/bin/phpunit tests
     
       - name: Clean docker image
