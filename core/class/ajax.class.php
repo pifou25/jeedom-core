@@ -70,6 +70,15 @@ class ajax {
 		echo self::getResponse($_data);
 		die();
 	}
+	
+	/**
+	 * return error as ajax json response
+	 * @param $exception Exception
+	 */
+	public static function returnError($exception) {
+		die( self::getResponse( ErrorHandler::renderException( $exception), $exception->getCode()));
+	}
+
 
     /**
      * Sends an error response and ends execution
@@ -91,15 +100,38 @@ class ajax {
      * @return string|false Encoded JSON response
      */
 	public static function getResponse($_data = '', $_errorCode = null) {
-		$isError = !(null === $_errorCode);
+		$errors = ErrorHandler::flush( 'array');
+		$isError = !(null === $_errorCode && empty($errors));
 		$return = array(
 			'state' => $isError ? 'error' : 'ok',
 			'result' => $_data,
 		);
 		if ($isError) {
-			$return['code'] = $_errorCode;
+			$return['code'] = $_errorCode === null ? -1 : $_errorCode;
 		}
-		return json_encode($return, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
+		// only the 1rst error may be displayed in JS toaster
+		if(!empty($errors)){
+			$nb = count( $errors) - 1;
+			$result = ( $nb > 0 ? "($nb errors)" : '');
+			if( !empty($errors['errors'])) {
+				$err = $errors['errors'][0];
+				$return['result'] = $result . ErrorHandler::renderException( $err);
+			} else if( !empty( $errors['exceptions'])){
+				$return['result'] = $result . $errors['exceptions'][0]->getTraceAsString();
+			}
+		}
+		// only the 1rst error may be displayed in JS toaster
+		if(!empty($errors)){
+			$nb = count( $errors) - 1;
+			$result = ( $nb > 0 ? "($nb errors)" : '');
+			if( !empty($errors['errors'])) {
+				$err = $errors['errors'][0];
+				$return['result'] = $result . ErrorHandler::displayHtmlException( $err);
+			} else if( !empty( $errors['exceptions'])){
+				$return['result'] = $result . $errors['exceptions'][0]->getTraceAsString();
+			}
+		}
+		return json_encode($return, JSON_UNESCAPED_UNICODE);
 	}
 	/*     * **********************Getteur Setteur*************************** */
 }

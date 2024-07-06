@@ -29,6 +29,9 @@ try {
 		die();
 	}
 
+	// initialize error handler
+	ErrorHandler::init();
+
 	//dunno desktop or mobile:
 	if (!isset($_GET['v'])) {
 		if (config::byKey('disableMobileUi') == 1) {
