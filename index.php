@@ -29,6 +29,9 @@ try {
 		die();
 	}
 
+	// initialize error handler
+	ErrorHandler::init();
+
 	//dunno desktop or mobile:
 	if (!isset($_GET['v'])) {
 		if (config::byKey('disableMobileUi') == 1) {
@@ -66,7 +69,7 @@ try {
 			} catch (\Throwable $e) {
 				ob_end_clean();
 				$_div = '<div class="alert alert-danger div_alert">';
-				$_div .= translate::exec(displayException($e), 'desktop/' . init('p') . '.php');
+				$_div .= translate::exec(ErrorHandler::renderException($e), 'desktop/' . init('p') . '.php');
 				$_div .= '</div>';
 				echo $_div;
 			}
@@ -90,7 +93,7 @@ try {
 			} catch (\Throwable $e) {
 				ob_end_clean();
 				$_div = '<div class="alert alert-danger div_alert">';
-				$_div .= translate::exec(displayException($e), 'desktop/' . init('p') . '.php');
+				$_div .= translate::exec(ErrorHandler::renderException($e), 'desktop/' . init('p') . '.php');
 				$_div .= '</div>';
 				echo $_div;
 			}
