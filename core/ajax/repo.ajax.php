@@ -164,5 +164,5 @@ try {
 
 	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
-	ajax::error(displayException($e), $e->getCode());
+	ajax::returnError( $e);
 }
