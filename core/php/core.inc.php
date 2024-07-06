@@ -29,20 +29,6 @@ include_file('core', 'compatibility', 'config');
 include_file('core', 'utils', 'class');
 include_file('core', 'log', 'class');
 
-try {
-	$configs = config::byKeys(array('timezone', 'log::level'));
-	if (isset($configs['timezone'])) {
-		date_default_timezone_set($configs['timezone']);
-	}
-} catch (\Throwable $e) {
-}
-
-try {
-	if (isset($configs['log::level'])) {
-		log::define_error_reporting($configs['log::level']);
-	}
-} catch (\Throwable $e) {
-}
 
 function jeedomAutoload(string $_classname): void {
 	if (file_exists(__DIR__ . "/../../core/class/$_classname.class.php")) {
@@ -77,3 +63,20 @@ function jeedomAutoload(string $_classname): void {
 }
 
 spl_autoload_register('jeedomAutoload', true, true);
+
+try {
+	$configs = config::byKeys(array('timezone', 'log::level'));
+	if (isset($configs['timezone'])) {
+		date_default_timezone_set($configs['timezone']);
+	}
+} catch (Exception $e) {
+} catch (Error $e) {
+}
+
+try {
+	if (isset($configs['log::level'])) {
+		log::define_error_reporting($configs['log::level']);
+	}
+} catch (Exception $e) {
+} catch (Error $e) {
+}
