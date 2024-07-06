@@ -249,13 +249,14 @@ function mySqlIsHere() {
 	return is_object(DB::getConnection());
 }
 
+/**
+ * @deprecated use ErrorHandler::renderException instead
+ *
+ * @return string HTML formatted exception
+ */
 function displayException($e) {
-	$message = '<span id="span_errorMessage">' . log::exception($e) . '</span>';
-	if (DEBUG !== 0) {
-		$message .= "<a class=\"pull-right bt_errorShowTrace cursor\" onclick=\"event.stopPropagation(); document.getElementById('pre_errorTrace').toggle()\">Show traces</a>";
-		$message .= '<br/><pre id="pre_errorTrace" style="display : none;">' . print_r($e->getTraceAsString(), true) . '</pre>';
-	}
-	return $message;
+	trigger_error('Method ' . __METHOD__ . ' is deprecated. Use ErrorHandler::renderException instead.', E_USER_DEPRECATED);
+	return ErrorHandler::renderException( $e);
 }
 
 function is_json($_string, $_default = null) {

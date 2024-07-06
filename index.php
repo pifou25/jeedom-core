@@ -29,6 +29,9 @@ try {
 			die();
 	}
 
+	// initialize error handler
+	ErrorHandler::init();
+
 	//dunno desktop or mobile:
 	if (!isset($_GET['v'])) {
 		if (config::byKey('disableMobileUi') == 1) {
@@ -63,12 +66,6 @@ try {
 					throw new Exception('{{401 - Accès non autorisé}}');
 				}
 				include_file('desktop', init('modal'), 'modal', init('plugin'));
-			} catch (Exception $e) {
-				ob_end_clean();
-				$_div = '<div class="alert alert-danger div_alert">';
-				$_div .= translate::exec(displayException($e), 'desktop/' . init('p') . '.php');
-				$_div .= '</div>';
-				echo $_div;
 			} catch (Error $e) {
 				ob_end_clean();
 				$_div = '<div class="alert alert-danger div_alert">';
@@ -94,12 +91,6 @@ try {
 				}
 				include_file('core', 'authentification', 'php');
 				include_file('desktop', init('p'), 'php', init('m'));
-			} catch (Exception $e) {
-				ob_end_clean();
-				$_div = '<div class="alert alert-danger div_alert">';
-				$_div .= translate::exec(displayException($e), 'desktop/' . init('p') . '.php');
-				$_div .= '</div>';
-				echo $_div;
 			} catch (Error $e) {
 				ob_end_clean();
 				$_div = '<div class="alert alert-danger div_alert">';
