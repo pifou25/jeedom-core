@@ -146,17 +146,21 @@ try {
 	if (!file_exists($jeedom_dir . "/DB_backup.sql")) {
 		throw new Exception('Cannot find database backup file : DB_backup.sql');
 	}
-	echo "Deleting database...";
+
 	$tables = DB::Prepare("SHOW TABLES", array(), DB::FETCH_TYPE_ALL);
-	echo "Disabling constraints...";
-	DB::Prepare("SET foreign_key_checks = 0", array(), DB::FETCH_TYPE_ROW);
-	echo "OK\n";
-	foreach ($tables as $table) {
-		$table = array_values($table);
-		$table = $table[0];
-		echo "Deleting table : " . $table . ' ...';
-		DB::Prepare('DROP TABLE IF EXISTS `' . $table . '`', array(), DB::FETCH_TYPE_ROW);
+	if(count($tables) > 0) {
+		echo "Disabling constraints...";
+		DB::Prepare("SET foreign_key_checks = 0", array(), DB::FETCH_TYPE_ROW);
 		echo "OK\n";
+		foreach ($tables as $table) {
+			$table = array_values($table);
+			$table = $table[0];
+			echo "Deleting table : " . $table . ' ...';
+			DB::Prepare('DROP TABLE IF EXISTS `' . $table . '`', array(), DB::FETCH_TYPE_ROW);
+			echo "OK\n";
+		}
+	} else {
+		echo 'Empty database, nothing to delete.';
 	}
 	
 	echo "Restoring database from backup...";
@@ -195,7 +199,7 @@ try {
 	try {
 		cache::restore();
 	} catch (Exception $e) {
-		
+		echo '[warning] on restore cache : ' . $e->getMessage();
 	}
 	echo "OK\n";
 	

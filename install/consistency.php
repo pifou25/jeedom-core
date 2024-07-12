@@ -432,7 +432,9 @@ try {
 		echo "OK\n";
 	}
 
-	if (!file_exists('/etc/systemd/system/mariadb.service.d/jeedom.conf')) {
+	// install.sh create mariadb configuration into /etc/mysql/conf.d/jeedom_my.cnf
+	if (!file_exists('/etc/systemd/system/mariadb.service.d/jeedom.conf') 
+			&& !file_exists('/etc/mysql/conf.d/jeedom_my.cnf')) {
 		echo "Add parameter for mariadb service...";
 		$cmd = '';
 		if (!file_exists('/etc/systemd/system/mariadb.service.d')) {
