@@ -1,0 +1,14 @@
+{
+  "name": "my-jeedom-devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/php:1": {
+      "version": "7.3",
+      "installComposer": true
+    },
+    "ghcr.io/devcontainers-contrib/features/ts-node:1": {
+      "version": "latest"
+    },
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-php-mariadb:0": {}
+  }
+}
