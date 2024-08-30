@@ -7,6 +7,7 @@ ARG WEBSERVER_HOME=/var/www/html
 ENV WEBSERVER_HOME=${WEBSERVER_HOME}
 ARG VERSION=master
 ENV VERSION=${VERSION}
+ARG NODE_VERSION=20.18.1
 ARG DATABASE=1
 ENV APACHE_HTTP_PORT=80
 ENV APACHE_HTTPS_PORT=443
@@ -16,6 +17,7 @@ ENV DB_NAME=jeedom
 ENV DB_PORT=3306
 ENV DB_HOST=localhost
 ENV TZ=America/Chicago
+ENV LOGS_TO_STDOUT=n
 ENV DEBUG=0
 
 # labels follows opencontainers convention
@@ -31,22 +33,27 @@ LABEL org.opencontainers.image.description='Software for home automation'
 
 WORKDIR ${WEBSERVER_HOME}
 VOLUME ${WEBSERVER_HOME}
+VOLUME ${WEBSERVER_HOME}/log/
 VOLUME /var/lib/mysql
+
 
 #speed up build using docker cache
 RUN apt update -y 
-RUN apt -o Dpkg::Options::="--force-confdef" -y install software-properties-common \
+RUN apt -o Dpkg::Options::="--force-confdef" -y -q install software-properties-common dumb-init \
   ntp ca-certificates unzip curl sudo cron locate tar telnet wget logrotate dos2unix ntpdate htop \
   iotop vim iftop smbclient git python3 python3-pip libexpat1 ssl-cert \
   apt-transport-https xvfb cutycapt xauth at mariadb-client espeak net-tools nmap ffmpeg usbutils \
   gettext libcurl3-gnutls chromium librsync-dev ssl-cert iputils-ping \
   apache2 apache2-utils libexpat1 ssl-cert \
   php libapache2-mod-php php-json php-mysql php-curl php-gd php-imap php-xml php-opcache php-soap php-xmlrpc \
-  php-common php-dev php-zip php-ssh2 php-mbstring php-ldap php-yaml php-snmp && apt -y remove brltty
+  php-common php-dev php-zip php-ssh2 php-mbstring php-ldap php-yaml php-snmp \
+  npm && \
+  # install npm, and node with fixed version
+  npm install n -g && n ${NODE_VERSION} && \
+  #clean
+  && apt -y remove brltty
 
 COPY install/install.sh /tmp/
-RUN sh /tmp/install.sh -s 1 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 2 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
 RUN sh /tmp/install.sh -s 3 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
 RUN sh /tmp/install.sh -s 4 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
 RUN sh /tmp/install.sh -s 5 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
@@ -54,8 +61,10 @@ COPY . ${WEBSERVER_HOME}
 RUN sh /tmp/install.sh -s 7 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
 RUN sh /tmp/install.sh -s 8 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
 RUN sh /tmp/install.sh -s 9 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 10 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+# step_10_jeedom_installation : install composer
+COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
+RUN composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --optimize-autoloader
+# RUN sh /tmp/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* 
 RUN echo >${WEBSERVER_HOME}/initialisation
 
@@ -64,4 +73,11 @@ EXPOSE 80
 EXPOSE 443
 COPY --chown=root:root --chmod=550 install/OS_specific/Docker/init.sh /root/
 COPY --chown=root:root --chmod=550 install/bashrc /root/.bashrc
-CMD ["bash", "/root/init.sh"]
+
+WORKDIR /var/www/html/
+HEALTHCHECK --interval=60s --timeout=3s --retries=3 --start-period=40s \
+ CMD curl -s --fail http://localhost/here.html || exit 1
+
+#handler properly pid1
+ENTRYPOINT ["/usr/bin/dumb-init","--rewrite","15:10","--"]
+CMD ["/root/init.sh"]

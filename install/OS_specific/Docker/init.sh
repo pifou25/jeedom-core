@@ -69,48 +69,124 @@ apache_setup() {
     sed -i -E "s/\<VirtualHost \*:(.*)\>/VirtualHost \*:${APACHE_HTTP_PORT}/" /etc/apache2/sites-available/000-default.conf
     sed -i -E "s/\<VirtualHost \*:(.*)\>/VirtualHost \*:${APACHE_HTTPS_PORT}/" /etc/apache2/sites-available/default-ssl.conf
   fi
+
+  sed -i 's#/var/log/apache2#/var/www/html/log/#' /etc/apache2/envvars
+  sed -i 's#/var/log/apache2#/var/www/html/log#' /etc/logrotate.d/apache2
+
+  [[ $(a2query -m ssl | grep -c "^ssl") -eq 0 ]] && a2enmod ssl || true
+  [[ $(a2query -s default-ssl | grep -c "^default-ssl") -eq 0 ]] && a2ensite default-ssl
+  [[ $(a2query -s 000-default | grep -c "^000-default") -eq 0 ]] && a2ensite 000-default
 }
 
-echo 'Start init'
+db_creds(){
+  cp ${WEBSERVER_HOME}/core/config/common.config.sample.php ${WEBSERVER_HOME}/core/config/common.config.php
+  sed -i "s/#PASSWORD#/${DB_PASSWORD}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+  sed -i "s/#DBNAME#/${DB_NAME:-jeedom}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+  sed -i "s/#USERNAME#/${DB_USERNAME:-jeedom}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+  sed -i "s/#PORT#/${DB_PORT:-3306}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+  sed -i "s/#HOST#/${DB_HOST:-localhost}/g" ${WEBSERVER_HOME}/core/config/common.config.php
+}
 
+save_db_decrypt_key() {
+  # check if env jeedom encryption key is defined
+  if [[ -n ${JEEDOM_ENCRYPTION_KEY} ]]; then
+    #write jeedom encryption key if different
+    if [[ ! -e /var/www/html/data/jeedom_encryption.key ]] || [[ "$(cat /var/www/html/data/jeedom_encryption.key)" != "${JEEDOM_ENCRYPTION_KEY}" ]]; then
+      echo "Writing jeedom encryption key as defined in env"
+      echo "${JEEDOM_ENCRYPTION_KEY}" >${WEBSERVER_HOME}/data/jeedom_encryption.key
+    fi
+  fi
+}
+
+save_db_decrypt_key() {
+  # check if env jeedom encryption key is defined
+  if [[ -n ${JEEDOM_ENCRYPTION_KEY} ]]; then
+    #write jeedom encryption key if different
+    if [[ ! -e /var/www/html/data/jeedom_encryption.key ]] || [[ "$(cat /var/www/html/data/jeedom_encryption.key)" != "${JEEDOM_ENCRYPTION_KEY}" ]]; then
+      echo "Writing jeedom encryption key as defined in env"
+      echo "${JEEDOM_ENCRYPTION_KEY}" >${WEBSERVER_HOME}/data/jeedom_encryption.key
+    fi
+  fi
+}
+
+#Main
 # $WEBSERVER_HOME and $VERSION env variables comes from Dockerfile
+set +e
+dpkg -l mariadb-server 2>&1 > /dev/null
+status=$?
+ISMARIADBSERVER=$(( 1 - ${status} ))
 
-if [ -f ${WEBSERVER_HOME}/core/config/common.config.php ]; then
-	echo 'Jeedom is already install'
-	JEEDOM_INSTALL=1
+#Get vars from secrets
+for s in JEEDOM_ENCRYPTION_KEY DB_ROOT_PASSWD DB_PASSWORD ROOT_PASSWORD; do
+  if [[ -f /run/secrets/${s} ]]; then
+    echo "Reading ${s} from secrets"
+    eval ${s}=$(cat /run/secrets/${s})
+    [[ 1 -eq ${DEBUG} ]] && echo "${s}: ${!s}" || true
+  fi
+done
+
+#define php db conf
+db_creds
+#Get vars from secrets
+for s in JEEDOM_ENCRYPTION_KEY DB_ROOT_PASSWD DB_PASSWORD ROOT_PASSWORD; do
+  if [[ -f /run/secrets/${s} ]]; then
+    echo "Reading ${s} from secrets"
+    eval ${s}=$(cat /run/secrets/${s})
+    [[ 1 -eq ${DEBUG} ]] && echo "${s}: ${!s}" || true
+  fi
+done
+
+#define php db conf
+db_creds
+
+if [[ -f ${WEBSERVER_HOME}/initialisation ]]; then
+  echo "************************
+Start Jeedom initialisation !
+************************"
+  JEEDOM_INSTALL=0
+  # mariadb server is installed
+  if [[ 1 -eq ${ISMARIADBSERVER} ]]; then
+    echo "************************
+Start mariadb service
+************************"
+    service mariadb start
+    service mariadb status
+    DB_PASSWORD=$(openssl rand -base64 32 | tr -d /=+)
+    echo "DROP USER IF EXISTS 'jeedom'@'%';" | mysql
+    echo "CREATE USER 'jeedom'@'%' IDENTIFIED BY '${DB_PASSWORD}';" | mysql
+    echo "DROP DATABASE IF EXISTS jeedom;" | mysql
+    echo "CREATE DATABASE jeedom;" | mysql
+    echo "GRANT ALL PRIVILEGES ON jeedom.* TO 'jeedom'@'%';" | mysql
+  fi
+  echo "************************
+start JEEDOM PHP script installation
+************************"
+	php "${WEBSERVER_HOME}/install/install.php" mode=force
+	# remove the flag file after the first successfull installation
+	rm "${WEBSERVER_HOME}/initialisation"
 else
-	echo 'Start jeedom installation'
-	JEEDOM_INSTALL=0
-	rm -rf /root/install.sh
-	wget https://raw.githubusercontent.com/jeedom/core/${VERSION}/install/install.sh -O /root/install.sh
-	chmod +x /root/install.sh
-	/root/install.sh -s 6 -v ${VERSION} -w ${WEBSERVER_HOME}
-	if [ $(which mysqld | wc -l) -ne 0 ]; then
-		chown -R mysql:mysql /var/lib/mysql
-		mysql_install_db --user=mysql --basedir=/usr/ --ldata=/var/lib/mysql/
-		service_mariadb restart
-		MYSQL_JEEDOM_PASSWD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
-		echo "DROP USER 'jeedom'@'localhost';" | mysql > /dev/null 2>&1
-		echo  "CREATE USER 'jeedom'@'localhost' IDENTIFIED BY '${MYSQL_JEEDOM_PASSWD}';" | mysql
-		echo  "DROP DATABASE IF EXISTS jeedom;" | mysql
-		echo  "CREATE DATABASE jeedom;" | mysql
-		echo  "GRANT ALL PRIVILEGES ON jeedom.* TO 'jeedom'@'localhost';" | mysql
-		cp ${WEBSERVER_HOME}/core/config/common.config.sample.php ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#PASSWORD#/${MYSQL_JEEDOM_PASSWD}/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#DBNAME#/jeedom/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#USERNAME#/jeedom/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#PORT#/3306/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		sed -i "s/#HOST#/localhost/g" ${WEBSERVER_HOME}/core/config/common.config.php
-		/root/install.sh -s 10 -v ${VERSION} -w ${WEBSERVER_HOME}
-		/root/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME}
-	fi
+  isTables=$(mysql -u${DB_USERNAME} -p${DB_PASSWORD} -h ${DB_HOST} -P${DB_PORT} ${DB_NAME} -e "show tables;" | wc -l)
+  if [[ ${isTables:-0} -eq 0 ]]; then
+    php "${WEBSERVER_HOME}/install/install.php" mode=force
+  fi
 fi
 
+#set admin password if needed
+if [[ "${JEEDOM_INSTALL}" == 0 ]] && [[ ! -z "${ADMIN_PASSWORD}" ]]; then
+	echo "Set admin password with env var"
+	php "${WEBSERVER_HOME}/core/php/jeecli.php" user password admin "${ADMIN_PASSWORD}"
+fi
+
+#set timezone
 setTimeZone
 #setup apache port
 apache_setup
 #setup root passwd
 set_root_password
+#allow db secrets decode when using external db.
+save_db_decrypt_key
+#save db config fil
+db_creds
 
 echo 'Start atd'
 service atd restart
@@ -138,9 +214,18 @@ fi
 
 echo 'All init complete'
 chmod 777 /dev/tty*
-chmod 777 -R /tmp
-chmod 755 -R ${WEBSERVER_HOME}
-chown -R www-data:www-data ${WEBSERVER_HOME}
+chmod 755 -R "${WEBSERVER_HOME}"
+
+#redirect logs to container stdout
+if [[ ${LOGS_TO_STDOUT,,} =~ [yo] ]]; then
+  echo "Send apache logs to stdout/err"
+  [[ -f /var/log/apache2/access.log ]] && rm -Rf /var/log/apache2/* || true
+  ln -sf /proc/1/fd/1 /var/www/html/log/access.log
+  ln -sf /proc/1/fd/1 /var/www/html/log/error.log
+  chown -R www-data:www-data /var/www/html/log/
+else
+  [[ -L /var/log/apache2/access.log ]] && rm -f /var/log/apache2/{access,error}.log && echo "Remove apache symlink to stdout/stderr" || echo
+fi
 
 echo 'Start apache2'
 service apache2 start
