@@ -1847,3 +1847,16 @@ function implode_recursive($_array, $_separator, $_key = '') {
 	}
 	return $result;
 }
+
+/**
+ * Global translation helper for a single text key
+ *
+ * @param string $_content Translation key
+ * @param string $_name Plugin/widget identifier or path
+ * @param bool $_backslash Whether to escape single quotes
+ * @return string Translated text
+ * @see translate::sentence() Core translation method
+ */
+function __($_content, $_name, $_backslash = false) {
+	return translate::sentence(str_replace("\'", "'", $_content), $_name, $_backslash);
+}
