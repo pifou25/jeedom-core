@@ -29,7 +29,7 @@ class ajax {
 			header('Content-Type: application/json');
 		}
 		if(isset($_GET['action']) && !in_array($_GET['action'], $_allowGetAction)){
-			throw new \Exception(__('Méthode non autorisé en GET : ',__FILE__).$_GET['action']);
+			throw new \Exception(__('Méthode non autorisée en GET : ',__FILE__).$_GET['action']);
 		}
 	}
 	
@@ -47,7 +47,7 @@ class ajax {
 	 * @param $exception Exception
 	 */
 	public static function returnError($exception) {
-		die( self::getResponse( ErrorHandler::displayHtmlException( $exception), $exception->getCode()));
+		die( self::getResponse( ErrorHandler::renderException( $exception), $exception->getCode()));
 	}
 
 	public static function error($_data = '', $_errorCode = 0) {
@@ -76,7 +76,18 @@ class ajax {
 				$return['result'] = $result . $errors['exceptions'][0]->getTraceAsString();
 			}
 		}
-		return json_encode($return, JSON_UNESCAPED_UNICODE);
+		// only the 1rst error may be displayed in JS toaster
+		if(!empty($errors)){
+			$nb = count( $errors) - 1;
+			$result = ( $nb > 0 ? "($nb errors)" : '');
+			if( !empty($errors['errors'])) {
+				$err = $errors['errors'][0];
+				$return['result'] = $result . ErrorHandler::renderException( $err);
+			} else if( !empty( $errors['exceptions'])){
+				$return['result'] = $result . $errors['exceptions'][0]->getTraceAsString();
+			}
+		}
+		return json_encode($return, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
 	}
 	/*     * **********************Getteur Setteur*************************** */
 }

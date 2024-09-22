@@ -920,14 +920,18 @@ var jeeDialog = (function() {
       dialogFooter.addClass('jeeDialogFooter')
       template.appendChild(dialogFooter)
 
-      for (var button of Object.entries(_params.defaultButtons)) {
-        //Get user buttons with merged default buttons callback:
-        if (isset(_params.buttons[button[0]])) {
-          button[1].label = _params.buttons[button[0]].label
-          button[1].className = _params.buttons[button[0]].className
-          button[1].callback = _params.buttons[button[0]].callback || _params.defaultButtons[button[0]].callback
-        }
+      let buttons = {}
+      for ( let button of Object.entries(_params.buttons)) {
+        buttons[button[0]] = domUtils.extend(_params.defaultButtons[button[0]],button[1])
+      }
 
+      for (let defaultButton of Object.entries(_params.defaultButtons)) {
+        if (! isset(buttons[defaultButton[0]])) {
+          buttons[defaultButton[0]] = defaultButton[1]
+        }
+      }
+
+      for (var button of Object.entries(buttons)) {
         var buttonEL = exports.addButton(button, dialogFooter)
         if (buttonEL.getAttribute('data-type') === 'confirm') {
           _container.addEventListener('keyup', function(event) {
@@ -1014,7 +1018,7 @@ var jeeDialog = (function() {
       }
       if (_params.isMainDialog) {
         backDrop.addEventListener('click', function(event) {
-          document.querySelectorAll('div.jeeDialog').forEach(_dialog => {
+          document.querySelectorAll('div.jeeDialog:not(.jeeDialogNoCloseBackdrop)').forEach(_dialog => {
             if (isset(_dialog._jeeDialog)) _dialog._jeeDialog.close(_dialog)
           })
         })
