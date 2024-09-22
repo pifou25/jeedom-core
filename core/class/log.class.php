@@ -60,8 +60,8 @@ class log extends AbstractLogger {
 	public static function getConfig($_key, $_default = '') {
 		if (self::$config === null) {
 			try {
-				self::$config = array_merge(config::getLogLevelPlugin(), config::byKeys(array('log::engine', 'log::formatter', 'log::level', 'addMessageForErrorLog', 'maxLineLog', 'maxSizeLog')));
-			} catch (\Throwable $e) {
+  			self::$config = array_merge(config::getLogLevelPlugin(), config::byKeys(array('log::engine', 'log::formatter', 'log::level', 'addMessageForErrorLog', 'maxLineLog', 'maxSizeLog')));
+			} catch (\Exception $e) {
 				self::$config = array();
 			}
 		}
