@@ -250,7 +250,7 @@ function mySqlIsHere() {
 }
 
 function displayException($e) {
-	$message = '<span id="span_errorMessage">' . $e->getMessage() . '</span>';
+	$message = '<span id="span_errorMessage">' . log::exception($e) . '</span>';
 	if (DEBUG !== 0) {
 		$message .= "<a class=\"pull-right bt_errorShowTrace cursor\" onclick=\"event.stopPropagation(); document.getElementById('pre_errorTrace').toggle()\">Show traces</a>";
 		$message .= '<br/><pre id="pre_errorTrace" style="display : none;">' . print_r($e->getTraceAsString(), true) . '</pre>';
@@ -955,7 +955,7 @@ function getNtpTime() {
 				$NTPtime = ord($data[0]) * pow(256, 3) + ord($data[1]) * pow(256, 2) + ord($data[2]) * 256 + ord($data[3]);
 				$TimeFrom1990 = $NTPtime - 2840140800;
 				$TimeNow = $TimeFrom1990 + 631152000;
-				return date("m/d/Y H:i:s", $TimeNow + $time_adjustment);
+				return date("m/d/Y H:i:s", (int) ($TimeNow + $time_adjustment));
 			}
 		}
 	}
@@ -1010,12 +1010,12 @@ function evaluate($_string) {
 	try {
 		return $GLOBALS['ExpressionLanguage']->evaluate($expr);
 	} catch (Exception $e) {
-		//log::add('expression', 'debug', '[Parser 1] Expression : ' . $_string . ' tranformé en ' . $expr . ' => ' . $e->getMessage());
+		//log::add('expression', 'debug', '[Parser 1] Expression : ' . $_string . ' tranformé en ' . $expr . ' => ' . log::exception($e));
 	}
 	try {
 		return $GLOBALS['ExpressionLanguage']->evaluate(str_replace('""', '"', $expr));
 	} catch (Exception $e) {
-		//log::add('expression', 'debug', '[Parser 2] Expression : ' . $_string . ' tranformé en ' . $expr . ' => ' . $e->getMessage());
+		//log::add('expression', 'debug', '[Parser 2] Expression : ' . $_string . ' tranformé en ' . $expr . ' => ' . log::exception($e));
 	}
 	return $_string;
 }
@@ -1400,8 +1400,9 @@ function listSession() {
 				continue;
 			}
 			$session_id = str_replace('sess_', '', $session);
+			$timestamp = com_shell::execute(system::getCmdSudo() . ' stat -c "%Y" ' . session_save_path() . '/' . $session);
 			$return[$session_id] = array(
-				'datetime' => date('Y-m-d H:i:s', com_shell::execute(system::getCmdSudo() . ' stat -c "%Y" ' . session_save_path() . '/' . $session)),
+				'datetime' => date('Y-m-d H:i:s', (int) $timestamp),
 			);
 			$return[$session_id]['login'] = $data_session['user']->getLogin();
 			$return[$session_id]['user_id'] = $data_session['user']->getId();
@@ -1450,7 +1451,7 @@ function checkAndFixCron($_cron) {
 	return $return;
 }
 
-function cronIsDue($_cron,$_datetime = null){
+function cronIsDue($_cron,$_datetime = null,$_lastlaunch = null){
 	if (((new DateTime('today midnight +1 day'))->format('I') - (new DateTime('today midnight'))->format('I')) == -1 && date('I') == 1 && date('Gi') > 159) {
 		return false;
 	}
@@ -1463,7 +1464,15 @@ function cronIsDue($_cron,$_datetime = null){
 	}
 	try {
 		$c = new Cron\CronExpression(checkAndFixCron($_cron), new Cron\FieldFactory);
-		return $c->isDue($_datetime);
+		if($c->isDue($_datetime)){
+			return true;
+		}
+		if($_lastlaunch !== null){
+			$prev = $c->getPreviousRunDate()->getTimestamp();
+			if (strtotime($_lastlaunch) <= $prev && abs((strtotime('now') - $prev) / 60) <= config::byKey('maxCatchAllow') || config::byKey('maxCatchAllow') == -1) {
+				return true;
+			}
+		}
 	} catch (Exception $e) {
 		$evaluate = jeedom::evaluateExpression($_cron);
 		if(is_numeric($evaluate)){

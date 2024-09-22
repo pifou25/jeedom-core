@@ -30,6 +30,15 @@ class history {
 
 	/*     * ***********************Methode static*************************** */
 
+	public static function removeHistoryInFutur(){
+		$sql = 'DELETE FROM history 
+		WHERE `datetime` > :datetime';
+		DB::Prepare($sql, array('datetime' => date('Y-m-d H:i:s')), DB::FETCH_TYPE_ROW);
+		$sql = 'DELETE FROM historyArch 
+		WHERE `datetime` > :datetime';
+		DB::Prepare($sql, array('datetime' => date('Y-m-d H:i:s')), DB::FETCH_TYPE_ROW);
+	  }
+
 	public static function checkCurrentValueAndHistory() {
 		$sql = 'SELECT DISTINCT(cmd_id)
         FROM history';
@@ -336,7 +345,7 @@ class history {
 				try {
 					DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW);
 				} catch (Exception $e) {
-					log::add('history', 'error', __('Erreur l\'archivage des historiques :', __FILE__) . ' ' . json_encode($values) . '  => ' . $e->getMessage());
+					log::add('history', 'error', __('Erreur l\'archivage des historiques :', __FILE__) . ' ' . json_encode($values) . '  => ' . log::exception($e));
 					continue;
 				}
 				$values = array('cmd_id' => $sensors['cmd_id'], 'archiveTime' => $archiveDatetime);
@@ -699,7 +708,7 @@ class history {
 	public static function getTendance($_cmd_id, $_startTime, $_endTime) {
 		$values = array();
 		foreach (self::all($_cmd_id, $_startTime, $_endTime) as $history) {
-			$values[] = $history->getValue();
+			$values[] = floatval($history->getValue());
 		}
 		if (count($values) == 0) {
 			$x_mean = 0;

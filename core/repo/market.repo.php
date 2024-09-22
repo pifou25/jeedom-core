@@ -262,7 +262,7 @@ class repo_market {
 
 	public static function backup_send($_path) {
 		if (!config::byKey('service::backup::enable')) {
-			throw new Exception(__('Aucun serveur de backup defini. Avez-vous bien un abonnement au backup cloud ?', __FILE__));
+			throw new Exception(__('Erreur d\'envoi du backup au cloud. Avez-vous bien un abonnement au backup cloud ?', __FILE__));
 		}
 		if (config::byKey('market::cloud::backup::password') == '') {
 			throw new Exception(__('Vous devez obligatoirement avoir un mot de passe pour le backup cloud (allez dans Réglages -> Système -> Configuration puis onglet Mise à jour/Market)', __FILE__));
@@ -338,8 +338,8 @@ class repo_market {
 			$request_http->exec();
 			$total_size -= $file['size'];
 			$nb++;
-			if ($nb > 10) {
-				throw new \Exception(__('Erreur lors du nettoyage des backups cloud, supression > 10', __FILE__));
+			if ($nb > 100) {
+				throw new \Exception(__('Erreur lors du nettoyage des backups cloud, supression > 100', __FILE__));
 			}
 		}
 	}
@@ -948,7 +948,14 @@ class repo_market {
 			throw new Exception(__('Impossible d\'écrire dans le répertoire :', __FILE__) . ' ' . $tmp . __('. Exécuter la commande suivante en SSH : sudo chmod 777 -R', __FILE__) . ' ' . $tmp_dir);
 		}
 
-		$url = config::byKey('market::address') . "/core/php/downloadFile.php?id=" . $this->getId() . '&version=' . $_version . '&jeedomversion=' . jeedom::version() . '&hwkey=' . jeedom::getHardwareKey() . '&username=' . urlencode(config::byKey('market::username')) . '&password=' . self::getPassword() . '&password_type=sha1';
+		$url = config::byKey('market::address') . "/core/php/downloadFile.php?id=" . $this->getId();
+		$url .='&version=' . $_version ;
+		$url .='&jeedomversion=' . jeedom::version();
+		$url .='&osversion=' . system::getOsVersion();
+		$url .='&hwkey=' . jeedom::getHardwareKey();
+		$url .='&username=' . urlencode(config::byKey('market::username'));
+		$url .='&password=' . self::getPassword();
+		$url .='&password_type=sha1';
 		log::add('update', 'alert', __('Téléchargement de', __FILE__) . ' ' . $this->getLogicalId() . '...');
 		log::add('update', 'alert', __('URL', __FILE__) . ' ' . $url);
 		exec('wget "' . $url . '" -O ' . $tmp . ' >> ' . log::getPathToLog('update') . ' 2>&1');
@@ -1050,7 +1057,7 @@ class repo_market {
 		}
 		if ($update->getSource() == 'market') {
 			$update->setConfiguration('version', 'beta');
-			$update->setLocalVersion(date('Y-m-d H:i:s', strtotime('+10 minute' . date('Y-m-d H:i:s'))));
+			$update->setLocalVersion(date('Y-m-d H:i:s',(int) strtotime('+10 minute' . date('Y-m-d H:i:s'))));
 			$update->save();
 		}
 		$update->checkUpdate();

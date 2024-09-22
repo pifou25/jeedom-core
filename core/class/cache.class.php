@@ -109,6 +109,9 @@ class cache {
 		}
 		$caches = self::getEngine()::all();
 		foreach ($caches as $cache) {
+			if(!is_object($cache)){
+				continue;
+			}
 			$matches = null;
 			preg_match_all('/camera(\d*)(.*?)/',  $cache->getKey(), $matches);
 			if (isset($matches[1][0])) {
@@ -185,7 +188,7 @@ class cache {
 	}
 
 	public function getDatetime() {
-		return date('Y-m-d H:i:s',$this->timestamp);
+		return date('Y-m-d H:i:s',(int) $this->timestamp);
 	}
 
 	public function setDatetime($_datetime): self {
@@ -295,7 +298,7 @@ class RedisCache {
 		if($data === false){
 			return null;
 		}
-		return unserialize($data);
+		return @unserialize($data);
 	}
 
 	public static function delete($_key){
