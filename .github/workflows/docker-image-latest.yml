@@ -5,6 +5,7 @@ on:
     # only trigger CI when push on following branches
     branches:
       - 'master'
+      - 'beta_workflow'
   # this is to manually trigger the worklow
   workflow_dispatch:
     inputs:
@@ -93,7 +94,7 @@ jobs:
           docker rm $(docker ps -aq) 2>&1
           docker rmi $(docker image ls -aq) 2>&1
       
-      - name: Build and push Jeedom on DockerHub
+      - name: Build and push Jeedom on Debian:Bullseye with DB
         # https://github.com/marketplace/actions/build-and-push-docker-images
         uses: docker/build-push-action@v3
         continue-on-error: true
@@ -104,8 +105,11 @@ jobs:
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-          build-args: "VERSION=${{ env.GITHUB_BRANCH }}"
-          tags: "${{ env.JEEDOM_TAGS }}"
+          build-args: |
+            "VERSION=${{ env.GITHUB_BRANCH }}"
+            "DEBIAN=bullseye-slim"
+            "DATABASE=1"
+          tags: "${{ env.JEEDOM_TAGS }},${{ env.JEEDOM_REPO }}/jeedom:${{ env.JEEDOM_SHORT_VERSION}}-bullseye"
           
       - name: Clean docker image
         run: |
