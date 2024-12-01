@@ -35,27 +35,45 @@ VOLUME /var/lib/mysql
 
 #speed up build using docker cache
 RUN apt update -y 
-RUN apt -o Dpkg::Options::="--force-confdef" -y install software-properties-common \
+RUN apt -o Dpkg::Options::="--force-confdef" -y -q install software-properties-common \
   ntp ca-certificates unzip curl sudo cron locate tar telnet wget logrotate dos2unix ntpdate htop \
   iotop vim iftop smbclient git python3 python3-pip libexpat1 ssl-cert \
   apt-transport-https xvfb cutycapt xauth at mariadb-client espeak net-tools nmap ffmpeg usbutils \
   gettext libcurl3-gnutls chromium librsync-dev ssl-cert iputils-ping \
   apache2 apache2-utils libexpat1 ssl-cert \
   php libapache2-mod-php php-json php-mysql php-curl php-gd php-imap php-xml php-opcache php-soap php-xmlrpc \
-  php-common php-dev php-zip php-ssh2 php-mbstring php-ldap php-yaml php-snmp && apt -y remove brltty
+  php-common php-dev php-zip php-ssh2 php-mbstring php-ldap php-yaml php-snmp \
+  npm && \
+  # install npm, and node with fixed version
+  npm install n -g && n 20.18.1 && \
+  #clean
+  apt -y remove brltty
 
-COPY install/install.sh /tmp/
-RUN sh /tmp/install.sh -s 1 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 2 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 3 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 4 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 5 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+COPY --chown=root:root --chmod=550 install/install.sh /root/
+# step_3_database ... only if $DATABASE
+RUN if [ "${DATABASE}" != "0" ]; then \
+      sh /root/install.sh -s 3 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker; \
+    else \
+      echo "Skipping Database installation on ${DEBIAN}"; \
+    fi
+# step_4_apache
+RUN sh /root/install.sh -s 4 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+# step_5_php : install php with extensions
+RUN sh /root/install.sh -s 5 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+# step 6 : copy jeedom source files from local
 COPY . ${WEBSERVER_HOME}
-RUN sh /tmp/install.sh -s 7 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 8 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 9 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 10 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
-RUN sh /tmp/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+# step_7_jeedom_customization_mariadb
+RUN sh /root/install.sh -s 7 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+# step_8_jeedom_customization
+RUN sh /root/install.sh -s 8 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+# step_9_jeedom_configuration
+RUN sh /root/install.sh -s 9 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+# step_10_jeedom_installation : install composer
+COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
+RUN composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --optimize-autoloader
+# step_11_jeedom_post
+RUN sh /root/install.sh -s 11 -v ${VERSION} -w ${WEBSERVER_HOME} -d ${DATABASE} -i docker
+
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* 
 RUN echo >${WEBSERVER_HOME}/initialisation
 
