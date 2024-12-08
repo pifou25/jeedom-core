@@ -123,6 +123,9 @@
         <h2 class="phpdocumentor-content__title">
     log
 
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\Psr\Log\AbstractLogger">AbstractLogger</abbr>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -142,7 +145,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -186,13 +189,19 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/log.html#property__log_name">$_log_name</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/log.html#property_config">$config</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/log.html#property_logger">$logger</a>
+    <a href="classes/log.html#property_level">$level</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -205,6 +214,12 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/log.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/log.html#method_add">add()</a>
     <span>
@@ -316,6 +331,12 @@ New position is stored in $_position when eof is reached</dd>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/log.html#method_log">log()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/log.html#method_remove">remove()</a>
     <span>
                                 &nbsp;: mixed    </span>
@@ -350,7 +371,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -382,6 +403,39 @@ New position is stored in $_position when eof is reached</dd>
             phpdocumentor-element
             -property
             -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property__log_name">
+        $_log_name
+        <a href="classes/log.html#property__log_name" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$_log_name</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
             -static                                            "
 >
     <h4 class="phpdocumentor-element__name" id="property_config">
@@ -394,7 +448,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -417,9 +471,9 @@ New position is stored in $_position when eof is reached</dd>
             -private
             -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property_logger">
-        $logger
-        <a href="classes/log.html#property_logger" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_level">
+        $level
+        <a href="classes/log.html#property_level" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
@@ -427,7 +481,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -435,8 +489,8 @@ New position is stored in $_position when eof is reached</dd>
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$logger</span>
-     = <span class="phpdocumentor-signature__default-value">array()</span></code>
+    <span class="phpdocumentor-signature__name">$level</span>
+     = <span class="phpdocumentor-signature__default-value">array(&#039;debug&#039; =&gt; 100, &#039;info&#039; =&gt; 200, &#039;notice&#039; =&gt; 250, &#039;warning&#039; =&gt; 300, &#039;error&#039; =&gt; 400, &#039;critical&#039; =&gt; 500, &#039;alert&#039; =&gt; 550, &#039;emergency&#039; =&gt; 600)</span></code>
 
     
     
@@ -455,6 +509,47 @@ New position is stored in $_position when eof is reached</dd>
         class="phpdocumentor-element
             -method
             -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/log.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$log_name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$log_name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                     -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_add">
@@ -465,7 +560,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -532,7 +627,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">180</span>
+    <span class="phpdocumentor-element-found-in__line">187</span>
 
     </aside>
 
@@ -581,7 +676,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 
     </aside>
 
@@ -622,7 +717,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 
     </aside>
 
@@ -663,7 +758,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
@@ -705,7 +800,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">205</span>
 
     </aside>
 
@@ -736,7 +831,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -777,7 +872,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">477</span>
+    <span class="phpdocumentor-element-found-in__line">484</span>
 
     </aside>
 
@@ -843,7 +938,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">504</span>
+    <span class="phpdocumentor-element-found-in__line">508</span>
 
     </aside>
 
@@ -884,7 +979,7 @@ New position is stored in $_position when eof is reached</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">248</span>
+    <span class="phpdocumentor-element-found-in__line">255</span>
 
     </aside>
 
@@ -970,7 +1065,7 @@ $res = array_reverse($arr);</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -1018,7 +1113,7 @@ $res = array_reverse($arr);</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">285</span>
+    <span class="phpdocumentor-element-found-in__line">292</span>
 
     </aside>
 
@@ -1125,7 +1220,7 @@ New position is stored in $_position when eof is reached</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">429</span>
+    <span class="phpdocumentor-element-found-in__line">436</span>
 
     </aside>
 
@@ -1184,7 +1279,7 @@ New position is stored in $_position when eof is reached</p>
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getLogger</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_log</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getLogger</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_logName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1192,7 +1287,7 @@ New position is stored in $_position when eof is reached</p>
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_log</span>
+                <span class="phpdocumentor-signature__argument__name">$_logName</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -1218,7 +1313,7 @@ New position is stored in $_position when eof is reached</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -1259,7 +1354,7 @@ New position is stored in $_position when eof is reached</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">180</span>
 
     </aside>
 
@@ -1300,7 +1395,7 @@ New position is stored in $_position when eof is reached</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">458</span>
+    <span class="phpdocumentor-element-found-in__line">465</span>
 
     </aside>
 
@@ -1331,6 +1426,61 @@ New position is stored in $_position when eof is reached</p>
         class="phpdocumentor-element
             -method
             -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_log">
+        log()
+        <a href="classes/log.html#method_log" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">54</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">log</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$level</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$level</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">array()</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                     -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_remove">
@@ -1341,7 +1491,7 @@ New position is stored in $_position when eof is reached</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">207</span>
+    <span class="phpdocumentor-element-found-in__line">214</span>
 
     </aside>
 
@@ -1383,7 +1533,7 @@ New position is stored in $_position when eof is reached</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/log.class.php"><a href="files/core-class-log-class.html"><abbr title="core/class/log.class.php">log.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">223</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 
@@ -1520,14 +1670,16 @@ New position is stored in $_position when eof is reached</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/log.html#property__log_name">$_log_name<a href="classes/log.html"></li>
                                                     <li><a href="classes/log.html#property_config">$config<a href="classes/log.html"></li>
-                                                    <li><a href="classes/log.html#property_logger">$logger<a href="classes/log.html"></li>
+                                                    <li><a href="classes/log.html#property_level">$level<a href="classes/log.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/log.html#method___construct">__construct()</a></li>
                                             <li><a href="classes/log.html#method_add">add()</a></li>
                                             <li><a href="classes/log.html#method_authorizeClearLog">authorizeClearLog()</a></li>
                                             <li><a href="classes/log.html#method_chunk">chunk()</a></li>
@@ -1545,6 +1697,7 @@ New position is stored in $_position when eof is reached</p>
                                             <li><a href="classes/log.html#method_getLogLevel">getLogLevel()</a></li>
                                             <li><a href="classes/log.html#method_getPathToLog">getPathToLog()</a></li>
                                             <li><a href="classes/log.html#method_liste">liste()</a></li>
+                                            <li><a href="classes/log.html#method_log">log()</a></li>
                                             <li><a href="classes/log.html#method_remove">remove()</a></li>
                                             <li><a href="classes/log.html#method_removeAll">removeAll()</a></li>
                                     </ul>

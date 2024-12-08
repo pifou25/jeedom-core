@@ -121,7 +121,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    repo_github
+    RedisCache
 
     
             <div class="phpdocumentor-element__package">
@@ -140,9 +140,9 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 
     </aside>
 
@@ -154,7 +154,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/repo-github.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/RedisCache.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -168,18 +168,12 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/repo-github.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/RedisCache.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/repo-github.html#property__name">$_name</a>
-    <span>
-                        &nbsp;: mixed            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/repo-github.html#property__scope">$_scope</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/RedisCache.html#property_connection">$connection</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -188,54 +182,48 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/repo-github.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/RedisCache.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_checkUpdate">checkUpdate()</a>
+    <a href="classes/RedisCache.html#method_all">all()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_deleteObjet">deleteObjet()</a>
+    <a href="classes/RedisCache.html#method_delete">delete()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_downloadCore">downloadCore()</a>
+    <a href="classes/RedisCache.html#method_deleteAll">deleteAll()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_downloadObject">downloadObject()</a>
+    <a href="classes/RedisCache.html#method_fetch">fetch()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_getBranchInfo">getBranchInfo()</a>
+    <a href="classes/RedisCache.html#method_getConnection">getConnection()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_getConfigurationOption">getConfigurationOption()</a>
+    <a href="classes/RedisCache.html#method_isOk">isOk()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_objectInfo">objectInfo()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-github.html#method_versionCore">versionCore()</a>
+    <a href="classes/RedisCache.html#method_save">save()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
@@ -251,69 +239,36 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/repo-github.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/RedisCache.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -public
+            -private
             -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property__name">
-        $_name
-        <a href="classes/repo-github.html#property__name" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_connection">
+        $connection
+        <a href="classes/RedisCache.html#property_connection" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">271</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$_name</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;Github&#039;</span></code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property__scope">
-        $_scope
-        <a href="classes/repo-github.html#property__scope" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">28</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$_scope</span>
-     = <span class="phpdocumentor-signature__default-value">array(&#039;plugin&#039; =&gt; \true, &#039;backup&#039; =&gt; \false, &#039;hasConfiguration&#039; =&gt; \true, &#039;core&#039; =&gt; \true)</span></code>
+    <span class="phpdocumentor-signature__name">$connection</span>
+     = <span class="phpdocumentor-signature__default-value">\null</span></code>
 
     
     
@@ -325,7 +280,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/repo-github.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/RedisCache.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -334,22 +289,53 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_checkUpdate">
-        checkUpdate()
-        <a href="classes/repo-github.html#method_checkUpdate" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_all">
+        all()
+        <a href="classes/RedisCache.html#method_all" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">287</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">checkUpdate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$_update</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">all</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_delete">
+        delete()
+        <a href="classes/RedisCache.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">304</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -357,7 +343,7 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_update</span>
+                <span class="phpdocumentor-signature__argument__name">$_key</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -375,22 +361,53 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_deleteObjet">
-        deleteObjet()
-        <a href="classes/repo-github.html#method_deleteObjet" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_deleteAll">
+        deleteAll()
+        <a href="classes/RedisCache.html#method_deleteAll" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">308</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">deleteObjet</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_update</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">deleteAll</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_fetch">
+        fetch()
+        <a href="classes/RedisCache.html#method_fetch" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">296</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">fetch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -398,7 +415,7 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_update</span>
+                <span class="phpdocumentor-signature__argument__name">$_key</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -416,22 +433,84 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_downloadCore">
-        downloadCore()
-        <a href="classes/repo-github.html#method_downloadCore" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getConnection">
+        getConnection()
+        <a href="classes/RedisCache.html#method_getConnection" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">167</span>
+    <span class="phpdocumentor-element-found-in__line">277</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">downloadCore</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_path</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getConnection</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isOk">
+        isOk()
+        <a href="classes/RedisCache.html#method_isOk" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">273</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isOk</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_save">
+        save()
+        <a href="classes/RedisCache.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/cache.class.php"><a href="files/core-class-cache-class.html"><abbr title="core/class/cache.class.php">cache.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">312</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">save</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_cache</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -439,7 +518,7 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_path</span>
+                <span class="phpdocumentor-signature__argument__name">$_cache</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -447,191 +526,6 @@
             </dd>
             </dl>
 
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_downloadObject">
-        downloadObject()
-        <a href="classes/repo-github.html#method_downloadObject" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">127</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">downloadObject</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_update</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_update</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_getBranchInfo">
-        getBranchInfo()
-        <a href="classes/repo-github.html#method_getBranchInfo" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">116</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getBranchInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_update</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_update</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_getConfigurationOption">
-        getConfigurationOption()
-        <a href="classes/repo-github.html#method_getConfigurationOption" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">38</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getConfigurationOption</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_objectInfo">
-        objectInfo()
-        <a href="classes/repo-github.html#method_objectInfo" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">160</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">objectInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_update</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_update</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_versionCore">
-        versionCore()
-        <a href="classes/repo-github.html#method_versionCore" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/github.repo.php"><a href="files/core-repo-github-repo.html"><abbr title="core/repo/github.repo.php">github.repo.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">178</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">versionCore</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
     
 
     
@@ -642,7 +536,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/core/repo/github.repo.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/core/class/cache.class.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -741,30 +635,28 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/repo-github.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/repo-github.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/RedisCache.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/RedisCache.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/repo-github.html#property__name">$_name<a href="classes/repo-github.html"></li>
-                                                    <li><a href="classes/repo-github.html#property__scope">$_scope<a href="classes/repo-github.html"></li>
+                                                    <li><a href="classes/RedisCache.html#property_connection">$connection<a href="classes/RedisCache.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/repo-github.html#method_checkUpdate">checkUpdate()</a></li>
-                                            <li><a href="classes/repo-github.html#method_deleteObjet">deleteObjet()</a></li>
-                                            <li><a href="classes/repo-github.html#method_downloadCore">downloadCore()</a></li>
-                                            <li><a href="classes/repo-github.html#method_downloadObject">downloadObject()</a></li>
-                                            <li><a href="classes/repo-github.html#method_getBranchInfo">getBranchInfo()</a></li>
-                                            <li><a href="classes/repo-github.html#method_getConfigurationOption">getConfigurationOption()</a></li>
-                                            <li><a href="classes/repo-github.html#method_objectInfo">objectInfo()</a></li>
-                                            <li><a href="classes/repo-github.html#method_versionCore">versionCore()</a></li>
+                                            <li><a href="classes/RedisCache.html#method_all">all()</a></li>
+                                            <li><a href="classes/RedisCache.html#method_delete">delete()</a></li>
+                                            <li><a href="classes/RedisCache.html#method_deleteAll">deleteAll()</a></li>
+                                            <li><a href="classes/RedisCache.html#method_fetch">fetch()</a></li>
+                                            <li><a href="classes/RedisCache.html#method_getConnection">getConnection()</a></li>
+                                            <li><a href="classes/RedisCache.html#method_isOk">isOk()</a></li>
+                                            <li><a href="classes/RedisCache.html#method_save">save()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -784,7 +676,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/repo-github.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/RedisCache.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
