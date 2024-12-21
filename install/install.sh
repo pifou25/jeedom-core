@@ -11,18 +11,24 @@ if [ $(id -u) != 0 ] ; then
 fi
 
 apt_install() {
-  apt-get -o Dpkg::Options::="--force-confdef" -y install "$@"
+  # quiet install but confirm correct installation
+  apt-get --quiet --option Dpkg::Options::="--force-confdef" --yes install "$@" > /dev/null
   if [ $? -ne 0 ]; then
-    echo "${RED}Cannot install $@. Installation aborted.${NORMAL}"
-    exit 1
+    echo "${RED}Cannot install $@ - Continue anyway...${NORMAL}"
+  else
+    echo "${GREEN}$@ installed${NORMAL}"
   fi
 }
 
 mariadb_sql() {
-  echo "$@" | mariadb -uroot
+  echo "$@" | mariadb -u root
   if [ $? -ne 0 ]; then
-    echo "${RED}Cannot execute $@ in MariaDB. Installation aborted.${NORMAL}"
-    exit 1
+    # try with sudo
+    echo "$@" | sudo mariadb
+    if [ $? -ne 0 ]; then
+      echo "${RED}Cannot execute $@ in MySQL - Cancelling${NORMAL}"
+      exit 1
+    fi
   fi
 }
 
@@ -52,38 +58,38 @@ step_1_upgrade() {
   echo "---------------------------------------------------------------------"
   echo "${YELLOW}Starting step 1 - system upgrade${NORMAL}"
 
-  apt-get update
-  apt-get -f install
-  apt-get -y dist-upgrade
+  apt-get --quiet update
+  apt-get --quiet -f install
+  apt-get --quiet -y dist-upgrade
   echo "${GREEN}Step 1 - system upgrade done${NORMAL}"
 }
 
 step_2_mainpackage() {
   echo "---------------------------------------------------------------------"
   echo "${YELLOW}Starting step 2 - package installation${NORMAL}"
-  apt-get update
+  apt-get --quiet update
   apt_install chrony ca-certificates unzip curl sudo cron
-  apt-get -o Dpkg::Options::="--force-confdef" -y install plocate tar telnet wget logrotate dos2unix htop iotop vim iftop smbclient
-  apt-get -y install git python3 python3-pip python3-venv
-  apt-get -y install libexpat1 ssl-cert
-  apt-get -y install apt-transport-https
-  apt-get -y install gnupg
-  apt-get -y install xvfb cutycapt xauth
-  apt-get -y install at
-  apt-get -y install mariadb-client
-  apt-get -y install espeak-ng
-  apt-get -y install net-tools
-  apt-get -y install nmap
-  apt-get -y install ffmpeg
-  apt-get -y install usbutils
-  apt-get -y install gettext
-  apt-get -y install libcurl4
-  apt-get -y install chromium
-  apt-get -y install librsync-dev
-  apt-get -y install ssl-cert
-  apt-get -y install iputils-ping
-  apt-get -y remove brltty
-  echo "${GREEN}Step 2 - package installation done${NORMAL}"
+  apt_install plocate tar telnet wget logrotate dos2unix ntpdate htop iotop vim iftop smbclient
+  apt_install git python3 python3-pip python3-venv
+  apt_install libexpat1 ssl-cert
+  apt_install apt-transport-https
+  apt_install gnupg
+  apt_install xvfb cutycapt xauth
+  apt_install at
+  apt_install mariadb-client
+  apt_install espeak-ng
+  apt_install net-tools
+  apt_install nmap
+  apt_install ffmpeg
+  apt_install usbutils
+  apt_install gettext
+  apt_install libcurl4
+  apt_install chromium
+  apt_install librsync-dev
+  apt_install ssl-cert
+  apt_install iputils-ping
+  apt-get -qq -y remove brltty
+  echo "${GREEN}step 2 - package installation done${NORMAL}"
 }
 
 step_3_database() {
@@ -119,27 +125,27 @@ step_5_php() {
   echo "---------------------------------------------------------------------"
   echo "${YELLOW}Starting step 5 - PHP installation${NORMAL}"
   apt_install php libapache2-mod-php php-json php-mysql
-  apt-get install -y php-curl
-  apt-get install -y php-gd
-  apt-get install -y php-xml
-  apt-get install -y php-opcache
-  apt-get install -y php-soap
-  apt-get install -y php-xmlrpc
-  apt-get install -y php-common
-  apt-get install -y php-dev
-  apt-get install -y php-zip
-  apt-get install -y php-ssh2
-  apt-get install -y php-mbstring
-  apt-get install -y php-ldap
-  apt-get install -y php-yaml
-  apt-get install -y php-snmp
+  apt_install php-curl
+  apt_install php-gd
+  apt_install php-xml
+  apt_install php-opcache
+  apt_install php-soap
+  apt_install php-xmlrpc
+  apt_install php-common
+  apt_install php-dev
+  apt_install php-zip
+  apt_install php-ssh2
+  apt_install php-mbstring
+  apt_install php-ldap
+  apt_install php-yaml
+  apt_install php-snmp
   echo "${GREEN}Step 5 - PHP installation done${NORMAL}"
 }
 
 step_6_jeedom_download() {
   echo "---------------------------------------------------------------------"
   echo "${YELLOW}Starting step 6 - Jeedom download${NORMAL}"
-  wget https://codeload.github.com/jeedom/core/zip/refs/heads/${VERSION} -O /tmp/jeedom.zip
+  wget --no-verbose https://codeload.github.com/${GITHUB_REPOSITORY}/zip/refs/heads/${VERSION} -O /tmp/jeedom.zip
 
   if [ $? -ne 0 ]; then
     echo "${YELLOW}Cannot download Jeedom from GitHub. Using the deployment version if it exists.${NORMAL}"
@@ -151,20 +157,19 @@ step_6_jeedom_download() {
     echo "${RED}Cannot get the jeedom.zip archive. Installation aborted.${NORMAL}"
     exit 1
   fi
-  mkdir -p ${WEBSERVER_HOME}
-  find ${WEBSERVER_HOME} ! -name 'index.html' -type f -exec rm -rf {} +
   rm -rf /root/core-*
+  # unzip into /root/core-${VERSION}
   unzip -q /tmp/jeedom.zip -d /root/
   if [ $? -ne 0 ]; then
     echo "${RED}Cannot unpack the archive. Installation aborted.${NORMAL}"
     exit 1
   fi
-  cp -R /root/core-*/* ${WEBSERVER_HOME}
-  cp -R /root/core-*/.[^.]* ${WEBSERVER_HOME}
-  cp /root/core/.htaccess ${WEBSERVER_HOME}/.htaccess
+  rm -rf ${WEBSERVER_HOME} && mkdir -p ${WEBSERVER_HOME}
+  cd .
+  mv -v -T /root/core-${VERSION} ${WEBSERVER_HOME}
+  # force timestamp to now for all files:
   find ${WEBSERVER_HOME}/ -exec touch {} +
   rm -rf /root/core-* > /dev/null 2>&1
-  rm -rf ${WEBSERVER_HOME}/core-* > /dev/null 2>&1
   rm /tmp/jeedom.zip
   echo "${GREEN}Step 6 - Jeedom download done${NORMAL}"
 }
@@ -251,7 +256,7 @@ step_8_jeedom_customization() {
 
   echo '' > /etc/apache2/mods-available/alias.conf
 
-  mkdir /etc/systemd/system/apache2.service.d
+  mkdir -p /etc/systemd/system/apache2.service.d
   echo "[Unit]" > /etc/systemd/system/apache2.service.d/override.conf
   echo "After=mariadb.service" >> /etc/systemd/system/apache2.service.d/override.conf
   echo "Wants=mariadb.service" >> /etc/systemd/system/apache2.service.d/override.conf
@@ -285,10 +290,10 @@ step_8_jeedom_customization() {
 
   if [ "${INSTALLATION_TYPE}" != "docker" ];then
     service_action restart apache2 > /dev/null 2>&1
+    echo "vm.swappiness = 10" >>  /etc/sysctl.conf
+    sysctl vm.swappiness=10
   fi
 
-  echo "vm.swappiness = 10" >>  /etc/sysctl.conf
-  sysctl vm.swappiness=10
   echo "${GREEN}Step 8 - Apache and PHP configuration done${NORMAL}"
 }
 
@@ -297,15 +302,15 @@ step_9_jeedom_configuration() {
   echo "${YELLOW}Starting step 9 - Jeedom configuration${NORMAL}"
 
   if [ "${INSTALLATION_TYPE}" != "docker" ];then
-    echo "DROP USER 'jeedom'@'localhost';" | mariadb -uroot > /dev/null 2>&1
+    mariadb_sql "DROP USER IF EXISTS 'jeedom'@'localhost';"
     mariadb_sql "CREATE USER 'jeedom'@'localhost' IDENTIFIED BY '${MARIADB_JEEDOM_PASSWD}';"
-    mariadb_sql "DROP DATABASE IF EXISTS jeedom;"
-    mariadb_sql "CREATE DATABASE jeedom;"
+    mariadb_sql "DROP DATABASE IF EXISTS ${MARIADB_NAME};"
+    mariadb_sql "CREATE DATABASE ${MARIADB_NAME}"
     mariadb_sql "GRANT ALL PRIVILEGES ON jeedom.* TO 'jeedom'@'localhost';"
 
     cp ${WEBSERVER_HOME}/core/config/common.config.sample.php ${WEBSERVER_HOME}/core/config/common.config.php
     sed -i "s/#PASSWORD#/${MARIADB_JEEDOM_PASSWD}/g" ${WEBSERVER_HOME}/core/config/common.config.php
-    sed -i "s/#DBNAME#/jeedom/g" ${WEBSERVER_HOME}/core/config/common.config.php
+    sed -i "s/#DBNAME#/${MARIADB_NAME}/g" ${WEBSERVER_HOME}/core/config/common.config.php
     sed -i "s/#USERNAME#/jeedom/g" ${WEBSERVER_HOME}/core/config/common.config.php
     sed -i "s/#PORT#/3306/g" ${WEBSERVER_HOME}/core/config/common.config.php
     sed -i "s/#HOST#/localhost/g" ${WEBSERVER_HOME}/core/config/common.config.php
@@ -323,6 +328,7 @@ step_10_jeedom_installation() {
   export COMPOSER_ALLOW_SUPERUSER=1
   cd ${WEBSERVER_HOME}
   composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --optimize-autoloader
+
   mkdir -p /tmp/jeedom
   chmod 777 -R /tmp/jeedom
   chown www-data:www-data -R /tmp/jeedom
@@ -418,11 +424,13 @@ distrib_1_spe(){
 STEP=0
 VERSION=master
 WEBSERVER_HOME=/var/www/html
+MARIADB_NAME=${MARIADB_NAME:-jeedom}
 MARIADB_JEEDOM_PASSWD=${MARIADB_JEEDOM_PASSWD:-$(openssl rand -base64 32 | tr -d /=+ | cut -c -15)}
 INSTALLATION_TYPE='standard'
 DATABASE=1
+GITHUB_REPOSITORY=jeedom/core
 
-while getopts ":s:v:w:i:d:" opt; do
+while getopts ":s:v:w:i:d:r:" opt; do
   case $opt in
     s) STEP="$OPTARG"
     ;;
@@ -434,6 +442,8 @@ while getopts ":s:v:w:i:d:" opt; do
     ;;
     d) DATABASE="$OPTARG"
     ;;
+    r) GITHUB_REPOSITORY="$OPTARG"
+    ;;
     \?) echo "${RED}Invalid option -$OPTARG${NORMAL}" >&2
     exit 1
     ;;
@@ -441,7 +451,7 @@ while getopts ":s:v:w:i:d:" opt; do
 done
 
 echo "${YELLOW}Welcome to the Jeedom installer${NORMAL}"
-echo "${YELLOW}Jeedom version: ${VERSION}${NORMAL}"
+echo "${YELLOW}Jeedom version: ${GITHUB_REPOSITORY}:${VERSION}${NORMAL}"
 echo "${YELLOW}Web folder: ${WEBSERVER_HOME}${NORMAL}"
 echo "${YELLOW}Installation type: ${INSTALLATION_TYPE}${NORMAL}"
 if [ ${DATABASE} -ne 1 ]; then
