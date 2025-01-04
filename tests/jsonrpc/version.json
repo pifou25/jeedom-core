@@ -1,0 +1,9 @@
+{
+    "jsonrpc": "2.0",
+    "id": "007",
+    "method": "jeeObject::all",
+    "params": {
+        "apikey": "{{apikey}}",
+        "datetime": "0"
+    }
+}
