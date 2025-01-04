@@ -3,32 +3,32 @@ Search.appendIndex(
                 {
             "fqsen": "\\ajax",
             "name": "ajax",
-            "summary": "",
+            "summary": "G\u00E8re\u0020les\u0020r\u00E9ponses\u0020AJAX\u0020de\u0020Jeedom",
             "url": "classes/ajax.html"
         },                {
             "fqsen": "\\ajax\u003A\u003Ainit\u0028\u0029",
             "name": "init",
-            "summary": "",
+            "summary": "Initialise\u0020la\u0020r\u00E9ponse\u0020AJAX\nConfigure\u0020les\u0020en\u002Dt\u00EAtes\u0020HTTP\u0020et\u0020v\u00E9rifie\u0020les\u0020actions\u0020autoris\u00E9es\u0020en\u0020GET",
             "url": "classes/ajax.html#method_init"
         },                {
             "fqsen": "\\ajax\u003A\u003AgetToken\u0028\u0029",
             "name": "getToken",
-            "summary": "",
+            "summary": "Retourne\u0020un\u0020token\u0020\u0028m\u00E9thode\u0020non\u0020utilis\u00E9e\u0020\u003F\u0029",
             "url": "classes/ajax.html#method_getToken"
         },                {
             "fqsen": "\\ajax\u003A\u003Asuccess\u0028\u0029",
             "name": "success",
-            "summary": "",
+            "summary": "Envoie\u0020une\u0020r\u00E9ponse\u0020de\u0020succ\u00E8s\u0020et\u0020termine\u0020l\u0027ex\u00E9cution",
             "url": "classes/ajax.html#method_success"
         },                {
             "fqsen": "\\ajax\u003A\u003Aerror\u0028\u0029",
             "name": "error",
-            "summary": "",
+            "summary": "Envoie\u0020une\u0020r\u00E9ponse\u0020d\u0027erreur\u0020et\u0020termine\u0020l\u0027ex\u00E9cution",
             "url": "classes/ajax.html#method_error"
         },                {
             "fqsen": "\\ajax\u003A\u003AgetResponse\u0028\u0029",
             "name": "getResponse",
-            "summary": "",
+            "summary": "G\u00E9n\u00E8re\u0020la\u0020r\u00E9ponse\u0020JSON\u0020format\u00E9e",
             "url": "classes/ajax.html#method_getResponse"
         },                {
             "fqsen": "\\cache",
