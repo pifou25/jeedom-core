@@ -1798,162 +1798,162 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DB",
             "name": "DB",
-            "summary": "",
+            "summary": "Database\u0020management\u0020class\u0020providing\u0020ORM\u002Dlike\u0020functionality",
             "url": "classes/DB.html"
         },                {
             "fqsen": "\\DB\u003A\u003AinitConnection\u0028\u0029",
             "name": "initConnection",
-            "summary": "",
+            "summary": "Initialize\u0020database\u0020connection",
             "url": "classes/DB.html#method_initConnection"
         },                {
             "fqsen": "\\DB\u003A\u003AgetLastInsertId\u0028\u0029",
             "name": "getLastInsertId",
-            "summary": "",
+            "summary": "Get\u0020ID\u0020of\u0020last\u0020inserted\u0020row",
             "url": "classes/DB.html#method_getLastInsertId"
         },                {
             "fqsen": "\\DB\u003A\u003AgetConnection\u0028\u0029",
             "name": "getConnection",
-            "summary": "",
+            "summary": "Get\u0020database\u0020connection,\u0020initializing\u0020if\u0020needed",
             "url": "classes/DB.html#method_getConnection"
         },                {
             "fqsen": "\\DB\u003A\u003ACallStoredProc\u0028\u0029",
             "name": "CallStoredProc",
-            "summary": "",
+            "summary": "Execute\u0020a\u0020stored\u0020procedure",
             "url": "classes/DB.html#method_CallStoredProc"
         },                {
             "fqsen": "\\DB\u003A\u003APrepare\u0028\u0029",
             "name": "Prepare",
-            "summary": "",
+            "summary": "Execute\u0020a\u0020prepared\u0020statement",
             "url": "classes/DB.html#method_Prepare"
         },                {
             "fqsen": "\\DB\u003A\u003A__clone\u0028\u0029",
             "name": "__clone",
-            "summary": "",
+            "summary": "Prevent\u0020cloning\u0020of\u0020class",
             "url": "classes/DB.html#method___clone"
         },                {
             "fqsen": "\\DB\u003A\u003Aoptimize\u0028\u0029",
             "name": "optimize",
-            "summary": "",
+            "summary": "Optimize\u0020database\u0020tables",
             "url": "classes/DB.html#method_optimize"
         },                {
             "fqsen": "\\DB\u003A\u003AbeginTransaction\u0028\u0029",
             "name": "beginTransaction",
-            "summary": "",
+            "summary": "Start\u0020a\u0020database\u0020transaction",
             "url": "classes/DB.html#method_beginTransaction"
         },                {
             "fqsen": "\\DB\u003A\u003Acommit\u0028\u0029",
             "name": "commit",
-            "summary": "",
+            "summary": "Commit\u0020the\u0020current\u0020transaction",
             "url": "classes/DB.html#method_commit"
         },                {
             "fqsen": "\\DB\u003A\u003ArollBack\u0028\u0029",
             "name": "rollBack",
-            "summary": "",
+            "summary": "Rollback\u0020the\u0020current\u0020transaction",
             "url": "classes/DB.html#method_rollBack"
         },                {
             "fqsen": "\\DB\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "Saves\u0020an\u0020entity\u0020inside\u0020the\u0020repository.\u0020If\u0020the\u0020entity\u0020is\u0020new\u0020a\u0020new\u0020row\nwill\u0020be\u0020created.\u0020If\u0020the\u0020entity\u0020is\u0020not\u0020new\u0020the\u0020row\u0020will\u0020be\u0020updated.",
+            "summary": "Save\u0020an\u0020entity\u0020in\u0020the\u0020database",
             "url": "classes/DB.html#method_save"
         },                {
             "fqsen": "\\DB\u003A\u003Arefresh\u0028\u0029",
             "name": "refresh",
-            "summary": "",
+            "summary": "Refresh\u0020entity\u0020from\u0020database",
             "url": "classes/DB.html#method_refresh"
         },                {
             "fqsen": "\\DB\u003A\u003AgetWithFilter\u0028\u0029",
             "name": "getWithFilter",
-            "summary": "Retourne\u0020une\u0020liste\u0020d\u0027objets\u0020ou\u0020un\u0020objet\u0020en\u0020fonction\u0020de\u0020filtres",
+            "summary": "Find\u0020entities\u0020matching\u0020filters",
             "url": "classes/DB.html#method_getWithFilter"
         },                {
             "fqsen": "\\DB\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "Deletes\u0020an\u0020entity.",
+            "summary": "Remove\u0020entity\u0020from\u0020database",
             "url": "classes/DB.html#method_remove"
         },                {
             "fqsen": "\\DB\u003A\u003Achecksum\u0028\u0029",
             "name": "checksum",
-            "summary": "",
+            "summary": "Calculate\u0020table\u0020checksum",
             "url": "classes/DB.html#method_checksum"
         },                {
             "fqsen": "\\DB\u003A\u003Alock\u0028\u0029",
             "name": "lock",
-            "summary": "Lock\u0020an\u0020entity.",
+            "summary": "Lock\u0020entity\u0020for\u0020update",
             "url": "classes/DB.html#method_lock"
         },                {
             "fqsen": "\\DB\u003A\u003AgetTableName\u0028\u0029",
             "name": "getTableName",
-            "summary": "Returns\u0020the\u0020name\u0020of\u0020the\u0020table\u0020where\u0020to\u0020save\u0020entities.",
+            "summary": "Get\u0020table\u0020name\u0020for\u0020entity",
             "url": "classes/DB.html#method_getTableName"
         },                {
             "fqsen": "\\DB\u003A\u003AgetFields\u0028\u0029",
             "name": "getFields",
-            "summary": "",
+            "summary": "Get\u0020class\u0020fields\u0020using\u0020reflection",
             "url": "classes/DB.html#method_getFields"
         },                {
             "fqsen": "\\DB\u003A\u003AsetField\u0028\u0029",
             "name": "setField",
-            "summary": "Forces\u0020the\u0020value\u0020of\u0020a\u0020field\u0020of\u0020a\u0020given\u0020object,\u0020even\u0020if\u0020this\u0020field\u0020is\nnot\u0020accessible.",
+            "summary": "Set\u0020entity\u0020field\u0020value",
             "url": "classes/DB.html#method_setField"
         },                {
             "fqsen": "\\DB\u003A\u003AbuildQuery\u0028\u0029",
             "name": "buildQuery",
-            "summary": "Builds\u0020the\u0020elements\u0020for\u0020an\u0020SQL\u0020query.\u0020It\u0020will\u0020return\u0020two\u0020lists,\u0020the\nfirst\u0020being\u0020the\u0020list\u0020of\u0020parts\u0020\u0022key\u003D\u003Akey\u0022\u0020to\u0020inject\u0020in\u0020the\u0020SQL,\u0020the\nsecond\u0020being\u0020the\u0020mapping\u0020of\u0020these\u0020parameters\u0020to\u0020the\u0020values.",
+            "summary": "Build\u0020SQL\u0020query\u0020parameters\u0020from\u0020entity",
             "url": "classes/DB.html#method_buildQuery"
         },                {
             "fqsen": "\\DB\u003A\u003AgetField\u0028\u0029",
             "name": "getField",
-            "summary": "Returns\u0020the\u0020value\u0020of\u0020a\u0020field\u0020of\u0020a\u0020given\u0020object.\u0020It\u0027ll\u0020try\u0020to\u0020use\u0020a\ngetter\u0020first\u0020if\u0020defined.\u0020If\u0020not\u0020defined,\u0020we\u0027ll\u0020use\u0020the\u0020reflection\u0020API.",
+            "summary": "Get\u0020entity\u0020field\u0020value",
             "url": "classes/DB.html#method_getField"
         },                {
             "fqsen": "\\DB\u003A\u003AgetReflectionClass\u0028\u0029",
             "name": "getReflectionClass",
-            "summary": "Returns\u0020the\u0020reflection\u0020class\u0020for\u0020the\u0020given\u0020object.",
+            "summary": "Get\u0020reflected\u0020class\u0020for\u0020entity",
             "url": "classes/DB.html#method_getReflectionClass"
         },                {
             "fqsen": "\\DB\u003A\u003AbuildField\u0028\u0029",
             "name": "buildField",
-            "summary": "",
+            "summary": "Build\u0020SQL\u0020fields\u0020list",
             "url": "classes/DB.html#method_buildField"
         },                {
             "fqsen": "\\DB\u003A\u003AcompareAndFix\u0028\u0029",
             "name": "compareAndFix",
-            "summary": "",
+            "summary": "Compare\u0020and\u0020fix\u0020database\u0020structure",
             "url": "classes/DB.html#method_compareAndFix"
         },                {
             "fqsen": "\\DB\u003A\u003AcompareDatabase\u0028\u0029",
             "name": "compareDatabase",
-            "summary": "",
+            "summary": "Compare\u0020database\u0020against\u0020reference\u0020structure",
             "url": "classes/DB.html#method_compareDatabase"
         },                {
             "fqsen": "\\DB\u003A\u003AcompareTable\u0028\u0029",
             "name": "compareTable",
-            "summary": "",
+            "summary": "Compare\u0020table\u0020against\u0020reference\u0020structure",
             "url": "classes/DB.html#method_compareTable"
         },                {
             "fqsen": "\\DB\u003A\u003AprepareIndexCompare\u0028\u0029",
             "name": "prepareIndexCompare",
-            "summary": "",
+            "summary": "Format\u0020index\u0020data\u0020for\u0020comparison",
             "url": "classes/DB.html#method_prepareIndexCompare"
         },                {
             "fqsen": "\\DB\u003A\u003AcompareField\u0028\u0029",
             "name": "compareField",
-            "summary": "",
+            "summary": "Compare\u0020field\u0020against\u0020reference\u0020structure",
             "url": "classes/DB.html#method_compareField"
         },                {
             "fqsen": "\\DB\u003A\u003AcompareIndex\u0028\u0029",
             "name": "compareIndex",
-            "summary": "",
+            "summary": "Compare\u0020index\u0020against\u0020reference\u0020structure",
             "url": "classes/DB.html#method_compareIndex"
         },                {
             "fqsen": "\\DB\u003A\u003AbuildDefinitionField\u0028\u0029",
             "name": "buildDefinitionField",
-            "summary": "",
+            "summary": "Build\u0020SQL\u0020field\u0020definition",
             "url": "classes/DB.html#method_buildDefinitionField"
         },                {
             "fqsen": "\\DB\u003A\u003AbuildDefinitionIndex\u0028\u0029",
             "name": "buildDefinitionIndex",
-            "summary": "",
+            "summary": "Build\u0020SQL\u0020index\u0020definition",
             "url": "classes/DB.html#method_buildDefinitionIndex"
         },                {
             "fqsen": "\\DB\u003A\u003AFETCH_TYPE_ROW",
