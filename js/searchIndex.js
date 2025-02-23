@@ -303,27 +303,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cmd",
             "name": "cmd",
-            "summary": "",
+            "summary": "Jeedom\u0020command\u0020management\u0020class",
             "url": "classes/cmd.html"
         },                {
             "fqsen": "\\cmd\u003A\u003Acast\u0028\u0029",
             "name": "cast",
-            "summary": "",
+            "summary": "Cast\u0020an\u0020object\u0020or\u0020array\u0020of\u0020objects\u0020to\u0020specific\u0020command\u0020type",
             "url": "classes/cmd.html#method_cast"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyId\u0028\u0029",
             "name": "byId",
-            "summary": "",
+            "summary": "Get\u0020a\u0020command\u0020by\u0020ID",
             "url": "classes/cmd.html#method_byId"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyIds\u0028\u0029",
             "name": "byIds",
-            "summary": "",
+            "summary": "Get\u0020multiple\u0020commands\u0020by\u0020IDs",
             "url": "classes/cmd.html#method_byIds"
         },                {
             "fqsen": "\\cmd\u003A\u003Aall\u0028\u0029",
             "name": "all",
-            "summary": "",
+            "summary": "Get\u0020all\u0020commands",
             "url": "classes/cmd.html#method_all"
         },                {
             "fqsen": "\\cmd\u003A\u003A\u0024isHistorized",
@@ -333,692 +333,692 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cmd\u003A\u003AallHistoryCmd\u0028\u0029",
             "name": "allHistoryCmd",
-            "summary": "",
+            "summary": "Get\u0020all\u0020history\u0020commands",
             "url": "classes/cmd.html#method_allHistoryCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyEqLogicId\u0028\u0029",
             "name": "byEqLogicId",
-            "summary": "",
+            "summary": "Get\u0020commands\u0020by\u0020equipment\u0020ID",
             "url": "classes/cmd.html#method_byEqLogicId"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyLogicalId\u0028\u0029",
             "name": "byLogicalId",
-            "summary": "",
+            "summary": "Get\u0020commands\u0020by\u0020logical\u0020ID",
             "url": "classes/cmd.html#method_byLogicalId"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyGenericType\u0028\u0029",
             "name": "byGenericType",
-            "summary": "",
+            "summary": "Get\u0020commands\u0020by\u0020generic\u0020type",
             "url": "classes/cmd.html#method_byGenericType"
         },                {
             "fqsen": "\\cmd\u003A\u003AsearchByString\u0028\u0029",
             "name": "searchByString",
-            "summary": "Search\u0020a\u0020command\u0020on\u0020eqType,\u0020logicalId,\u0020generic_type\u0020or\u0020name",
+            "summary": "Search\u0020commands\u0020by\u0020string",
             "url": "classes/cmd.html#method_searchByString"
         },                {
             "fqsen": "\\cmd\u003A\u003AsearchConfiguration\u0028\u0029",
             "name": "searchConfiguration",
-            "summary": "",
+            "summary": "Search\u0020commands\u0020by\u0020configuration",
             "url": "classes/cmd.html#method_searchConfiguration"
         },                {
             "fqsen": "\\cmd\u003A\u003AsearchDisplay\u0028\u0029",
             "name": "searchDisplay",
-            "summary": "",
+            "summary": "Search\u0020commands\u0020by\u0020display\u0020configuration",
             "url": "classes/cmd.html#method_searchDisplay"
         },                {
             "fqsen": "\\cmd\u003A\u003AsearchConfigurationEqLogic\u0028\u0029",
             "name": "searchConfigurationEqLogic",
-            "summary": "",
+            "summary": "Search\u0020commands\u0020by\u0020equipment\u0020configuration",
             "url": "classes/cmd.html#method_searchConfigurationEqLogic"
         },                {
             "fqsen": "\\cmd\u003A\u003AsearchTemplate\u0028\u0029",
             "name": "searchTemplate",
-            "summary": "",
+            "summary": "Search\u0020commands\u0020by\u0020template",
             "url": "classes/cmd.html#method_searchTemplate"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyEqLogicIdAndLogicalId\u0028\u0029",
             "name": "byEqLogicIdAndLogicalId",
-            "summary": "",
+            "summary": "Get\u0020command\u0020by\u0020equipment\u0020ID\u0020and\u0020logical\u0020ID",
             "url": "classes/cmd.html#method_byEqLogicIdAndLogicalId"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyEqLogicIdAndGenericType\u0028\u0029",
             "name": "byEqLogicIdAndGenericType",
-            "summary": "",
+            "summary": "Get\u0020command\u0020by\u0020equipment\u0020ID\u0020and\u0020generic\u0020type",
             "url": "classes/cmd.html#method_byEqLogicIdAndGenericType"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyGenericTypeObjectId\u0028\u0029",
             "name": "byGenericTypeObjectId",
-            "summary": "",
+            "summary": "Get\u0020commands\u0020by\u0020generic\u0020type\u0020and\u0020object\u0020ID",
             "url": "classes/cmd.html#method_byGenericTypeObjectId"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyValue\u0028\u0029",
             "name": "byValue",
-            "summary": "",
+            "summary": "Get\u0020commands\u0020by\u0020value",
             "url": "classes/cmd.html#method_byValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyTypeEqLogicNameCmdName\u0028\u0029",
             "name": "byTypeEqLogicNameCmdName",
-            "summary": "",
+            "summary": "Get\u0020command\u0020by\u0020equipment\u0020type,\u0020name\u0020and\u0020command\u0020name",
             "url": "classes/cmd.html#method_byTypeEqLogicNameCmdName"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyEqLogicIdCmdName\u0028\u0029",
             "name": "byEqLogicIdCmdName",
-            "summary": "",
+            "summary": "Get\u0020command\u0020by\u0020equipment\u0020ID\u0020and\u0020command\u0020name",
             "url": "classes/cmd.html#method_byEqLogicIdCmdName"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyObjectNameEqLogicNameCmdName\u0028\u0029",
             "name": "byObjectNameEqLogicNameCmdName",
-            "summary": "",
+            "summary": "Get\u0020command\u0020by\u0020object\u0020name,\u0020equipment\u0020name\u0020and\u0020command\u0020name",
             "url": "classes/cmd.html#method_byObjectNameEqLogicNameCmdName"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyObjectNameCmdName\u0028\u0029",
             "name": "byObjectNameCmdName",
-            "summary": "",
+            "summary": "Get\u0020command\u0020by\u0020object\u0020name\u0020and\u0020command\u0020name",
             "url": "classes/cmd.html#method_byObjectNameCmdName"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyTypeSubType\u0028\u0029",
             "name": "byTypeSubType",
-            "summary": "",
+            "summary": "Get\u0020commands\u0020by\u0020type\u0020and\u0020subtype",
             "url": "classes/cmd.html#method_byTypeSubType"
         },                {
             "fqsen": "\\cmd\u003A\u003AcmdToHumanReadable\u0028\u0029",
             "name": "cmdToHumanReadable",
-            "summary": "",
+            "summary": "Replace\u0020command\u0020IDs\u0020with\u0020human\u0020readable\u0020format",
             "url": "classes/cmd.html#method_cmdToHumanReadable"
         },                {
             "fqsen": "\\cmd\u003A\u003AhumanReadableToCmd\u0028\u0029",
             "name": "humanReadableToCmd",
-            "summary": "",
+            "summary": "Replace\u0020human\u0020readable\u0020format\u0020with\u0020command\u0020IDs",
             "url": "classes/cmd.html#method_humanReadableToCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003AbyString\u0028\u0029",
             "name": "byString",
-            "summary": "",
+            "summary": "Get\u0020command\u0020from\u0020string\u0020representation",
             "url": "classes/cmd.html#method_byString"
         },                {
             "fqsen": "\\cmd\u003A\u003AcmdToValue\u0028\u0029",
             "name": "cmdToValue",
-            "summary": "",
+            "summary": "Replace\u0020command\u0020IDs\u0020with\u0020their\u0020values",
             "url": "classes/cmd.html#method_cmdToValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AallType\u0028\u0029",
             "name": "allType",
-            "summary": "",
+            "summary": "Get\u0020all\u0020distinct\u0020command\u0020types",
             "url": "classes/cmd.html#method_allType"
         },                {
             "fqsen": "\\cmd\u003A\u003AallSubType\u0028\u0029",
             "name": "allSubType",
-            "summary": "",
+            "summary": "Get\u0020all\u0020distinct\u0020command\u0020subtypes",
             "url": "classes/cmd.html#method_allSubType"
         },                {
             "fqsen": "\\cmd\u003A\u003AallUnite\u0028\u0029",
             "name": "allUnite",
-            "summary": "",
+            "summary": "Get\u0020all\u0020distinct\u0020command\u0020units",
             "url": "classes/cmd.html#method_allUnite"
         },                {
             "fqsen": "\\cmd\u003A\u003AconvertColor\u0028\u0029",
             "name": "convertColor",
-            "summary": "",
+            "summary": "Get\u0020all\u0020distinct\u0020command\u0020units",
             "url": "classes/cmd.html#method_convertColor"
         },                {
             "fqsen": "\\cmd\u003A\u003AavailableWidget\u0028\u0029",
             "name": "availableWidget",
-            "summary": "",
+            "summary": "Get\u0020available\u0020widgets\u0020for\u0020version",
             "url": "classes/cmd.html#method_availableWidget"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetSelectOptionsByTypeAndSubtype\u0028\u0029",
             "name": "getSelectOptionsByTypeAndSubtype",
-            "summary": "",
+            "summary": "Get\u0020widget\u0020selection\u0020options\u0020by\u0020type\u0020and\u0020subtype",
             "url": "classes/cmd.html#method_getSelectOptionsByTypeAndSubtype"
         },                {
             "fqsen": "\\cmd\u003A\u003AreturnState\u0028\u0029",
             "name": "returnState",
-            "summary": "",
+            "summary": "Return\u0020state\u0020after\u0020delay",
             "url": "classes/cmd.html#method_returnState"
         },                {
             "fqsen": "\\cmd\u003A\u003AdeadCmd\u0028\u0029",
             "name": "deadCmd",
-            "summary": "",
+            "summary": "Find\u0020commands\u0020without\u0020valid\u0020references",
             "url": "classes/cmd.html#method_deadCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003AcmdAlert\u0028\u0029",
             "name": "cmdAlert",
-            "summary": "",
+            "summary": "Process\u0020command\u0020alerts",
             "url": "classes/cmd.html#method_cmdAlert"
         },                {
             "fqsen": "\\cmd\u003A\u003AformatValue\u0028\u0029",
             "name": "formatValue",
-            "summary": "",
+            "summary": "Format\u0020command\u0020value\u0020according\u0020to\u0020its\u0020configuration",
             "url": "classes/cmd.html#method_formatValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetLastValue\u0028\u0029",
             "name": "getLastValue",
-            "summary": "",
+            "summary": "Get\u0020last\u0020stored\u0020value",
             "url": "classes/cmd.html#method_getLastValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AdontRemoveCmd\u0028\u0029",
             "name": "dontRemoveCmd",
-            "summary": "",
+            "summary": "Check\u0020if\u0020command\u0020can\u0020be\u0020removed",
             "url": "classes/cmd.html#method_dontRemoveCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetTableName\u0028\u0029",
             "name": "getTableName",
-            "summary": "",
+            "summary": "Get\u0020database\u0020table\u0020name",
             "url": "classes/cmd.html#method_getTableName"
         },                {
             "fqsen": "\\cmd\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Save\u0020command\u0020to\u0020database",
             "url": "classes/cmd.html#method_save"
         },                {
             "fqsen": "\\cmd\u003A\u003Arefresh\u0028\u0029",
             "name": "refresh",
-            "summary": "",
+            "summary": "Refresh\u0020command\u0020from\u0020database",
             "url": "classes/cmd.html#method_refresh"
         },                {
             "fqsen": "\\cmd\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Remove\u0020command",
             "url": "classes/cmd.html#method_remove"
         },                {
             "fqsen": "\\cmd\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
-            "summary": "",
+            "summary": "Execute\u0020command",
             "url": "classes/cmd.html#method_execute"
         },                {
             "fqsen": "\\cmd\u003A\u003Apre_postExecCmd\u0028\u0029",
             "name": "pre_postExecCmd",
-            "summary": "",
+            "summary": "Execute\u0020pre\/post\u0020command\u0020actions",
             "url": "classes/cmd.html#method_pre_postExecCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003ApreExecCmd\u0028\u0029",
             "name": "preExecCmd",
-            "summary": "",
+            "summary": "Execute\u0020pre\u002Dcommand\u0020actions",
             "url": "classes/cmd.html#method_preExecCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003ApostExecCmd\u0028\u0029",
             "name": "postExecCmd",
-            "summary": "",
+            "summary": "Execute\u0020post\u002Dcommand\u0020actions",
             "url": "classes/cmd.html#method_postExecCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003AisAlreadyInStateAllow\u0028\u0029",
             "name": "isAlreadyInStateAllow",
-            "summary": "",
+            "summary": "Check\u0020if\u0020command\u0020is\u0020already\u0020in\u0020desired\u0020state",
             "url": "classes/cmd.html#method_isAlreadyInStateAllow"
         },                {
             "fqsen": "\\cmd\u003A\u003AalreadyInState\u0028\u0029",
             "name": "alreadyInState",
-            "summary": "",
+            "summary": "Check\u0020if\u0020command\u0020is\u0020in\u0020specific\u0020state",
             "url": "classes/cmd.html#method_alreadyInState"
         },                {
             "fqsen": "\\cmd\u003A\u003AexecCmd\u0028\u0029",
             "name": "execCmd",
-            "summary": "",
+            "summary": "Execute\u0020command\u0020with\u0020options",
             "url": "classes/cmd.html#method_execCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetWidgetsSelectOptions\u0028\u0029",
             "name": "getWidgetsSelectOptions",
-            "summary": "",
+            "summary": "Get\u0020widget\u0020select\u0020options\u0020for\u0020version",
             "url": "classes/cmd.html#method_getWidgetsSelectOptions"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetGenericTypeSelectOptions\u0028\u0029",
             "name": "getGenericTypeSelectOptions",
-            "summary": "",
+            "summary": "Get\u0020generic\u0020type\u0020select\u0020options",
             "url": "classes/cmd.html#method_getGenericTypeSelectOptions"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetWidgetHelp\u0028\u0029",
             "name": "getWidgetHelp",
-            "summary": "",
+            "summary": "Get\u0020widget\u0020help\u0020text",
             "url": "classes/cmd.html#method_getWidgetHelp"
         },                {
             "fqsen": "\\cmd\u003A\u003AcleanWidgetCode\u0028\u0029",
             "name": "cleanWidgetCode",
-            "summary": "",
+            "summary": "Clean\u0020widget\u0020code\u0020from\u0020template\u0020and\u0020helper\u0020content",
             "url": "classes/cmd.html#method_cleanWidgetCode"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetWidgetTemplateCode\u0028\u0029",
             "name": "getWidgetTemplateCode",
-            "summary": "",
+            "summary": "Get\u0020widget\u0020template\u0020code",
             "url": "classes/cmd.html#method_getWidgetTemplateCode"
         },                {
             "fqsen": "\\cmd\u003A\u003AautoValueArray\u0028\u0029",
             "name": "autoValueArray",
-            "summary": "",
+            "summary": "Auto\u002Dformat\u0020value\u0020and\u0020unit",
             "url": "classes/cmd.html#method_autoValueArray"
         },                {
             "fqsen": "\\cmd\u003A\u003AautoValueFormat\u0028\u0029",
             "name": "autoValueFormat",
-            "summary": "",
+            "summary": "Format\u0020value\u0020based\u0020on\u0020modulo",
             "url": "classes/cmd.html#method_autoValueFormat"
         },                {
             "fqsen": "\\cmd\u003A\u003AtoHtml\u0028\u0029",
             "name": "toHtml",
-            "summary": "",
+            "summary": "Generate\u0020HTML\u0020representation",
             "url": "classes/cmd.html#method_toHtml"
         },                {
             "fqsen": "\\cmd\u003A\u003Aevent\u0028\u0029",
             "name": "event",
-            "summary": "",
+            "summary": "Process\u0020command\u0020event",
             "url": "classes/cmd.html#method_event"
         },                {
             "fqsen": "\\cmd\u003A\u003AcheckReturnState\u0028\u0029",
             "name": "checkReturnState",
-            "summary": "",
+            "summary": "Check\u0020command\u0020return\u0020state",
             "url": "classes/cmd.html#method_checkReturnState"
         },                {
             "fqsen": "\\cmd\u003A\u003AcheckCmdAlert\u0028\u0029",
             "name": "checkCmdAlert",
-            "summary": "",
+            "summary": "Check\u0020command\u0020alerts",
             "url": "classes/cmd.html#method_checkCmdAlert"
         },                {
             "fqsen": "\\cmd\u003A\u003AexecuteAlertCmdAction\u0028\u0029",
             "name": "executeAlertCmdAction",
-            "summary": "",
+            "summary": "Execute\u0020command\u0020alert\u0020actions",
             "url": "classes/cmd.html#method_executeAlertCmdAction"
         },                {
             "fqsen": "\\cmd\u003A\u003AcheckAlertLevel\u0028\u0029",
             "name": "checkAlertLevel",
-            "summary": "",
+            "summary": "Check\u0020alert\u0020level\u0020for\u0020value",
             "url": "classes/cmd.html#method_checkAlertLevel"
         },                {
             "fqsen": "\\cmd\u003A\u003AduringAlertLevel\u0028\u0029",
             "name": "duringAlertLevel",
-            "summary": "",
+            "summary": "Check\u0020alert\u0020level\u0020duration",
             "url": "classes/cmd.html#method_duringAlertLevel"
         },                {
             "fqsen": "\\cmd\u003A\u003AactionAlertLevel\u0028\u0029",
             "name": "actionAlertLevel",
-            "summary": "",
+            "summary": "Execute\u0020alert\u0020level\u0020actions",
             "url": "classes/cmd.html#method_actionAlertLevel"
         },                {
             "fqsen": "\\cmd\u003A\u003ApushUrl\u0028\u0029",
             "name": "pushUrl",
-            "summary": "",
+            "summary": "Push\u0020command\u0020value\u0020to\u0020configured\u0020URL",
             "url": "classes/cmd.html#method_pushUrl"
         },                {
             "fqsen": "\\cmd\u003A\u003AcomputeInfluxData\u0028\u0029",
             "name": "computeInfluxData",
-            "summary": "",
+            "summary": "Compute\u0020InfluxDB\u0020data\u0020point",
             "url": "classes/cmd.html#method_computeInfluxData"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetInflux\u0028\u0029",
             "name": "getInflux",
-            "summary": "",
+            "summary": "Get\u0020InfluxDB\u0020connection",
             "url": "classes/cmd.html#method_getInflux"
         },                {
             "fqsen": "\\cmd\u003A\u003ApushInflux\u0028\u0029",
             "name": "pushInflux",
-            "summary": "",
+            "summary": "Push\u0020value\u0020to\u0020InfluxDB",
             "url": "classes/cmd.html#method_pushInflux"
         },                {
             "fqsen": "\\cmd\u003A\u003AdropInfluxDatabase\u0028\u0029",
             "name": "dropInfluxDatabase",
-            "summary": "",
+            "summary": "Drop\u0020InfluxDB\u0020database",
             "url": "classes/cmd.html#method_dropInfluxDatabase"
         },                {
             "fqsen": "\\cmd\u003A\u003AdropInflux\u0028\u0029",
             "name": "dropInflux",
-            "summary": "",
+            "summary": "Drop\u0020InfluxDB\u0020database",
             "url": "classes/cmd.html#method_dropInflux"
         },                {
             "fqsen": "\\cmd\u003A\u003AhistoryInfluxAll\u0028\u0029",
             "name": "historyInfluxAll",
-            "summary": "",
+            "summary": "Send\u0020all\u0020history\u0020to\u0020InfluxDB",
             "url": "classes/cmd.html#method_historyInfluxAll"
         },                {
             "fqsen": "\\cmd\u003A\u003AsendHistoryInflux\u0028\u0029",
             "name": "sendHistoryInflux",
-            "summary": "",
+            "summary": "Send\u0020history\u0020to\u0020InfluxDB",
             "url": "classes/cmd.html#method_sendHistoryInflux"
         },                {
             "fqsen": "\\cmd\u003A\u003AhistoryInflux\u0028\u0029",
             "name": "historyInflux",
-            "summary": "",
+            "summary": "Send\u0020command\u0020history\u0020to\u0020InfluxDB",
             "url": "classes/cmd.html#method_historyInflux"
         },                {
             "fqsen": "\\cmd\u003A\u003AgenerateAskResponseLink\u0028\u0029",
             "name": "generateAskResponseLink",
-            "summary": "",
+            "summary": "Generate\u0020API\u0020URL\u0020for\u0020ask\u0020response",
             "url": "classes/cmd.html#method_generateAskResponseLink"
         },                {
             "fqsen": "\\cmd\u003A\u003AaskResponse\u0028\u0029",
             "name": "askResponse",
-            "summary": "",
+            "summary": "Process\u0020ask\u0020response",
             "url": "classes/cmd.html#method_askResponse"
         },                {
             "fqsen": "\\cmd\u003A\u003AemptyHistory\u0028\u0029",
             "name": "emptyHistory",
-            "summary": "",
+            "summary": "Empty\u0020command\u0020history",
             "url": "classes/cmd.html#method_emptyHistory"
         },                {
             "fqsen": "\\cmd\u003A\u003AaddHistoryValue\u0028\u0029",
             "name": "addHistoryValue",
-            "summary": "",
+            "summary": "Add\u0020value\u0020to\u0020command\u0020history",
             "url": "classes/cmd.html#method_addHistoryValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetStatistique\u0028\u0029",
             "name": "getStatistique",
-            "summary": "",
+            "summary": "Get\u0020command\u0020statistics",
             "url": "classes/cmd.html#method_getStatistique"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetTemporalAvg\u0028\u0029",
             "name": "getTemporalAvg",
-            "summary": "",
+            "summary": "Get\u0020temporal\u0020average",
             "url": "classes/cmd.html#method_getTemporalAvg"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetTendance\u0028\u0029",
             "name": "getTendance",
-            "summary": "",
+            "summary": "Get\u0020value\u0020trend",
             "url": "classes/cmd.html#method_getTendance"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetCmdValue\u0028\u0029",
             "name": "getCmdValue",
-            "summary": "",
+            "summary": "Get\u0020associated\u0020info\u0020command",
             "url": "classes/cmd.html#method_getCmdValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetHumanName\u0028\u0029",
             "name": "getHumanName",
-            "summary": "",
+            "summary": "Get\u0020human\u0020readable\u0020name",
             "url": "classes/cmd.html#method_getHumanName"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetHistory\u0028\u0029",
             "name": "getHistory",
-            "summary": "",
+            "summary": "Get\u0020command\u0020history",
             "url": "classes/cmd.html#method_getHistory"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetLastHistory\u0028\u0029",
             "name": "getLastHistory",
-            "summary": "",
+            "summary": "Get\u0020last\u0020history\u0020entry",
             "url": "classes/cmd.html#method_getLastHistory"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetOldest\u0028\u0029",
             "name": "getOldest",
-            "summary": "",
+            "summary": "Get\u0020oldest\u0020history\u0020entries",
             "url": "classes/cmd.html#method_getOldest"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetPluralityHistory\u0028\u0029",
             "name": "getPluralityHistory",
-            "summary": "",
+            "summary": "Get\u0020history\u0020with\u0020multiple\u0020points",
             "url": "classes/cmd.html#method_getPluralityHistory"
         },                {
             "fqsen": "\\cmd\u003A\u003AwidgetPossibility\u0028\u0029",
             "name": "widgetPossibility",
-            "summary": "",
+            "summary": "Check\u0020widget\u0020customization\u0020possibilities",
             "url": "classes/cmd.html#method_widgetPossibility"
         },                {
             "fqsen": "\\cmd\u003A\u003AmigrateCmd\u0028\u0029",
             "name": "migrateCmd",
-            "summary": "",
+            "summary": "Migrate\u0020command\u0020configuration\u0020to\u0020another\u0020command",
             "url": "classes/cmd.html#method_migrateCmd"
         },                {
             "fqsen": "\\cmd\u003A\u003Aexport\u0028\u0029",
             "name": "export",
-            "summary": "",
+            "summary": "Export\u0020command\u0020configuration",
             "url": "classes/cmd.html#method_export"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetDirectUrlAccess\u0028\u0029",
             "name": "getDirectUrlAccess",
-            "summary": "",
+            "summary": "Get\u0020direct\u0020URL\u0020access",
             "url": "classes/cmd.html#method_getDirectUrlAccess"
         },                {
             "fqsen": "\\cmd\u003A\u003AcheckAccessCode\u0028\u0029",
             "name": "checkAccessCode",
-            "summary": "",
+            "summary": "Check\u0020access\u0020code",
             "url": "classes/cmd.html#method_checkAccessCode"
         },                {
             "fqsen": "\\cmd\u003A\u003AexportApi\u0028\u0029",
             "name": "exportApi",
-            "summary": "",
+            "summary": "Export\u0020command\u0020data\u0020for\u0020API",
             "url": "classes/cmd.html#method_exportApi"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetLinkData\u0028\u0029",
             "name": "getLinkData",
-            "summary": "",
+            "summary": "Get\u0020command\u0020dependency\u0020graph\u0020data",
             "url": "classes/cmd.html#method_getLinkData"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetUsedBy\u0028\u0029",
             "name": "getUsedBy",
-            "summary": "",
+            "summary": "Get\u0020elements\u0020using\u0020this\u0020command",
             "url": "classes/cmd.html#method_getUsedBy"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetUse\u0028\u0029",
             "name": "getUse",
-            "summary": "",
+            "summary": "Get\u0020elements\u0020used\u0020by\u0020this\u0020command",
             "url": "classes/cmd.html#method_getUse"
         },                {
             "fqsen": "\\cmd\u003A\u003AhasRight\u0028\u0029",
             "name": "hasRight",
-            "summary": "",
+            "summary": "Check\u0020command\u0020access\u0020rights",
             "url": "classes/cmd.html#method_hasRight"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020command\u0020ID",
             "url": "classes/cmd.html#method_getId"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
-            "summary": "",
+            "summary": "Get\u0020command\u0020name",
             "url": "classes/cmd.html#method_getName"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetGeneric_type\u0028\u0029",
             "name": "getGeneric_type",
-            "summary": "",
+            "summary": "Get\u0020command\u0020generic\u0020type",
             "url": "classes/cmd.html#method_getGeneric_type"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetGeneric_type\u0028\u0029",
             "name": "setGeneric_type",
-            "summary": "",
+            "summary": "Set\u0020command\u0020generic\u0020type",
             "url": "classes/cmd.html#method_setGeneric_type"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetType\u0028\u0029",
             "name": "getType",
-            "summary": "",
+            "summary": "Get\u0020command\u0020type",
             "url": "classes/cmd.html#method_getType"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetSubType\u0028\u0029",
             "name": "getSubType",
-            "summary": "",
+            "summary": "Get\u0020command\u0020subtype",
             "url": "classes/cmd.html#method_getSubType"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetEqType_name\u0028\u0029",
             "name": "getEqType_name",
-            "summary": "",
+            "summary": "Get\u0020equipment\u0020type\u0020name",
             "url": "classes/cmd.html#method_getEqType_name"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetEqLogic_id\u0028\u0029",
             "name": "getEqLogic_id",
-            "summary": "",
+            "summary": "Get\u0020parent\u0020equipment\u0020ID",
             "url": "classes/cmd.html#method_getEqLogic_id"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetIsHistorized\u0028\u0029",
             "name": "getIsHistorized",
-            "summary": "",
+            "summary": "Get\u0020historization\u0020state",
             "url": "classes/cmd.html#method_getIsHistorized"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetUnite\u0028\u0029",
             "name": "getUnite",
-            "summary": "",
+            "summary": "Get\u0020command\u0020unit",
             "url": "classes/cmd.html#method_getUnite"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetEqLogic\u0028\u0029",
             "name": "getEqLogic",
-            "summary": "",
+            "summary": "Get\u0020parent\u0020equipment\u0020object",
             "url": "classes/cmd.html#method_getEqLogic"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetEqLogic\u0028\u0029",
             "name": "setEqLogic",
-            "summary": "",
+            "summary": "Set\u0020parent\u0020equipment\u0020object",
             "url": "classes/cmd.html#method_setEqLogic"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetEventOnly\u0028\u0029",
             "name": "getEventOnly",
-            "summary": "",
+            "summary": "Get\u0020event\u0020only\u0020status",
             "url": "classes/cmd.html#method_getEventOnly"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetId\u0028\u0029",
             "name": "setId",
-            "summary": "",
+            "summary": "Set\u0020command\u0020ID",
             "url": "classes/cmd.html#method_setId"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetName\u0028\u0029",
             "name": "setName",
-            "summary": "",
+            "summary": "Set\u0020command\u0020name",
             "url": "classes/cmd.html#method_setName"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetType\u0028\u0029",
             "name": "setType",
-            "summary": "",
+            "summary": "Set\u0020command\u0020type",
             "url": "classes/cmd.html#method_setType"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetSubType\u0028\u0029",
             "name": "setSubType",
-            "summary": "",
+            "summary": "Set\u0020command\u0020subtype",
             "url": "classes/cmd.html#method_setSubType"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetEqLogic_id\u0028\u0029",
             "name": "setEqLogic_id",
-            "summary": "",
+            "summary": "Set\u0020parent\u0020equipment\u0020ID",
             "url": "classes/cmd.html#method_setEqLogic_id"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetIsHistorized\u0028\u0029",
             "name": "setIsHistorized",
-            "summary": "",
+            "summary": "Set\u0020historization\u0020state",
             "url": "classes/cmd.html#method_setIsHistorized"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetUnite\u0028\u0029",
             "name": "setUnite",
-            "summary": "",
+            "summary": "Set\u0020command\u0020unit",
             "url": "classes/cmd.html#method_setUnite"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetTemplate\u0028\u0029",
             "name": "getTemplate",
-            "summary": "",
+            "summary": "Get\u0020template\u0020configuration",
             "url": "classes/cmd.html#method_getTemplate"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetTemplate\u0028\u0029",
             "name": "setTemplate",
-            "summary": "",
+            "summary": "Set\u0020template\u0020configuration",
             "url": "classes/cmd.html#method_setTemplate"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetConfiguration\u0028\u0029",
             "name": "getConfiguration",
-            "summary": "",
+            "summary": "Get\u0020configuration\u0020value",
             "url": "classes/cmd.html#method_getConfiguration"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetConfiguration\u0028\u0029",
             "name": "setConfiguration",
-            "summary": "",
+            "summary": "Set\u0020configuration\u0020value",
             "url": "classes/cmd.html#method_setConfiguration"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetDisplay\u0028\u0029",
             "name": "getDisplay",
-            "summary": "",
+            "summary": "Get\u0020display\u0020configuration",
             "url": "classes/cmd.html#method_getDisplay"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetDisplay\u0028\u0029",
             "name": "setDisplay",
-            "summary": "",
+            "summary": "Set\u0020display\u0020configuration",
             "url": "classes/cmd.html#method_setDisplay"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetAlert\u0028\u0029",
             "name": "getAlert",
-            "summary": "",
+            "summary": "Get\u0020alert\u0020configuration",
             "url": "classes/cmd.html#method_getAlert"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetAlert\u0028\u0029",
             "name": "setAlert",
-            "summary": "",
+            "summary": "Set\u0020alert\u0020configuration",
             "url": "classes/cmd.html#method_setAlert"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetCollectDate\u0028\u0029",
             "name": "getCollectDate",
-            "summary": "",
+            "summary": "Get\u0020collect\u0020date",
             "url": "classes/cmd.html#method_getCollectDate"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetCollectDate\u0028\u0029",
             "name": "setCollectDate",
-            "summary": "",
+            "summary": "Set\u0020collect\u0020date",
             "url": "classes/cmd.html#method_setCollectDate"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetValueDate\u0028\u0029",
             "name": "getValueDate",
-            "summary": "",
+            "summary": "Get\u0020value\u0020date",
             "url": "classes/cmd.html#method_getValueDate"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetValueDate\u0028\u0029",
             "name": "setValueDate",
-            "summary": "",
+            "summary": "Set\u0020value\u0020date",
             "url": "classes/cmd.html#method_setValueDate"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "Get\u0020command\u0020value",
             "url": "classes/cmd.html#method_getValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetValue\u0028\u0029",
             "name": "setValue",
-            "summary": "",
+            "summary": "Set\u0020command\u0020value",
             "url": "classes/cmd.html#method_setValue"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetIsVisible\u0028\u0029",
             "name": "getIsVisible",
-            "summary": "",
+            "summary": "Get\u0020visibility\u0020state",
             "url": "classes/cmd.html#method_getIsVisible"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetIsVisible\u0028\u0029",
             "name": "setIsVisible",
-            "summary": "",
+            "summary": "Set\u0020visibility\u0020state",
             "url": "classes/cmd.html#method_setIsVisible"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetOrder\u0028\u0029",
             "name": "getOrder",
-            "summary": "",
+            "summary": "Get\u0020display\u0020order",
             "url": "classes/cmd.html#method_getOrder"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetOrder\u0028\u0029",
             "name": "setOrder",
-            "summary": "",
+            "summary": "Set\u0020display\u0020order",
             "url": "classes/cmd.html#method_setOrder"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetLogicalId\u0028\u0029",
             "name": "getLogicalId",
-            "summary": "",
+            "summary": "Get\u0020logical\u0020ID",
             "url": "classes/cmd.html#method_getLogicalId"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetLogicalId\u0028\u0029",
             "name": "setLogicalId",
-            "summary": "",
+            "summary": "Set\u0020logical\u0020ID",
             "url": "classes/cmd.html#method_setLogicalId"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetEqType\u0028\u0029",
             "name": "getEqType",
-            "summary": "",
+            "summary": "Get\u0020equipment\u0020type",
             "url": "classes/cmd.html#method_getEqType"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetEqType\u0028\u0029",
             "name": "setEqType",
-            "summary": "",
+            "summary": "Set\u0020equipment\u0020type",
             "url": "classes/cmd.html#method_setEqType"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetCache\u0028\u0029",
             "name": "getCache",
-            "summary": "",
+            "summary": "Get\u0020cache\u0020value",
             "url": "classes/cmd.html#method_getCache"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetCache\u0028\u0029",
             "name": "setCache",
-            "summary": "",
+            "summary": "Set\u0020cache\u0020value",
             "url": "classes/cmd.html#method_setCache"
         },                {
             "fqsen": "\\cmd\u003A\u003AgetChanged\u0028\u0029",
             "name": "getChanged",
-            "summary": "",
+            "summary": "Get\u0020changed\u0020state",
             "url": "classes/cmd.html#method_getChanged"
         },                {
             "fqsen": "\\cmd\u003A\u003AsetChanged\u0028\u0029",
             "name": "setChanged",
-            "summary": "",
+            "summary": "Set\u0020changed\u0020state",
             "url": "classes/cmd.html#method_setChanged"
         },                {
             "fqsen": "\\cmd\u003A\u003A\u0024id",
@@ -1143,152 +1143,152 @@ Search.appendIndex(
         },                {
             "fqsen": "\\config",
             "name": "config",
-            "summary": "",
+            "summary": "Manages\u0020Jeedom\u0020configuration\u0020system",
             "url": "classes/config.html"
         },                {
             "fqsen": "\\config\u003A\u003AgetDefaultConfiguration\u0028\u0029",
             "name": "getDefaultConfiguration",
-            "summary": "",
+            "summary": "Gets\u0020default\u0020configuration\u0020for\u0020a\u0020plugin",
             "url": "classes/config.html#method_getDefaultConfiguration"
         },                {
             "fqsen": "\\config\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "Save\u0020key\u0020to\u0020config",
+            "summary": "Saves\u0020a\u0020configuration\u0020value",
             "url": "classes/config.html#method_save"
         },                {
             "fqsen": "\\config\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "Delete\u0020key\u0020from\u0020config",
+            "summary": "Removes\u0020a\u0020configuration\u0020key",
             "url": "classes/config.html#method_remove"
         },                {
             "fqsen": "\\config\u003A\u003AbyKey\u0028\u0029",
             "name": "byKey",
-            "summary": "Get\u0020config\u0020by\u0020key",
+            "summary": "Gets\u0020configuration\u0020value\u0020by\u0020key",
             "url": "classes/config.html#method_byKey"
         },                {
             "fqsen": "\\config\u003A\u003AbyKeys\u0028\u0029",
             "name": "byKeys",
-            "summary": "",
+            "summary": "Gets\u0020multiple\u0020configuration\u0020values\u0020by\u0020keys",
             "url": "classes/config.html#method_byKeys"
         },                {
             "fqsen": "\\config\u003A\u003AsearchKey\u0028\u0029",
             "name": "searchKey",
-            "summary": "",
+            "summary": "Searches\u0020configuration\u0020by\u0020key\u0020pattern",
             "url": "classes/config.html#method_searchKey"
         },                {
             "fqsen": "\\config\u003A\u003AgenKey\u0028\u0029",
             "name": "genKey",
-            "summary": "",
+            "summary": "Generates\u0020a\u0020random\u0020key",
             "url": "classes/config.html#method_genKey"
         },                {
             "fqsen": "\\config\u003A\u003AgetPluginEnable\u0028\u0029",
             "name": "getPluginEnable",
-            "summary": "",
+            "summary": "Gets\u0020list\u0020of\u0020enabled\u0020plugins",
             "url": "classes/config.html#method_getPluginEnable"
         },                {
             "fqsen": "\\config\u003A\u003AgetLogLevelPlugin\u0028\u0029",
             "name": "getLogLevelPlugin",
-            "summary": "",
+            "summary": "Gets\u0020log\u0020levels\u0020by\u0020plugin",
             "url": "classes/config.html#method_getLogLevelPlugin"
         },                {
             "fqsen": "\\config\u003A\u003AgetGenericTypes\u0028\u0029",
             "name": "getGenericTypes",
-            "summary": "",
+            "summary": "Gets\u0020generic\u0020types\u0020configuration",
             "url": "classes/config.html#method_getGenericTypes"
         },                {
             "fqsen": "\\config\u003A\u003AcheckValueBetween\u0028\u0029",
             "name": "checkValueBetween",
-            "summary": "",
+            "summary": "Ensures\u0020value\u0020is\u0020between\u0020bounds",
             "url": "classes/config.html#method_checkValueBetween"
         },                {
             "fqsen": "\\config\u003A\u003ApostConfig_market_allowDns\u0028\u0029",
             "name": "postConfig_market_allowDns",
-            "summary": "",
+            "summary": "Handles\u0020DNS\u0020configuration\u0020changes",
             "url": "classes/config.html#method_postConfig_market_allowDns"
         },                {
             "fqsen": "\\config\u003A\u003ApostConfig_theme_start_day_hour\u0028\u0029",
             "name": "postConfig_theme_start_day_hour",
-            "summary": "",
+            "summary": "Updates\u0020day\u0020theme\u0020start\u0020hour",
             "url": "classes/config.html#method_postConfig_theme_start_day_hour"
         },                {
             "fqsen": "\\config\u003A\u003ApostConfig_theme_end_day_hour\u0028\u0029",
             "name": "postConfig_theme_end_day_hour",
-            "summary": "",
+            "summary": "Updates\u0020day\u0020theme\u0020end\u0020hour",
             "url": "classes/config.html#method_postConfig_theme_end_day_hour"
         },                {
             "fqsen": "\\config\u003A\u003ApostConfig_object_summary\u0028\u0029",
             "name": "postConfig_object_summary",
-            "summary": "",
+            "summary": "Refreshes\u0020object\u0020summaries\u0020after\u0020configuration\u0020change",
             "url": "classes/config.html#method_postConfig_object_summary"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_historyArchivePackage\u0028\u0029",
             "name": "preConfig_historyArchivePackage",
-            "summary": "",
+            "summary": "Validates\u0020history\u0020archive\u0020package\u0020value",
             "url": "classes/config.html#method_preConfig_historyArchivePackage"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_historyArchiveTime\u0028\u0029",
             "name": "preConfig_historyArchiveTime",
-            "summary": "",
+            "summary": "Validates\u0020history\u0020archive\u0020time\u0020value",
             "url": "classes/config.html#method_preConfig_historyArchiveTime"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_market_password\u0028\u0029",
             "name": "preConfig_market_password",
-            "summary": "",
+            "summary": "Ensures\u0020market\u0020password\u0020is\u0020hashed",
             "url": "classes/config.html#method_preConfig_market_password"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_widget_margin\u0028\u0029",
             "name": "preConfig_widget_margin",
-            "summary": "",
+            "summary": "Validates\u0020widget\u0020margin\u0020value",
             "url": "classes/config.html#method_preConfig_widget_margin"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_widget_step_width\u0028\u0029",
             "name": "preConfig_widget_step_width",
-            "summary": "",
+            "summary": "Validates\u0020widget\u0020width\u0020step\u0020value",
             "url": "classes/config.html#method_preConfig_widget_step_width"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_widget_step_height\u0028\u0029",
             "name": "preConfig_widget_step_height",
-            "summary": "",
+            "summary": "Validates\u0020widget\u0020height\u0020step\u0020value",
             "url": "classes/config.html#method_preConfig_widget_step_height"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_css_background_opacity\u0028\u0029",
             "name": "preConfig_css_background_opacity",
-            "summary": "",
+            "summary": "Validates\u0020background\u0020opacity\u0020value",
             "url": "classes/config.html#method_preConfig_css_background_opacity"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_css_border_radius\u0028\u0029",
             "name": "preConfig_css_border_radius",
-            "summary": "",
+            "summary": "Validates\u0020border\u0020radius\u0020value",
             "url": "classes/config.html#method_preConfig_css_border_radius"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_name\u0028\u0029",
             "name": "preConfig_name",
-            "summary": "",
+            "summary": "Sanitizes\u0020name\u0020value",
             "url": "classes/config.html#method_preConfig_name"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_info_latitude\u0028\u0029",
             "name": "preConfig_info_latitude",
-            "summary": "",
+            "summary": "Formats\u0020latitude\u0020value",
             "url": "classes/config.html#method_preConfig_info_latitude"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_info_longitude\u0028\u0029",
             "name": "preConfig_info_longitude",
-            "summary": "",
+            "summary": "Formats\u0020longitude\u0020value",
             "url": "classes/config.html#method_preConfig_info_longitude"
         },                {
             "fqsen": "\\config\u003A\u003ApreConfig_tts_engine\u0028\u0029",
             "name": "preConfig_tts_engine",
-            "summary": "",
+            "summary": "Updates\u0020TTS\u0020engine\u0020configuration",
             "url": "classes/config.html#method_preConfig_tts_engine"
         },                {
             "fqsen": "\\config\u003A\u003AgetHistorizedCmdNum\u0028\u0029",
             "name": "getHistorizedCmdNum",
-            "summary": "",
+            "summary": "Gets\u0020number\u0020of\u0020historized\u0020commands",
             "url": "classes/config.html#method_getHistorizedCmdNum"
         },                {
             "fqsen": "\\config\u003A\u003AgetTimelinedCmdNum\u0028\u0029",
             "name": "getTimelinedCmdNum",
-            "summary": "",
+            "summary": "Gets\u0020number\u0020of\u0020timelined\u0020commands",
             "url": "classes/config.html#method_getTimelinedCmdNum"
         },                {
             "fqsen": "\\config\u003A\u003A\u0024defaultConfiguration",
@@ -1318,132 +1318,132 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cron\u003A\u003Aall\u0028\u0029",
             "name": "all",
-            "summary": "Return\u0020an\u0020array\u0020of\u0020all\u0020cron\u0020object",
+            "summary": "Retrieves\u0020all\u0020cron\u0020tasks",
             "url": "classes/cron.html#method_all"
         },                {
             "fqsen": "\\cron\u003A\u003AbyId\u0028\u0029",
             "name": "byId",
-            "summary": "Get\u0020cron\u0020object\u0020associate\u0020to\u0020id",
+            "summary": "Finds\u0020a\u0020cron\u0020task\u0020by\u0020its\u0020ID",
             "url": "classes/cron.html#method_byId"
         },                {
             "fqsen": "\\cron\u003A\u003AbyClassAndFunction\u0028\u0029",
             "name": "byClassAndFunction",
-            "summary": "Return\u0020cron\u0020object\u0020corresponding\u0020to\u0020parameters",
+            "summary": "Finds\u0020a\u0020cron\u0020task\u0020by\u0020class\u0020and\u0020function",
             "url": "classes/cron.html#method_byClassAndFunction"
         },                {
             "fqsen": "\\cron\u003A\u003AsearchClassAndFunction\u0028\u0029",
             "name": "searchClassAndFunction",
-            "summary": "",
+            "summary": "Searches\u0020cron\u0020tasks\u0020by\u0020class\u0020and\u0020function\u0020with\u0020pattern\u0020matching",
             "url": "classes/cron.html#method_searchClassAndFunction"
         },                {
             "fqsen": "\\cron\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
-            "summary": "",
+            "summary": "Removes\u0020invalid\u0020cron\u0020schedules",
             "url": "classes/cron.html#method_clean"
         },                {
             "fqsen": "\\cron\u003A\u003AnbCronRun\u0028\u0029",
             "name": "nbCronRun",
-            "summary": "Return\u0020number\u0020of\u0020cron\u0020running",
+            "summary": "Counts\u0020running\u0020cron\u0020processes",
             "url": "classes/cron.html#method_nbCronRun"
         },                {
             "fqsen": "\\cron\u003A\u003AnbProcess\u0028\u0029",
             "name": "nbProcess",
-            "summary": "Return\u0020number\u0020of\u0020process\u0020on\u0020system",
+            "summary": "Counts\u0020system\u0020processes",
             "url": "classes/cron.html#method_nbProcess"
         },                {
             "fqsen": "\\cron\u003A\u003AloadAvg\u0028\u0029",
             "name": "loadAvg",
-            "summary": "Return\u0020array\u0020of\u0020load\u0020average",
+            "summary": "Gets\u0020system\u0020load\u0020averages",
             "url": "classes/cron.html#method_loadAvg"
         },                {
             "fqsen": "\\cron\u003A\u003AsetPidFile\u0028\u0029",
             "name": "setPidFile",
-            "summary": "Set\u0020jeecron\u0020pid\u0020of\u0020current\u0020process",
+            "summary": "Stores\u0020current\u0020process\u0020ID",
             "url": "classes/cron.html#method_setPidFile"
         },                {
             "fqsen": "\\cron\u003A\u003AgetPidFile\u0028\u0029",
             "name": "getPidFile",
-            "summary": "Return\u0020the\u0020current\u0020pid\u0020of\u0020jeecron\u0020or\u0020empty\u0020if\u0020not\u0020running",
+            "summary": "Retrieves\u0020stored\u0020process\u0020ID",
             "url": "classes/cron.html#method_getPidFile"
         },                {
             "fqsen": "\\cron\u003A\u003AjeeCronRun\u0028\u0029",
             "name": "jeeCronRun",
-            "summary": "Return\u0020state\u0020of\u0020jeecron\u0020master",
+            "summary": "Checks\u0020if\u0020cron\u0020master\u0020process\u0020is\u0020running",
             "url": "classes/cron.html#method_jeeCronRun"
         },                {
             "fqsen": "\\cron\u003A\u003AconvertDateToCron\u0028\u0029",
             "name": "convertDateToCron",
-            "summary": "",
+            "summary": "Converts\u0020timestamp\u0020to\u0020cron\u0020expression",
             "url": "classes/cron.html#method_convertDateToCron"
         },                {
             "fqsen": "\\cron\u003A\u003ApreSave\u0028\u0029",
             "name": "preSave",
-            "summary": "Check\u0020if\u0020cron\u0020object\u0020is\u0020valid\u0020before\u0020save",
+            "summary": "Validates\u0020cron\u0020task\u0020before\u0020saving",
             "url": "classes/cron.html#method_preSave"
         },                {
             "fqsen": "\\cron\u003A\u003ApostInsert\u0028\u0029",
             "name": "postInsert",
-            "summary": "",
+            "summary": "Initializes\u0020a\u0020new\u0020cron\u0020task",
             "url": "classes/cron.html#method_postInsert"
         },                {
             "fqsen": "\\cron\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "Save\u0020cron\u0020object",
+            "summary": "Saves\u0020current\u0020cron\u0020task",
             "url": "classes/cron.html#method_save"
         },                {
             "fqsen": "\\cron\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "Remove\u0020cron\u0020object",
+            "summary": "Deletes\u0020current\u0020cron\u0020task",
             "url": "classes/cron.html#method_remove"
         },                {
             "fqsen": "\\cron\u003A\u003Astart\u0028\u0029",
             "name": "start",
-            "summary": "Set\u0020cron\u0020to\u0020be\u0020start",
+            "summary": "Marks\u0020task\u0020for\u0020execution",
             "url": "classes/cron.html#method_start"
         },                {
             "fqsen": "\\cron\u003A\u003Arun\u0028\u0029",
             "name": "run",
-            "summary": "Launch\u0020cron\u0020\u0028this\u0020method\u0020must\u0020be\u0020only\u0020call\u0020by\u0020jeecron\u0020master\u0029",
+            "summary": "Executes\u0020the\u0020task\u0020\u0028this\u0020method\u0020must\u0020be\u0020only\u0020call\u0020by\u0020jeecron\u0020master\u0029",
             "url": "classes/cron.html#method_run"
         },                {
             "fqsen": "\\cron\u003A\u003Arunning\u0028\u0029",
             "name": "running",
-            "summary": "Check\u0020if\u0020this\u0020cron\u0020is\u0020currently\u0020running",
+            "summary": "Checks\u0020if\u0020task\u0020is\u0020currently\u0020running",
             "url": "classes/cron.html#method_running"
         },                {
             "fqsen": "\\cron\u003A\u003Arefresh\u0028\u0029",
             "name": "refresh",
-            "summary": "Refresh\u0020DB\u0020state\u0020of\u0020this\u0020cron",
+            "summary": "Updates\u0020task\u0020state",
             "url": "classes/cron.html#method_refresh"
         },                {
             "fqsen": "\\cron\u003A\u003Astop\u0028\u0029",
             "name": "stop",
-            "summary": "",
+            "summary": "Signals\u0020task\u0020to\u0020stop",
             "url": "classes/cron.html#method_stop"
         },                {
             "fqsen": "\\cron\u003A\u003Ahalt\u0028\u0029",
             "name": "halt",
-            "summary": "",
+            "summary": "Forces\u0020immediate\u0020task\u0020termination",
             "url": "classes/cron.html#method_halt"
         },                {
             "fqsen": "\\cron\u003A\u003AisDue\u0028\u0029",
             "name": "isDue",
-            "summary": "Check\u0020if\u0020it\u0027s\u0020time\u0020to\u0020launch\u0020cron",
+            "summary": "Checks\u0020if\u0020task\u0020should\u0020be\u0020executed",
             "url": "classes/cron.html#method_isDue"
         },                {
             "fqsen": "\\cron\u003A\u003AgetNextRunDate\u0028\u0029",
             "name": "getNextRunDate",
-            "summary": "",
+            "summary": "Calculates\u0020next\u0020execution\u0020time",
             "url": "classes/cron.html#method_getNextRunDate"
         },                {
             "fqsen": "\\cron\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
-            "summary": "Get\u0020human\u0020name\u0020of\u0020cron",
+            "summary": "Generates\u0020readable\u0020task\u0020name",
             "url": "classes/cron.html#method_getName"
         },                {
             "fqsen": "\\cron\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "",
+            "summary": "Converts\u0020task\u0020to\u0020array\u0020format",
             "url": "classes/cron.html#method_toArray"
         },                {
             "fqsen": "\\cron\u003A\u003AgetId\u0028\u0029",
@@ -1653,57 +1653,57 @@ Search.appendIndex(
         },                {
             "fqsen": "\\dataStore",
             "name": "dataStore",
-            "summary": "",
+            "summary": "Manages\u0020persistent\u0020key\u002Dvalue\u0020storage\u0020for\u0020Jeedom\u0020components",
             "url": "classes/dataStore.html"
         },                {
             "fqsen": "\\dataStore\u003A\u003AbyId\u0028\u0029",
             "name": "byId",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020dataStore\u0020instance\u0020by\u0020its\u0020ID",
             "url": "classes/dataStore.html#method_byId"
         },                {
             "fqsen": "\\dataStore\u003A\u003AbyTypeLinkIdKey\u0028\u0029",
             "name": "byTypeLinkIdKey",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020dataStore\u0020instance\u0020by\u0020its\u0020type,\u0020linked\u0020ID\u0020and\u0020key",
             "url": "classes/dataStore.html#method_byTypeLinkIdKey"
         },                {
             "fqsen": "\\dataStore\u003A\u003AbyTypeLinkId\u0028\u0029",
             "name": "byTypeLinkId",
-            "summary": "",
+            "summary": "Retrieves\u0020all\u0020dataStore\u0020instances\u0020for\u0020a\u0020component\u0020type\u0020and\u0020optional\u0020link\u0020ID",
             "url": "classes/dataStore.html#method_byTypeLinkId"
         },                {
             "fqsen": "\\dataStore\u003A\u003AremoveByTypeLinkId\u0028\u0029",
             "name": "removeByTypeLinkId",
-            "summary": "",
+            "summary": "Removes\u0020all\u0020dataStore\u0020instances\u0020for\u0020a\u0020component\u0020type\u0020and\u0020link\u0020ID",
             "url": "classes/dataStore.html#method_removeByTypeLinkId"
         },                {
             "fqsen": "\\dataStore\u003A\u003ApreSave\u0028\u0029",
             "name": "preSave",
-            "summary": "",
+            "summary": "Validates\u0020instance\u0020data\u0020before\u0020saving",
             "url": "classes/dataStore.html#method_preSave"
         },                {
             "fqsen": "\\dataStore\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Persists\u0020the\u0020instance\u0020to\u0020database",
             "url": "classes/dataStore.html#method_save"
         },                {
             "fqsen": "\\dataStore\u003A\u003ApostSave\u0028\u0029",
             "name": "postSave",
-            "summary": "",
+            "summary": "Executes\u0020post\u002Dsave\u0020operations",
             "url": "classes/dataStore.html#method_postSave"
         },                {
             "fqsen": "\\dataStore\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020the\u0020instance\u0020from\u0020database",
             "url": "classes/dataStore.html#method_remove"
         },                {
             "fqsen": "\\dataStore\u003A\u003AgetLinkData\u0028\u0029",
             "name": "getLinkData",
-            "summary": "",
+            "summary": "Builds\u0020graph\u0020data\u0020for\u0020component\u0020dependencies",
             "url": "classes/dataStore.html#method_getLinkData"
         },                {
             "fqsen": "\\dataStore\u003A\u003AgetUsedBy\u0028\u0029",
             "name": "getUsedBy",
-            "summary": "",
+            "summary": "Lists\u0020components\u0020using\u0020this\u0020instance",
             "url": "classes/dataStore.html#method_getUsedBy"
         },                {
             "fqsen": "\\dataStore\u003A\u003AgetId\u0028\u0029",
@@ -7823,67 +7823,67 @@ Search.appendIndex(
         },                {
             "fqsen": "\\__\u0028\u0029",
             "name": "__",
-            "summary": "",
+            "summary": "Global\u0020translation\u0020helper\u0020for\u0020a\u0020single\u0020text\u0020key",
             "url": "namespaces/default.html#function___"
         },                {
             "fqsen": "\\translate",
             "name": "translate",
-            "summary": "",
+            "summary": "Handles\u0020internationalization\u0020\u0028i18n\u0029\u0020for\u0020Jeedom\u0020system",
             "url": "classes/translate.html"
         },                {
             "fqsen": "\\translate\u003A\u003AgetConfig\u0028\u0029",
             "name": "getConfig",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020configuration\u0020value",
             "url": "classes/translate.html#method_getConfig"
         },                {
             "fqsen": "\\translate\u003A\u003AgetTranslation\u0028\u0029",
             "name": "getTranslation",
-            "summary": "",
+            "summary": "Gets\u0020translations\u0020for\u0020a\u0020plugin",
             "url": "classes/translate.html#method_getTranslation"
         },                {
             "fqsen": "\\translate\u003A\u003AgetWidgetTranslation\u0028\u0029",
             "name": "getWidgetTranslation",
-            "summary": "",
+            "summary": "Gets\u0020translations\u0020for\u0020a\u0020widget",
             "url": "classes/translate.html#method_getWidgetTranslation"
         },                {
             "fqsen": "\\translate\u003A\u003Asentence\u0028\u0029",
             "name": "sentence",
-            "summary": "",
+            "summary": "Translates\u0020a\u0020single\u0020text\u0020key",
             "url": "classes/translate.html#method_sentence"
         },                {
             "fqsen": "\\translate\u003A\u003AgetPluginFromName\u0028\u0029",
             "name": "getPluginFromName",
-            "summary": "",
+            "summary": "Extracts\u0020plugin\u0020name\u0020from\u0020file\u0020path",
             "url": "classes/translate.html#method_getPluginFromName"
         },                {
             "fqsen": "\\translate\u003A\u003Aexec\u0028\u0029",
             "name": "exec",
-            "summary": "",
+            "summary": "Processes\u0020text\u0020content\u0020for\u0020internationalization",
             "url": "classes/translate.html#method_exec"
         },                {
             "fqsen": "\\translate\u003A\u003AgetPathTranslationFile\u0028\u0029",
             "name": "getPathTranslationFile",
-            "summary": "",
+            "summary": "Returns\u0020path\u0020to\u0020language\u0020translation\u0020file",
             "url": "classes/translate.html#method_getPathTranslationFile"
         },                {
             "fqsen": "\\translate\u003A\u003AgetWidgetPathTranslationFile\u0028\u0029",
             "name": "getWidgetPathTranslationFile",
-            "summary": "",
+            "summary": "Returns\u0020path\u0020to\u0020widget\u0020translation\u0020file",
             "url": "classes/translate.html#method_getWidgetPathTranslationFile"
         },                {
             "fqsen": "\\translate\u003A\u003AloadTranslation\u0028\u0029",
             "name": "loadTranslation",
-            "summary": "",
+            "summary": "Loads\u0020translations\u0020for\u0020core\u0020or\u0020plugin",
             "url": "classes/translate.html#method_loadTranslation"
         },                {
             "fqsen": "\\translate\u003A\u003AgetLanguage\u0028\u0029",
             "name": "getLanguage",
-            "summary": "",
+            "summary": "Gets\u0020current\u0020active\u0020language",
             "url": "classes/translate.html#method_getLanguage"
         },                {
             "fqsen": "\\translate\u003A\u003AsetLanguage\u0028\u0029",
             "name": "setLanguage",
-            "summary": "",
+            "summary": "Sets\u0020active\u0020language",
             "url": "classes/translate.html#method_setLanguage"
         },                {
             "fqsen": "\\translate\u003A\u003A\u0024translation",
@@ -8503,52 +8503,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\utils",
             "name": "utils",
-            "summary": "",
+            "summary": "Utility\u0020functions\u0020for\u0020Jeedom\u0020core\u0020system",
             "url": "classes/utils.html"
         },                {
             "fqsen": "\\utils\u003A\u003AattrChanged\u0028\u0029",
             "name": "attrChanged",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020attributes\u0020have\u0020changed\u0020between\u0020old\u0020and\u0020new\u0020values",
             "url": "classes/utils.html#method_attrChanged"
         },                {
             "fqsen": "\\utils\u003A\u003Ao2a\u0028\u0029",
             "name": "o2a",
-            "summary": "",
+            "summary": "Converts\u0020object\u0028s\u0029\u0020to\u0020array\u0020representation",
             "url": "classes/utils.html#method_o2a"
         },                {
             "fqsen": "\\utils\u003A\u003Aa2o\u0028\u0029",
             "name": "a2o",
-            "summary": "",
+            "summary": "Populates\u0020object\u0020properties\u0020from\u0020array\u0020data",
             "url": "classes/utils.html#method_a2o"
         },                {
             "fqsen": "\\utils\u003A\u003AprocessJsonObject\u0028\u0029",
             "name": "processJsonObject",
-            "summary": "",
+            "summary": "Processes\u0020JSON\u0020objects\u0020for\u0020class\u0020synchronization",
             "url": "classes/utils.html#method_processJsonObject"
         },                {
             "fqsen": "\\utils\u003A\u003AsetJsonAttr\u0028\u0029",
             "name": "setJsonAttr",
-            "summary": "",
+            "summary": "Sets\u0020JSON\u0020attribute\u0020value\u0028s\u0029",
             "url": "classes/utils.html#method_setJsonAttr"
         },                {
             "fqsen": "\\utils\u003A\u003AgetJsonAttr\u0028\u0029",
             "name": "getJsonAttr",
-            "summary": "",
+            "summary": "Gets\u0020JSON\u0020attribute\u0020value\u0028s\u0029",
             "url": "classes/utils.html#method_getJsonAttr"
         },                {
             "fqsen": "\\utils\u003A\u003AgetEncryptionPassword\u0028\u0029",
             "name": "getEncryptionPassword",
-            "summary": "",
+            "summary": "Gets\u0020encryption\u0020password\u0020from\u0020configuration",
             "url": "classes/utils.html#method_getEncryptionPassword"
         },                {
             "fqsen": "\\utils\u003A\u003Aencrypt\u0028\u0029",
             "name": "encrypt",
-            "summary": "",
+            "summary": "Encrypts\u0020plaintext\u0020using\u0020AES\u002D256\u002DCBC",
             "url": "classes/utils.html#method_encrypt"
         },                {
             "fqsen": "\\utils\u003A\u003Adecrypt\u0028\u0029",
             "name": "decrypt",
-            "summary": "",
+            "summary": "Decrypts\u0020ciphertext\u0020using\u0020AES\u002D256\u002DCBC",
             "url": "classes/utils.html#method_decrypt"
         },                {
             "fqsen": "\\utils\u003A\u003AexecuteAsync\u0028\u0029",
