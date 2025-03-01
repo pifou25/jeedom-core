@@ -69,4 +69,5 @@ HEALTHCHECK --interval=1m --timeout=3s --retries=5 --start-period=10s --start-in
 
 COPY --chown=root:root --chmod=550 install/OS_specific/Docker/init.sh /root/
 COPY --chown=root:root --chmod=550 install/bashrc /root/.bashrc
-CMD ["bash", "/root/init.sh"]
+SHELL ["/bin/bash", "-c"]
+CMD ["/root/init.sh"]
