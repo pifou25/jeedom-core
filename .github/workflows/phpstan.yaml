@@ -2,28 +2,30 @@ name: PHPStan
 
 on:
   push:
-    branches: [ alpha ]
+    branches: [ alpha, feat/phpstan ]
   pull_request:
     branches: [ alpha ]
 
 jobs:
   phpstan:
     runs-on: ubuntu-latest
+    # define every php version to test
+    strategy:
+      # do not stop at first fail
+      fail-fast: false
+      matrix:
+        php: [7.4, 8.2]
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup PHP 7.4 for dependencies
+      - name: Setup PHP ${{ matrix.php }} for dependencies
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: ${{ matrix.php }}
 
       - name: Install Dependencies
         run: composer update --ignore-platform-reqs
-
-      - name: Setup PHP 8.2 for PHPStan
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
 
       - name: Restore PHPStan cache
         id: cache-phpstan
@@ -32,17 +34,19 @@ jobs:
           path: phpstan.phar
           key: phpstan-1
 
-      - name: Download PHPStan
-        if: steps.cache-phpstan.outputs.cache-hit != 'true'
-        run: wget https://github.com/phpstan/phpstan/releases/latest/download/phpstan.phar
-
       - name: Run PHPStan
-        run: php phpstan.phar analyse --configuration phpstan.neon
+        run: vendor/bin/phpstan analyse --debug -vvv --configuration phpstan.neon
 
   update-baseline:
     needs: phpstan
     if: github.event_name == 'push' && github.ref == 'refs/heads/alpha'
     runs-on: ubuntu-latest
+    # define every php version to test
+    strategy:
+      # do not stop at first fail
+      fail-fast: false
+      matrix:
+        php: [7.4, 8.2]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -54,21 +58,13 @@ jobs:
             git push origin --delete update-phpstan-baseline
           fi
 
-      - name: Setup PHP 7.4 for dependencies
+      - name: Setup PHP ${{ matrix.php }} for dependencies
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: ${{ matrix.php }}
 
       - name: Install Dependencies
         run: composer update --ignore-platform-reqs
-
-      - name: Setup PHP 8.2 for PHPStan
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
-
-      - name: Download PHPStan
-        run: wget https://github.com/phpstan/phpstan/releases/latest/download/phpstan.phar
 
       - name: Generate new baseline
         id: generate-baseline
