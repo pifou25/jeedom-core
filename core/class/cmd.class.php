@@ -2326,7 +2326,7 @@ class cmd {
 		return;
 	}
 
-	public function dropInfluxDatabase() {
+	public static function dropInfluxDatabase() {
 		try {
 			$database = cmd::getInflux();
 			if ($database == '') {
