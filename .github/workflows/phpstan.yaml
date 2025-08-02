@@ -2,7 +2,7 @@ name: PHPStan
 
 on:
   push:
-    branches: [ alpha, feat/phpstan ]
+    branches: [ alpha ]
   pull_request:
     branches: [ alpha ]
 
@@ -35,18 +35,12 @@ jobs:
           key: phpstan-1
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse --debug -vvv --configuration phpstan.neon
+        run: vendor/bin/phpstan analyse --configuration phpstan.neon
 
   update-baseline:
     needs: phpstan
     if: github.event_name == 'push' && github.ref == 'refs/heads/alpha'
     runs-on: ubuntu-latest
-    # define every php version to test
-    strategy:
-      # do not stop at first fail
-      fail-fast: false
-      matrix:
-        php: [7.4, 8.2]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -54,14 +48,12 @@ jobs:
 
       - name: Delete existing branch if exists
         run: |
-          if git ls-remote --heads origin update-phpstan-baseline | grep update-phpstan-baseline; then
-            git push origin --delete update-phpstan-baseline
-          fi
+          git ls-remote --exit-code --heads origin update-phpstan-baseline && git push origin --delete update-phpstan-baseline
 
-      - name: Setup PHP ${{ matrix.php }} for dependencies
+      - name: Setup PHP 8.2 for dependencies
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: 8.2
 
       - name: Install Dependencies
         run: composer update --ignore-platform-reqs
@@ -70,7 +62,7 @@ jobs:
         id: generate-baseline
         run: |
           cp phpstan-baseline.neon phpstan-baseline.neon.old
-          php phpstan.phar analyse --configuration phpstan.neon --generate-baseline
+          vendor/bin/phpstan analyse --configuration phpstan.neon --generate-baseline
           if ! diff -q phpstan-baseline.neon phpstan-baseline.neon.old > /dev/null; then
             echo "baseline_changed=true" >> $GITHUB_OUTPUT
           fi
@@ -91,9 +83,10 @@ jobs:
           add-paths: |
             phpstan-baseline.neon
           reviewers: |
-            zoic21
-            Hotfirenet
-            tmartinez69009
-            Salvialf
-            Sekiro-kost
-            reineabs
+            pifou25
+            # zoic21
+            # Hotfirenet
+            # tmartinez69009
+            # Salvialf
+            # Sekiro-kost
+            # reineabs
