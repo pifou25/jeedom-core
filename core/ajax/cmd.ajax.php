@@ -238,7 +238,11 @@ try {
 		if (!isConnect('admin')) {
 			throw new Exception(__('401 - Accès non autorisé', __FILE__));
 		}
-		ajax::success(cmd::historyInfluxAll());
+		$cmd = cmd::byId(init('cmd_id'));
+		if (!is_object($cmd)) {
+			throw new Exception(__('Commande inconnue :', __FILE__) . ' ' . init('id'), 9999);
+		}
+		ajax::success($cmd->historyInfluxAll());
 	}
 
 	if (init('action') == 'getHumanCmdName') {
