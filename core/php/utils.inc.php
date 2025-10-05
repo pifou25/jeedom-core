@@ -17,6 +17,7 @@
 */
 
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use Jeedom\Core\Arrays\ArrayAccess;
 
 function include_file($_folder, $_fn, $_type, $_plugin = '') {
 	if (strpos($_folder, '..') !== false || strpos($_fn, '..') !== false || strpos($_fn, '\\') !== false) {
@@ -156,6 +157,9 @@ function sendVarToJS($_varName, $_value = '') {
 	}
 	$jsVar = '<script>';
 	foreach ($_varName as $name => $value) {
+		if($value instanceof ArrayAccess) {
+			$value = $value->toArray();
+		}
 		$value = (is_array($value)) ? 'JSON.parse("' . addslashes(json_encode($value, JSON_UNESCAPED_UNICODE)) . '")'	: '"' . $value . '"';
 		if (strpos($name, '.') === false) {
 			$jsVar .= 'var ' . $name . ' = ' . $value . "\n";
