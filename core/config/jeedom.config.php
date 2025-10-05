@@ -16,8 +16,10 @@
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 */
 
+use Jeedom\Core\Arrays\ArrayAccess;
+
 global $JEEDOM_INTERNAL_CONFIG;
-$JEEDOM_INTERNAL_CONFIG = array(
+$JEEDOM_INTERNAL_CONFIG = new ArrayAccess([
 	'eqLogic' => array(
 		'category' => array(
 			'heating' => array('name' => __('Chauffage', __FILE__), 'icon' => 'fas fa-fire'),
@@ -1518,8 +1520,9 @@ $JEEDOM_INTERNAL_CONFIG = array(
 			),
 		),
 	),
-);
-$GLOBALS['JEEDOM_SCLOG_TEXT'] = array(
+]);
+
+$GLOBALS['JEEDOM_SCLOG_TEXT'] = new ArrayAccess([
 	'startManual' 			=> array('txt' => __('Scénario lancé manuellement', __FILE__), 'replace' => '<label class="success">::</label>'),
 	'startAutoOnEvent'		=> array('txt' => __('Scénario exécuté automatiquement sur événement venant de :', __FILE__) . ' ', 'replace' => '<label class="success">::</label>'),
 	'startOnEvent'			=> array('txt' => __('Scénario exécuté sur événement', __FILE__), 'replace' => '<label class="success">::</label>'),
@@ -1557,4 +1560,4 @@ $GLOBALS['JEEDOM_SCLOG_TEXT'] = array(
 	'disableScenario'		=> array('txt' => __('Impossible d\'exécuter le scénario :', __FILE__) . ' ', 'replace' => '<label class="danger">::</label>'),
 	'invalidExpr'			=> array('txt' => __('Expression non valide :', __FILE__) . ' ', 'replace' => '<label class="danger">::</label>'),
 	'invalidDuration'		=> array('txt' => __('Aucune durée trouvée pour l\'action sleep ou la durée n\'est pas valide :', __FILE__) . ' ', 'replace' => '<label class="danger">::</label>'),
-);
+]);
