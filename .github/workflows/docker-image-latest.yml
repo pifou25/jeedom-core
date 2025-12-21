@@ -5,6 +5,7 @@ on:
     # only trigger CI when push on following branches
     branches:
       - 'master'
+      - trixie_test
   # this is to manually trigger the worklow
   workflow_dispatch:
     inputs:
@@ -25,7 +26,7 @@ jobs:
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
           sudo apt-get autoclean -y 2>&1
-          docker rmi $(docker image ls -aq) 2>&1
+          docker rmi $(docker image ls -aq) 2>&1 || true
           df -h
     
       - name: Check Out Repo
@@ -70,6 +71,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
+      - name: Build and push Jeedom on Debian:trixie with DB
+        # https://github.com/marketplace/actions/build-and-push-docker-images
+        uses: docker/build-push-action@v3
+        continue-on-error: true
+        with:
+          context: ./
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64 # ,linux/arm/v7
+          push: true
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          build-args: |
+            "VERSION=${{ env.GITHUB_BRANCH }}"
+            "DEBIAN=trixie-slim"
+            "DATABASE=1"
+          tags: "${{ env.JEEDOM_REPO }}/jeedom:${{ env.JEEDOM_SHORT_VERSION}}-trixie"
+
       - name: Build and push Jeedom on Debian:Bookworm without internal DB
         # https://github.com/marketplace/actions/build-and-push-docker-images
         uses: docker/build-push-action@v3
@@ -93,7 +111,7 @@ jobs:
           docker rm $(docker ps -aq) 2>&1
           docker rmi $(docker image ls -aq) 2>&1
       
-      - name: Build and push Jeedom on DockerHub
+      - name: Build and push Jeedom :bookworm on DockerHub
         # https://github.com/marketplace/actions/build-and-push-docker-images
         uses: docker/build-push-action@v3
         continue-on-error: true
@@ -113,7 +131,7 @@ jobs:
           docker rm $(docker ps -aq) 2>&1
           docker rmi $(docker image ls -aq) 2>&1
 
-      - name: Build and push Jeedom on Debian:Buster with DB
+      - name: Build and push Jeedom on Debian:bullseye with DB
         # https://github.com/marketplace/actions/build-and-push-docker-images
         uses: docker/build-push-action@v3
         continue-on-error: true
@@ -126,9 +144,9 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: |
             "VERSION=${{ env.GITHUB_BRANCH }}"
-            "DEBIAN=buster"
+            "DEBIAN=bullseye"
             "DATABASE=1"
-          tags: "${{ env.JEEDOM_REPO }}/jeedom:${{ env.JEEDOM_SHORT_VERSION}}-buster"
+          tags: "${{ env.JEEDOM_REPO }}/jeedom:${{ env.JEEDOM_SHORT_VERSION}}-bullseye"
           
       - name: Clean docker image
         run: |

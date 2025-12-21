@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - prettier
+      - trixie_test
   pull_request:
     branches:
       - prettier
@@ -11,4 +12,5 @@ name : 'Prettier Plugin Jeedom'
 
 jobs:
   prettier:
-    uses: jeedom/workflows/.github/workflows/prettier.yml@main
+    uses: pifou25/jeedom-workflows/.github/workflows/prettier.yml@main
+    # uses: jeedom/workflows/.github/workflows/prettier.yml@main
