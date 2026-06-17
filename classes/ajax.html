@@ -142,11 +142,11 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/ajax.class.php"><a href="files/core-class-ajax-class.html"><abbr title="core/class/ajax.class.php">ajax.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Gère les réponses AJAX de Jeedom</p>
+            <p class="phpdocumentor-summary">Handles AJAX responses in Jeedom</p>
 
 
 
@@ -157,45 +157,12 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">note</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Évolutions possibles et compatibles
-Cette classe pourrait être enrichie progressivement avec :</p>
-<ul>
-<li>Une interface ResponseFormatterInterface pour supporter différents formats (json, xml...)</li>
-<li>Un système de middleware pour la validation des entrées</li>
-<li>Des codes d'erreur HTTP standards via une énumération
-Ces changements peuvent être implémentés graduellement sans casser l'existant</li>
-</ul>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">example</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>Utilisation actuelle</p>
-<pre class="prettyprint"><code class="language-php">ajax::init(['getInfos']);
-ajax::success($data);
-</code></pre>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Utilisation future possible</p>
-<pre class="prettyprint"><code class="language-php">// Même API, plus de fonctionnalités
-ajax::init(['getInfos'])
-   -&gt;withValidator(new InputValidator())
-   -&gt;withFormat(new JsonFormatter());
-ajax::success($data);
-</code></pre>
+                                                 <section class="phpdocumentor-description"><p>ajax::init(['getInfos']); // returns void
+ajax::success(['result' =&gt; 'ok']); // sends JSON response</p>
 </section>
 
                                     </dd>
@@ -205,7 +172,7 @@ ajax::success($data);
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                     <span class="phpdocumentor-tag-link"><abbr title="\config::class">config::class</abbr></span>
                                         
-                                                 <section class="phpdocumentor-description"><p>Pour la gestion des configurations</p>
+                                                 <section class="phpdocumentor-description"><p>For configuration management</p>
 </section>
 
                                     </dd>
@@ -215,21 +182,7 @@ ajax::success($data);
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                     <span class="phpdocumentor-tag-link"><abbr title="\log::class">log::class</abbr></span>
                                         
-                                                 <section class="phpdocumentor-description"><p>Pour la gestion des logs</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Version 4.6 ou 5.0</p>
-<ul>
-<li>[OPTIONNEL] Ajouter un système de middleware pour valider les entrées</li>
-<li>[OPTIONNEL] Support de différents formats via interfaces</li>
-<li>[COMPATIBLE] Utiliser des codes HTTP standards</li>
-</ul>
+                                                 <section class="phpdocumentor-description"><p>For logging management</p>
 </section>
 
                                     </dd>
@@ -263,36 +216,35 @@ ajax::success($data);
     <span>
                                 &nbsp;: never    </span>
 </dt>
-<dd>Envoie une réponse d&#039;erreur et termine l&#039;exécution</dd>
+<dd>Sends an error response and ends execution</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ajax.html#method_getResponse">getResponse()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: string|false    </span>
 </dt>
-<dd>Génère la réponse JSON formatée</dd>
+<dd>Generates formatted JSON response</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ajax.html#method_getToken">getToken()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Retourne un token (méthode non utilisée ?)</dd>
+<dd>Returns authentication token</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ajax.html#method_init">init()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Initialise la réponse AJAX
-Configure les en-têtes HTTP et vérifie les actions autorisées en GET</dd>
+<dd>Initializes AJAX response with HTTP headers and GET action validation</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/ajax.html#method_success">success()</a>
     <span>
                                 &nbsp;: never    </span>
 </dt>
-<dd>Envoie une réponse de succès et termine l&#039;exécution</dd>
+<dd>Sends a success response and ends execution</dd>
 
     </dl>
 
@@ -323,11 +275,11 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/ajax.class.php"><a href="files/core-class-ajax-class.html"><abbr title="core/class/ajax.class.php">ajax.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Envoie une réponse d&#039;erreur et termine l&#039;exécution</p>
+        <p class="phpdocumentor-summary">Sends an error response and ends execution</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -343,7 +295,7 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Message d'erreur ou données à renvoyer</p>
+                    <section class="phpdocumentor-description"><p>Error message or data to send</p>
 </section>
 
             </dd>
@@ -352,7 +304,7 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Code d'erreur</p>
+                    <section class="phpdocumentor-description"><p>Custom error code for client-side handling (default: 0)</p>
 </section>
 
             </dd>
@@ -380,15 +332,15 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/ajax.class.php"><a href="files/core-class-ajax-class.html"><abbr title="core/class/ajax.class.php">ajax.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Génère la réponse JSON formatée</p>
+        <p class="phpdocumentor-summary">Generates formatted JSON response</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_errorCode</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_errorCode</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|false</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -400,7 +352,7 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Données à inclure dans la réponse</p>
+                    <section class="phpdocumentor-description"><p>Data to include in response</p>
 </section>
 
             </dd>
@@ -409,43 +361,19 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Code d'erreur (null pour une réponse de succès)</p>
+                    <section class="phpdocumentor-description"><p>Error code (null for success response)</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/ajax.html#method_getResponse#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">note</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Architecture future
-Cette méthode pourrait déléguer le formatage à des classes dédiées :</p>
-<ul>
-<li>JsonFormatter (comportement actuel)</li>
-<li>XmlFormatter</li>
-<li>CsvFormatter
-etc.
-La transition peut se faire graduellement en gardant le comportement par défaut</li>
-</ul>
-</section>
-
-                                    </dd>
-                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
+        <span class="phpdocumentor-signature__response_type">string|false</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Réponse JSON encodée</p>
+                <section class="phpdocumentor-description"><p>Encoded JSON response</p>
 </section>
 
             </section>
@@ -455,7 +383,7 @@ La transition peut se faire graduellement en gardant le comportement par défaut
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+            -deprecated                        -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_getToken">
         getToken()
@@ -465,13 +393,13 @@ La transition peut se faire graduellement en gardant le comportement par défaut
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/ajax.class.php"><a href="files/core-class-ajax-class.html"><abbr title="core/class/ajax.class.php">ajax.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Retourne un token (méthode non utilisée ?)</p>
+        <p class="phpdocumentor-summary">Returns authentication token</p>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getToken</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
@@ -480,12 +408,28 @@ La transition peut se faire graduellement en gardant le comportement par défaut
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/ajax.html#method_getToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">deprecated</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Since version 4.4, authentication is handled differently</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Token vide</p>
+                <section class="phpdocumentor-description"><p>Empty token</p>
 </section>
 
             </section>
@@ -505,16 +449,15 @@ La transition peut se faire graduellement en gardant le comportement par défaut
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/ajax.class.php"><a href="files/core-class-ajax-class.html"><abbr title="core/class/ajax.class.php">ajax.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialise la réponse AJAX
-Configure les en-têtes HTTP et vérifie les actions autorisées en GET</p>
+        <p class="phpdocumentor-summary">Initializes AJAX response with HTTP headers and GET action validation</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">init</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_allowGetAction</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">init</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_allowGetAction</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -523,10 +466,10 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_allowGetAction</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">array()</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Liste des actions autorisées en GET</p>
+                    <section class="phpdocumentor-description"><p>List of allowed GET actions</p>
 </section>
 
             </dd>
@@ -545,22 +488,7 @@ Configure les en-têtes HTTP et vérifie les actions autorisées en GET</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>Si l'action demandée en GET n'est pas autorisée</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">note</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Évolution possible
-Cette méthode pourrait retourner $this pour permettre le chaînage :</p>
-<pre class="prettyprint"><code class="language-php">ajax::init(['action'])
-    -&gt;withValidator()
-    -&gt;withFormat();
-</code></pre>
-<p>Ce changement serait rétrocompatible</p>
+                                                 <section class="phpdocumentor-description"><p>When requested GET action is not allowed</p>
 </section>
 
                                     </dd>
@@ -582,11 +510,11 @@ Cette méthode pourrait retourner $this pour permettre le chaînage :</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/ajax.class.php"><a href="files/core-class-ajax-class.html"><abbr title="core/class/ajax.class.php">ajax.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Envoie une réponse de succès et termine l&#039;exécution</p>
+        <p class="phpdocumentor-summary">Sends a success response and ends execution</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -602,36 +530,13 @@ Cette méthode pourrait retourner $this pour permettre le chaînage :</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Données à renvoyer dans la réponse</p>
+                    <section class="phpdocumentor-description"><p>Data to send in response</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/ajax.html#method_success#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">note</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Compatibilité et évolution
-Pour maintenir la compatibilité tout en permettant l'évolution :</p>
-<ul>
-<li>Garder le comportement actuel par défaut</li>
-<li>Permettre l'injection d'un formatter optionnel</li>
-</ul>
-<pre class="prettyprint"><code class="language-php">ajax::success($data, new JsonFormatter()); // Optionnel
-</code></pre>
-</section>
-
-                                    </dd>
-                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>

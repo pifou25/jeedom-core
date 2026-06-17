@@ -126,13 +126,34 @@
                         <h3>Table of Contents</h3>
             <table class="phpdocumentor-table_of_contents">
                                     <tr>
+                        <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/class/ajax.class.php">core/class/ajax.class.php</a></td>
+                    </tr>
+                                    <tr>
                         <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/class/log.class.php">core/class/log.class.php</a></td>
+                    </tr>
+                                    <tr>
+                        <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/class/scenario.class.php">core/class/scenario.class.php</a></td>
                     </tr>
                                     <tr>
                         <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/com/shell.com.php">core/com/shell.com.php</a></td>
                     </tr>
                             </table>
             
+                            <a id="core/class/ajax.class.php"></a>
+                <h3><abbr title="core/class/ajax.class.php">ajax.class.php</abbr></h3>
+                <table>
+                    <tr>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Element</th>
+                        <th class="phpdocumentor-heading">Reason</th>
+                    </tr>
+                                                                        <tr>
+                                <td class="phpdocumentor-cell">59</td>
+                                <td class="phpdocumentor-cell"><a href="classes/ajax.html#method_getToken"><abbr title="\ajax::getToken()">ajax::getToken()</abbr></a></td>
+                                <td class="phpdocumentor-cell"><p>Since version 4.4, authentication is handled differently</p>
+</td>
+                            </tr>
+                                                            </table>
                             <a id="core/class/log.class.php"></a>
                 <h3><abbr title="core/class/log.class.php">log.class.php</abbr></h3>
                 <table>
@@ -142,7 +163,7 @@
                         <th class="phpdocumentor-heading">Reason</th>
                     </tr>
                                                                         <tr>
-                                <td class="phpdocumentor-cell">258</td>
+                                <td class="phpdocumentor-cell">344</td>
                                 <td class="phpdocumentor-cell"><a href="classes/log.html#method_get"><abbr title="\log::get()">log::get()</abbr></a></td>
                                 <td class="phpdocumentor-cell"><p>v4.4
 =&gt; removed in v4.6 (use log::getDelta() instead)</p>
@@ -155,6 +176,21 @@ $delta = self::getDelta($_log, $_begin, '', false, false, 0, $_nbLines);
 $arr = explode(&quot;\n&quot;, $delta['logText']);
 unset($arr[count($arr) - 1]);
 $res = array_reverse($arr);</p>
+</td>
+                            </tr>
+                                                            </table>
+                            <a id="core/class/scenario.class.php"></a>
+                <h3><abbr title="core/class/scenario.class.php">scenario.class.php</abbr></h3>
+                <table>
+                    <tr>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Element</th>
+                        <th class="phpdocumentor-heading">Reason</th>
+                    </tr>
+                                                                        <tr>
+                                <td class="phpdocumentor-cell">1054</td>
+                                <td class="phpdocumentor-cell"><a href="classes/scenario.html#method_emptyCacheWidget"><abbr title="\scenario::emptyCacheWidget()">scenario::emptyCacheWidget()</abbr></a></td>
+                                <td class="phpdocumentor-cell"><p>don't use this function anymore, it is only here for backward compatibility</p>
 </td>
                             </tr>
                                                             </table>

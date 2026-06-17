@@ -1,149 +1,164 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\tts_sanitizeLang\u0028\u0029",
+            "name": "tts_sanitizeLang",
+            "summary": "Normalize\u0020and\u0020whitelist\u0020a\u0020TTS\u0020locale\u0020tag,\u0020falling\u0020back\u0020to\u0020fr\u002DFR\u0020when\u0020invalid.",
+            "url": "namespaces/default.html#function_tts_sanitizeLang"
+        },                {
+            "fqsen": "\\tts_buildEspeakCmd\u0028\u0029",
+            "name": "tts_buildEspeakCmd",
+            "summary": "Build\u0020a\u0020shell\u002Dsafe\u0020espeak\u0020pipeline\u0020that\u0020renders\u0020text\u0020to\u0020an\u0020MP3\u0020file.",
+            "url": "namespaces/default.html#function_tts_buildEspeakCmd"
+        },                {
+            "fqsen": "\\tts_buildPicoCmd\u0028\u0029",
+            "name": "tts_buildPicoCmd",
+            "summary": "Build\u0020a\u0020shell\u002Dsafe\u0020pico2wave\u0020\u002B\u0020transcode\u0020pipeline\u0020that\u0020renders\u0020text\u0020to\u0020an\u0020MP3\u0020file\u0020with\u0020volume\u0020adjustment.",
+            "url": "namespaces/default.html#function_tts_buildPicoCmd"
+        },                {
             "fqsen": "\\ajax",
             "name": "ajax",
-            "summary": "G\u00E8re\u0020les\u0020r\u00E9ponses\u0020AJAX\u0020de\u0020Jeedom",
+            "summary": "Handles\u0020AJAX\u0020responses\u0020in\u0020Jeedom",
             "url": "classes/ajax.html"
         },                {
             "fqsen": "\\ajax\u003A\u003Ainit\u0028\u0029",
             "name": "init",
-            "summary": "Initialise\u0020la\u0020r\u00E9ponse\u0020AJAX\nConfigure\u0020les\u0020en\u002Dt\u00EAtes\u0020HTTP\u0020et\u0020v\u00E9rifie\u0020les\u0020actions\u0020autoris\u00E9es\u0020en\u0020GET",
+            "summary": "Initializes\u0020AJAX\u0020response\u0020with\u0020HTTP\u0020headers\u0020and\u0020GET\u0020action\u0020validation",
             "url": "classes/ajax.html#method_init"
         },                {
             "fqsen": "\\ajax\u003A\u003AgetToken\u0028\u0029",
             "name": "getToken",
-            "summary": "Retourne\u0020un\u0020token\u0020\u0028m\u00E9thode\u0020non\u0020utilis\u00E9e\u0020\u003F\u0029",
+            "summary": "Returns\u0020authentication\u0020token",
             "url": "classes/ajax.html#method_getToken"
         },                {
             "fqsen": "\\ajax\u003A\u003Asuccess\u0028\u0029",
             "name": "success",
-            "summary": "Envoie\u0020une\u0020r\u00E9ponse\u0020de\u0020succ\u00E8s\u0020et\u0020termine\u0020l\u0027ex\u00E9cution",
+            "summary": "Sends\u0020a\u0020success\u0020response\u0020and\u0020ends\u0020execution",
             "url": "classes/ajax.html#method_success"
         },                {
             "fqsen": "\\ajax\u003A\u003Aerror\u0028\u0029",
             "name": "error",
-            "summary": "Envoie\u0020une\u0020r\u00E9ponse\u0020d\u0027erreur\u0020et\u0020termine\u0020l\u0027ex\u00E9cution",
+            "summary": "Sends\u0020an\u0020error\u0020response\u0020and\u0020ends\u0020execution",
             "url": "classes/ajax.html#method_error"
         },                {
             "fqsen": "\\ajax\u003A\u003AgetResponse\u0028\u0029",
             "name": "getResponse",
-            "summary": "G\u00E9n\u00E8re\u0020la\u0020r\u00E9ponse\u0020JSON\u0020format\u00E9e",
+            "summary": "Generates\u0020formatted\u0020JSON\u0020response",
             "url": "classes/ajax.html#method_getResponse"
         },                {
             "fqsen": "\\cache",
             "name": "cache",
-            "summary": "",
+            "summary": "Main\u0020cache\u0020handling\u0020class\u0020implementing\u0020a\u0020flexible\u0020caching\u0020system",
             "url": "classes/cache.html"
         },                {
             "fqsen": "\\cache\u003A\u003AgetEngine\u0028\u0029",
             "name": "getEngine",
-            "summary": "",
+            "summary": "Get\u0020current\u0020cache\u0020engine\u0020class\u0020name",
             "url": "classes/cache.html#method_getEngine"
         },                {
             "fqsen": "\\cache\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "",
+            "summary": "Set\u0020a\u0020cache\u0020entry",
             "url": "classes/cache.html#method_set"
         },                {
             "fqsen": "\\cache\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020cache\u0020entry",
             "url": "classes/cache.html#method_delete"
         },                {
             "fqsen": "\\cache\u003A\u003AbyKey\u0028\u0029",
             "name": "byKey",
-            "summary": "",
+            "summary": "Get\u0020cache\u0020entry\u0020by\u0020key",
             "url": "classes/cache.html#method_byKey"
         },                {
             "fqsen": "\\cache\u003A\u003Aexist\u0028\u0029",
             "name": "exist",
-            "summary": "",
+            "summary": "Check\u0020if\u0020a\u0020cache\u0020entry\u0020exists\u0020and\u0020is\u0020valid",
             "url": "classes/cache.html#method_exist"
         },                {
             "fqsen": "\\cache\u003A\u003Aflush\u0028\u0029",
             "name": "flush",
-            "summary": "",
+            "summary": "Delete\u0020all\u0020cache\u0020entries",
             "url": "classes/cache.html#method_flush"
         },                {
             "fqsen": "\\cache\u003A\u003Apersist\u0028\u0029",
             "name": "persist",
-            "summary": "",
+            "summary": "Persist\u0020cache\u0020to\u0020storage\u0020if\u0020supported\u0020by\u0020engine",
             "url": "classes/cache.html#method_persist"
         },                {
             "fqsen": "\\cache\u003A\u003AisPersistOk\u0028\u0029",
             "name": "isPersistOk",
-            "summary": "",
+            "summary": "Check\u0020if\u0020persistence\u0020is\u0020working\u0020correctly",
             "url": "classes/cache.html#method_isPersistOk"
         },                {
             "fqsen": "\\cache\u003A\u003Arestore\u0028\u0029",
             "name": "restore",
-            "summary": "",
+            "summary": "Restore\u0020cache\u0020from\u0020persistence\u0020if\u0020supported\u0020by\u0020engine",
             "url": "classes/cache.html#method_restore"
         },                {
             "fqsen": "\\cache\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
-            "summary": "",
+            "summary": "Clean\u0020expired\u0020entries\u0020and\u0020perform\u0020maintenance",
             "url": "classes/cache.html#method_clean"
         },                {
             "fqsen": "\\cache\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Save\u0020current\u0020cache\u0020entry",
             "url": "classes/cache.html#method_save"
         },                {
             "fqsen": "\\cache\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Remove\u0020current\u0020cache\u0020entry",
             "url": "classes/cache.html#method_remove"
         },                {
             "fqsen": "\\cache\u003A\u003AgetKey\u0028\u0029",
             "name": "getKey",
-            "summary": "",
+            "summary": "Get\u0020cache\u0020entry\u0020key",
             "url": "classes/cache.html#method_getKey"
         },                {
             "fqsen": "\\cache\u003A\u003AsetKey\u0028\u0029",
             "name": "setKey",
-            "summary": "",
+            "summary": "Set\u0020cache\u0020entry\u0020key",
             "url": "classes/cache.html#method_setKey"
         },                {
             "fqsen": "\\cache\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "Get\u0020cache\u0020entry\u0020value",
             "url": "classes/cache.html#method_getValue"
         },                {
             "fqsen": "\\cache\u003A\u003AsetValue\u0028\u0029",
             "name": "setValue",
-            "summary": "",
+            "summary": "Set\u0020cache\u0020entry\u0020value",
             "url": "classes/cache.html#method_setValue"
         },                {
             "fqsen": "\\cache\u003A\u003AgetLifetime\u0028\u0029",
             "name": "getLifetime",
-            "summary": "",
+            "summary": "Get\u0020cache\u0020entry\u0020lifetime",
             "url": "classes/cache.html#method_getLifetime"
         },                {
             "fqsen": "\\cache\u003A\u003AsetLifetime\u0028\u0029",
             "name": "setLifetime",
-            "summary": "",
+            "summary": "Set\u0020cache\u0020entry\u0020lifetime",
             "url": "classes/cache.html#method_setLifetime"
         },                {
             "fqsen": "\\cache\u003A\u003AgetDatetime\u0028\u0029",
             "name": "getDatetime",
-            "summary": "",
+            "summary": "Get\u0020cache\u0020entry\u0020datetime",
             "url": "classes/cache.html#method_getDatetime"
         },                {
             "fqsen": "\\cache\u003A\u003AsetDatetime\u0028\u0029",
             "name": "setDatetime",
-            "summary": "",
+            "summary": "Set\u0020cache\u0020entry\u0020datetime",
             "url": "classes/cache.html#method_setDatetime"
         },                {
             "fqsen": "\\cache\u003A\u003AgetTimestamp\u0028\u0029",
             "name": "getTimestamp",
-            "summary": "",
+            "summary": "Get\u0020cache\u0020entry\u0020timestamp",
             "url": "classes/cache.html#method_getTimestamp"
         },                {
             "fqsen": "\\cache\u003A\u003AsetTimestamp\u0028\u0029",
             "name": "setTimestamp",
-            "summary": "",
+            "summary": "Set\u0020cache\u0020entry\u0020timestamp",
             "url": "classes/cache.html#method_setTimestamp"
         },                {
             "fqsen": "\\cache\u003A\u003A\u0024key",
@@ -173,77 +188,77 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MariadbCache",
             "name": "MariadbCache",
-            "summary": "",
+            "summary": "MariaDB\u0020cache\u0020engine\u0020implementation",
             "url": "classes/MariadbCache.html"
         },                {
             "fqsen": "\\MariadbCache\u003A\u003Aall\u0028\u0029",
             "name": "all",
-            "summary": "",
+            "summary": "Get\u0020all\u0020cache\u0020entries",
             "url": "classes/MariadbCache.html#method_all"
         },                {
             "fqsen": "\\MariadbCache\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
-            "summary": "",
+            "summary": "Clean\u0020expired\u0020cache\u0020entries",
             "url": "classes/MariadbCache.html#method_clean"
         },                {
             "fqsen": "\\MariadbCache\u003A\u003Afetch\u0028\u0029",
             "name": "fetch",
-            "summary": "",
+            "summary": "Fetch\u0020a\u0020cache\u0020entry\u0020by\u0020key",
             "url": "classes/MariadbCache.html#method_fetch"
         },                {
             "fqsen": "\\MariadbCache\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020cache\u0020entry",
             "url": "classes/MariadbCache.html#method_delete"
         },                {
             "fqsen": "\\MariadbCache\u003A\u003AdeleteAll\u0028\u0029",
             "name": "deleteAll",
-            "summary": "",
+            "summary": "Delete\u0020all\u0020cache\u0020entries",
             "url": "classes/MariadbCache.html#method_deleteAll"
         },                {
             "fqsen": "\\MariadbCache\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Save\u0020a\u0020cache\u0020entry",
             "url": "classes/MariadbCache.html#method_save"
         },                {
             "fqsen": "\\RedisCache",
             "name": "RedisCache",
-            "summary": "",
+            "summary": "Redis\u0020cache\u0020engine\u0020implementation",
             "url": "classes/RedisCache.html"
         },                {
             "fqsen": "\\RedisCache\u003A\u003AisOk\u0028\u0029",
             "name": "isOk",
-            "summary": "",
+            "summary": "Check\u0020if\u0020Redis\u0020extension\u0020is\u0020available",
             "url": "classes/RedisCache.html#method_isOk"
         },                {
             "fqsen": "\\RedisCache\u003A\u003AgetConnection\u0028\u0029",
             "name": "getConnection",
-            "summary": "",
+            "summary": "Get\u0020Redis\u0020connection",
             "url": "classes/RedisCache.html#method_getConnection"
         },                {
             "fqsen": "\\RedisCache\u003A\u003Aall\u0028\u0029",
             "name": "all",
-            "summary": "",
+            "summary": "Get\u0020all\u0020cache\u0020entries",
             "url": "classes/RedisCache.html#method_all"
         },                {
             "fqsen": "\\RedisCache\u003A\u003Afetch\u0028\u0029",
             "name": "fetch",
-            "summary": "",
+            "summary": "Fetch\u0020a\u0020cache\u0020entry\u0020by\u0020key",
             "url": "classes/RedisCache.html#method_fetch"
         },                {
             "fqsen": "\\RedisCache\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020cache\u0020entry",
             "url": "classes/RedisCache.html#method_delete"
         },                {
             "fqsen": "\\RedisCache\u003A\u003AdeleteAll\u0028\u0029",
             "name": "deleteAll",
-            "summary": "",
+            "summary": "Delete\u0020all\u0020cache\u0020entries",
             "url": "classes/RedisCache.html#method_deleteAll"
         },                {
             "fqsen": "\\RedisCache\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Save\u0020a\u0020cache\u0020entry",
             "url": "classes/RedisCache.html#method_save"
         },                {
             "fqsen": "\\RedisCache\u003A\u003A\u0024connection",
@@ -253,52 +268,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\FileCache",
             "name": "FileCache",
-            "summary": "",
+            "summary": "File\u002Dbased\u0020cache\u0020engine\u0020implementation",
             "url": "classes/FileCache.html"
         },                {
             "fqsen": "\\FileCache\u003A\u003Aall\u0028\u0029",
             "name": "all",
-            "summary": "",
+            "summary": "Get\u0020all\u0020cache\u0020entries",
             "url": "classes/FileCache.html#method_all"
         },                {
             "fqsen": "\\FileCache\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
-            "summary": "",
+            "summary": "Clean\u0020expired\u0020cache\u0020entries",
             "url": "classes/FileCache.html#method_clean"
         },                {
             "fqsen": "\\FileCache\u003A\u003Afetch\u0028\u0029",
             "name": "fetch",
-            "summary": "",
+            "summary": "Fetch\u0020a\u0020cache\u0020entry\u0020by\u0020key",
             "url": "classes/FileCache.html#method_fetch"
         },                {
             "fqsen": "\\FileCache\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020cache\u0020entry",
             "url": "classes/FileCache.html#method_delete"
         },                {
             "fqsen": "\\FileCache\u003A\u003AdeleteAll\u0028\u0029",
             "name": "deleteAll",
-            "summary": "",
+            "summary": "Delete\u0020all\u0020cache\u0020entries",
             "url": "classes/FileCache.html#method_deleteAll"
         },                {
             "fqsen": "\\FileCache\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Save\u0020a\u0020cache\u0020entry",
             "url": "classes/FileCache.html#method_save"
         },                {
             "fqsen": "\\FileCache\u003A\u003Apersist\u0028\u0029",
             "name": "persist",
-            "summary": "",
+            "summary": "Persist\u0020cache\u0020to\u0020archive\u0020file",
             "url": "classes/FileCache.html#method_persist"
         },                {
             "fqsen": "\\FileCache\u003A\u003AisPersistOk\u0028\u0029",
             "name": "isPersistOk",
-            "summary": "",
+            "summary": "Check\u0020if\u0020persistence\u0020archive\u0020is\u0020valid",
             "url": "classes/FileCache.html#method_isPersistOk"
         },                {
             "fqsen": "\\FileCache\u003A\u003Arestore\u0028\u0029",
             "name": "restore",
-            "summary": "",
+            "summary": "Restore\u0020cache\u0020from\u0020persistence\u0020archive",
             "url": "classes/FileCache.html#method_restore"
         },                {
             "fqsen": "\\cmd",
@@ -1171,9 +1186,14 @@ Search.appendIndex(
             "summary": "Gets\u0020multiple\u0020configuration\u0020values\u0020by\u0020keys",
             "url": "classes/config.html#method_byKeys"
         },                {
+            "fqsen": "\\config\u003A\u003AbyValue\u0028\u0029",
+            "name": "byValue",
+            "summary": "Searches\u0020configuration\u0020by\u0020key\u0020pattern",
+            "url": "classes/config.html#method_byValue"
+        },                {
             "fqsen": "\\config\u003A\u003AsearchKey\u0028\u0029",
             "name": "searchKey",
-            "summary": "Searches\u0020configuration\u0020by\u0020key\u0020pattern",
+            "summary": "",
             "url": "classes/config.html#method_searchKey"
         },                {
             "fqsen": "\\config\u003A\u003AgenKey\u0028\u0029",
@@ -1318,22 +1338,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cron\u003A\u003Aall\u0028\u0029",
             "name": "all",
-            "summary": "Retrieves\u0020all\u0020cron\u0020tasks",
+            "summary": "Return\u0020an\u0020array\u0020of\u0020all\u0020cron\u0020object",
             "url": "classes/cron.html#method_all"
         },                {
             "fqsen": "\\cron\u003A\u003AbyId\u0028\u0029",
             "name": "byId",
-            "summary": "Finds\u0020a\u0020cron\u0020task\u0020by\u0020its\u0020ID",
+            "summary": "Get\u0020cron\u0020object\u0020associate\u0020to\u0020id",
             "url": "classes/cron.html#method_byId"
         },                {
             "fqsen": "\\cron\u003A\u003AbyClassAndFunction\u0028\u0029",
             "name": "byClassAndFunction",
-            "summary": "Finds\u0020a\u0020cron\u0020task\u0020by\u0020class\u0020and\u0020function",
+            "summary": "Return\u0020cron\u0020object\u0020corresponding\u0020to\u0020parameters",
             "url": "classes/cron.html#method_byClassAndFunction"
         },                {
             "fqsen": "\\cron\u003A\u003AsearchClassAndFunction\u0028\u0029",
             "name": "searchClassAndFunction",
-            "summary": "Searches\u0020cron\u0020tasks\u0020by\u0020class\u0020and\u0020function\u0020with\u0020pattern\u0020matching",
+            "summary": "",
             "url": "classes/cron.html#method_searchClassAndFunction"
         },                {
             "fqsen": "\\cron\u003A\u003Aclean\u0028\u0029",
@@ -1343,32 +1363,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cron\u003A\u003AnbCronRun\u0028\u0029",
             "name": "nbCronRun",
-            "summary": "Counts\u0020running\u0020cron\u0020processes",
+            "summary": "Return\u0020number\u0020of\u0020cron\u0020running",
             "url": "classes/cron.html#method_nbCronRun"
         },                {
             "fqsen": "\\cron\u003A\u003AnbProcess\u0028\u0029",
             "name": "nbProcess",
-            "summary": "Counts\u0020system\u0020processes",
+            "summary": "Return\u0020number\u0020of\u0020process\u0020on\u0020system",
             "url": "classes/cron.html#method_nbProcess"
         },                {
             "fqsen": "\\cron\u003A\u003AloadAvg\u0028\u0029",
             "name": "loadAvg",
-            "summary": "Gets\u0020system\u0020load\u0020averages",
+            "summary": "Return\u0020array\u0020of\u0020load\u0020average",
             "url": "classes/cron.html#method_loadAvg"
         },                {
             "fqsen": "\\cron\u003A\u003AsetPidFile\u0028\u0029",
             "name": "setPidFile",
-            "summary": "Stores\u0020current\u0020process\u0020ID",
+            "summary": "Set\u0020jeecron\u0020pid\u0020of\u0020current\u0020process",
             "url": "classes/cron.html#method_setPidFile"
         },                {
             "fqsen": "\\cron\u003A\u003AgetPidFile\u0028\u0029",
             "name": "getPidFile",
-            "summary": "Retrieves\u0020stored\u0020process\u0020ID",
+            "summary": "Return\u0020the\u0020current\u0020pid\u0020of\u0020jeecron\u0020or\u0020empty\u0020if\u0020not\u0020running",
             "url": "classes/cron.html#method_getPidFile"
         },                {
             "fqsen": "\\cron\u003A\u003AjeeCronRun\u0028\u0029",
             "name": "jeeCronRun",
-            "summary": "Checks\u0020if\u0020cron\u0020master\u0020process\u0020is\u0020running",
+            "summary": "Return\u0020state\u0020of\u0020jeecron\u0020master",
             "url": "classes/cron.html#method_jeeCronRun"
         },                {
             "fqsen": "\\cron\u003A\u003AconvertDateToCron\u0028\u0029",
@@ -1378,7 +1398,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cron\u003A\u003ApreSave\u0028\u0029",
             "name": "preSave",
-            "summary": "Validates\u0020cron\u0020task\u0020before\u0020saving",
+            "summary": "Check\u0020if\u0020cron\u0020object\u0020is\u0020valid\u0020before\u0020save",
             "url": "classes/cron.html#method_preSave"
         },                {
             "fqsen": "\\cron\u003A\u003ApostInsert\u0028\u0029",
@@ -1388,32 +1408,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cron\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "Saves\u0020current\u0020cron\u0020task",
+            "summary": "Save\u0020cron\u0020object",
             "url": "classes/cron.html#method_save"
         },                {
             "fqsen": "\\cron\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "Deletes\u0020current\u0020cron\u0020task",
+            "summary": "Remove\u0020cron\u0020object",
             "url": "classes/cron.html#method_remove"
         },                {
             "fqsen": "\\cron\u003A\u003Astart\u0028\u0029",
             "name": "start",
-            "summary": "Marks\u0020task\u0020for\u0020execution",
+            "summary": "Set\u0020cron\u0020to\u0020be\u0020start",
             "url": "classes/cron.html#method_start"
         },                {
             "fqsen": "\\cron\u003A\u003Arun\u0028\u0029",
             "name": "run",
-            "summary": "Executes\u0020the\u0020task\u0020\u0028this\u0020method\u0020must\u0020be\u0020only\u0020call\u0020by\u0020jeecron\u0020master\u0029",
+            "summary": "Launch\u0020cron\u0020\u0028this\u0020method\u0020must\u0020be\u0020only\u0020call\u0020by\u0020jeecron\u0020master\u0029",
             "url": "classes/cron.html#method_run"
         },                {
             "fqsen": "\\cron\u003A\u003Arunning\u0028\u0029",
             "name": "running",
-            "summary": "Checks\u0020if\u0020task\u0020is\u0020currently\u0020running",
+            "summary": "Check\u0020if\u0020this\u0020cron\u0020is\u0020currently\u0020running",
             "url": "classes/cron.html#method_running"
         },                {
             "fqsen": "\\cron\u003A\u003Arefresh\u0028\u0029",
             "name": "refresh",
-            "summary": "Updates\u0020task\u0020state",
+            "summary": "Refresh\u0020DB\u0020state\u0020of\u0020this\u0020cron",
             "url": "classes/cron.html#method_refresh"
         },                {
             "fqsen": "\\cron\u003A\u003Astop\u0028\u0029",
@@ -1428,7 +1448,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cron\u003A\u003AisDue\u0028\u0029",
             "name": "isDue",
-            "summary": "Checks\u0020if\u0020task\u0020should\u0020be\u0020executed",
+            "summary": "Check\u0020if\u0020it\u0027s\u0020time\u0020to\u0020launch\u0020cron",
             "url": "classes/cron.html#method_isDue"
         },                {
             "fqsen": "\\cron\u003A\u003AgetNextRunDate\u0028\u0029",
@@ -1438,7 +1458,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\cron\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
-            "summary": "Generates\u0020readable\u0020task\u0020name",
+            "summary": "Get\u0020human\u0020name\u0020of\u0020cron",
             "url": "classes/cron.html#method_getName"
         },                {
             "fqsen": "\\cron\u003A\u003AtoArray\u0028\u0029",
@@ -3736,11 +3756,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/jeedom.html#property_jeedomConfiguration"
         },                {
-            "fqsen": "\\jeedom\u003A\u003A\u0024jeedom_encryption",
-            "name": "jeedom_encryption",
-            "summary": "",
-            "url": "classes/jeedom.html#property_jeedom_encryption"
-        },                {
             "fqsen": "\\jeedom\u003A\u003A\u0024cache",
             "name": "cache",
             "summary": "",
@@ -4476,6 +4491,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/listener.html#method_addEvent"
         },                {
+            "fqsen": "\\listener\u003A\u003AremoveEvent\u0028\u0029",
+            "name": "removeEvent",
+            "summary": "",
+            "url": "classes/listener.html#method_removeEvent"
+        },                {
             "fqsen": "\\listener\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "",
@@ -4635,6 +4655,16 @@ Search.appendIndex(
             "name": "clearAll",
             "summary": "",
             "url": "classes/log.html#method_clearAll"
+        },                {
+            "fqsen": "\\log\u003A\u003AgetActiveDaemonPluginIdsSortedByLength\u0028\u0029",
+            "name": "getActiveDaemonPluginIdsSortedByLength",
+            "summary": "",
+            "url": "classes/log.html#method_getActiveDaemonPluginIdsSortedByLength"
+        },                {
+            "fqsen": "\\log\u003A\u003AcanRemoveLog\u0028\u0029",
+            "name": "canRemoveLog",
+            "summary": "",
+            "url": "classes/log.html#method_canRemoveLog"
         },                {
             "fqsen": "\\log\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
@@ -6381,6 +6411,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/queue.html"
         },                {
+            "fqsen": "\\queue\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/queue.html#method_initialize"
+        },                {
             "fqsen": "\\queue\u003A\u003Aall\u0028\u0029",
             "name": "all",
             "summary": "",
@@ -6450,6 +6485,11 @@ Search.appendIndex(
             "name": "preSave",
             "summary": "",
             "url": "classes/queue.html#method_preSave"
+        },                {
+            "fqsen": "\\queue\u003A\u003ApostSave\u0028\u0029",
+            "name": "postSave",
+            "summary": "",
+            "url": "classes/queue.html#method_postSave"
         },                {
             "fqsen": "\\queue\u003A\u003Asave\u0028\u0029",
             "name": "save",
@@ -6591,6 +6631,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/queue.html#method_setCache"
         },                {
+            "fqsen": "\\queue\u003A\u003AgetSerializedArguments\u0028\u0029",
+            "name": "getSerializedArguments",
+            "summary": "",
+            "url": "classes/queue.html#method_getSerializedArguments"
+        },                {
+            "fqsen": "\\queue\u003A\u003AsetSerializedArguments\u0028\u0029",
+            "name": "setSerializedArguments",
+            "summary": "",
+            "url": "classes/queue.html#method_setSerializedArguments"
+        },                {
+            "fqsen": "\\queue\u003A\u003AgetUnserializedArguments\u0028\u0029",
+            "name": "getUnserializedArguments",
+            "summary": "",
+            "url": "classes/queue.html#method_getUnserializedArguments"
+        },                {
             "fqsen": "\\queue\u003A\u003A\u0024id",
             "name": "id",
             "summary": "",
@@ -6610,6 +6665,11 @@ Search.appendIndex(
             "name": "arguments",
             "summary": "",
             "url": "classes/queue.html#property_arguments"
+        },                {
+            "fqsen": "\\queue\u003A\u003A\u0024_arrayArguments",
+            "name": "_arrayArguments",
+            "summary": "",
+            "url": "classes/queue.html#property__arrayArguments"
         },                {
             "fqsen": "\\queue\u003A\u003A\u0024createTime",
             "name": "createTime",
@@ -6636,6 +6696,106 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/queue.html#property__changed"
         },                {
+            "fqsen": "\\queue\u003A\u003A\u0024_onSave",
+            "name": "_onSave",
+            "summary": "",
+            "url": "classes/queue.html#property__onSave"
+        },                {
+            "fqsen": "\\recovery",
+            "name": "recovery",
+            "summary": "",
+            "url": "classes/recovery.html"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AisInstalled\u0028\u0029",
+            "name": "isInstalled",
+            "summary": "",
+            "url": "classes/recovery.html#method_isInstalled"
+        },                {
+            "fqsen": "\\recovery\u003A\u003Ainstall\u0028\u0029",
+            "name": "install",
+            "summary": "",
+            "url": "classes/recovery.html#method_install"
+        },                {
+            "fqsen": "\\recovery\u003A\u003Astart\u0028\u0029",
+            "name": "start",
+            "summary": "",
+            "url": "classes/recovery.html#method_start"
+        },                {
+            "fqsen": "\\recovery\u003A\u003Acancel\u0028\u0029",
+            "name": "cancel",
+            "summary": "",
+            "url": "classes/recovery.html#method_cancel"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AusbConnected\u0028\u0029",
+            "name": "usbConnected",
+            "summary": "",
+            "url": "classes/recovery.html#method_usbConnected"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AgetProgress\u0028\u0029",
+            "name": "getProgress",
+            "summary": "",
+            "url": "classes/recovery.html#method_getProgress"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AsetProgress\u0028\u0029",
+            "name": "setProgress",
+            "summary": "",
+            "url": "classes/recovery.html#method_setProgress"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AdownloadAndValidateImage\u0028\u0029",
+            "name": "downloadAndValidateImage",
+            "summary": "",
+            "url": "classes/recovery.html#method_downloadAndValidateImage"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AdownloadImageProgress\u0028\u0029",
+            "name": "downloadImageProgress",
+            "summary": "",
+            "url": "classes/recovery.html#method_downloadImageProgress"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AvalidateImage\u0028\u0029",
+            "name": "validateImage",
+            "summary": "",
+            "url": "classes/recovery.html#method_validateImage"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AgetImgInfos\u0028\u0029",
+            "name": "getImgInfos",
+            "summary": "",
+            "url": "classes/recovery.html#method_getImgInfos"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AprepareUsbDevice\u0028\u0029",
+            "name": "prepareUsbDevice",
+            "summary": "",
+            "url": "classes/recovery.html#method_prepareUsbDevice"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AcheckFreeSpace\u0028\u0029",
+            "name": "checkFreeSpace",
+            "summary": "",
+            "url": "classes/recovery.html#method_checkFreeSpace"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AcalculPercentProgress\u0028\u0029",
+            "name": "calculPercentProgress",
+            "summary": "",
+            "url": "classes/recovery.html#method_calculPercentProgress"
+        },                {
+            "fqsen": "\\recovery\u003A\u003AwriteLog\u0028\u0029",
+            "name": "writeLog",
+            "summary": "",
+            "url": "classes/recovery.html#method_writeLog"
+        },                {
+            "fqsen": "\\recovery\u003A\u003APROGRESS",
+            "name": "PROGRESS",
+            "summary": "",
+            "url": "classes/recovery.html#constant_PROGRESS"
+        },                {
+            "fqsen": "\\recovery\u003A\u003ACANCEL",
+            "name": "CANCEL",
+            "summary": "",
+            "url": "classes/recovery.html#constant_CANCEL"
+        },                {
+            "fqsen": "\\recovery\u003A\u003ADEFAULT_IMGNAME",
+            "name": "DEFAULT_IMGNAME",
+            "summary": "",
+            "url": "classes/recovery.html#constant_DEFAULT_IMGNAME"
+        },                {
             "fqsen": "\\report",
             "name": "report",
             "summary": "",
@@ -6650,6 +6810,646 @@ Search.appendIndex(
             "name": "generate",
             "summary": "",
             "url": "classes/report.html#method_generate"
+        },                {
+            "fqsen": "\\scenario",
+            "name": "scenario",
+            "summary": "",
+            "url": "classes/scenario.html"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AbyId\u0028\u0029",
+            "name": "byId",
+            "summary": "Renvoie\u0020un\u0020objet\u0020scenario",
+            "url": "classes/scenario.html#method_byId"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AbyString\u0028\u0029",
+            "name": "byString",
+            "summary": "",
+            "url": "classes/scenario.html#method_byString"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Aall\u0028\u0029",
+            "name": "all",
+            "summary": "Renvoie\u0020tous\u0020les\u0020objets\u0020scenario",
+            "url": "classes/scenario.html#method_all"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AallOrderedByGroupObjectName\u0028\u0029",
+            "name": "allOrderedByGroupObjectName",
+            "summary": "return\u0020all\u0020scenarios\u0020ordered\u0020by\u0020\u005Bgroup\u005D\u005BobjectName\u005D\u005BscenarioName\u005D",
+            "url": "classes/scenario.html#method_allOrderedByGroupObjectName"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024schedule",
+            "name": "schedule",
+            "summary": "The\u0020schedule\u0020for\u0020the\u0020scenario.",
+            "url": "classes/scenario.html#property_schedule"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AlistGroup\u0028\u0029",
+            "name": "listGroup",
+            "summary": "",
+            "url": "classes/scenario.html#method_listGroup"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AbyTrigger\u0028\u0029",
+            "name": "byTrigger",
+            "summary": "",
+            "url": "classes/scenario.html#method_byTrigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AbyGenericTrigger\u0028\u0029",
+            "name": "byGenericTrigger",
+            "summary": "",
+            "url": "classes/scenario.html#method_byGenericTrigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AbyElement\u0028\u0029",
+            "name": "byElement",
+            "summary": "",
+            "url": "classes/scenario.html#method_byElement"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AbyObjectId\u0028\u0029",
+            "name": "byObjectId",
+            "summary": "",
+            "url": "classes/scenario.html#method_byObjectId"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "",
+            "url": "classes/scenario.html#method_check"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Acontrol\u0028\u0029",
+            "name": "control",
+            "summary": "",
+            "url": "classes/scenario.html#method_control"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AdoIn\u0028\u0029",
+            "name": "doIn",
+            "summary": "",
+            "url": "classes/scenario.html#method_doIn"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AcleanTable\u0028\u0029",
+            "name": "cleanTable",
+            "summary": "",
+            "url": "classes/scenario.html#method_cleanTable"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AconsystencyCheck\u0028\u0029",
+            "name": "consystencyCheck",
+            "summary": "",
+            "url": "classes/scenario.html#method_consystencyCheck"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AbyObjectNameGroupNameScenarioName\u0028\u0029",
+            "name": "byObjectNameGroupNameScenarioName",
+            "summary": "",
+            "url": "classes/scenario.html#method_byObjectNameGroupNameScenarioName"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AtoHumanReadable\u0028\u0029",
+            "name": "toHumanReadable",
+            "summary": "",
+            "url": "classes/scenario.html#method_toHumanReadable"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AfromHumanReadable\u0028\u0029",
+            "name": "fromHumanReadable",
+            "summary": "",
+            "url": "classes/scenario.html#method_fromHumanReadable"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsearchByUse\u0028\u0029",
+            "name": "searchByUse",
+            "summary": "",
+            "url": "classes/scenario.html#method_searchByUse"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsearchByTrigger\u0028\u0029",
+            "name": "searchByTrigger",
+            "summary": "",
+            "url": "classes/scenario.html#method_searchByTrigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetTemplate\u0028\u0029",
+            "name": "getTemplate",
+            "summary": "",
+            "url": "classes/scenario.html#method_getTemplate"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AtestTrigger\u0028\u0029",
+            "name": "testTrigger",
+            "summary": "",
+            "url": "classes/scenario.html#method_testTrigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Alaunch\u0028\u0029",
+            "name": "launch",
+            "summary": "",
+            "url": "classes/scenario.html#method_launch"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/scenario.html#method_execute"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Acopy\u0028\u0029",
+            "name": "copy",
+            "summary": "",
+            "url": "classes/scenario.html#method_copy"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AtoHtml\u0028\u0029",
+            "name": "toHtml",
+            "summary": "",
+            "url": "classes/scenario.html#method_toHtml"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AemptyCacheWidget\u0028\u0029",
+            "name": "emptyCacheWidget",
+            "summary": "",
+            "url": "classes/scenario.html#method_emptyCacheWidget"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetIcon\u0028\u0029",
+            "name": "getIcon",
+            "summary": "",
+            "url": "classes/scenario.html#method_getIcon"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetLinkToConfiguration\u0028\u0029",
+            "name": "getLinkToConfiguration",
+            "summary": "",
+            "url": "classes/scenario.html#method_getLinkToConfiguration"
+        },                {
+            "fqsen": "\\scenario\u003A\u003ApreSave\u0028\u0029",
+            "name": "preSave",
+            "summary": "",
+            "url": "classes/scenario.html#method_preSave"
+        },                {
+            "fqsen": "\\scenario\u003A\u003ApostInsert\u0028\u0029",
+            "name": "postInsert",
+            "summary": "",
+            "url": "classes/scenario.html#method_postInsert"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/scenario.html#method_save"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Arefresh\u0028\u0029",
+            "name": "refresh",
+            "summary": "",
+            "url": "classes/scenario.html#method_refresh"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/scenario.html#method_remove"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AremoveData\u0028\u0029",
+            "name": "removeData",
+            "summary": "",
+            "url": "classes/scenario.html#method_removeData"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetData\u0028\u0029",
+            "name": "setData",
+            "summary": "",
+            "url": "classes/scenario.html#method_setData"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetData\u0028\u0029",
+            "name": "getData",
+            "summary": "",
+            "url": "classes/scenario.html#method_getData"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AcalculateScheduleDate\u0028\u0029",
+            "name": "calculateScheduleDate",
+            "summary": "",
+            "url": "classes/scenario.html#method_calculateScheduleDate"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AisDue\u0028\u0029",
+            "name": "isDue",
+            "summary": "",
+            "url": "classes/scenario.html#method_isDue"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Arunning\u0028\u0029",
+            "name": "running",
+            "summary": "",
+            "url": "classes/scenario.html#method_running"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Astop\u0028\u0029",
+            "name": "stop",
+            "summary": "",
+            "url": "classes/scenario.html#method_stop"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetElement\u0028\u0029",
+            "name": "getElement",
+            "summary": "",
+            "url": "classes/scenario.html#method_getElement"
+        },                {
+            "fqsen": "\\scenario\u003A\u003Aexport\u0028\u0029",
+            "name": "export",
+            "summary": "",
+            "url": "classes/scenario.html#method_export"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetObject\u0028\u0029",
+            "name": "getObject",
+            "summary": "",
+            "url": "classes/scenario.html#method_getObject"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetHumanName\u0028\u0029",
+            "name": "getHumanName",
+            "summary": "",
+            "url": "classes/scenario.html#method_getHumanName"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AhasRight\u0028\u0029",
+            "name": "hasRight",
+            "summary": "",
+            "url": "classes/scenario.html#method_hasRight"
+        },                {
+            "fqsen": "\\scenario\u003A\u003ApersistLog\u0028\u0029",
+            "name": "persistLog",
+            "summary": "",
+            "url": "classes/scenario.html#method_persistLog"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "",
+            "url": "classes/scenario.html#method_toArray"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetLinkData\u0028\u0029",
+            "name": "getLinkData",
+            "summary": "",
+            "url": "classes/scenario.html#method_getLinkData"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetUse\u0028\u0029",
+            "name": "getUse",
+            "summary": "",
+            "url": "classes/scenario.html#method_getUse"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetUsedBy\u0028\u0029",
+            "name": "getUsedBy",
+            "summary": "",
+            "url": "classes/scenario.html#method_getUsedBy"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AclearLog\u0028\u0029",
+            "name": "clearLog",
+            "summary": "",
+            "url": "classes/scenario.html#method_clearLog"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AresetRepeatIfStatus\u0028\u0029",
+            "name": "resetRepeatIfStatus",
+            "summary": "",
+            "url": "classes/scenario.html#method_resetRepeatIfStatus"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AaddTag\u0028\u0029",
+            "name": "addTag",
+            "summary": "",
+            "url": "classes/scenario.html#method_addTag"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetTag\u0028\u0029",
+            "name": "getTag",
+            "summary": "",
+            "url": "classes/scenario.html#method_getTag"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/scenario.html#method_getId"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/scenario.html#method_getName"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetState\u0028\u0029",
+            "name": "getState",
+            "summary": "",
+            "url": "classes/scenario.html#method_getState"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetIsActive\u0028\u0029",
+            "name": "getIsActive",
+            "summary": "",
+            "url": "classes/scenario.html#method_getIsActive"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetGroup\u0028\u0029",
+            "name": "getGroup",
+            "summary": "",
+            "url": "classes/scenario.html#method_getGroup"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetLastLaunch\u0028\u0029",
+            "name": "getLastLaunch",
+            "summary": "",
+            "url": "classes/scenario.html#method_getLastLaunch"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetId\u0028\u0029",
+            "name": "setId",
+            "summary": "",
+            "url": "classes/scenario.html#method_setId"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/scenario.html#method_setName"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetIsActive\u0028\u0029",
+            "name": "setIsActive",
+            "summary": "",
+            "url": "classes/scenario.html#method_setIsActive"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetGroup\u0028\u0029",
+            "name": "setGroup",
+            "summary": "",
+            "url": "classes/scenario.html#method_setGroup"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetState\u0028\u0029",
+            "name": "setState",
+            "summary": "",
+            "url": "classes/scenario.html#method_setState"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetLastLaunch\u0028\u0029",
+            "name": "setLastLaunch",
+            "summary": "",
+            "url": "classes/scenario.html#method_setLastLaunch"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetMode\u0028\u0029",
+            "name": "getMode",
+            "summary": "",
+            "url": "classes/scenario.html#method_getMode"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetMode\u0028\u0029",
+            "name": "setMode",
+            "summary": "",
+            "url": "classes/scenario.html#method_setMode"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetOrder\u0028\u0029",
+            "name": "getOrder",
+            "summary": "",
+            "url": "classes/scenario.html#method_getOrder"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetOrder\u0028\u0029",
+            "name": "setOrder",
+            "summary": "",
+            "url": "classes/scenario.html#method_setOrder"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetSchedule\u0028\u0029",
+            "name": "getSchedule",
+            "summary": "",
+            "url": "classes/scenario.html#method_getSchedule"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetSchedule\u0028\u0029",
+            "name": "setSchedule",
+            "summary": "",
+            "url": "classes/scenario.html#method_setSchedule"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetPID\u0028\u0029",
+            "name": "getPID",
+            "summary": "",
+            "url": "classes/scenario.html#method_getPID"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetPID\u0028\u0029",
+            "name": "setPID",
+            "summary": "",
+            "url": "classes/scenario.html#method_setPID"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetScenarioElement\u0028\u0029",
+            "name": "getScenarioElement",
+            "summary": "",
+            "url": "classes/scenario.html#method_getScenarioElement"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetScenarioElement\u0028\u0029",
+            "name": "setScenarioElement",
+            "summary": "",
+            "url": "classes/scenario.html#method_setScenarioElement"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetTrigger\u0028\u0029",
+            "name": "getTrigger",
+            "summary": "",
+            "url": "classes/scenario.html#method_getTrigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetTrigger\u0028\u0029",
+            "name": "setTrigger",
+            "summary": "",
+            "url": "classes/scenario.html#method_setTrigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetLog\u0028\u0029",
+            "name": "getLog",
+            "summary": "",
+            "url": "classes/scenario.html#method_getLog"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetLog\u0028\u0029",
+            "name": "setLog",
+            "summary": "",
+            "url": "classes/scenario.html#method_setLog"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetTimeout\u0028\u0029",
+            "name": "getTimeout",
+            "summary": "",
+            "url": "classes/scenario.html#method_getTimeout"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetTimeout\u0028\u0029",
+            "name": "setTimeout",
+            "summary": "",
+            "url": "classes/scenario.html#method_setTimeout"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetObject_id\u0028\u0029",
+            "name": "getObject_id",
+            "summary": "",
+            "url": "classes/scenario.html#method_getObject_id"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetIsVisible\u0028\u0029",
+            "name": "getIsVisible",
+            "summary": "",
+            "url": "classes/scenario.html#method_getIsVisible"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetObject_id\u0028\u0029",
+            "name": "setObject_id",
+            "summary": "",
+            "url": "classes/scenario.html#method_setObject_id"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetIsVisible\u0028\u0029",
+            "name": "setIsVisible",
+            "summary": "",
+            "url": "classes/scenario.html#method_setIsVisible"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetDisplay\u0028\u0029",
+            "name": "getDisplay",
+            "summary": "",
+            "url": "classes/scenario.html#method_getDisplay"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetDisplay\u0028\u0029",
+            "name": "setDisplay",
+            "summary": "",
+            "url": "classes/scenario.html#method_setDisplay"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetDescription\u0028\u0029",
+            "name": "getDescription",
+            "summary": "",
+            "url": "classes/scenario.html#method_getDescription"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetDescription\u0028\u0029",
+            "name": "setDescription",
+            "summary": "",
+            "url": "classes/scenario.html#method_setDescription"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetConfiguration\u0028\u0029",
+            "name": "getConfiguration",
+            "summary": "",
+            "url": "classes/scenario.html#method_getConfiguration"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetConfiguration\u0028\u0029",
+            "name": "setConfiguration",
+            "summary": "",
+            "url": "classes/scenario.html#method_setConfiguration"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetReturn\u0028\u0029",
+            "name": "getReturn",
+            "summary": "getReturn",
+            "url": "classes/scenario.html#method_getReturn"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetReturn\u0028\u0029",
+            "name": "setReturn",
+            "summary": "",
+            "url": "classes/scenario.html#method_setReturn"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetTags\u0028\u0029",
+            "name": "getTags",
+            "summary": "getTags",
+            "url": "classes/scenario.html#method_getTags"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetTags\u0028\u0029",
+            "name": "setTags",
+            "summary": "setTags",
+            "url": "classes/scenario.html#method_setTags"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetDo\u0028\u0029",
+            "name": "getDo",
+            "summary": "getDo",
+            "url": "classes/scenario.html#method_getDo"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetDo\u0028\u0029",
+            "name": "setDo",
+            "summary": "",
+            "url": "classes/scenario.html#method_setDo"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetCache\u0028\u0029",
+            "name": "getCache",
+            "summary": "",
+            "url": "classes/scenario.html#method_getCache"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetCache\u0028\u0029",
+            "name": "setCache",
+            "summary": "",
+            "url": "classes/scenario.html#method_setCache"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AgetChanged\u0028\u0029",
+            "name": "getChanged",
+            "summary": "",
+            "url": "classes/scenario.html#method_getChanged"
+        },                {
+            "fqsen": "\\scenario\u003A\u003AsetChanged\u0028\u0029",
+            "name": "setChanged",
+            "summary": "",
+            "url": "classes/scenario.html#method_setChanged"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "The\u0020unique\u0020identifier\u0020for\u0020the\u0020scenario.",
+            "url": "classes/scenario.html#property_id"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "The\u0020name\u0020of\u0020the\u0020scenario.",
+            "url": "classes/scenario.html#property_name"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024isActive",
+            "name": "isActive",
+            "summary": "Indicates\u0020whether\u0020the\u0020scenario\u0020is\u0020active\u0020or\u0020not.",
+            "url": "classes/scenario.html#property_isActive"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024group",
+            "name": "group",
+            "summary": "The\u0020group\u0020that\u0020the\u0020scenario\u0020belongs\u0020to.",
+            "url": "classes/scenario.html#property_group"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024mode",
+            "name": "mode",
+            "summary": "The\u0020mode\u0020of\u0020the\u0020scenario.",
+            "url": "classes/scenario.html#property_mode"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024scenarioElement",
+            "name": "scenarioElement",
+            "summary": "",
+            "url": "classes/scenario.html#property_scenarioElement"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024trigger",
+            "name": "trigger",
+            "summary": "",
+            "url": "classes/scenario.html#property_trigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_log",
+            "name": "_log",
+            "summary": "",
+            "url": "classes/scenario.html#property__log"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024timeout",
+            "name": "timeout",
+            "summary": "",
+            "url": "classes/scenario.html#property_timeout"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024object_id",
+            "name": "object_id",
+            "summary": "",
+            "url": "classes/scenario.html#property_object_id"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024isVisible",
+            "name": "isVisible",
+            "summary": "",
+            "url": "classes/scenario.html#property_isVisible"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024display",
+            "name": "display",
+            "summary": "",
+            "url": "classes/scenario.html#property_display"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024order",
+            "name": "order",
+            "summary": "",
+            "url": "classes/scenario.html#property_order"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/scenario.html#property_description"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024configuration",
+            "name": "configuration",
+            "summary": "",
+            "url": "classes/scenario.html#property_configuration"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_templateArray",
+            "name": "_templateArray",
+            "summary": "",
+            "url": "classes/scenario.html#property__templateArray"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_elements",
+            "name": "_elements",
+            "summary": "",
+            "url": "classes/scenario.html#property__elements"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_changeState",
+            "name": "_changeState",
+            "summary": "",
+            "url": "classes/scenario.html#property__changeState"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_realTrigger",
+            "name": "_realTrigger",
+            "summary": "",
+            "url": "classes/scenario.html#property__realTrigger"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_realTriggerValue",
+            "name": "_realTriggerValue",
+            "summary": "",
+            "url": "classes/scenario.html#property__realTriggerValue"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_return",
+            "name": "_return",
+            "summary": "",
+            "url": "classes/scenario.html#property__return"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_tags",
+            "name": "_tags",
+            "summary": "",
+            "url": "classes/scenario.html#property__tags"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_do",
+            "name": "_do",
+            "summary": "",
+            "url": "classes/scenario.html#property__do"
+        },                {
+            "fqsen": "\\scenario\u003A\u003A\u0024_changed",
+            "name": "_changed",
+            "summary": "",
+            "url": "classes/scenario.html#property__changed"
         },                {
             "fqsen": "\\scenarioElement",
             "name": "scenarioElement",
@@ -10140,6 +10940,646 @@ Search.appendIndex(
             "name": "buildUrl",
             "summary": "",
             "url": "namespaces/default.html#function_buildUrl"
+        },                {
+            "fqsen": "\\repo_market",
+            "name": "repo_market",
+            "summary": "",
+            "url": "classes/repo-market.html"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetConfigurationOption\u0028\u0029",
+            "name": "getConfigurationOption",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getConfigurationOption"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003ApullInstall\u0028\u0029",
+            "name": "pullInstall",
+            "summary": "",
+            "url": "classes/repo-market.html#method_pullInstall"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AcheckUpdate\u0028\u0029",
+            "name": "checkUpdate",
+            "summary": "",
+            "url": "classes/repo-market.html#method_checkUpdate"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AdownloadObject\u0028\u0029",
+            "name": "downloadObject",
+            "summary": "",
+            "url": "classes/repo-market.html#method_downloadObject"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AdeleteObjet\u0028\u0029",
+            "name": "deleteObjet",
+            "summary": "",
+            "url": "classes/repo-market.html#method_deleteObjet"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AobjectInfo\u0028\u0029",
+            "name": "objectInfo",
+            "summary": "",
+            "url": "classes/repo-market.html#method_objectInfo"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Abackup_createFolderIsNotExist\u0028\u0029",
+            "name": "backup_createFolderIsNotExist",
+            "summary": "",
+            "url": "classes/repo-market.html#method_backup_createFolderIsNotExist"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Abackup_send\u0028\u0029",
+            "name": "backup_send",
+            "summary": "",
+            "url": "classes/repo-market.html#method_backup_send"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Abackup_clean\u0028\u0029",
+            "name": "backup_clean",
+            "summary": "",
+            "url": "classes/repo-market.html#method_backup_clean"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Abackup_list\u0028\u0029",
+            "name": "backup_list",
+            "summary": "",
+            "url": "classes/repo-market.html#method_backup_list"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Abackup_restore\u0028\u0029",
+            "name": "backup_restore",
+            "summary": "",
+            "url": "classes/repo-market.html#method_backup_restore"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AcronHourly\u0028\u0029",
+            "name": "cronHourly",
+            "summary": "",
+            "url": "classes/repo-market.html#method_cronHourly"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Acron5\u0028\u0029",
+            "name": "cron5",
+            "summary": "",
+            "url": "classes/repo-market.html#method_cron5"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetInfo\u0028\u0029",
+            "name": "getInfo",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getInfo"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsaveTicket\u0028\u0029",
+            "name": "saveTicket",
+            "summary": "",
+            "url": "classes/repo-market.html#method_saveTicket"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsupportAccess\u0028\u0029",
+            "name": "supportAccess",
+            "summary": "",
+            "url": "classes/repo-market.html#method_supportAccess"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetPassword\u0028\u0029",
+            "name": "getPassword",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getPassword"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Atest\u0028\u0029",
+            "name": "test",
+            "summary": "",
+            "url": "classes/repo-market.html#method_test"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetPurchaseInfo\u0028\u0029",
+            "name": "getPurchaseInfo",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getPurchaseInfo"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AdistinctCategorie\u0028\u0029",
+            "name": "distinctCategorie",
+            "summary": "",
+            "url": "classes/repo-market.html#method_distinctCategorie"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetJsonRpc\u0028\u0029",
+            "name": "getJsonRpc",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getJsonRpc"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003ApostJsonRpc\u0028\u0029",
+            "name": "postJsonRpc",
+            "summary": "",
+            "url": "classes/repo-market.html#method_postJsonRpc"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Aconstruct\u0028\u0029",
+            "name": "construct",
+            "summary": "",
+            "url": "classes/repo-market.html#method_construct"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AbyId\u0028\u0029",
+            "name": "byId",
+            "summary": "",
+            "url": "classes/repo-market.html#method_byId"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AbyLogicalId\u0028\u0029",
+            "name": "byLogicalId",
+            "summary": "",
+            "url": "classes/repo-market.html#method_byLogicalId"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AbyLogicalIdAndType\u0028\u0029",
+            "name": "byLogicalIdAndType",
+            "summary": "",
+            "url": "classes/repo-market.html#method_byLogicalIdAndType"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AbyMe\u0028\u0029",
+            "name": "byMe",
+            "summary": "",
+            "url": "classes/repo-market.html#method_byMe"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AbyStatusAndType\u0028\u0029",
+            "name": "byStatusAndType",
+            "summary": "",
+            "url": "classes/repo-market.html#method_byStatusAndType"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AbyStatus\u0028\u0029",
+            "name": "byStatus",
+            "summary": "",
+            "url": "classes/repo-market.html#method_byStatus"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AbyFilter\u0028\u0029",
+            "name": "byFilter",
+            "summary": "",
+            "url": "classes/repo-market.html#method_byFilter"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetRating\u0028\u0029",
+            "name": "setRating",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setRating"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetRating\u0028\u0029",
+            "name": "getRating",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getRating"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Ainstall\u0028\u0029",
+            "name": "install",
+            "summary": "",
+            "url": "classes/repo-market.html#method_install"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/repo-market.html#method_remove"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/repo-market.html#method_save"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getId"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getName"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getType"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetDatetime\u0028\u0029",
+            "name": "getDatetime",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getDatetime"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetDatetime\u0028\u0029",
+            "name": "setDatetime",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setDatetime"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetDescription\u0028\u0029",
+            "name": "getDescription",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getDescription"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetCategorie\u0028\u0029",
+            "name": "getCategorie",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getCategorie"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getVersion"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetUser_id\u0028\u0029",
+            "name": "getUser_id",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getUser_id"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetDownloaded\u0028\u0029",
+            "name": "getDownloaded",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getDownloaded"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetId\u0028\u0029",
+            "name": "setId",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setId"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setName"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetType\u0028\u0029",
+            "name": "setType",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setType"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetDescription\u0028\u0029",
+            "name": "setDescription",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setDescription"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetCategorie\u0028\u0029",
+            "name": "setCategorie",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setCategorie"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetVersion\u0028\u0029",
+            "name": "setVersion",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setVersion"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetUser_id\u0028\u0029",
+            "name": "setUser_id",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setUser_id"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetDownloaded\u0028\u0029",
+            "name": "setDownloaded",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setDownloaded"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetStatus\u0028\u0029",
+            "name": "getStatus",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getStatus"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetStatus\u0028\u0029",
+            "name": "setStatus",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setStatus"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetLink\u0028\u0029",
+            "name": "getLink",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getLink"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetLink\u0028\u0029",
+            "name": "setLink",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setLink"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetLanguage\u0028\u0029",
+            "name": "getLanguage",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getLanguage"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetLanguage\u0028\u0029",
+            "name": "setLanguage",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setLanguage"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetImg\u0028\u0029",
+            "name": "getImg",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getImg"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetAuthor\u0028\u0029",
+            "name": "getAuthor",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getAuthor"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetAuthor\u0028\u0029",
+            "name": "setAuthor",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setAuthor"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetChangelog\u0028\u0029",
+            "name": "getChangelog",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getChangelog"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetChangelog\u0028\u0029",
+            "name": "setChangelog",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setChangelog"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetNbInstall\u0028\u0029",
+            "name": "getNbInstall",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getNbInstall"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetNbInstall\u0028\u0029",
+            "name": "setNbInstall",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setNbInstall"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetLogicalId\u0028\u0029",
+            "name": "getLogicalId",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getLogicalId"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetLogicalId\u0028\u0029",
+            "name": "setLogicalId",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setLogicalId"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetPrivate\u0028\u0029",
+            "name": "getPrivate",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getPrivate"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetPrivate\u0028\u0029",
+            "name": "setPrivate",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setPrivate"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetIsAuthor\u0028\u0029",
+            "name": "getIsAuthor",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getIsAuthor"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetIsAuthor\u0028\u0029",
+            "name": "setIsAuthor",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setIsAuthor"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetUtilization\u0028\u0029",
+            "name": "getUtilization",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getUtilization"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetUtilization\u0028\u0029",
+            "name": "setUtilization",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setUtilization"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetPurchase\u0028\u0029",
+            "name": "getPurchase",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getPurchase"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetPurchase\u0028\u0029",
+            "name": "setPurchase",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setPurchase"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetCost\u0028\u0029",
+            "name": "getCost",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getCost"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetCost\u0028\u0029",
+            "name": "setCost",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setCost"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetRealcost\u0028\u0029",
+            "name": "getRealcost",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getRealcost"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetRealcost\u0028\u0029",
+            "name": "setRealcost",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setRealcost"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetBuyer\u0028\u0029",
+            "name": "getBuyer",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getBuyer"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetBuyer\u0028\u0029",
+            "name": "setBuyer",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setBuyer"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetCertification\u0028\u0029",
+            "name": "getCertification",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getCertification"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetCertification\u0028\u0029",
+            "name": "setCertification",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setCertification"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetDoc\u0028\u0029",
+            "name": "getDoc",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getDoc"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetDoc\u0028\u0029",
+            "name": "setDoc",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setDoc"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetUpdateBy\u0028\u0029",
+            "name": "getUpdateBy",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getUpdateBy"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetUpdateBy\u0028\u0029",
+            "name": "setUpdateBy",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setUpdateBy"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetAllowVersion\u0028\u0029",
+            "name": "getAllowVersion",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getAllowVersion"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetAllowVersion\u0028\u0029",
+            "name": "setAllowVersion",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setAllowVersion"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetHardwareCompatibility\u0028\u0029",
+            "name": "getHardwareCompatibility",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getHardwareCompatibility"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetHardwareCompatibility\u0028\u0029",
+            "name": "setHardwareCompatibility",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setHardwareCompatibility"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetParameters\u0028\u0029",
+            "name": "getParameters",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getParameters"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AsetParameters\u0028\u0029",
+            "name": "setParameters",
+            "summary": "",
+            "url": "classes/repo-market.html#method_setParameters"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024_name",
+            "name": "_name",
+            "summary": "",
+            "url": "classes/repo-market.html#property__name"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024_scope",
+            "name": "_scope",
+            "summary": "",
+            "url": "classes/repo-market.html#property__scope"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/repo-market.html#property_id"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/repo-market.html#property_name"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "",
+            "url": "classes/repo-market.html#property_type"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024datetime",
+            "name": "datetime",
+            "summary": "",
+            "url": "classes/repo-market.html#property_datetime"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/repo-market.html#property_description"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024categorie",
+            "name": "categorie",
+            "summary": "",
+            "url": "classes/repo-market.html#property_categorie"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024changelog",
+            "name": "changelog",
+            "summary": "",
+            "url": "classes/repo-market.html#property_changelog"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024doc",
+            "name": "doc",
+            "summary": "",
+            "url": "classes/repo-market.html#property_doc"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024version",
+            "name": "version",
+            "summary": "",
+            "url": "classes/repo-market.html#property_version"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024user_id",
+            "name": "user_id",
+            "summary": "",
+            "url": "classes/repo-market.html#property_user_id"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024downloaded",
+            "name": "downloaded",
+            "summary": "",
+            "url": "classes/repo-market.html#property_downloaded"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024status",
+            "name": "status",
+            "summary": "",
+            "url": "classes/repo-market.html#property_status"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024author",
+            "name": "author",
+            "summary": "",
+            "url": "classes/repo-market.html#property_author"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024logicalId",
+            "name": "logicalId",
+            "summary": "",
+            "url": "classes/repo-market.html#property_logicalId"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024rating",
+            "name": "rating",
+            "summary": "",
+            "url": "classes/repo-market.html#property_rating"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024utilization",
+            "name": "utilization",
+            "summary": "",
+            "url": "classes/repo-market.html#property_utilization"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024isAuthor",
+            "name": "isAuthor",
+            "summary": "",
+            "url": "classes/repo-market.html#property_isAuthor"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024img",
+            "name": "img",
+            "summary": "",
+            "url": "classes/repo-market.html#property_img"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024buyer",
+            "name": "buyer",
+            "summary": "",
+            "url": "classes/repo-market.html#property_buyer"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024purchase",
+            "name": "purchase",
+            "summary": "",
+            "url": "classes/repo-market.html#property_purchase"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024cost",
+            "name": "cost",
+            "summary": "",
+            "url": "classes/repo-market.html#property_cost"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024realcost",
+            "name": "realcost",
+            "summary": "",
+            "url": "classes/repo-market.html#property_realcost"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024link",
+            "name": "link",
+            "summary": "",
+            "url": "classes/repo-market.html#property_link"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024certification",
+            "name": "certification",
+            "summary": "",
+            "url": "classes/repo-market.html#property_certification"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024language",
+            "name": "language",
+            "summary": "",
+            "url": "classes/repo-market.html#property_language"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024private",
+            "name": "private",
+            "summary": "",
+            "url": "classes/repo-market.html#property_private"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024updateBy",
+            "name": "updateBy",
+            "summary": "",
+            "url": "classes/repo-market.html#property_updateBy"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024parameters",
+            "name": "parameters",
+            "summary": "",
+            "url": "classes/repo-market.html#property_parameters"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024hardwareCompatibility",
+            "name": "hardwareCompatibility",
+            "summary": "",
+            "url": "classes/repo-market.html#property_hardwareCompatibility"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024nbInstall",
+            "name": "nbInstall",
+            "summary": "",
+            "url": "classes/repo-market.html#property_nbInstall"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003A\u0024allowVersion",
+            "name": "allowVersion",
+            "summary": "",
+            "url": "classes/repo-market.html#property_allowVersion"
         },                {
             "fqsen": "\\repo_samba",
             "name": "repo_samba",
