@@ -253,12 +253,6 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/repo-samba.html#method_makeSambaCommand">makeSambaCommand()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/repo-samba.html#method_objectInfo">objectInfo()</a>
     <span>
                                 &nbsp;: mixed    </span>
@@ -280,6 +274,19 @@
     <a href="classes/repo-samba.html#method_versionCore">versionCore()</a>
     <span>
                                 &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/repo-samba.html#method_createAuthFile">createAuthFile()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Write username/password to a private temp file so they never appear in the process command line</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/repo-samba.html#method_makeSambaCommand">makeSambaCommand()</a>
+    <span>
+                                &nbsp;: string    </span>
 </dt>
 
     </dl>
@@ -384,7 +391,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">214</span>
 
     </aside>
 
@@ -415,7 +422,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 
     </aside>
 
@@ -456,7 +463,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">190</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
     </aside>
 
@@ -497,7 +504,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -538,7 +545,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 
     </aside>
 
@@ -569,7 +576,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -610,7 +617,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">216</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 
     </aside>
 
@@ -651,7 +658,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -723,7 +730,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
     </aside>
 
@@ -763,54 +770,6 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_makeSambaCommand">
-        makeSambaCommand()
-        <a href="classes/repo-samba.html#method_makeSambaCommand" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">133</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">makeSambaCommand</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_cmd</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;backup&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_cmd</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_type</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;backup&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
     <h4 class="phpdocumentor-element__name" id="method_objectInfo">
         objectInfo()
         <a href="classes/repo-samba.html#method_objectInfo" class="headerlink"><i class="fas fa-link"></i></a>
@@ -819,7 +778,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 
     </aside>
 
@@ -860,7 +819,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
@@ -908,7 +867,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
     </aside>
 
@@ -939,7 +898,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">225</span>
+    <span class="phpdocumentor-element-found-in__line">241</span>
 
     </aside>
 
@@ -955,6 +914,108 @@
     
 
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_createAuthFile">
+        createAuthFile()
+        <a href="classes/repo-samba.html#method_createAuthFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">144</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Write username/password to a private temp file so they never appear in the process command line</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">createAuthFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>path to the authentication file</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_makeSambaCommand">
+        makeSambaCommand()
+        <a href="classes/repo-samba.html#method_makeSambaCommand" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/repo/samba.repo.php"><a href="files/core-repo-samba-repo.html"><abbr title="core/repo/samba.repo.php">samba.repo.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">134</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">makeSambaCommand</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_cmd</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;backup&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_cmd</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;backup&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
             </section>
 
@@ -1087,11 +1148,12 @@
                                             <li><a href="classes/repo-samba.html#method_downloadObject">downloadObject()</a></li>
                                             <li><a href="classes/repo-samba.html#method_getConfigurationOption">getConfigurationOption()</a></li>
                                             <li><a href="classes/repo-samba.html#method_ls">ls()</a></li>
-                                            <li><a href="classes/repo-samba.html#method_makeSambaCommand">makeSambaCommand()</a></li>
                                             <li><a href="classes/repo-samba.html#method_objectInfo">objectInfo()</a></li>
                                             <li><a href="classes/repo-samba.html#method_sortByDatetime">sortByDatetime()</a></li>
                                             <li><a href="classes/repo-samba.html#method_test">test()</a></li>
                                             <li><a href="classes/repo-samba.html#method_versionCore">versionCore()</a></li>
+                                            <li><a href="classes/repo-samba.html#method_createAuthFile">createAuthFile()</a></li>
+                                            <li><a href="classes/repo-samba.html#method_makeSambaCommand">makeSambaCommand()</a></li>
                                     </ul>
             </li>
                     </ul>

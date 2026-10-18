@@ -382,6 +382,36 @@
 <dd>Sanitizes name value</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/config.html#method_preConfig_security_bantime">preConfig_security_bantime()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/config.html#method_preConfig_security_maxFailedLogin">preConfig_security_maxFailedLogin()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/config.html#method_preConfig_security_registerDeviceLifetime">preConfig_security_registerDeviceLifetime()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/config.html#method_preConfig_security_timeLoginFailed">preConfig_security_timeLoginFailed()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/config.html#method_preConfig_session_lifetime">preConfig_session_lifetime()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/config.html#method_preConfig_tts_engine">preConfig_tts_engine()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -428,6 +458,13 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/config.html#method_shouldBeEncrypted">shouldBeEncrypted()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Determines whether a configuration key should be stored encrypted</dd>
 
     </dl>
 
@@ -539,7 +576,7 @@
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">$encryptKey</span>
-     = <span class="phpdocumentor-signature__default-value">array(&#039;apipro&#039;, &#039;apitts&#039;, &#039;apimarket&#039;, &#039;samba::backup::password&#039;, &#039;samba::backup::ip&#039;, &#039;samba::backup::username&#039;, &#039;ldap:password&#039;, &#039;ldap:host&#039;, &#039;ldap:username&#039;, &#039;dns::token&#039;, &#039;api&#039;)</span></code>
+     = <span class="phpdocumentor-signature__default-value">[&#039;api&#039;, &#039;apipro&#039;, &#039;apitts&#039;, &#039;apimarket&#039;, &#039;proxyPassword&#039;, &#039;dns::token&#039;, &#039;github::token&#039;, &#039;ldap:password&#039;, &#039;ldap:host&#039;, &#039;ldap:username&#039;, &#039;market::apikey&#039;, &#039;market::cloud::backup::password&#039;, &#039;market::cloud::backup::password_confirmation&#039;, &#039;market::password&#039;, &#039;samba::backup::password&#039;, &#039;samba::backup::ip&#039;, &#039;samba::backup::username&#039;]</span></code>
 
     
         <section class="phpdocumentor-description"><p>List of configuration keys to encrypt</p>
@@ -565,7 +602,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -605,7 +642,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">215</span>
 
     </aside>
 
@@ -684,7 +721,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">254</span>
 
     </aside>
 
@@ -771,7 +808,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">286</span>
+    <span class="phpdocumentor-element-found-in__line">305</span>
 
     </aside>
 
@@ -847,7 +884,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">441</span>
+    <span class="phpdocumentor-element-found-in__line">456</span>
 
     </aside>
 
@@ -917,7 +954,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">330</span>
+    <span class="phpdocumentor-element-found-in__line">345</span>
 
     </aside>
 
@@ -986,7 +1023,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -1038,7 +1075,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">388</span>
+    <span class="phpdocumentor-element-found-in__line">403</span>
 
     </aside>
 
@@ -1090,7 +1127,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">679</span>
+    <span class="phpdocumentor-element-found-in__line">729</span>
 
     </aside>
 
@@ -1147,7 +1184,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">370</span>
+    <span class="phpdocumentor-element-found-in__line">385</span>
 
     </aside>
 
@@ -1204,7 +1241,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">352</span>
+    <span class="phpdocumentor-element-found-in__line">367</span>
 
     </aside>
 
@@ -1261,7 +1298,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">691</span>
+    <span class="phpdocumentor-element-found-in__line">741</span>
 
     </aside>
 
@@ -1318,7 +1355,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">463</span>
+    <span class="phpdocumentor-element-found-in__line">478</span>
 
     </aside>
 
@@ -1379,7 +1416,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">501</span>
+    <span class="phpdocumentor-element-found-in__line">516</span>
 
     </aside>
 
@@ -1423,7 +1460,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">491</span>
+    <span class="phpdocumentor-element-found-in__line">506</span>
 
     </aside>
 
@@ -1467,7 +1504,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">481</span>
+    <span class="phpdocumentor-element-found-in__line">496</span>
 
     </aside>
 
@@ -1511,7 +1548,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">611</span>
+    <span class="phpdocumentor-element-found-in__line">626</span>
 
     </aside>
 
@@ -1563,7 +1600,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">621</span>
+    <span class="phpdocumentor-element-found-in__line">636</span>
 
     </aside>
 
@@ -1615,7 +1652,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">548</span>
+    <span class="phpdocumentor-element-found-in__line">563</span>
 
     </aside>
 
@@ -1667,7 +1704,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">558</span>
+    <span class="phpdocumentor-element-found-in__line">573</span>
 
     </aside>
 
@@ -1719,7 +1756,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">641</span>
+    <span class="phpdocumentor-element-found-in__line">656</span>
 
     </aside>
 
@@ -1771,7 +1808,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">651</span>
+    <span class="phpdocumentor-element-found-in__line">666</span>
 
     </aside>
 
@@ -1823,7 +1860,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">568</span>
+    <span class="phpdocumentor-element-found-in__line">583</span>
 
     </aside>
 
@@ -1875,7 +1912,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">631</span>
+    <span class="phpdocumentor-element-found-in__line">646</span>
 
     </aside>
 
@@ -1919,6 +1956,231 @@
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_preConfig_security_bantime">
+        preConfig_security_bantime()
+        <a href="classes/config.html#method_preConfig_security_bantime" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">714</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">preConfig_security_bantime</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_preConfig_security_maxFailedLogin">
+        preConfig_security_maxFailedLogin()
+        <a href="classes/config.html#method_preConfig_security_maxFailedLogin" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">700</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">preConfig_security_maxFailedLogin</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_preConfig_security_registerDeviceLifetime">
+        preConfig_security_registerDeviceLifetime()
+        <a href="classes/config.html#method_preConfig_security_registerDeviceLifetime" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">693</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">preConfig_security_registerDeviceLifetime</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_preConfig_security_timeLoginFailed">
+        preConfig_security_timeLoginFailed()
+        <a href="classes/config.html#method_preConfig_security_timeLoginFailed" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">707</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">preConfig_security_timeLoginFailed</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_preConfig_session_lifetime">
+        preConfig_session_lifetime()
+        <a href="classes/config.html#method_preConfig_session_lifetime" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">686</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">preConfig_session_lifetime</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_preConfig_tts_engine">
         preConfig_tts_engine()
         <a href="classes/config.html#method_preConfig_tts_engine" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1927,7 +2189,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">661</span>
+    <span class="phpdocumentor-element-found-in__line">676</span>
 
     </aside>
 
@@ -1979,7 +2241,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">581</span>
+    <span class="phpdocumentor-element-found-in__line">596</span>
 
     </aside>
 
@@ -2031,7 +2293,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">601</span>
+    <span class="phpdocumentor-element-found-in__line">616</span>
 
     </aside>
 
@@ -2083,7 +2345,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">591</span>
+    <span class="phpdocumentor-element-found-in__line">606</span>
 
     </aside>
 
@@ -2135,7 +2397,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">152</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 
     </aside>
 
@@ -2196,7 +2458,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
@@ -2266,7 +2528,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">300</span>
+    <span class="phpdocumentor-element-found-in__line">319</span>
 
     </aside>
 
@@ -2299,6 +2561,59 @@
     
 
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_shouldBeEncrypted">
+        shouldBeEncrypted()
+        <a href="classes/config.html#method_shouldBeEncrypted" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/class/config.class.php"><a href="files/core-class-config-class.html"><abbr title="core/class/config.class.php">config.class.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">196</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Determines whether a configuration key should be stored encrypted</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">shouldBeEncrypted</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_key</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_plugin</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;core&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_plugin</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;core&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
             </section>
 
@@ -2446,6 +2761,11 @@
                                             <li><a href="classes/config.html#method_preConfig_info_longitude">preConfig_info_longitude()</a></li>
                                             <li><a href="classes/config.html#method_preConfig_market_password">preConfig_market_password()</a></li>
                                             <li><a href="classes/config.html#method_preConfig_name">preConfig_name()</a></li>
+                                            <li><a href="classes/config.html#method_preConfig_security_bantime">preConfig_security_bantime()</a></li>
+                                            <li><a href="classes/config.html#method_preConfig_security_maxFailedLogin">preConfig_security_maxFailedLogin()</a></li>
+                                            <li><a href="classes/config.html#method_preConfig_security_registerDeviceLifetime">preConfig_security_registerDeviceLifetime()</a></li>
+                                            <li><a href="classes/config.html#method_preConfig_security_timeLoginFailed">preConfig_security_timeLoginFailed()</a></li>
+                                            <li><a href="classes/config.html#method_preConfig_session_lifetime">preConfig_session_lifetime()</a></li>
                                             <li><a href="classes/config.html#method_preConfig_tts_engine">preConfig_tts_engine()</a></li>
                                             <li><a href="classes/config.html#method_preConfig_widget_margin">preConfig_widget_margin()</a></li>
                                             <li><a href="classes/config.html#method_preConfig_widget_step_height">preConfig_widget_step_height()</a></li>
@@ -2453,6 +2773,7 @@
                                             <li><a href="classes/config.html#method_remove">remove()</a></li>
                                             <li><a href="classes/config.html#method_save">save()</a></li>
                                             <li><a href="classes/config.html#method_searchKey">searchKey()</a></li>
+                                            <li><a href="classes/config.html#method_shouldBeEncrypted">shouldBeEncrypted()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -1176,6 +1176,11 @@ Search.appendIndex(
             "summary": "Removes\u0020a\u0020configuration\u0020key",
             "url": "classes/config.html#method_remove"
         },                {
+            "fqsen": "\\config\u003A\u003AshouldBeEncrypted\u0028\u0029",
+            "name": "shouldBeEncrypted",
+            "summary": "Determines\u0020whether\u0020a\u0020configuration\u0020key\u0020should\u0020be\u0020stored\u0020encrypted",
+            "url": "classes/config.html#method_shouldBeEncrypted"
+        },                {
             "fqsen": "\\config\u003A\u003AbyKey\u0028\u0029",
             "name": "byKey",
             "summary": "Gets\u0020configuration\u0020value\u0020by\u0020key",
@@ -1300,6 +1305,31 @@ Search.appendIndex(
             "name": "preConfig_tts_engine",
             "summary": "Updates\u0020TTS\u0020engine\u0020configuration",
             "url": "classes/config.html#method_preConfig_tts_engine"
+        },                {
+            "fqsen": "\\config\u003A\u003ApreConfig_session_lifetime\u0028\u0029",
+            "name": "preConfig_session_lifetime",
+            "summary": "",
+            "url": "classes/config.html#method_preConfig_session_lifetime"
+        },                {
+            "fqsen": "\\config\u003A\u003ApreConfig_security_registerDeviceLifetime\u0028\u0029",
+            "name": "preConfig_security_registerDeviceLifetime",
+            "summary": "",
+            "url": "classes/config.html#method_preConfig_security_registerDeviceLifetime"
+        },                {
+            "fqsen": "\\config\u003A\u003ApreConfig_security_maxFailedLogin\u0028\u0029",
+            "name": "preConfig_security_maxFailedLogin",
+            "summary": "",
+            "url": "classes/config.html#method_preConfig_security_maxFailedLogin"
+        },                {
+            "fqsen": "\\config\u003A\u003ApreConfig_security_timeLoginFailed\u0028\u0029",
+            "name": "preConfig_security_timeLoginFailed",
+            "summary": "",
+            "url": "classes/config.html#method_preConfig_security_timeLoginFailed"
+        },                {
+            "fqsen": "\\config\u003A\u003ApreConfig_security_bantime\u0028\u0029",
+            "name": "preConfig_security_bantime",
+            "summary": "",
+            "url": "classes/config.html#method_preConfig_security_bantime"
         },                {
             "fqsen": "\\config\u003A\u003AgetHistorizedCmdNum\u0028\u0029",
             "name": "getHistorizedCmdNum",
@@ -2213,8 +2243,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003AbatteryStatus\u0028\u0029",
             "name": "batteryStatus",
-            "summary": "",
+            "summary": "Update\u0020the\u0020battery\u0020level\u0020and\u0020evaluate\u0020its\u0020alert\u0020thresholds.",
             "url": "classes/eqLogic.html#method_batteryStatus"
+        },                {
+            "fqsen": "\\eqLogic\u003A\u003AcheckBatteryThresholds\u0028\u0029",
+            "name": "checkBatteryThresholds",
+            "summary": "",
+            "url": "classes/eqLogic.html#method_checkBatteryThresholds"
         },                {
             "fqsen": "\\eqLogic\u003A\u003ArefreshWidget\u0028\u0029",
             "name": "refreshWidget",
@@ -2233,7 +2268,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\eqLogic\u003A\u003Aimport\u0028\u0029",
             "name": "import",
-            "summary": "",
+            "summary": "import\u0020configuration\u0020into\u0020the\u0020eqLogic",
             "url": "classes/eqLogic.html#method_import"
         },                {
             "fqsen": "\\eqLogic\u003A\u003Aexport\u0028\u0029",
@@ -2601,10 +2636,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/eqLogic.html#property__timeoutUpdated"
         },                {
-            "fqsen": "\\eqLogic\u003A\u003A\u0024_batteryUpdated",
-            "name": "_batteryUpdated",
+            "fqsen": "\\eqLogic\u003A\u003A\u0024_batteryThresholdChanged",
+            "name": "_batteryThresholdChanged",
             "summary": "",
-            "url": "classes/eqLogic.html#property__batteryUpdated"
+            "url": "classes/eqLogic.html#property__batteryThresholdChanged"
         },                {
             "fqsen": "\\eqLogic\u003A\u003A\u0024_changed",
             "name": "_changed",
@@ -3586,6 +3621,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/jeedom.html#method_version"
         },                {
+            "fqsen": "\\jeedom\u003A\u003AgetDocUrl\u0028\u0029",
+            "name": "getDocUrl",
+            "summary": "",
+            "url": "classes/jeedom.html#method_getDocUrl"
+        },                {
             "fqsen": "\\jeedom\u003A\u003Astop\u0028\u0029",
             "name": "stop",
             "summary": "",
@@ -4153,12 +4193,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\jsonrpc\u003A\u003AmakeError\u0028\u0029",
             "name": "makeError",
-            "summary": "",
+            "summary": "Sends\u0020an\u0020error\u0020response\u0020and\u0020ends\u0020execution",
             "url": "classes/jsonrpc.html#method_makeError"
         },                {
             "fqsen": "\\jsonrpc\u003A\u003AmakeSuccess\u0028\u0029",
             "name": "makeSuccess",
-            "summary": "",
+            "summary": "Sends\u0020a\u0020success\u0020response\u0020and\u0020ends\u0020execution",
             "url": "classes/jsonrpc.html#method_makeSuccess"
         },                {
             "fqsen": "\\jsonrpc\u003A\u003AgetStartTime\u0028\u0029",
@@ -4705,6 +4745,11 @@ Search.appendIndex(
             "name": "exception",
             "summary": "",
             "url": "classes/log.html#method_exception"
+        },                {
+            "fqsen": "\\log\u003A\u003Aaudit\u0028\u0029",
+            "name": "audit",
+            "summary": "",
+            "url": "classes/log.html#method_audit"
         },                {
             "fqsen": "\\log\u003A\u003ADEFAULT_MAX_LINE",
             "name": "DEFAULT_MAX_LINE",
@@ -5865,6 +5910,21 @@ Search.appendIndex(
             "name": "getPathById",
             "summary": "",
             "url": "classes/plugin.html#method_getPathById"
+        },                {
+            "fqsen": "\\plugin\u003A\u003AresolvePath\u0028\u0029",
+            "name": "resolvePath",
+            "summary": "",
+            "url": "classes/plugin.html#method_resolvePath"
+        },                {
+            "fqsen": "\\plugin\u003A\u003AgetFromCache\u0028\u0029",
+            "name": "getFromCache",
+            "summary": "",
+            "url": "classes/plugin.html#method_getFromCache"
+        },                {
+            "fqsen": "\\plugin\u003A\u003AaddToCache\u0028\u0029",
+            "name": "addToCache",
+            "summary": "",
+            "url": "classes/plugin.html#method_addToCache"
         },                {
             "fqsen": "\\plugin\u003A\u003AgetPathToConfigurationById\u0028\u0029",
             "name": "getPathToConfigurationById",
@@ -8313,12 +8373,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\system\u003A\u003Aps\u0028\u0029",
             "name": "ps",
-            "summary": "",
+            "summary": "Find\u0020processes\u0020matching\u0020a\u0020grep\u002Dcompatible\u0020pattern.",
             "url": "classes/system.html#method_ps"
         },                {
             "fqsen": "\\system\u003A\u003Akill\u0028\u0029",
             "name": "kill",
-            "summary": "",
+            "summary": "Kill\u0020a\u0020process\u0020by\u0020PID\u0020or\u0020name.",
             "url": "classes/system.html#method_kill"
         },                {
             "fqsen": "\\system\u003A\u003Aphp\u0028\u0029",
@@ -8330,16 +8390,6 @@ Search.appendIndex(
             "name": "getArch",
             "summary": "",
             "url": "classes/system.html#method_getArch"
-        },                {
-            "fqsen": "\\system\u003A\u003AgetUpgradablePackage\u0028\u0029",
-            "name": "getUpgradablePackage",
-            "summary": "",
-            "url": "classes/system.html#method_getUpgradablePackage"
-        },                {
-            "fqsen": "\\system\u003A\u003AupgradePackage\u0028\u0029",
-            "name": "upgradePackage",
-            "summary": "",
-            "url": "classes/system.html#method_upgradePackage"
         },                {
             "fqsen": "\\system\u003A\u003AgetPython3VenvDir\u0028\u0029",
             "name": "getPython3VenvDir",
@@ -8736,6 +8786,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/update.html#method_updateAll"
         },                {
+            "fqsen": "\\update\u003A\u003ArefreshUpdateMessage\u0028\u0029",
+            "name": "refreshUpdateMessage",
+            "summary": "",
+            "url": "classes/update.html#method_refreshUpdateMessage"
+        },                {
             "fqsen": "\\update\u003A\u003AbyId\u0028\u0029",
             "name": "byId",
             "summary": "",
@@ -9023,12 +9078,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\user\u003A\u003AbyId\u0028\u0029",
             "name": "byId",
-            "summary": "",
+            "summary": "Return\u0020user\u0020object\u0020if\u0020exists",
             "url": "classes/user.html#method_byId"
         },                {
             "fqsen": "\\user\u003A\u003Aconnect\u0028\u0029",
             "name": "connect",
-            "summary": "Retourne\u0020un\u0020object\u0020utilisateur\u0020\u0028si\u0020les\u0020information\u0020de\u0020connection\u0020sont\u0020valide\u0029",
+            "summary": "Return\u0020user\u0020object\u0020if\u0020login\u0020and\u0020password\u0020are\u0020correct,\u0020else\u0020return\u0020false",
             "url": "classes/user.html#method_connect"
         },                {
             "fqsen": "\\user\u003A\u003AconnectToLDAP\u0028\u0029",
@@ -9038,47 +9093,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\user\u003A\u003AbyLogin\u0028\u0029",
             "name": "byLogin",
-            "summary": "",
+            "summary": "Get\u0020user\u0020by\u0020login",
             "url": "classes/user.html#method_byLogin"
         },                {
             "fqsen": "\\user\u003A\u003AbyHash\u0028\u0029",
             "name": "byHash",
-            "summary": "",
+            "summary": "Get\u0020user\u0020by\u0020hash",
             "url": "classes/user.html#method_byHash"
         },                {
             "fqsen": "\\user\u003A\u003AbyLoginAndHash\u0028\u0029",
             "name": "byLoginAndHash",
-            "summary": "",
+            "summary": "Get\u0020user\u0020by\u0020login\u0020and\u0020hash",
             "url": "classes/user.html#method_byLoginAndHash"
-        },                {
-            "fqsen": "\\user\u003A\u003AbyLoginAndPassword\u0028\u0029",
-            "name": "byLoginAndPassword",
-            "summary": "",
-            "url": "classes/user.html#method_byLoginAndPassword"
         },                {
             "fqsen": "\\user\u003A\u003Aall\u0028\u0029",
             "name": "all",
-            "summary": "",
+            "summary": "Get\u0020all\u0020users",
             "url": "classes/user.html#method_all"
+        },                {
+            "fqsen": "\\user\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Convert\u0020user\u0020to\u0020array,\u0020stripping\u0020sensitive\u0020data\u0020\u0028password\u0020hash,\u00202FA\u0020secret\u0029",
+            "url": "classes/user.html#method_toArray"
         },                {
             "fqsen": "\\user\u003A\u003AsearchByRight\u0028\u0029",
             "name": "searchByRight",
-            "summary": "",
+            "summary": "Search\u0020users\u0020by\u0020right",
             "url": "classes/user.html#method_searchByRight"
         },                {
             "fqsen": "\\user\u003A\u003AsearchByOptions\u0028\u0029",
             "name": "searchByOptions",
-            "summary": "",
+            "summary": "Search\u0020users\u0020by\u0020options",
             "url": "classes/user.html#method_searchByOptions"
         },                {
             "fqsen": "\\user\u003A\u003AbyProfils\u0028\u0029",
             "name": "byProfils",
-            "summary": "",
+            "summary": "Search\u0020users\u0020by\u0020profils",
             "url": "classes/user.html#method_byProfils"
         },                {
             "fqsen": "\\user\u003A\u003AbyEnable\u0028\u0029",
             "name": "byEnable",
-            "summary": "",
+            "summary": "Search\u0020users\u0020by\u0020enable\u0020status",
             "url": "classes/user.html#method_byEnable"
         },                {
             "fqsen": "\\user\u003A\u003AfailedLogin\u0028\u0029",
@@ -9111,20 +9166,45 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/user.html#method_deadCmd"
         },                {
-            "fqsen": "\\user\u003A\u003AregenerateHash\u0028\u0029",
-            "name": "regenerateHash",
+            "fqsen": "\\user\u003A\u003AregenerateHashes\u0028\u0029",
+            "name": "regenerateHashes",
             "summary": "",
-            "url": "classes/user.html#method_regenerateHash"
+            "url": "classes/user.html#method_regenerateHashes"
+        },                {
+            "fqsen": "\\user\u003A\u003AcleanPasswordAndHashInput\u0028\u0029",
+            "name": "cleanPasswordAndHashInput",
+            "summary": "",
+            "url": "classes/user.html#method_cleanPasswordAndHashInput"
+        },                {
+            "fqsen": "\\user\u003A\u003AraiseForInvalidLogin\u0028\u0029",
+            "name": "raiseForInvalidLogin",
+            "summary": "",
+            "url": "classes/user.html#method_raiseForInvalidLogin"
         },                {
             "fqsen": "\\user\u003A\u003ApreInsert\u0028\u0029",
             "name": "preInsert",
             "summary": "",
             "url": "classes/user.html#method_preInsert"
         },                {
+            "fqsen": "\\user\u003A\u003ApreUpdate\u0028\u0029",
+            "name": "preUpdate",
+            "summary": "",
+            "url": "classes/user.html#method_preUpdate"
+        },                {
             "fqsen": "\\user\u003A\u003ApreSave\u0028\u0029",
             "name": "preSave",
             "summary": "",
             "url": "classes/user.html#method_preSave"
+        },                {
+            "fqsen": "\\user\u003A\u003ApostSave\u0028\u0029",
+            "name": "postSave",
+            "summary": "",
+            "url": "classes/user.html#method_postSave"
+        },                {
+            "fqsen": "\\user\u003A\u003ApostInsert\u0028\u0029",
+            "name": "postInsert",
+            "summary": "",
+            "url": "classes/user.html#method_postInsert"
         },                {
             "fqsen": "\\user\u003A\u003Aencrypt\u0028\u0029",
             "name": "encrypt",
@@ -9151,15 +9231,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/user.html#method_remove"
         },                {
+            "fqsen": "\\user\u003A\u003ApostRemove\u0028\u0029",
+            "name": "postRemove",
+            "summary": "",
+            "url": "classes/user.html#method_postRemove"
+        },                {
             "fqsen": "\\user\u003A\u003Arefresh\u0028\u0029",
             "name": "refresh",
             "summary": "",
             "url": "classes/user.html#method_refresh"
         },                {
+            "fqsen": "\\user\u003A\u003AregenerateHash\u0028\u0029",
+            "name": "regenerateHash",
+            "summary": "",
+            "url": "classes/user.html#method_regenerateHash"
+        },                {
             "fqsen": "\\user\u003A\u003Ais_Connected\u0028\u0029",
             "name": "is_Connected",
             "summary": "",
             "url": "classes/user.html#method_is_Connected"
+        },                {
+            "fqsen": "\\user\u003A\u003AisValidAndEnabled\u0028\u0029",
+            "name": "isValidAndEnabled",
+            "summary": "",
+            "url": "classes/user.html#method_isValidAndEnabled"
         },                {
             "fqsen": "\\user\u003A\u003AvalidateTwoFactorCode\u0028\u0029",
             "name": "validateTwoFactorCode",
@@ -9200,6 +9295,21 @@ Search.appendIndex(
             "name": "getOptions",
             "summary": "",
             "url": "classes/user.html#method_getOptions"
+        },                {
+            "fqsen": "\\user\u003A\u003AregisterDeviceLifetime\u0028\u0029",
+            "name": "registerDeviceLifetime",
+            "summary": "",
+            "url": "classes/user.html#method_registerDeviceLifetime"
+        },                {
+            "fqsen": "\\user\u003A\u003AcleanExpiredRegisterDevices\u0028\u0029",
+            "name": "cleanExpiredRegisterDevices",
+            "summary": "",
+            "url": "classes/user.html#method_cleanExpiredRegisterDevices"
+        },                {
+            "fqsen": "\\user\u003A\u003AisValidRegisteredDevice\u0028\u0029",
+            "name": "isValidRegisteredDevice",
+            "summary": "",
+            "url": "classes/user.html#method_isValidRegisteredDevice"
         },                {
             "fqsen": "\\user\u003A\u003AsetOptions\u0028\u0029",
             "name": "setOptions",
@@ -9246,6 +9356,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/user.html#method_setProfils"
         },                {
+            "fqsen": "\\user\u003A\u003AtraceChange\u0028\u0029",
+            "name": "traceChange",
+            "summary": "",
+            "url": "classes/user.html#method_traceChange"
+        },                {
             "fqsen": "\\user\u003A\u003AgetChanged\u0028\u0029",
             "name": "getChanged",
             "summary": "",
@@ -9255,6 +9370,21 @@ Search.appendIndex(
             "name": "setChanged",
             "summary": "",
             "url": "classes/user.html#method_setChanged"
+        },                {
+            "fqsen": "\\user\u003A\u003AsendResetPasswordLink\u0028\u0029",
+            "name": "sendResetPasswordLink",
+            "summary": "",
+            "url": "classes/user.html#method_sendResetPasswordLink"
+        },                {
+            "fqsen": "\\user\u003A\u003AloginFromResetToken\u0028\u0029",
+            "name": "loginFromResetToken",
+            "summary": "",
+            "url": "classes/user.html#method_loginFromResetToken"
+        },                {
+            "fqsen": "\\user\u003A\u003AresetPasswordFromToken\u0028\u0029",
+            "name": "resetPasswordFromToken",
+            "summary": "",
+            "url": "classes/user.html#method_resetPasswordFromToken"
         },                {
             "fqsen": "\\user\u003A\u003A\u0024id",
             "name": "id",
@@ -9300,6 +9430,11 @@ Search.appendIndex(
             "name": "_changed",
             "summary": "",
             "url": "classes/user.html#property__changed"
+        },                {
+            "fqsen": "\\user\u003A\u003A\u0024_changes_trace",
+            "name": "_changes_trace",
+            "summary": "",
+            "url": "classes/user.html#property__changes_trace"
         },                {
             "fqsen": "\\utils",
             "name": "utils",
@@ -10466,6 +10601,31 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#function_loginByHash"
         },                {
+            "fqsen": "\\setRegisterDeviceCookie\u0028\u0029",
+            "name": "setRegisterDeviceCookie",
+            "summary": "",
+            "url": "namespaces/default.html#function_setRegisterDeviceCookie"
+        },                {
+            "fqsen": "\\deleteRegisterDeviceCookie\u0028\u0029",
+            "name": "deleteRegisterDeviceCookie",
+            "summary": "",
+            "url": "namespaces/default.html#function_deleteRegisterDeviceCookie"
+        },                {
+            "fqsen": "\\deleteSessionCookie\u0028\u0029",
+            "name": "deleteSessionCookie",
+            "summary": "",
+            "url": "namespaces/default.html#function_deleteSessionCookie"
+        },                {
+            "fqsen": "\\registerCookieOptions\u0028\u0029",
+            "name": "registerCookieOptions",
+            "summary": "",
+            "url": "namespaces/default.html#function_registerCookieOptions"
+        },                {
+            "fqsen": "\\updateRegisterDeviceActivity\u0028\u0029",
+            "name": "updateRegisterDeviceActivity",
+            "summary": "",
+            "url": "namespaces/default.html#function_updateRegisterDeviceActivity"
+        },                {
             "fqsen": "\\logout\u0028\u0029",
             "name": "logout",
             "summary": "",
@@ -11615,6 +11775,11 @@ Search.appendIndex(
             "name": "makeSambaCommand",
             "summary": "",
             "url": "classes/repo-samba.html#method_makeSambaCommand"
+        },                {
+            "fqsen": "\\repo_samba\u003A\u003AcreateAuthFile\u0028\u0029",
+            "name": "createAuthFile",
+            "summary": "Write\u0020username\/password\u0020to\u0020a\u0020private\u0020temp\u0020file\u0020so\u0020they\u0020never\u0020appear\u0020in\u0020the\u0020process\u0020command\u0020line",
+            "url": "classes/repo-samba.html#method_createAuthFile"
         },                {
             "fqsen": "\\repo_samba\u003A\u003AsortByDatetime\u0028\u0029",
             "name": "sortByDatetime",

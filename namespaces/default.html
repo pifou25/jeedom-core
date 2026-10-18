@@ -195,11 +195,41 @@
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_login">login()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_loginByHash">loginByHash()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_setRegisterDeviceCookie">setRegisterDeviceCookie()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_deleteRegisterDeviceCookie">deleteRegisterDeviceCookie()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_deleteSessionCookie">deleteSessionCookie()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_registerCookieOptions">registerCookieOptions()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/default.html#function_updateRegisterDeviceActivity">updateRegisterDeviceActivity()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
@@ -213,7 +243,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_jeedomAutoload">jeedomAutoload()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
@@ -769,7 +799,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/api/tts.php"><a href="files/core-api-tts.html"><abbr title="core/api/tts.php">tts.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -814,7 +844,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/api/tts.php"><a href="files/core-api-tts.html"><abbr title="core/api/tts.php">tts.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">160</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 
     </aside>
 
@@ -822,7 +852,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">tts_buildEspeakCmd</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_text</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_voice</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_filename</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_avconv</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;ffmpeg&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">tts_buildEspeakCmd</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_text</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_voice</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -854,15 +884,6 @@
 </section>
 
             </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_avconv</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;ffmpeg&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Transcoder binary name (defaults to &quot;ffmpeg&quot;). Must be a trusted constant, not user input.</p>
-</section>
-
-            </dd>
             </dl>
 
     
@@ -886,7 +907,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/api/tts.php"><a href="files/core-api-tts.html"><abbr title="core/api/tts.php">tts.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 
     </aside>
 
@@ -894,7 +915,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">tts_buildPicoCmd</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_text</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_lang</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_volume</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_md5</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_filename</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_avconv</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;ffmpeg&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">tts_buildPicoCmd</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_text</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_lang</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_volume</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_md5</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -941,15 +962,6 @@
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Destination MP3 path.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$_avconv</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;ffmpeg&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Transcoder binary name (defaults to &quot;ffmpeg&quot;). Must be a trusted constant, not user input.</p>
 </section>
 
             </dd>
@@ -1071,35 +1083,35 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">login</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_login</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_password</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_twoFactor</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">login</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_login</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_password</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_twoFactor</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_login</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_password</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_twoFactor</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1108,7 +1120,11 @@
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_loginByHash">
@@ -1119,27 +1135,175 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">loginByHash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">loginByHash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
 
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_setRegisterDeviceCookie">
+        setRegisterDeviceCookie()
+        <a href="namespaces/default.html#function_setRegisterDeviceCookie" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">188</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">setRegisterDeviceCookie</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_deleteRegisterDeviceCookie">
+        deleteRegisterDeviceCookie()
+        <a href="namespaces/default.html#function_deleteRegisterDeviceCookie" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">192</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">deleteRegisterDeviceCookie</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_deleteSessionCookie">
+        deleteSessionCookie()
+        <a href="namespaces/default.html#function_deleteSessionCookie" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">196</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">deleteSessionCookie</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_registerCookieOptions">
+        registerCookieOptions()
+        <a href="namespaces/default.html#function_registerCookieOptions" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">200</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">registerCookieOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_expires</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$_expires</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_updateRegisterDeviceActivity">
+        updateRegisterDeviceActivity()
+        <a href="namespaces/default.html#function_updateRegisterDeviceActivity" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">204</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">updateRegisterDeviceActivity</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
     
 
     
@@ -1153,7 +1317,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/authentification.php"><a href="files/core-php-authentification.html"><abbr title="core/php/authentification.php">authentification.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">236</span>
 
     </aside>
 
@@ -1184,14 +1348,14 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">jeedomAutoload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_classname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">jeedomAutoload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$_classname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$_classname</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1299,7 +1463,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/jeecli.php"><a href="files/core-php-jeecli.html"><abbr title="core/php/jeecli.php">jeecli.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">228</span>
 
     </aside>
 
@@ -3105,7 +3269,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1279</span>
+    <span class="phpdocumentor-element-found-in__line">1282</span>
 
     </aside>
 
@@ -3153,7 +3317,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1289</span>
+    <span class="phpdocumentor-element-found-in__line">1292</span>
 
     </aside>
 
@@ -3187,7 +3351,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1368</span>
+    <span class="phpdocumentor-element-found-in__line">1371</span>
 
     </aside>
 
@@ -3221,7 +3385,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1381</span>
+    <span class="phpdocumentor-element-found-in__line">1384</span>
 
     </aside>
 
@@ -3255,7 +3419,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1392</span>
+    <span class="phpdocumentor-element-found-in__line">1395</span>
 
     </aside>
 
@@ -3289,7 +3453,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1406</span>
+    <span class="phpdocumentor-element-found-in__line">1409</span>
 
     </aside>
 
@@ -3337,7 +3501,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1463</span>
+    <span class="phpdocumentor-element-found-in__line">1466</span>
 
     </aside>
 
@@ -3385,7 +3549,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1470</span>
+    <span class="phpdocumentor-element-found-in__line">1473</span>
 
     </aside>
 
@@ -3419,7 +3583,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1474</span>
+    <span class="phpdocumentor-element-found-in__line">1477</span>
 
     </aside>
 
@@ -3453,7 +3617,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1497</span>
+    <span class="phpdocumentor-element-found-in__line">1500</span>
 
     </aside>
 
@@ -3536,7 +3700,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1524</span>
+    <span class="phpdocumentor-element-found-in__line">1527</span>
 
     </aside>
 
@@ -3560,7 +3724,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1538</span>
+    <span class="phpdocumentor-element-found-in__line">1541</span>
 
     </aside>
 
@@ -3592,7 +3756,7 @@
 
     
 </article>
-                    <article class="phpdocumentor-element -function - ">
+                    <article class="phpdocumentor-element -function - -deprecated">
     <h4 class="phpdocumentor-element__name" id="function_makeZipSupport">
         makeZipSupport()
         <a href="namespaces/default.html#function_makeZipSupport" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3601,18 +3765,34 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1547</span>
+    <span class="phpdocumentor-element-found-in__line">1553</span>
 
     </aside>
 
     
-    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
     <span class="phpdocumentor-signature__visibility"></span>
                     <span class="phpdocumentor-signature__name">makeZipSupport</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/default.html#function_makeZipSupport#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">deprecated</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Unused in core since aa93d2bbc (2018), will be removed in a future version</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -3625,7 +3805,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1564</span>
+    <span class="phpdocumentor-element-found-in__line">1570</span>
 
     </aside>
 
@@ -3659,7 +3839,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1582</span>
+    <span class="phpdocumentor-element-found-in__line">1588</span>
 
     </aside>
 
@@ -3683,7 +3863,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1616</span>
+    <span class="phpdocumentor-element-found-in__line">1622</span>
 
     </aside>
 
@@ -3717,7 +3897,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1620</span>
+    <span class="phpdocumentor-element-found-in__line">1626</span>
 
     </aside>
 
@@ -3751,7 +3931,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1635</span>
+    <span class="phpdocumentor-element-found-in__line">1641</span>
 
     </aside>
 
@@ -3785,7 +3965,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1654</span>
+    <span class="phpdocumentor-element-found-in__line">1660</span>
 
     </aside>
 
@@ -3833,7 +4013,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1686</span>
+    <span class="phpdocumentor-element-found-in__line">1692</span>
 
     </aside>
 
@@ -3857,7 +4037,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1694</span>
+    <span class="phpdocumentor-element-found-in__line">1700</span>
 
     </aside>
 
@@ -3891,7 +4071,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1796</span>
+    <span class="phpdocumentor-element-found-in__line">1802</span>
 
     </aside>
 
@@ -3925,7 +4105,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1802</span>
+    <span class="phpdocumentor-element-found-in__line">1808</span>
 
     </aside>
 
@@ -3966,7 +4146,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1805</span>
+    <span class="phpdocumentor-element-found-in__line">1811</span>
 
     </aside>
 
@@ -4007,7 +4187,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1809</span>
+    <span class="phpdocumentor-element-found-in__line">1815</span>
 
     </aside>
 
@@ -4041,7 +4221,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/php/utils.inc.php"><a href="files/core-php-utils-inc.html"><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1831</span>
+    <span class="phpdocumentor-element-found-in__line">1839</span>
 
     </aside>
 
@@ -4130,7 +4310,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="desktop/php/dashboard.php"><a href="files/desktop-php-dashboard.html"><abbr title="desktop/php/dashboard.php">dashboard.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">147</span>
 
     </aside>
 
@@ -4592,7 +4772,9 @@
                                                     <li><a href="namespaces/default.html#function_cronIsDue">cronIsDue()</a></li>
                                                     <li><a href="namespaces/default.html#function_date_fr">date_fr()</a></li>
                                                     <li><a href="namespaces/default.html#function_decodeSessionData">decodeSessionData()</a></li>
+                                                    <li><a href="namespaces/default.html#function_deleteRegisterDeviceCookie">deleteRegisterDeviceCookie()</a></li>
                                                     <li><a href="namespaces/default.html#function_deleteSession">deleteSession()</a></li>
+                                                    <li><a href="namespaces/default.html#function_deleteSessionCookie">deleteSessionCookie()</a></li>
                                                     <li><a href="namespaces/default.html#function_displayException">displayException()</a></li>
                                                     <li><a href="namespaces/default.html#function_endsWith">endsWith()</a></li>
                                                     <li><a href="namespaces/default.html#function_evaluate">evaluate()</a></li>
@@ -4644,6 +4826,7 @@
                                                     <li><a href="namespaces/default.html#function_polyfill_glob_brace">polyfill_glob_brace()</a></li>
                                                     <li><a href="namespaces/default.html#function_rcopy">rcopy()</a></li>
                                                     <li><a href="namespaces/default.html#function_redirect">redirect()</a></li>
+                                                    <li><a href="namespaces/default.html#function_registerCookieOptions">registerCookieOptions()</a></li>
                                                     <li><a href="namespaces/default.html#function_removeCR">removeCR()</a></li>
                                                     <li><a href="namespaces/default.html#function_resizeImage">resizeImage()</a></li>
                                                     <li><a href="namespaces/default.html#function_rmove">rmove()</a></li>
@@ -4652,6 +4835,7 @@
                                                     <li><a href="namespaces/default.html#function_scanDB">scanDB()</a></li>
                                                     <li><a href="namespaces/default.html#function_secureXSS">secureXSS()</a></li>
                                                     <li><a href="namespaces/default.html#function_sendVarToJS">sendVarToJS()</a></li>
+                                                    <li><a href="namespaces/default.html#function_setRegisterDeviceCookie">setRegisterDeviceCookie()</a></li>
                                                     <li><a href="namespaces/default.html#function_setTheme">setTheme()</a></li>
                                                     <li><a href="namespaces/default.html#function_sha512">sha512()</a></li>
                                                     <li><a href="namespaces/default.html#function_sizeFormat">sizeFormat()</a></li>
@@ -4663,6 +4847,7 @@
                                                     <li><a href="namespaces/default.html#function_tts_buildPicoCmd">tts_buildPicoCmd()</a></li>
                                                     <li><a href="namespaces/default.html#function_tts_sanitizeLang">tts_sanitizeLang()</a></li>
                                                     <li><a href="namespaces/default.html#function_unautorizedInDemo">unautorizedInDemo()</a></li>
+                                                    <li><a href="namespaces/default.html#function_updateRegisterDeviceActivity">updateRegisterDeviceActivity()</a></li>
                                                     <li><a href="namespaces/default.html#function_ZipErrorMessage">ZipErrorMessage()</a></li>
                                             </ul>
                 </li>

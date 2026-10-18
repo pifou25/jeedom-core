@@ -135,7 +135,13 @@
                         <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/class/scenario.class.php">core/class/scenario.class.php</a></td>
                     </tr>
                                     <tr>
+                        <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/class/user.class.php">core/class/user.class.php</a></td>
+                    </tr>
+                                    <tr>
                         <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/com/shell.com.php">core/com/shell.com.php</a></td>
+                    </tr>
+                                    <tr>
+                        <td class="phpdocumentor-cell"><a href="reports/deprecated.html#core/php/utils.inc.php">core/php/utils.inc.php</a></td>
                     </tr>
                             </table>
             
@@ -163,7 +169,7 @@
                         <th class="phpdocumentor-heading">Reason</th>
                     </tr>
                                                                         <tr>
-                                <td class="phpdocumentor-cell">344</td>
+                                <td class="phpdocumentor-cell">349</td>
                                 <td class="phpdocumentor-cell"><a href="classes/log.html#method_get"><abbr title="\log::get()">log::get()</abbr></a></td>
                                 <td class="phpdocumentor-cell"><p>v4.4
 =&gt; removed in v4.6 (use log::getDelta() instead)</p>
@@ -188,9 +194,24 @@ $res = array_reverse($arr);</p>
                         <th class="phpdocumentor-heading">Reason</th>
                     </tr>
                                                                         <tr>
-                                <td class="phpdocumentor-cell">1054</td>
+                                <td class="phpdocumentor-cell">1055</td>
                                 <td class="phpdocumentor-cell"><a href="classes/scenario.html#method_emptyCacheWidget"><abbr title="\scenario::emptyCacheWidget()">scenario::emptyCacheWidget()</abbr></a></td>
                                 <td class="phpdocumentor-cell"><p>don't use this function anymore, it is only here for backward compatibility</p>
+</td>
+                            </tr>
+                                                            </table>
+                            <a id="core/class/user.class.php"></a>
+                <h3><abbr title="core/class/user.class.php">user.class.php</abbr></h3>
+                <table>
+                    <tr>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Element</th>
+                        <th class="phpdocumentor-heading">Reason</th>
+                    </tr>
+                                                                        <tr>
+                                <td class="phpdocumentor-cell">591</td>
+                                <td class="phpdocumentor-cell"><a href="classes/user.html#method_is_Connected"><abbr title="\user::is_Connected()">user::is_Connected()</abbr></a></td>
+                                <td class="phpdocumentor-cell"><p>Replaced by user::isValidAndEnabled()</p>
 </td>
                             </tr>
                                                             </table>
@@ -206,6 +227,21 @@ $res = array_reverse($arr);</p>
                                 <td class="phpdocumentor-cell">114</td>
                                 <td class="phpdocumentor-cell"><a href="classes/com-shell.html#method_commandExist"><abbr title="\com_shell::commandExist()">com_shell::commandExist()</abbr></a></td>
                                 <td class="phpdocumentor-cell"><p>Replaced by com_shell::commandExists</p>
+</td>
+                            </tr>
+                                                            </table>
+                            <a id="core/php/utils.inc.php"></a>
+                <h3><abbr title="core/php/utils.inc.php">utils.inc.php</abbr></h3>
+                <table>
+                    <tr>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Element</th>
+                        <th class="phpdocumentor-heading">Reason</th>
+                    </tr>
+                                                                        <tr>
+                                <td class="phpdocumentor-cell">1553</td>
+                                <td class="phpdocumentor-cell"><a href="namespaces/default.html#function_makeZipSupport"><abbr title="\makeZipSupport()">makeZipSupport()</abbr></a></td>
+                                <td class="phpdocumentor-cell"><p>Unused in core since aa93d2bbc (2018), will be removed in a future version</p>
 </td>
                             </tr>
                                                             </table>
