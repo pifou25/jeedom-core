@@ -1,0 +1,132 @@
+name: Sync avec jeedom/core
+# ce workflow fait un rebase des branches de fonctionnalités sur develop
+# puis un merge de ces branches dans integration
+
+on:
+  schedule:
+    # tous les vendredi à 02h17 UTC (04h17 heure de Paris)
+    - cron: '17 2 * * 5'
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release tag'
+        default: '5.0.0'
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+env:
+  UPSTREAM_REPO: https://github.com/jeedom/core.git
+  UPSTREAM_BRANCH: develop
+  # l'ordre de branches est important : les branches sont mergées dans l'ordre de la liste
+  FEATURE_BRANCHES: "feat/namespaces feat/ErrorHandler feat/swagger-ui fix/docker_build feat/ArrayAccess phpdoc"
+  # branche cible pour le merge des branches de fonctionnalités (doit être une branche de develop)
+  INTEGRATION_BRANCH: integration
+  RELEASE_TAG: ${{ github.event.inputs.release }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SYNC_PAT }}
+
+      - name: Config git + remote upstream
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config rerere.enabled true
+          git remote add upstream "$UPSTREAM_REPO"
+          git fetch upstream "$UPSTREAM_BRANCH"
+          git fetch origin
+
+      - name: Rebase des branches sur upstream/develop
+        run: |
+          failed=""
+          for b in $FEATURE_BRANCHES; do
+            echo "::group::Rebase $b"
+            git checkout -B "$b" "origin/$b"
+            if git rebase "upstream/$UPSTREAM_BRANCH"; then
+              git push --force-with-lease origin "$b"
+            else
+              git rebase --abort
+              failed="$failed $b"
+              echo "::error::Conflit de rebase sur $b"
+            fi
+            echo "::endgroup::"
+          done
+          echo "REBASE_FAILED=$failed" >> "$GITHUB_ENV"
+
+      - name: Reconstruire la branche integration
+        # reconstruire la branche integration en mergant les branches de fonctionnalités
+        run: |
+          git checkout -B "$INTEGRATION_BRANCH" "upstream/$UPSTREAM_BRANCH"
+          failed=""
+          for b in $FEATURE_BRANCHES; do
+            # une branche dont le rebase a échoué est ignorée (elle est encore basée sur l'ancien develop)
+            case " $REBASE_FAILED " in *" $b "*) echo "Ignorée : $b"; continue;; esac
+            if git merge --no-ff --no-edit "origin/$b"; then
+              echo "Merge OK : $b"
+            else
+              git merge --abort
+              failed="$failed $b"
+              echo "::error::Conflit de merge sur $b"
+            fi
+          done
+          git push --force-with-lease origin "$INTEGRATION_BRANCH"
+          echo "MERGE_FAILED=$failed" >> "$GITHUB_ENV"
+
+      - name: Échec si conflits
+        if: env.REBASE_FAILED != '' || env.MERGE_FAILED != ''
+        run: |
+          echo "Rebase en échec : ${REBASE_FAILED:-aucun}"
+          echo "Merge en échec  : ${MERGE_FAILED:-aucun}"
+          exit 1
+
+      # Mettre à jour le tag de release et créer ou mettre à jour la release GitHub
+      - name: Update release tag
+        run: |
+          # forcer le core en v5.0.0
+          echo ${RELEASE_TAG} > core/config/version
+          git add core/config/version
+          git commit -m "Forcer le core en v5.0.0"
+          git tag --force "${RELEASE_TAG}" HEAD
+          git push --force origin "refs/tags/${RELEASE_TAG}"
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.SYNC_PAT }}
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release edit "$RELEASE_TAG" \
+              --title "$RELEASE_TAG" \
+              --notes "Source snapshot generated from the integration branch."
+          else
+            gh release create "$RELEASE_TAG" \
+              --title "$RELEASE_TAG" \
+              --notes "Source snapshot generated from the integration branch."
+          fi
+
+  build-light-full-step:
+    # générer les 2 étapes séquentiellement: light puis full qui se base sur light
+    needs: sync
+    uses: pifou25/docker-jeedom/.github/workflows/buildx-platform.yml@integration
+    strategy:
+      matrix:
+        target: [light, full]
+      max-parallel: 1
+    with:
+      target : ${{ matrix.target }}
+      version_tag: ${{ github.event.inputs.release }}
+      jeedom_repo: 'pifou25/jeedom-core'
+      jeedom_branch: 'integration'
+    # secrets
+    secrets:
+      GHCR_SECRET: ${{ secrets.GHCR_SECRET }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      QUAY_USER: ${{ secrets.QUAY_USER }}
+      QUAY_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
+      NICO_PASSWORD: ${{ secrets.NICO_PASSWORD }}
