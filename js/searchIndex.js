@@ -3586,6 +3586,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/jeedom.html#method_backup"
         },                {
+            "fqsen": "\\jeedom\u003A\u003AgetBackupDir\u0028\u0029",
+            "name": "getBackupDir",
+            "summary": "",
+            "url": "classes/jeedom.html#method_getBackupDir"
+        },                {
+            "fqsen": "\\jeedom\u003A\u003AisValidBackup\u0028\u0029",
+            "name": "isValidBackup",
+            "summary": "",
+            "url": "classes/jeedom.html#method_isValidBackup"
+        },                {
             "fqsen": "\\jeedom\u003A\u003AlistBackup\u0028\u0029",
             "name": "listBackup",
             "summary": "",
@@ -11885,6 +11895,11 @@ Search.appendIndex(
             "name": "_scope",
             "summary": "",
             "url": "classes/repo-url.html#property__scope"
+        },                {
+            "fqsen": "\\isAllowedPath\u0028\u0029",
+            "name": "isAllowedPath",
+            "summary": "",
+            "url": "namespaces/default.html#function_isAllowedPath"
         },                {
             "fqsen": "\\formatJeedomObjectDiv\u0028\u0029",
             "name": "formatJeedomObjectDiv",
