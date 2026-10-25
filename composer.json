@@ -16,7 +16,11 @@
       "php": "7.4"
     }
   },
+  "autoload": {
+    "classmap": ["core/class", "core/com", "core/repo"]
+    },
   "require-dev": {
+    "dodo-it/entity-generator": "^1.1",
     "phpstan/phpstan": "^2.1"
   }
 }
