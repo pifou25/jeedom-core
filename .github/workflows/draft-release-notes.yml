@@ -13,7 +13,8 @@ permissions:
 jobs:
   release-notes:
     runs-on: ubuntu-latest
-
+    # ignore for repo forks, to avoid creating PRs in the forked repo
+    if: github.repository == 'jeedom/core'
     steps:
       - name: Checkout
         uses: actions/checkout@v7

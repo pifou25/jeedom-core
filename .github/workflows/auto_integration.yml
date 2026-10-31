@@ -101,19 +101,26 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          release_name: Release ${{ env.RELEASE_TAG }}
+          release_name: Jeedom Integration Release ${{ env.RELEASE_TAG }}
           body: |
-            # Jeedom Integration Release ${{ env.RELEASE_TAG }}
-            This release contains the following changes:
+            ## Contenu de la Snapshot d'intégration ${{ env.RELEASE_TAG }}
+            Les branches ci-dessous sont rebase depuis jeedom/core:develop puis mergées dans integration.
             1. feat/namespace = gestionnaire de namespace + autoinclude
             1. feat/ErrorHandler = un gestionnaire d'erreur personnalisé
             1. feat/swagger-ui = swagger-ui accessible en local dans /doc
             1. fix/docker_build: init.sh et Dockerfile améliorations sur le build
             1. feat/ArrayAccess = objet ArrayAccess remplace un tableau global de config
-            1. phpdoc = workflow pour générer la doc php dans Github Pages (génère la branche gh-pages)
+            1. phpdoc = workflow pour générer la doc php dans Github Pages (génère la branche gh-pages) + quelques exemples de doc phpdoc
           draft: false
           prerelease: false
 
+      # checkout pifou25/docker-jeedom pour builder les images docker light et full
+      - name: Checkout pifou25/docker-jeedom
+        uses: actions/checkout@v7
+        with:
+          repository: pifou25/docker-jeedom
+          ref: integration
+          token: ${{ secrets.SYNC_PAT }}
 
   build-light-full-step:
     # générer les 2 étapes séquentiellement: light puis full qui se base sur light
