@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{%
+set topMenu = {
+    "menu": [
+        { "name": "About", "url": "https://www.jeedom.com/"},
+        { "name": "Blog", "url": "https://blog.jeedom.com/"},
+    ],
+    "social": [
+        { "iconClass": "fas fa-check-square", "url": "https://status.jeedom.com/status/jeedom"},
+        { "iconClass": "fab fa-github", "url": "https://github.com/jeedom/core"},
+        { "iconClass": "fas fa-envelope-open-text", "url": "https://community.jeedom.com/"}
+    ]
+}
+%}

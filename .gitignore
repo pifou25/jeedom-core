@@ -48,3 +48,5 @@ tmp/*
 .env
 .phpstan.cache
 phpstan.phar
+.phpdoc/build
+.phpdoc/cache
