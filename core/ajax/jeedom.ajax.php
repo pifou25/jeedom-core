@@ -142,7 +142,6 @@ try {
 			ajax::success();
 		} else {
 			throw new Exception(__('Aucune Commande de Notification :', __FILE__) . ' ' . init('cmd_id'));
-			ajax::error();
 		}
 	}
 
@@ -676,5 +675,5 @@ try {
 	throw new Exception(__('Aucune méthode correspondante à :', __FILE__) . ' ' . init('action'));
 	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
-	ajax::error(displayException($e), $e->getCode());
+	ajax::returnError( $e);
 }
