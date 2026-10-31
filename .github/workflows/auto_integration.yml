@@ -4,8 +4,8 @@ name: Sync avec jeedom/core
 
 on:
   schedule:
-    # tous les vendredi à 02h17 UTC (04h17 heure de Paris)
-    - cron: '17 2 * * 5'
+    # tous les samedi matin à 02h17 UTC (04h17 heure de Paris)
+    - cron: '17 2 * * 6'
   workflow_dispatch:
     inputs:
       release:
@@ -92,23 +92,28 @@ jobs:
           # forcer le core en v5.0.0
           echo ${RELEASE_TAG} > core/config/version
           git add core/config/version
-          git commit -m "Forcer le core en v5.0.0"
-          git tag --force "${RELEASE_TAG}" HEAD
-          git push --force origin "refs/tags/${RELEASE_TAG}"
+          git commit -m "Jeedom Integration: update version to ${RELEASE_TAG}"
 
-      - name: Create or update GitHub Release
+      - name: Create Release ${{ env.RELEASE_TAG }}
+        id: create_release
+        uses: actions/create-release@latest
         env:
-          GH_TOKEN: ${{ secrets.SYNC_PAT }}
-        run: |
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            gh release edit "$RELEASE_TAG" \
-              --title "$RELEASE_TAG" \
-              --notes "Source snapshot generated from the integration branch."
-          else
-            gh release create "$RELEASE_TAG" \
-              --title "$RELEASE_TAG" \
-              --notes "Source snapshot generated from the integration branch."
-          fi
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          release_name: Release ${{ env.RELEASE_TAG }}
+          body: |
+            # Jeedom Integration Release ${{ env.RELEASE_TAG }}
+            This release contains the following changes:
+            1. feat/namespace = gestionnaire de namespace + autoinclude
+            1. feat/ErrorHandler = un gestionnaire d'erreur personnalisé
+            1. feat/swagger-ui = swagger-ui accessible en local dans /doc
+            1. fix/docker_build: init.sh et Dockerfile améliorations sur le build
+            1. feat/ArrayAccess = objet ArrayAccess remplace un tableau global de config
+            1. phpdoc = workflow pour générer la doc php dans Github Pages (génère la branche gh-pages)
+          draft: false
+          prerelease: false
+
 
   build-light-full-step:
     # générer les 2 étapes séquentiellement: light puis full qui se base sur light
