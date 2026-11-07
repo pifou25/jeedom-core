@@ -1231,6 +1231,11 @@ Search.appendIndex(
             "summary": "Handles\u0020DNS\u0020configuration\u0020changes",
             "url": "classes/config.html#method_postConfig_market_allowDns"
         },                {
+            "fqsen": "\\config\u003A\u003ApostConfig_dns_mode\u0028\u0029",
+            "name": "postConfig_dns_mode",
+            "summary": "",
+            "url": "classes/config.html#method_postConfig_dns_mode"
+        },                {
             "fqsen": "\\config\u003A\u003ApostConfig_theme_start_day_hour\u0028\u0029",
             "name": "postConfig_theme_start_day_hour",
             "summary": "Updates\u0020day\u0020theme\u0020start\u0020hour",
@@ -2746,6 +2751,111 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/event.html#property_option"
         },                {
+            "fqsen": "\\frp",
+            "name": "frp",
+            "summary": "",
+            "url": "classes/frp.html"
+        },                {
+            "fqsen": "\\frp\u003A\u003Adirectory\u0028\u0029",
+            "name": "directory",
+            "summary": "",
+            "url": "classes/frp.html#method_directory"
+        },                {
+            "fqsen": "\\frp\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "",
+            "url": "classes/frp.html#method_read"
+        },                {
+            "fqsen": "\\frp\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "",
+            "url": "classes/frp.html#method_write"
+        },                {
+            "fqsen": "\\frp\u003A\u003Amanager\u0028\u0029",
+            "name": "manager",
+            "summary": "",
+            "url": "classes/frp.html#method_manager"
+        },                {
+            "fqsen": "\\frp\u003A\u003Aservers\u0028\u0029",
+            "name": "servers",
+            "summary": "",
+            "url": "classes/frp.html#method_servers"
+        },                {
+            "fqsen": "\\frp\u003A\u003Asettings\u0028\u0029",
+            "name": "settings",
+            "summary": "",
+            "url": "classes/frp.html#method_settings"
+        },                {
+            "fqsen": "\\frp\u003A\u003AcheckNativePlatform\u0028\u0029",
+            "name": "checkNativePlatform",
+            "summary": "",
+            "url": "classes/frp.html#method_checkNativePlatform"
+        },                {
+            "fqsen": "\\frp\u003A\u003Aavailability\u0028\u0029",
+            "name": "availability",
+            "summary": "",
+            "url": "classes/frp.html#method_availability"
+        },                {
+            "fqsen": "\\frp\u003A\u003Atask\u0028\u0029",
+            "name": "task",
+            "summary": "",
+            "url": "classes/frp.html#method_task"
+        },                {
+            "fqsen": "\\frp\u003A\u003AjeegoAction\u0028\u0029",
+            "name": "jeegoAction",
+            "summary": "",
+            "url": "classes/frp.html#method_jeegoAction"
+        },                {
+            "fqsen": "\\frp\u003A\u003AjeegoService\u0028\u0029",
+            "name": "jeegoService",
+            "summary": "",
+            "url": "classes/frp.html#method_jeegoService"
+        },                {
+            "fqsen": "\\frp\u003A\u003AprocessInfo\u0028\u0029",
+            "name": "processInfo",
+            "summary": "",
+            "url": "classes/frp.html#method_processInfo"
+        },                {
+            "fqsen": "\\frp\u003A\u003AisNativeProcess\u0028\u0029",
+            "name": "isNativeProcess",
+            "summary": "",
+            "url": "classes/frp.html#method_isNativeProcess"
+        },                {
+            "fqsen": "\\frp\u003A\u003AstopNative\u0028\u0029",
+            "name": "stopNative",
+            "summary": "",
+            "url": "classes/frp.html#method_stopNative"
+        },                {
+            "fqsen": "\\frp\u003A\u003Astart\u0028\u0029",
+            "name": "start",
+            "summary": "",
+            "url": "classes/frp.html#method_start"
+        },                {
+            "fqsen": "\\frp\u003A\u003AstartJeego\u0028\u0029",
+            "name": "startJeego",
+            "summary": "",
+            "url": "classes/frp.html#method_startJeego"
+        },                {
+            "fqsen": "\\frp\u003A\u003AstartNative\u0028\u0029",
+            "name": "startNative",
+            "summary": "",
+            "url": "classes/frp.html#method_startNative"
+        },                {
+            "fqsen": "\\frp\u003A\u003AlaunchNative\u0028\u0029",
+            "name": "launchNative",
+            "summary": "",
+            "url": "classes/frp.html#method_launchNative"
+        },                {
+            "fqsen": "\\frp\u003A\u003Astop\u0028\u0029",
+            "name": "stop",
+            "summary": "",
+            "url": "classes/frp.html#method_stop"
+        },                {
+            "fqsen": "\\frp\u003A\u003Astatus\u0028\u0029",
+            "name": "status",
+            "summary": "",
+            "url": "classes/frp.html#method_status"
+        },                {
             "fqsen": "\\history",
             "name": "history",
             "summary": "",
@@ -3810,6 +3920,56 @@ Search.appendIndex(
             "name": "cache",
             "summary": "",
             "url": "classes/jeedom.html#property_cache"
+        },                {
+            "fqsen": "\\jeego",
+            "name": "jeego",
+            "summary": "",
+            "url": "classes/jeego.html"
+        },                {
+            "fqsen": "\\jeego\u003A\u003AisDetected\u0028\u0029",
+            "name": "isDetected",
+            "summary": "",
+            "url": "classes/jeego.html#method_isDetected"
+        },                {
+            "fqsen": "\\jeego\u003A\u003AcheckConfiguration\u0028\u0029",
+            "name": "checkConfiguration",
+            "summary": "",
+            "url": "classes/jeego.html#method_checkConfiguration"
+        },                {
+            "fqsen": "\\jeego\u003A\u003Acredentials\u0028\u0029",
+            "name": "credentials",
+            "summary": "",
+            "url": "classes/jeego.html#method_credentials"
+        },                {
+            "fqsen": "\\jeego\u003A\u003Arequest\u0028\u0029",
+            "name": "request",
+            "summary": "",
+            "url": "classes/jeego.html#method_request"
+        },                {
+            "fqsen": "\\jeego\u003A\u003Aidentifier\u0028\u0029",
+            "name": "identifier",
+            "summary": "",
+            "url": "classes/jeego.html#method_identifier"
+        },                {
+            "fqsen": "\\jeego\u003A\u003AgetService\u0028\u0029",
+            "name": "getService",
+            "summary": "",
+            "url": "classes/jeego.html#method_getService"
+        },                {
+            "fqsen": "\\jeego\u003A\u003AserviceAction\u0028\u0029",
+            "name": "serviceAction",
+            "summary": "",
+            "url": "classes/jeego.html#method_serviceAction"
+        },                {
+            "fqsen": "\\jeego\u003A\u003AgetTask\u0028\u0029",
+            "name": "getTask",
+            "summary": "",
+            "url": "classes/jeego.html#method_getTask"
+        },                {
+            "fqsen": "\\jeego\u003A\u003AwaitTask\u0028\u0029",
+            "name": "waitTask",
+            "summary": "",
+            "url": "classes/jeego.html#method_waitTask"
         },                {
             "fqsen": "\\jeeObject",
             "name": "jeeObject",
@@ -5000,6 +5160,26 @@ Search.appendIndex(
             "name": "dns_create",
             "summary": "",
             "url": "classes/network.html#method_dns_create"
+        },                {
+            "fqsen": "\\network\u003A\u003Adns_openvpn_start\u0028\u0029",
+            "name": "dns_openvpn_start",
+            "summary": "",
+            "url": "classes/network.html#method_dns_openvpn_start"
+        },                {
+            "fqsen": "\\network\u003A\u003Adns_openvpn_run\u0028\u0029",
+            "name": "dns_openvpn_run",
+            "summary": "",
+            "url": "classes/network.html#method_dns_openvpn_run"
+        },                {
+            "fqsen": "\\network\u003A\u003Adns_openvpn_stop\u0028\u0029",
+            "name": "dns_openvpn_stop",
+            "summary": "",
+            "url": "classes/network.html#method_dns_openvpn_stop"
+        },                {
+            "fqsen": "\\network\u003A\u003Adns_synchronize\u0028\u0029",
+            "name": "dns_synchronize",
+            "summary": "",
+            "url": "classes/network.html#method_dns_synchronize"
         },                {
             "fqsen": "\\network\u003A\u003Adns_start\u0028\u0029",
             "name": "dns_start",
