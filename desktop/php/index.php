@@ -657,13 +657,13 @@ if (config::byKey('core::jqueryless') == 1) $loadJquery = false;
 					} else {
 						ob_end_clean();
 						echo '<div class="alert alert-danger div_alert">';
-						echo displayException($e);
+						echo ErrorHandler::renderException($e);
 						echo '</div>';
 					}
 				} catch (Error $e) {
 					ob_end_clean();
 					echo '<div class="alert alert-danger div_alert">';
-					echo displayException($e);
+					echo ErrorHandler::renderException($e);
 					echo '</div>';
 				}
 				?>
