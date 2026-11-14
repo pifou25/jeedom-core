@@ -139,7 +139,7 @@ step_5_php() {
 step_6_jeedom_download() {
   echo "---------------------------------------------------------------------"
   echo "${YELLOW}Starting step 6 - Jeedom download${NORMAL}"
-  wget https://codeload.github.com/jeedom/core/zip/refs/heads/${VERSION} -O /tmp/jeedom.zip
+  wget https://codeload.github.com/jeedom/core/zip/refs/heads/${VERSION} -O /tmp/jeedom.zip --no-verbose
 
   if [ $? -ne 0 ]; then
     echo "${YELLOW}Cannot download Jeedom from GitHub. Using the deployment version if it exists.${NORMAL}"
@@ -323,9 +323,6 @@ step_10_jeedom_installation() {
   export COMPOSER_ALLOW_SUPERUSER=1
   cd ${WEBSERVER_HOME}
   composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --optimize-autoloader
-  mkdir -p /tmp/jeedom
-  chmod 777 -R /tmp/jeedom
-  chown www-data:www-data -R /tmp/jeedom
 
   if [ "${INSTALLATION_TYPE}" != "docker" ];then
     php ${WEBSERVER_HOME}/install/install.php mode=force
@@ -341,6 +338,10 @@ step_10_jeedom_installation() {
 step_11_jeedom_post() {
   echo "---------------------------------------------------------------------"
   echo "${YELLOW}Starting step 11 - Jeedom post-install${NORMAL}"
+  mkdir -p /tmp/jeedom
+  chmod 777 -R /tmp/jeedom
+  chown www-data:www-data -R /tmp/jeedom
+
   if [ $(cat /proc/meminfo | grep MemTotal | awk '{ print $2 }') -gt 600000 ]; then
     if [ $(cat /etc/fstab | grep /tmp/jeedom | grep tmpfs | wc -l) -eq 0 ];then
       echo 'tmpfs        /tmp/jeedom            tmpfs  defaults,size=256M                                       0 0' >>  /etc/fstab
@@ -384,8 +385,15 @@ step_11_jeedom_post() {
       exit 1
     fi
   fi
-  chmod +x ${WEBSERVER_HOME}/resources/install_nodejs.sh
-  ${WEBSERVER_HOME}/resources/install_nodejs.sh
+  if [ $(cat /proc/meminfo | grep MemTotal | awk '{ print $2 }') -gt 600000 ]; then
+    if [ $(cat /etc/fstab | grep /tmp/jeedom | grep tmpfs | wc -l) -eq 0 ];then
+      echo 'tmpfs        /tmp/jeedom            tmpfs  defaults,size=256M                                       0 0' >>  /etc/fstab
+    fi
+  fi
+  if [ "${INSTALLATION_TYPE}" != "docker" ];then
+    chmod +x ${WEBSERVER_HOME}/resources/install_nodejs.sh
+    ${WEBSERVER_HOME}/resources/install_nodejs.sh
+  fi
   echo "${GREEN}Step 11 - Jeedom post-install done${NORMAL}"
 }
 
