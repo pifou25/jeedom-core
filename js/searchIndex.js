@@ -2771,10 +2771,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/frp.html#method_write"
         },                {
-            "fqsen": "\\frp\u003A\u003Amanager\u0028\u0029",
-            "name": "manager",
+            "fqsen": "\\frp\u003A\u003AreadControl\u0028\u0029",
+            "name": "readControl",
             "summary": "",
-            "url": "classes/frp.html#method_manager"
+            "url": "classes/frp.html#method_readControl"
         },                {
             "fqsen": "\\frp\u003A\u003Aservers\u0028\u0029",
             "name": "servers",
@@ -2796,21 +2796,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/frp.html#method_availability"
         },                {
-            "fqsen": "\\frp\u003A\u003Atask\u0028\u0029",
-            "name": "task",
-            "summary": "",
-            "url": "classes/frp.html#method_task"
-        },                {
-            "fqsen": "\\frp\u003A\u003AjeegoAction\u0028\u0029",
-            "name": "jeegoAction",
-            "summary": "",
-            "url": "classes/frp.html#method_jeegoAction"
-        },                {
-            "fqsen": "\\frp\u003A\u003AjeegoService\u0028\u0029",
-            "name": "jeegoService",
-            "summary": "",
-            "url": "classes/frp.html#method_jeegoService"
-        },                {
             "fqsen": "\\frp\u003A\u003AprocessInfo\u0028\u0029",
             "name": "processInfo",
             "summary": "",
@@ -2830,16 +2815,6 @@ Search.appendIndex(
             "name": "start",
             "summary": "",
             "url": "classes/frp.html#method_start"
-        },                {
-            "fqsen": "\\frp\u003A\u003AstartJeego\u0028\u0029",
-            "name": "startJeego",
-            "summary": "",
-            "url": "classes/frp.html#method_startJeego"
-        },                {
-            "fqsen": "\\frp\u003A\u003AstartNative\u0028\u0029",
-            "name": "startNative",
-            "summary": "",
-            "url": "classes/frp.html#method_startNative"
         },                {
             "fqsen": "\\frp\u003A\u003AlaunchNative\u0028\u0029",
             "name": "launchNative",
@@ -3920,56 +3895,6 @@ Search.appendIndex(
             "name": "cache",
             "summary": "",
             "url": "classes/jeedom.html#property_cache"
-        },                {
-            "fqsen": "\\jeego",
-            "name": "jeego",
-            "summary": "",
-            "url": "classes/jeego.html"
-        },                {
-            "fqsen": "\\jeego\u003A\u003AisDetected\u0028\u0029",
-            "name": "isDetected",
-            "summary": "",
-            "url": "classes/jeego.html#method_isDetected"
-        },                {
-            "fqsen": "\\jeego\u003A\u003AcheckConfiguration\u0028\u0029",
-            "name": "checkConfiguration",
-            "summary": "",
-            "url": "classes/jeego.html#method_checkConfiguration"
-        },                {
-            "fqsen": "\\jeego\u003A\u003Acredentials\u0028\u0029",
-            "name": "credentials",
-            "summary": "",
-            "url": "classes/jeego.html#method_credentials"
-        },                {
-            "fqsen": "\\jeego\u003A\u003Arequest\u0028\u0029",
-            "name": "request",
-            "summary": "",
-            "url": "classes/jeego.html#method_request"
-        },                {
-            "fqsen": "\\jeego\u003A\u003Aidentifier\u0028\u0029",
-            "name": "identifier",
-            "summary": "",
-            "url": "classes/jeego.html#method_identifier"
-        },                {
-            "fqsen": "\\jeego\u003A\u003AgetService\u0028\u0029",
-            "name": "getService",
-            "summary": "",
-            "url": "classes/jeego.html#method_getService"
-        },                {
-            "fqsen": "\\jeego\u003A\u003AserviceAction\u0028\u0029",
-            "name": "serviceAction",
-            "summary": "",
-            "url": "classes/jeego.html#method_serviceAction"
-        },                {
-            "fqsen": "\\jeego\u003A\u003AgetTask\u0028\u0029",
-            "name": "getTask",
-            "summary": "",
-            "url": "classes/jeego.html#method_getTask"
-        },                {
-            "fqsen": "\\jeego\u003A\u003AwaitTask\u0028\u0029",
-            "name": "waitTask",
-            "summary": "",
-            "url": "classes/jeego.html#method_waitTask"
         },                {
             "fqsen": "\\jeeObject",
             "name": "jeeObject",
