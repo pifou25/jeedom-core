@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org"
+>
+    <title>Jeedom Core</title>
+    <paths>
+        <output>.phpdoc/build</output>
+        <cache>.phpdoc/cache</cache>
+    </paths>
+    <version number="4.3.0">
+        <api>
+            <source dsn=".">
+              <path>core</path>
+              <path>desktop/php</path>
+              <path>desktop/modal</path>
+            </source>
+        </api>
+    </version>
+</phpdocumentor>
