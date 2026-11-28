@@ -11301,15 +11301,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/repo-market.html#method_supportAccess"
         },                {
-            "fqsen": "\\repo_market\u003A\u003AgetPassword\u0028\u0029",
-            "name": "getPassword",
-            "summary": "",
-            "url": "classes/repo-market.html#method_getPassword"
-        },                {
             "fqsen": "\\repo_market\u003A\u003Atest\u0028\u0029",
             "name": "test",
             "summary": "",
             "url": "classes/repo-market.html#method_test"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Aconnect\u0028\u0029",
+            "name": "connect",
+            "summary": "",
+            "url": "classes/repo-market.html#method_connect"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AconnectionStatus\u0028\u0029",
+            "name": "connectionStatus",
+            "summary": "",
+            "url": "classes/repo-market.html#method_connectionStatus"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Adisconnect\u0028\u0029",
+            "name": "disconnect",
+            "summary": "",
+            "url": "classes/repo-market.html#method_disconnect"
         },                {
             "fqsen": "\\repo_market\u003A\u003AgetPurchaseInfo\u0028\u0029",
             "name": "getPurchaseInfo",
@@ -11320,6 +11330,16 @@ Search.appendIndex(
             "name": "distinctCategorie",
             "summary": "",
             "url": "classes/repo-market.html#method_distinctCategorie"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetCloudToken\u0028\u0029",
+            "name": "getCloudToken",
+            "summary": "Cloud\u0020Bearer\u0020shared\u0020by\u0020plugins\u003B\u0020retry\u0020with\u0020the\u0020rejected\u0020token\u0020only\u0020after\u0020HTTP\u0020401.",
+            "url": "classes/repo-market.html#method_getCloudToken"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AgetPassword\u0028\u0029",
+            "name": "getPassword",
+            "summary": "",
+            "url": "classes/repo-market.html#method_getPassword"
         },                {
             "fqsen": "\\repo_market\u003A\u003AgetJsonRpc\u0028\u0029",
             "name": "getJsonRpc",
@@ -11370,6 +11390,21 @@ Search.appendIndex(
             "name": "byFilter",
             "summary": "",
             "url": "classes/repo-market.html#method_byFilter"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AcatalogList\u0028\u0029",
+            "name": "catalogList",
+            "summary": "",
+            "url": "classes/repo-market.html#method_catalogList"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003Alookup\u0028\u0029",
+            "name": "lookup",
+            "summary": "",
+            "url": "classes/repo-market.html#method_lookup"
+        },                {
+            "fqsen": "\\repo_market\u003A\u003AfromRest\u0028\u0029",
+            "name": "fromRest",
+            "summary": "",
+            "url": "classes/repo-market.html#method_fromRest"
         },                {
             "fqsen": "\\repo_market\u003A\u003AsetRating\u0028\u0029",
             "name": "setRating",
@@ -11855,6 +11890,211 @@ Search.appendIndex(
             "name": "allowVersion",
             "summary": "",
             "url": "classes/repo-market.html#property_allowVersion"
+        },                {
+            "fqsen": "\\marketClient",
+            "name": "marketClient",
+            "summary": "Market\u0020REST\u0020session,\u0020transport\u0020and\u0020cloud\u0020services.",
+            "url": "classes/marketClient.html"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AgetCloudToken\u0028\u0029",
+            "name": "getCloudToken",
+            "summary": "Use\u0020the\u0020current\u0020Market\u0020box\u0020Bearer\u0020for\u0020Cloud\u0020requests.",
+            "url": "classes/marketClient.html#method_getCloudToken"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AcloudRequest\u0028\u0029",
+            "name": "cloudRequest",
+            "summary": "",
+            "url": "classes/marketClient.html#method_cloudRequest"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AbackupSegment\u0028\u0029",
+            "name": "backupSegment",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backupSegment"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AbackupUrl\u0028\u0029",
+            "name": "backupUrl",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backupUrl"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Abackup_createFolderIsNotExist\u0028\u0029",
+            "name": "backup_createFolderIsNotExist",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backup_createFolderIsNotExist"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AbackupFiles\u0028\u0029",
+            "name": "backupFiles",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backupFiles"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Abackup_send\u0028\u0029",
+            "name": "backup_send",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backup_send"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AbackupPassword\u0028\u0029",
+            "name": "backupPassword",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backupPassword"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AbackupGpg\u0028\u0029",
+            "name": "backupGpg",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backupGpg"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AbackupGpgHome\u0028\u0029",
+            "name": "backupGpgHome",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backupGpgHome"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Abackup_clean\u0028\u0029",
+            "name": "backup_clean",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backup_clean"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Abackup_list\u0028\u0029",
+            "name": "backup_list",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backup_list"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Abackup_restore\u0028\u0029",
+            "name": "backup_restore",
+            "summary": "",
+            "url": "classes/marketClient.html#method_backup_restore"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AcronHourly\u0028\u0029",
+            "name": "cronHourly",
+            "summary": "",
+            "url": "classes/marketClient.html#method_cronHourly"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AsynchronizationDue\u0028\u0029",
+            "name": "synchronizationDue",
+            "summary": "",
+            "url": "classes/marketClient.html#method_synchronizationDue"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Acron5\u0028\u0029",
+            "name": "cron5",
+            "summary": "",
+            "url": "classes/marketClient.html#method_cron5"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AsaveTicket\u0028\u0029",
+            "name": "saveTicket",
+            "summary": "",
+            "url": "classes/marketClient.html#method_saveTicket"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AsupportAccess\u0028\u0029",
+            "name": "supportAccess",
+            "summary": "",
+            "url": "classes/marketClient.html#method_supportAccess"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Asynchronize\u0028\u0029",
+            "name": "synchronize",
+            "summary": "",
+            "url": "classes/marketClient.html#method_synchronize"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AboxUrl\u0028\u0029",
+            "name": "boxUrl",
+            "summary": "",
+            "url": "classes/marketClient.html#method_boxUrl"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AgetPurchaseInfo\u0028\u0029",
+            "name": "getPurchaseInfo",
+            "summary": "",
+            "url": "classes/marketClient.html#method_getPurchaseInfo"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AdistinctCategorie\u0028\u0029",
+            "name": "distinctCategorie",
+            "summary": "",
+            "url": "classes/marketClient.html#method_distinctCategorie"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AapplyBoxInformation\u0028\u0029",
+            "name": "applyBoxInformation",
+            "summary": "",
+            "url": "classes/marketClient.html#method_applyBoxInformation"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Aconnected\u0028\u0029",
+            "name": "connected",
+            "summary": "",
+            "url": "classes/marketClient.html#method_connected"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AsessionMatchesContext\u0028\u0029",
+            "name": "sessionMatchesContext",
+            "summary": "",
+            "url": "classes/marketClient.html#method_sessionMatchesContext"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Astatus\u0028\u0029",
+            "name": "status",
+            "summary": "",
+            "url": "classes/marketClient.html#method_status"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Adisconnect\u0028\u0029",
+            "name": "disconnect",
+            "summary": "",
+            "url": "classes/marketClient.html#method_disconnect"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Aconnect\u0028\u0029",
+            "name": "connect",
+            "summary": "",
+            "url": "classes/marketClient.html#method_connect"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AopenSession\u0028\u0029",
+            "name": "openSession",
+            "summary": "",
+            "url": "classes/marketClient.html#method_openSession"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Arequest\u0028\u0029",
+            "name": "request",
+            "summary": "",
+            "url": "classes/marketClient.html#method_request"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Asession\u0028\u0029",
+            "name": "session",
+            "summary": "",
+            "url": "classes/marketClient.html#method_session"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AactiveSession\u0028\u0029",
+            "name": "activeSession",
+            "summary": "",
+            "url": "classes/marketClient.html#method_activeSession"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Astore\u0028\u0029",
+            "name": "store",
+            "summary": "",
+            "url": "classes/marketClient.html#method_store"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Alocked\u0028\u0029",
+            "name": "locked",
+            "summary": "",
+            "url": "classes/marketClient.html#method_locked"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AbaseUrl\u0028\u0029",
+            "name": "baseUrl",
+            "summary": "",
+            "url": "classes/marketClient.html#method_baseUrl"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Acontext\u0028\u0029",
+            "name": "context",
+            "summary": "",
+            "url": "classes/marketClient.html#method_context"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Areconnect\u0028\u0029",
+            "name": "reconnect",
+            "summary": "",
+            "url": "classes/marketClient.html#method_reconnect"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003AhttpOptions\u0028\u0029",
+            "name": "httpOptions",
+            "summary": "",
+            "url": "classes/marketClient.html#method_httpOptions"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "",
+            "url": "classes/marketClient.html#method_send"
+        },                {
+            "fqsen": "\\marketClient\u003A\u003ARECONNECTION_MESSAGE",
+            "name": "RECONNECTION_MESSAGE",
+            "summary": "",
+            "url": "classes/marketClient.html#constant_RECONNECTION_MESSAGE"
         },                {
             "fqsen": "\\repo_samba",
             "name": "repo_samba",
